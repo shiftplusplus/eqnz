@@ -1,0 +1,17 @@
+--- 
+title: "Night Tremors"
+author: "David Hood"
+date: "2017-04-30"
+site: bookdown::bookdown_site
+documentclass: book
+description: "Placeholder only"
+---
+
+# Front Matter {-}
+
+This is just a placeholder file for getting things into position
+
+## recursion
+
+Because I am adding the URL of the gitbook, and the URL of the PDF to the document, I need something to link to while in development
+
