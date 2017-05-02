@@ -81,7 +81,7 @@ Earthquakes in Japan show the same pattern as New Zealand, displaying an oversup
 
 1 - JMA Unified Hypocentre Catalogs https://hinetwww11.bosai.go.jp/auth/?LANG=
 
-
+The earthquake catalog used in this study is produced by the Japan Meteorological Agency, in cooperation with the Ministry of Education, Culture, Sports, Science and Technology. The catalog is based on seismic data provided by the National Research Institute for Earth Science and Disaster Resilience, the Japan Meteorological Agency, Hokkaido University, Hirosaki University, Tohoku University, the University of Tokyo, Nagoya University, Kyoto University, Kochi University, Kyushu University, Kagoshima University, the National Institute of Advanced Industrial Science and Technology, the Geographical Survey Institute, Tokyo Metropolis, Shizuoka Prefecture, Hot Springs Research Institute of Kanagawa Prefecture, Yokohama City, and Japan Agency for Marine-Earth Science and Technology. 
 
 ## Chapter Code
 

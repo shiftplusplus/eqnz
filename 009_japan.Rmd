@@ -75,15 +75,16 @@ rm(list=ls())
 
 if(!file.exists("../othereqdata/eq_japan_processed.RData")){
 load("../othereqdata/eq_japan_raw.RData")
+  
 southmost <- min(eq_national$latitude)
 westmost <- min(eq_national$longitude)
-
 eq_national <- eq_national %>% filter(
   magnitude > 0, depth > 0) %>% rowwise() %>% mutate(
   eq_gridpoint_y = round(distVincentyEllipsoid(c(longitude, southmost), c(longitude,latitude)) /50000,0),
   eq_gridpoint_x = round(distVincentyEllipsoid(c(westmost, latitude), c(longitude,latitude)) /50000,0),
   eq_roundedlat = destPoint(p=c(longitude, southmost), b=0, d=eq_gridpoint_y*50000)[2],
   eq_roundedlong = destPoint(p=c(westmost, eq_roundedlat), b=90, d=eq_gridpoint_x*50000)[1]) %>% ungroup()
+
 # use maptools to calculate solar angles
 sun_angles <- solarpos(matrix(c(eq_national$longitude, eq_national$latitude), ncol=2), eq_national$time_UTC)
 colnames(sun_angles) <- c("eq_compass", "eq_vertical")
@@ -459,7 +460,7 @@ Earthquakes in Japan show the same pattern as New Zealand, displaying an oversup
 
 1 - JMA Unified Hypocentre Catalogs https://hinetwww11.bosai.go.jp/auth/?LANG=
 
-
+The earthquake catalog used in this study is produced by the Japan Meteorological Agency, in cooperation with the Ministry of Education, Culture, Sports, Science and Technology. The catalog is based on seismic data provided by the National Research Institute for Earth Science and Disaster Resilience, the Japan Meteorological Agency, Hokkaido University, Hirosaki University, Tohoku University, the University of Tokyo, Nagoya University, Kyoto University, Kochi University, Kyushu University, Kagoshima University, the National Institute of Advanced Industrial Science and Technology, the Geographical Survey Institute, Tokyo Metropolis, Shizuoka Prefecture, Hot Springs Research Institute of Kanagawa Prefecture, Yokohama City, and Japan Agency for Marine-Earth Science and Technology. 
 
 ## Chapter Code
 

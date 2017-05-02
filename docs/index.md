@@ -1,7 +1,7 @@
 --- 
 title: "Night Tremors: There are more earthquakes at night"
 author: "David Hood"
-date: "2017-05-02"
+date: "2017-05-03"
 site: bookdown::bookdown_site
 documentclass: book
 description: "The sun's daily cycle + gravity = earthquakes"
