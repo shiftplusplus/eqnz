@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Night Tremors: There are more earthquakes at night</title>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+  <meta name="description" content="The sun’s daily cycle + gravity = earthquakes">
+  <meta name="generator" content="bookdown 0.3 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Night Tremors: There are more earthquakes at night" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="The sun’s daily cycle + gravity = earthquakes" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Night Tremors: There are more earthquakes at night" />
+  
+  <meta name="twitter:description" content="The sun’s daily cycle + gravity = earthquakes" />
+  
+
+<meta name="author" content="David Hood">
+
+
+<meta name="date" content="2017-05-02">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="australia-is-similar.html">
+
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Night Tremors</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Front Matter</a><ul>
+<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#intended-audiences"><i class="fa fa-check"></i><b>0.1</b> Intended Audiences</a></li>
+<li class="chapter" data-level="0.2" data-path="index.html"><a href="index.html#acknowledgements"><i class="fa fa-check"></i><b>0.2</b> Acknowledgements</a></li>
+<li class="chapter" data-level="0.3" data-path="index.html"><a href="index.html#cover-picture"><i class="fa fa-check"></i><b>0.3</b> Cover Picture</a></li>
+<li class="chapter" data-level="0.4" data-path="index.html"><a href="index.html#edition"><i class="fa fa-check"></i><b>0.4</b> Edition</a></li>
+<li class="chapter" data-level="0.5" data-path="index.html"><a href="index.html#statistics"><i class="fa fa-check"></i><b>0.5</b> Statistics</a></li>
+<li class="chapter" data-level="0.6" data-path="index.html"><a href="index.html#using-r"><i class="fa fa-check"></i><b>0.6</b> Using R</a></li>
+<li class="chapter" data-level="0.7" data-path="index.html"><a href="index.html#contacting-me"><i class="fa fa-check"></i><b>0.7</b> Contacting me</a></li>
+<li class="chapter" data-level="0.8" data-path="index.html"><a href="index.html#Links0"><i class="fa fa-check"></i><b>0.8</b> Links</a></li>
+<li class="chapter" data-level="0.9" data-path="index.html"><a href="index.html#chapter-code"><i class="fa fa-check"></i><b>0.9</b> Chapter Code</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="motivation.html"><a href="motivation.html"><i class="fa fa-check"></i><b>1</b> Motivation</a><ul>
+<li class="chapter" data-level="1.1" data-path="motivation.html"><a href="motivation.html#formal-statement"><i class="fa fa-check"></i><b>1.1</b> Formal Statement</a></li>
+<li class="chapter" data-level="1.2" data-path="motivation.html"><a href="motivation.html#Links1"><i class="fa fa-check"></i><b>1.2</b> Links</a></li>
+<li class="chapter" data-level="1.3" data-path="motivation.html"><a href="motivation.html#code"><i class="fa fa-check"></i><b>1.3</b> Code</a></li>
+<li class="chapter" data-level="1.4" data-path="motivation.html"><a href="motivation.html#chapter-code-1"><i class="fa fa-check"></i><b>1.4</b> Chapter Code</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="data-processing.html"><a href="data-processing.html"><i class="fa fa-check"></i><b>2</b> Data Processing</a><ul>
+<li class="chapter" data-level="2.1" data-path="data-processing.html"><a href="data-processing.html#event-types"><i class="fa fa-check"></i><b>2.1</b> Event types</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="data-processing.html"><a href="data-processing.html#latitude-and-longitude"><i class="fa fa-check"></i><b>2.1.1</b> Latitude and Longitude</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="data-processing.html"><a href="data-processing.html#gridded-latitude-and-longitude"><i class="fa fa-check"></i><b>2.2</b> Gridded Latitude and Longitude</a></li>
+<li class="chapter" data-level="2.3" data-path="data-processing.html"><a href="data-processing.html#angle-of-the-sun"><i class="fa fa-check"></i><b>2.3</b> Angle of the sun</a></li>
+<li class="chapter" data-level="2.4" data-path="data-processing.html"><a href="data-processing.html#formal-statement-1"><i class="fa fa-check"></i><b>2.4</b> Formal statement</a></li>
+<li class="chapter" data-level="2.5" data-path="data-processing.html"><a href="data-processing.html#code-1"><i class="fa fa-check"></i><b>2.5</b> Code</a></li>
+<li class="chapter" data-level="2.6" data-path="data-processing.html"><a href="data-processing.html#chapter-code-2"><i class="fa fa-check"></i><b>2.6</b> Chapter Code</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="key-result.html"><a href="key-result.html"><i class="fa fa-check"></i><b>3</b> Key result</a><ul>
+<li class="chapter" data-level="3.1" data-path="key-result.html"><a href="key-result.html#formal-statement-2"><i class="fa fa-check"></i><b>3.1</b> Formal Statement</a></li>
+<li class="chapter" data-level="3.2" data-path="key-result.html"><a href="key-result.html#chapter-code-3"><i class="fa fa-check"></i><b>3.2</b> Chapter Code</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="it-is-not-dependence.html"><a href="it-is-not-dependence.html"><i class="fa fa-check"></i><b>4</b> It is not dependence</a><ul>
+<li class="chapter" data-level="4.1" data-path="it-is-not-dependence.html"><a href="it-is-not-dependence.html#formal-statement-3"><i class="fa fa-check"></i><b>4.1</b> Formal Statement</a></li>
+<li class="chapter" data-level="4.2" data-path="it-is-not-dependence.html"><a href="it-is-not-dependence.html#chapter-code-4"><i class="fa fa-check"></i><b>4.2</b> Chapter Code</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="it-is-not-masking.html"><a href="it-is-not-masking.html"><i class="fa fa-check"></i><b>5</b> It is not masking</a><ul>
+<li class="chapter" data-level="5.1" data-path="it-is-not-masking.html"><a href="it-is-not-masking.html#formal-statement-4"><i class="fa fa-check"></i><b>5.1</b> Formal Statement</a></li>
+<li class="chapter" data-level="5.2" data-path="it-is-not-masking.html"><a href="it-is-not-masking.html#links"><i class="fa fa-check"></i><b>5.2</b> Links</a></li>
+<li class="chapter" data-level="5.3" data-path="it-is-not-masking.html"><a href="it-is-not-masking.html#chapter-code-5"><i class="fa fa-check"></i><b>5.3</b> Chapter Code</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="it-is-not-seasonal.html"><a href="it-is-not-seasonal.html"><i class="fa fa-check"></i><b>6</b> It is not seasonal</a><ul>
+<li class="chapter" data-level="6.1" data-path="it-is-not-seasonal.html"><a href="it-is-not-seasonal.html#formal-statement-5"><i class="fa fa-check"></i><b>6.1</b> Formal statement</a></li>
+<li class="chapter" data-level="6.2" data-path="it-is-not-seasonal.html"><a href="it-is-not-seasonal.html#chapter-code-6"><i class="fa fa-check"></i><b>6.2</b> Chapter Code</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="it-is-not-the-moon.html"><a href="it-is-not-the-moon.html"><i class="fa fa-check"></i><b>7</b> It is not the moon</a><ul>
+<li class="chapter" data-level="7.1" data-path="it-is-not-the-moon.html"><a href="it-is-not-the-moon.html#absolute-difference"><i class="fa fa-check"></i><b>7.1</b> Absolute difference</a></li>
+<li class="chapter" data-level="7.2" data-path="it-is-not-the-moon.html"><a href="it-is-not-the-moon.html#relative"><i class="fa fa-check"></i><b>7.2</b> Relative</a></li>
+<li class="chapter" data-level="7.3" data-path="it-is-not-the-moon.html"><a href="it-is-not-the-moon.html#formal-statement-6"><i class="fa fa-check"></i><b>7.3</b> Formal Statement</a></li>
+<li class="chapter" data-level="7.4" data-path="it-is-not-the-moon.html"><a href="it-is-not-the-moon.html#links-1"><i class="fa fa-check"></i><b>7.4</b> Links</a></li>
+<li class="chapter" data-level="7.5" data-path="it-is-not-the-moon.html"><a href="it-is-not-the-moon.html#chapter-code-7"><i class="fa fa-check"></i><b>7.5</b> Chapter Code</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="it-is-not-uniform.html"><a href="it-is-not-uniform.html"><i class="fa fa-check"></i><b>8</b> It is not uniform</a><ul>
+<li class="chapter" data-level="8.1" data-path="it-is-not-uniform.html"><a href="it-is-not-uniform.html#formal-statement-7"><i class="fa fa-check"></i><b>8.1</b> Formal Statement</a></li>
+<li class="chapter" data-level="8.2" data-path="it-is-not-uniform.html"><a href="it-is-not-uniform.html#chapter-code-8"><i class="fa fa-check"></i><b>8.2</b> Chapter Code</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="japanese-earthquakes-are-the-same.html"><a href="japanese-earthquakes-are-the-same.html"><i class="fa fa-check"></i><b>9</b> Japanese earthquakes are the same</a><ul>
+<li class="chapter" data-level="9.1" data-path="japanese-earthquakes-are-the-same.html"><a href="japanese-earthquakes-are-the-same.html#formal-statement-8"><i class="fa fa-check"></i><b>9.1</b> Formal Statement</a></li>
+<li class="chapter" data-level="9.2" data-path="japanese-earthquakes-are-the-same.html"><a href="japanese-earthquakes-are-the-same.html#Links9"><i class="fa fa-check"></i><b>9.2</b> Links</a></li>
+<li class="chapter" data-level="9.3" data-path="japanese-earthquakes-are-the-same.html"><a href="japanese-earthquakes-are-the-same.html#chapter-code-9"><i class="fa fa-check"></i><b>9.3</b> Chapter Code</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="the-continental-united-states-is-similar.html"><a href="the-continental-united-states-is-similar.html"><i class="fa fa-check"></i><b>10</b> The continental United States is similar</a><ul>
+<li class="chapter" data-level="10.1" data-path="the-continental-united-states-is-similar.html"><a href="the-continental-united-states-is-similar.html#formal-statement-9"><i class="fa fa-check"></i><b>10.1</b> Formal Statement</a></li>
+<li class="chapter" data-level="10.2" data-path="the-continental-united-states-is-similar.html"><a href="the-continental-united-states-is-similar.html#Links10"><i class="fa fa-check"></i><b>10.2</b> Links</a></li>
+<li class="chapter" data-level="10.3" data-path="the-continental-united-states-is-similar.html"><a href="the-continental-united-states-is-similar.html#chapter-code-10"><i class="fa fa-check"></i><b>10.3</b> Chapter Code</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="italian-earthquakes-are-the-same.html"><a href="italian-earthquakes-are-the-same.html"><i class="fa fa-check"></i><b>11</b> Italian earthquakes are the same</a><ul>
+<li class="chapter" data-level="11.1" data-path="italian-earthquakes-are-the-same.html"><a href="italian-earthquakes-are-the-same.html#formal-statement-10"><i class="fa fa-check"></i><b>11.1</b> Formal Statement</a></li>
+<li class="chapter" data-level="11.2" data-path="italian-earthquakes-are-the-same.html"><a href="italian-earthquakes-are-the-same.html#Links11"><i class="fa fa-check"></i><b>11.2</b> Links</a></li>
+<li class="chapter" data-level="11.3" data-path="italian-earthquakes-are-the-same.html"><a href="italian-earthquakes-are-the-same.html#chapter-code-11"><i class="fa fa-check"></i><b>11.3</b> Chapter Code</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="hawaii-is-similar.html"><a href="hawaii-is-similar.html"><i class="fa fa-check"></i><b>12</b> Hawaii is similar</a><ul>
+<li class="chapter" data-level="12.1" data-path="hawaii-is-similar.html"><a href="hawaii-is-similar.html#formal-statement-11"><i class="fa fa-check"></i><b>12.1</b> Formal Statement</a></li>
+<li class="chapter" data-level="12.2" data-path="hawaii-is-similar.html"><a href="hawaii-is-similar.html#Links12"><i class="fa fa-check"></i><b>12.2</b> Links</a></li>
+<li class="chapter" data-level="12.3" data-path="hawaii-is-similar.html"><a href="hawaii-is-similar.html#chapter-code-12"><i class="fa fa-check"></i><b>12.3</b> Chapter Code</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="the-philippines-is-similar.html"><a href="the-philippines-is-similar.html"><i class="fa fa-check"></i><b>13</b> The Philippines is similar</a><ul>
+<li class="chapter" data-level="13.1" data-path="the-philippines-is-similar.html"><a href="the-philippines-is-similar.html#formal-statement-12"><i class="fa fa-check"></i><b>13.1</b> Formal Statement</a></li>
+<li class="chapter" data-level="13.2" data-path="the-philippines-is-similar.html"><a href="the-philippines-is-similar.html#Links13"><i class="fa fa-check"></i><b>13.2</b> Links</a></li>
+<li class="chapter" data-level="13.3" data-path="the-philippines-is-similar.html"><a href="the-philippines-is-similar.html#chapter-code-13"><i class="fa fa-check"></i><b>13.3</b> Chapter Code</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="thailand-is-similar.html"><a href="thailand-is-similar.html"><i class="fa fa-check"></i><b>14</b> Thailand is similar</a><ul>
+<li class="chapter" data-level="14.1" data-path="thailand-is-similar.html"><a href="thailand-is-similar.html#formal-statement-13"><i class="fa fa-check"></i><b>14.1</b> Formal Statement</a></li>
+<li class="chapter" data-level="14.2" data-path="hawaii-is-similar.html"><a href="hawaii-is-similar.html#Links12"><i class="fa fa-check"></i><b>14.2</b> Links</a></li>
+<li class="chapter" data-level="14.3" data-path="thailand-is-similar.html"><a href="thailand-is-similar.html#chapter-code-14"><i class="fa fa-check"></i><b>14.3</b> Chapter Code</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="taiwan-is-not-similar.html"><a href="taiwan-is-not-similar.html"><i class="fa fa-check"></i><b>15</b> Taiwan is not similar</a><ul>
+<li class="chapter" data-level="15.1" data-path="taiwan-is-not-similar.html"><a href="taiwan-is-not-similar.html#formal-statement-14"><i class="fa fa-check"></i><b>15.1</b> Formal Statement</a></li>
+<li class="chapter" data-level="15.2" data-path="taiwan-is-not-similar.html"><a href="taiwan-is-not-similar.html#Links15"><i class="fa fa-check"></i><b>15.2</b> Links</a></li>
+<li class="chapter" data-level="15.3" data-path="taiwan-is-not-similar.html"><a href="taiwan-is-not-similar.html#chapter-code-15"><i class="fa fa-check"></i><b>15.3</b> Chapter Code</a></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="australia-is-similar.html"><a href="australia-is-similar.html"><i class="fa fa-check"></i><b>16</b> Australia is similar</a><ul>
+<li class="chapter" data-level="16.1" data-path="australia-is-similar.html"><a href="australia-is-similar.html#formal-statement-15"><i class="fa fa-check"></i><b>16.1</b> Formal Statement</a></li>
+<li class="chapter" data-level="16.2" data-path="australia-is-similar.html"><a href="australia-is-similar.html#Links16"><i class="fa fa-check"></i><b>16.2</b> Links</a></li>
+<li class="chapter" data-level="16.3" data-path="australia-is-similar.html"><a href="australia-is-similar.html#chapter-code-16"><i class="fa fa-check"></i><b>16.3</b> Chapter Code</a></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="it-is-gravity.html"><a href="it-is-gravity.html"><i class="fa fa-check"></i><b>17</b> It is gravity</a><ul>
+<li class="chapter" data-level="17.1" data-path="it-is-gravity.html"><a href="it-is-gravity.html#gravitational-force-differentials"><i class="fa fa-check"></i><b>17.1</b> Gravitational force differentials</a></li>
+<li class="chapter" data-level="17.2" data-path="it-is-gravity.html"><a href="it-is-gravity.html#formal-statement-16"><i class="fa fa-check"></i><b>17.2</b> Formal Statement</a></li>
+<li class="chapter" data-level="17.3" data-path="it-is-gravity.html"><a href="it-is-gravity.html#chapter-code-17"><i class="fa fa-check"></i><b>17.3</b> Chapter Code</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://thoughtfulbloke.github.io/eqnz/night_tremors.pdf">pdf version</a></li>
+<li><a href="https://thoughtfulbloke.github.io/eqnz/night_tremors.epub">epub version</a></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Night Tremors: There are more earthquakes at night</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="it-is-gravity" class="section level1">
+<h1><span class="header-section-number">Chapter 17</span> It is gravity</h1>
+<p>I can assert that no other mechanism than the sun’s gravity (relative to the earth’s gravity) makes sense given all the results I have gotten. When the sun is below the horizon, the gravity of the sun (though tiny compared to that of the earth) is added to the earth’s gravity pulling bits of crust down into other bits of crust. When the sun is above the horizon, it is mitigating the gravity of the earth by pulling against it. The daily pulling in opposite directions is, in effect, a high-speed vibration in geological time.</p>
+<p>I can point out that the forces involved when the sun is below the horizon but not directly in line with the centre of the earth bear a strong resemblance to the forces expressed geologically. When the sun is below the horizon at night, this is a general compression state similar to subduction zones, however the sun being to the side is creating a second vector of force. The angular imbalance is the same kind of effect as that observed in thrust earthquakes, where two sections of crust either side of a fault come into contact at different angles. I can also note that nighttime earthquakes seem to be more frequent in countries which have thrust faults in subduction zones, and suggest that the presence of such areas is a determining factor in the frequency of nighttime earthquakes.</p>
+<p>I can establish that there are a number of different ways solar gravity can act- as daily compression, as an angular force relative to the earth’s gravity, and as a component of the solid earth tide. I can then say any explanation should explain all the different highly statistically significant observations, and the response of local geological conditions to changing solar gravity does so.</p>
+<p>But as a “last explanation standing” I am not proving this, I am saying this alternative hypothesis is consistent with the facts and disproving all the alternatives. So to strengthen the argument that gravity did it, I came up one more test. This test is for such an extremely specific set of circumstances that I can think of no possible explanation other than gravity as the alternative hypothesis.</p>
+<div id="gravitational-force-differentials" class="section level2">
+<h2><span class="header-section-number">17.1</span> Gravitational force differentials</h2>
+<p>The solar gravitational force creates a natural force differential across arcs of the earth’s crust. At any point on the earth’s crust, the sun is at an angle to that point. This angle to the gravitational source has a horizontal and vertical component of force. At the same time, the crust to the east or west of this point is at a different angle to the sun with different horizontal and vertical forces. The epicentre of an earthquake can be thought of as a weak point along an arc of the earth experiencing force differentials.</p>
+<p>For a specific example, the New Zealand earthquake event with public ID 2012p571580, occurred on 2012-07-30 11:53:59 UTC at latitude -38.36902 and longitude 178.5677. At the moment of the earthquake the sun was at a vertical angle of -70.075 degrees relative to a point on the earth’s surface at the epicentre. 500 kilometres to the east the angle to the sun was 1.652 degrees further from the horizon than at the epicentre. 500 kilometres to the west the angle to the sun was 2.613 degrees close to the horizon than at the epicentre. This gives an asymmetry of degrees between the crust either side of the epicentre. This asymmetry means that there is an imbalance in the horizontal and vertical components of the suns gravity along the crust either side of the epicentre.</p>
+<p>As the sun’s orbit is not purely circular, for a given east-west arc of crust the difference in the angle to the sun fluctuates through time. If this change in gravity force is not associated with a difference in earthquake frequency, then that is evidence against the gravity hypothesis. If there is a difference in earthquake frequency on the basis of the asymmetry of the sun’s angle to the earth’s crust, then that is highly specific support for gravity as a mechanism.</p>
+<p>To test this I am taking a similar approach to when I tested the angle of the sun at time of earthquake. For each minute of a solar year, for each 50 kilometre grid point in the data, I calculate the difference in size of the suns angle between 500 kilometres east and 500 kilometres west of the point. For this angle (and thus force) differentials, due to the size of the data, I calculate the decile steps for force differentials in that area from least to most imbalanced. These are effectively the deciles of “opportunities to have an earthquake in, based on force differential”</p>
+<p>I then calculate the force differential at the time and place of the earthquake, and see which decile the earthquake falls into for the area of the earthquake. If there is no relationship between earthquakes, then approximately 10% of earthquakes should fall into each decile. As there are more earthquakes at night, I am separating the tests into day earthquakes compared to potential daytime gravity imbalance and night earthquakes compared to potential nighttime gravity imbalance. Because other evidence has indicated different night and day patterns, I thought might learn more by separating the two.</p>
+<table>
+<caption><span id="tab:unnamed-chunk-2">Table 4.1: </span>Number of earthquakes by sun angle differential decile</caption>
+<thead>
+<tr class="header">
+<th align="right">decile</th>
+<th align="left">night</th>
+<th align="left">day</th>
+<th align="left">combined</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">1</td>
+<td align="left">5775 (10.27%)</td>
+<td align="left">4253 (9.66%)</td>
+<td align="left">10010 (9.98%)</td>
+</tr>
+<tr class="even">
+<td align="right">2</td>
+<td align="left">5883 (10.46%)</td>
+<td align="left">4160 (9.45%)</td>
+<td align="left">10045 (10.02%)</td>
+</tr>
+<tr class="odd">
+<td align="right">3</td>
+<td align="left">5895 (10.48%)</td>
+<td align="left">4201 (9.54%)</td>
+<td align="left">10087 (10.06%)</td>
+</tr>
+<tr class="even">
+<td align="right">4</td>
+<td align="left">5997 (10.66%)</td>
+<td align="left">4280 (9.72%)</td>
+<td align="left">10255 (10.23%)</td>
+</tr>
+<tr class="odd">
+<td align="right">5</td>
+<td align="left">5854 (10.41%)</td>
+<td align="left">4416 (10.03%)</td>
+<td align="left">10146 (10.12%)</td>
+</tr>
+<tr class="even">
+<td align="right">6</td>
+<td align="left">5434 (9.66%)</td>
+<td align="left">4472 (10.16%)</td>
+<td align="left">9967 (9.94%)</td>
+</tr>
+<tr class="odd">
+<td align="right">7</td>
+<td align="left">5167 (9.19%)</td>
+<td align="left">4511 (10.24%)</td>
+<td align="left">9650 (9.62%)</td>
+</tr>
+<tr class="even">
+<td align="right">8</td>
+<td align="left">5263 (9.36%)</td>
+<td align="left">4636 (10.53%)</td>
+<td align="left">9748 (9.72%)</td>
+</tr>
+<tr class="odd">
+<td align="right">9</td>
+<td align="left">5541 (9.85%)</td>
+<td align="left">4488 (10.19%)</td>
+<td align="left">10023 (10%)</td>
+</tr>
+<tr class="even">
+<td align="right">10</td>
+<td align="left">5437 (9.67%)</td>
+<td align="left">4616 (10.48%)</td>
+<td align="left">10348 (10.32%)</td>
+</tr>
+</tbody>
+</table>
+<p>A chi squared test of both the night and day together gives a p-value of 8.4 x 10<sup>-32</sup>, a chi squared test of the night alone gives a p-value of 3.7 x 10<sup>-25</sup>, and a chi squared test of just the day values gives a p-value of 1.9 x 10<sup>-9</sup>. As a result we can say that there are overall difference and differences within the night and within the day.</p>
+<div class="figure"><span id="fig:unnamed-chunk-4"></span>
+<img src="017_is_gravity_files/figure-html/unnamed-chunk-4-1.png" alt="Distribution of Earthquakes by Gravitational Imbalance in east/west arc of crust" width="900" />
+<p class="caption">
+Figure 2.2: Distribution of Earthquakes by Gravitational Imbalance in east/west arc of crust
+</p>
+</div>
+<p>While only a few of the deciles are overwhelming different to the expected amount by themselves, having so many deciles different to expected is very improbable to have occurred by chance. So I can conclude that gravity, as expressed through differential force along arcs of the earth, is related to earthquake frequency.</p>
+<p>From the graph, the pattern between the deciles seems non-random. The effects of the gravitational differential are reversed between day and night, as the two sets of data are mirroring each other with respect to their relationships to the expected values. From the perspective of gravity having something to do with it, that is indicated by the non-random pattern. The complexity of the mirroring suggests this effect is also influenced by other factors.</p>
+</div>
+<div id="formal-statement-16" class="section level2">
+<h2><span class="header-section-number">17.2</span> Formal Statement</h2>
+<p>Local geological response to solar gravitational effects is consistent with all the evidence.</p>
+</div>
+<div id="chapter-code-17" class="section level2">
+<h2><span class="header-section-number">17.3</span> Chapter Code</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## ----setup, include=FALSE------------------------------------------------
+knitr::opts_chunk$<span class="kw">set</span>(<span class="dt">echo =</span> <span class="ot">FALSE</span>)
+knitr::opts_chunk$<span class="kw">set</span>(<span class="dt">warnings=</span><span class="ot">FALSE</span>)
+knitr::opts_chunk$<span class="kw">set</span>(<span class="dt">errors=</span><span class="ot">FALSE</span>)
+knitr::opts_chunk$<span class="kw">set</span>(<span class="dt">message=</span><span class="ot">FALSE</span>)
+knitr::opts_chunk$<span class="kw">set</span>(<span class="dt">dpi =</span> <span class="dv">150</span>)
+knitr::opts_chunk$<span class="kw">set</span>(<span class="dt">fig.width =</span>  <span class="dv">6</span>)
+knitr::opts_chunk$<span class="kw">set</span>(<span class="dt">fig.height =</span>  <span class="dv">4</span>)
+
+## ----c002_libraries------------------------------------------------------
+<span class="kw">Sys.setenv</span>(<span class="dt">TZ =</span> <span class="st">&quot;UTC&quot;</span>) 
+<span class="kw">library</span>(dplyr)
+<span class="kw">library</span>(ggplot2)
+<span class="kw">library</span>(lubridate)
+<span class="kw">library</span>(maptools)
+<span class="kw">library</span>(binom)
+<span class="kw">library</span>(parallel)
+<span class="kw">library</span>(plotrix)
+<span class="kw">library</span>(solidearthtide)
+<span class="kw">library</span>(geosphere)
+<span class="kw">library</span>(tidyr)
+<span class="co"># Assumes there is eqnz_processed data created in chapter 2</span>
+<span class="kw">load</span>(<span class="st">&quot;eqdata/eqnz_processed.RData&quot;</span>)
+old_par &lt;-<span class="st"> </span><span class="kw">par</span>()
+
+lbls &lt;-<span class="st"> </span><span class="kw">c</span>(
+ <span class="st">&quot;1 sigma&quot;</span>, <span class="st">&quot;2 sigma&quot;</span>,
+ <span class="st">&quot;3 sigma&quot;</span>, <span class="st">&quot;4 sigma&quot;</span>,
+ <span class="st">&quot;5 sigma&quot;</span>, <span class="st">&quot;6 sigma&quot;</span>,
+ <span class="st">&quot;7 sigma&quot;</span>)
+typs &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>)
+weights &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>)
+clrs &lt;-<span class="st"> </span><span class="kw">rev</span>(<span class="kw">c</span>(<span class="st">&#39;#ffffcc&#39;</span>,<span class="st">&#39;#d9f0a3&#39;</span>,<span class="st">&#39;#addd8e&#39;</span>,<span class="st">&#39;#78c679&#39;</span>,<span class="st">&#39;#41ab5d&#39;</span>,<span class="st">&#39;#238443&#39;</span>,<span class="st">&#39;#005a32&#39;</span>))
+
+
+
+## ------------------------------------------------------------------------
+if (!<span class="kw">file.exists</span>(<span class="st">&quot;eqdata/eqnz_offsets.RData&quot;</span>)){
+eqnz &lt;-<span class="st"> </span>eqnz %&gt;%<span class="st"> </span>mutate %&gt;%<span class="st"> </span><span class="kw">rowwise</span>() %&gt;%
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">eq_long_eastern =</span> <span class="kw">destPoint</span>(<span class="dt">p=</span><span class="kw">c</span>(longitude, latitude), <span class="dt">b=</span><span class="dv">90</span>, <span class="dt">d=</span><span class="dv">500000</span>)[<span class="dv">1</span>],
+         <span class="dt">eq_long_western =</span> <span class="kw">destPoint</span>(<span class="dt">p=</span><span class="kw">c</span>(longitude, latitude), <span class="dt">b=</span>-<span class="dv">90</span>, <span class="dt">d=</span><span class="dv">500000</span>)[<span class="dv">1</span>]) %&gt;%
+<span class="st">  </span><span class="kw">ungroup</span>() %&gt;%
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">eq_e_angle =</span> <span class="kw">solarpos</span>(<span class="kw">matrix</span>(<span class="kw">c</span>(eq_long_eastern,latitude), <span class="dt">ncol=</span><span class="dv">2</span>), time_UTC)[,<span class="dv">2</span>],
+         <span class="dt">eq_w_angle =</span> <span class="kw">solarpos</span>(<span class="kw">matrix</span>(<span class="kw">c</span>(eq_long_western,latitude), <span class="dt">ncol=</span><span class="dv">2</span>), time_UTC)[,<span class="dv">2</span>],
+         <span class="dt">eq_vdiff =</span> <span class="kw">abs</span>(eq_w_angle -<span class="st"> </span>eq_e_angle ))
+
+<span class="co"># collective for country</span>
+
+med_long &lt;-<span class="st"> </span><span class="kw">median</span>(eqnz$eq_roundedlong)
+range_lat &lt;-<span class="st"> </span><span class="kw">unique</span>(eqnz$eq_roundedlat)
+range_east &lt;-<span class="st"> </span><span class="kw">sapply</span>(range_lat, function(x){<span class="kw">destPoint</span>(<span class="dt">p=</span><span class="kw">c</span>(med_long, x), <span class="dt">b=</span><span class="dv">90</span>, <span class="dt">d=</span><span class="dv">500000</span>)[<span class="dv">1</span>]})
+range_west &lt;-<span class="st"> </span><span class="kw">sapply</span>(range_lat, function(x){<span class="kw">destPoint</span>(<span class="dt">p=</span><span class="kw">c</span>(med_long, x), <span class="dt">b=</span>-<span class="dv">90</span>, <span class="dt">d=</span><span class="dv">500000</span>)[<span class="dv">1</span>]})
+
+<span class="co"># 1 minute intervals for a full solar year</span>
+time1 &lt;-<span class="st"> </span><span class="kw">ymd_hms</span>(<span class="st">&quot;2015-01-01 00:00:00&quot;</span>)
+time2 &lt;-<span class="st"> </span><span class="kw">ymd_hms</span>(<span class="st">&quot;2015-12-31 23:59:00&quot;</span>)
+time_sq &lt;-<span class="st"> </span><span class="kw">seq.POSIXt</span>(<span class="dt">from=</span>time1, <span class="dt">to=</span>time2, <span class="dt">by=</span><span class="st">&quot;min&quot;</span>)
+
+<span class="co"># each combination of latitude point and time</span>
+expected_sun &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">latitude =</span> <span class="kw">rep</span>(range_lat, <span class="dt">each=</span><span class="kw">length</span>(time_sq)), 
+                           <span class="dt">long_east =</span> <span class="kw">rep</span>(range_east, <span class="dt">each=</span><span class="kw">length</span>(time_sq)), 
+                           <span class="dt">long_west =</span> <span class="kw">rep</span>(range_west, <span class="dt">each=</span><span class="kw">length</span>(time_sq)),
+                           <span class="dt">time_UTC =</span> <span class="kw">rep</span>(time_sq, <span class="dt">times=</span><span class="kw">length</span>(range_lat)))
+expected_sun$longitude &lt;-<span class="st"> </span>med_long
+
+<span class="co">#calc sun angles just like with earthquake data</span>
+sun_angles &lt;-<span class="st"> </span><span class="kw">solarpos</span>(<span class="kw">matrix</span>(<span class="kw">c</span>(expected_sun$longitude,expected_sun$latitude), <span class="dt">ncol=</span><span class="dv">2</span>), expected_sun$time_UTC)[,<span class="dv">2</span>]
+east_angles &lt;-<span class="st"> </span><span class="kw">solarpos</span>(<span class="kw">matrix</span>(<span class="kw">c</span>(expected_sun$long_east,expected_sun$latitude), <span class="dt">ncol=</span><span class="dv">2</span>), expected_sun$time_UTC)[,<span class="dv">2</span>]
+west_angles &lt;-<span class="st"> </span><span class="kw">solarpos</span>(<span class="kw">matrix</span>(<span class="kw">c</span>(expected_sun$long_west,expected_sun$latitude), <span class="dt">ncol=</span><span class="dv">2</span>), expected_sun$time_UTC)[,<span class="dv">2</span>]
+
+expected_sun$eq_is_night &lt;-<span class="st"> </span>sun_angles &lt;<span class="st"> </span><span class="dv">0</span>
+expected_sun$eq_v_offset_expected &lt;-<span class="st"> </span><span class="kw">abs</span>(west_angles -<span class="st"> </span>east_angles)
+
+<span class="kw">rm</span>(sun_angles, east_angles, west_angles)
+
+<span class="co"># To big to database merge and do deciles at once</span>
+<span class="co"># but we can ask the elegent question, for each location, which decile is the earthquake in.</span>
+<span class="co"># So we calcuate decile threholds for each location, then merge and size is only * 10 ish</span>
+
+all_dec_thres &lt;-<span class="st"> </span>expected_sun %&gt;%<span class="st"> </span><span class="kw">group_by</span>(latitude) %&gt;%
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">deciles =</span> <span class="kw">ntile</span>(eq_v_offset_expected, <span class="dv">10</span>)) %&gt;%
+<span class="st">  </span><span class="kw">group_by</span>(latitude, deciles) %&gt;%
+<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">thres_value =</span> <span class="kw">max</span>(eq_v_offset_expected)) %&gt;%
+<span class="st">  </span><span class="kw">ungroup</span>() %&gt;%<span class="st"> </span><span class="kw">mutate</span>(<span class="dt">thres_value =</span> <span class="kw">ifelse</span>(deciles==<span class="dv">10</span>,<span class="dv">700</span>,thres_value))
+
+day_dec_thres &lt;-<span class="st"> </span>expected_sun %&gt;%<span class="st"> </span><span class="kw">filter</span>(!eq_is_night) %&gt;%<span class="st"> </span><span class="kw">group_by</span>(latitude) %&gt;%
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">deciles =</span> <span class="kw">ntile</span>(eq_v_offset_expected, <span class="dv">10</span>)) %&gt;%
+<span class="st">  </span><span class="kw">group_by</span>(latitude, deciles) %&gt;%
+<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">thres_value =</span> <span class="kw">max</span>(eq_v_offset_expected)) %&gt;%
+<span class="st">  </span><span class="kw">ungroup</span>() %&gt;%<span class="st"> </span><span class="kw">mutate</span>(<span class="dt">thres_value =</span> <span class="kw">ifelse</span>(deciles==<span class="dv">10</span>,<span class="dv">700</span>,thres_value))
+
+
+ngt_dec_thres &lt;-<span class="st"> </span>expected_sun %&gt;%<span class="st"> </span><span class="kw">filter</span>(eq_is_night) %&gt;%<span class="st"> </span><span class="kw">group_by</span>(latitude) %&gt;%
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">deciles =</span> <span class="kw">ntile</span>(eq_v_offset_expected, <span class="dv">10</span>)) %&gt;%
+<span class="st">  </span><span class="kw">group_by</span>(latitude, deciles) %&gt;%
+<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">thres_value =</span> <span class="kw">max</span>(eq_v_offset_expected)) %&gt;%
+<span class="st">  </span><span class="kw">ungroup</span>() %&gt;%<span class="st"> </span><span class="kw">mutate</span>(<span class="dt">thres_value =</span> <span class="kw">ifelse</span>(deciles==<span class="dv">10</span>,<span class="dv">700</span>,thres_value))
+
+
+<span class="kw">rm</span>(expected_sun)
+
+meq &lt;-<span class="st"> </span><span class="kw">merge</span>(eqnz,all_dec_thres, <span class="dt">by.x=</span><span class="st">&quot;eq_roundedlat&quot;</span>, <span class="dt">by.y=</span><span class="st">&quot;latitude&quot;</span>)
+decall &lt;-<span class="st"> </span>meq %&gt;%<span class="st"> </span><span class="kw">filter</span>(eq_vdiff &lt;<span class="st"> </span>thres_value) %&gt;%<span class="st"> </span><span class="kw">group_by</span>(publicid) %&gt;%
+<span class="st">  </span><span class="kw">arrange</span>(deciles) %&gt;%<span class="st"> </span><span class="kw">slice</span>(<span class="dv">1</span>) %&gt;%<span class="st"> </span><span class="kw">ungroup</span>() %&gt;%<span class="st"> </span><span class="kw">select</span>(publicid, deciles)
+<span class="kw">rm</span>(all_dec_thres, meq)
+##
+meq &lt;-<span class="st"> </span><span class="kw">merge</span>(eqnz,ngt_dec_thres, <span class="dt">by.x=</span><span class="st">&quot;eq_roundedlat&quot;</span>, <span class="dt">by.y=</span><span class="st">&quot;latitude&quot;</span>)
+decngt&lt;-<span class="st"> </span>meq %&gt;%<span class="st"> </span><span class="kw">filter</span>(eq_vdiff &lt;<span class="st"> </span>thres_value) %&gt;%<span class="st"> </span><span class="kw">group_by</span>(publicid) %&gt;%
+<span class="st">  </span><span class="kw">arrange</span>(deciles) %&gt;%<span class="st"> </span><span class="kw">slice</span>(<span class="dv">1</span>) %&gt;%<span class="st"> </span><span class="kw">ungroup</span>() %&gt;%<span class="st"> </span><span class="kw">select</span>(publicid, deciles)
+<span class="kw">rm</span>(ngt_dec_thres, meq)
+##
+meq &lt;-<span class="st"> </span><span class="kw">merge</span>(eqnz,day_dec_thres, <span class="dt">by.x=</span><span class="st">&quot;eq_roundedlat&quot;</span>, <span class="dt">by.y=</span><span class="st">&quot;latitude&quot;</span>)
+decday&lt;-<span class="st"> </span>meq %&gt;%<span class="st"> </span><span class="kw">filter</span>(eq_vdiff &lt;<span class="st"> </span>thres_value) %&gt;%<span class="st"> </span><span class="kw">group_by</span>(publicid) %&gt;%
+<span class="st">  </span><span class="kw">arrange</span>(deciles) %&gt;%<span class="st"> </span><span class="kw">slice</span>(<span class="dv">1</span>) %&gt;%<span class="st"> </span><span class="kw">ungroup</span>() %&gt;%<span class="st"> </span><span class="kw">select</span>(publicid, deciles)
+<span class="kw">rm</span>(day_dec_thres, meq)
+
+<span class="kw">names</span>(decall)[<span class="dv">2</span>] &lt;-<span class="st"> &quot;decile_overall&quot;</span>
+<span class="kw">names</span>(decngt)[<span class="dv">2</span>] &lt;-<span class="st"> &quot;decile_night&quot;</span>
+<span class="kw">names</span>(decday)[<span class="dv">2</span>] &lt;-<span class="st"> &quot;decile_day&quot;</span>
+
+eqnz &lt;-<span class="st"> </span><span class="kw">merge</span>(eqnz,decall, <span class="dt">by=</span><span class="st">&quot;publicid&quot;</span>)
+eqnz &lt;-<span class="st"> </span><span class="kw">merge</span>(eqnz,decngt, <span class="dt">by=</span><span class="st">&quot;publicid&quot;</span>)
+eqnz &lt;-<span class="st"> </span><span class="kw">merge</span>(eqnz,decday, <span class="dt">by=</span><span class="st">&quot;publicid&quot;</span>)
+
+<span class="kw">save</span>(eqnz, <span class="dt">file=</span><span class="st">&quot;eqdata/eqnz_offsets.RData&quot;</span>)
+<span class="kw">rm</span>(<span class="dt">list=</span><span class="kw">ls</span>())
+}
+
+<span class="kw">load</span>(<span class="st">&quot;eqdata/eqnz_offsets.RData&quot;</span>)
+examp &lt;-<span class="st"> </span>eqnz %&gt;%<span class="st"> </span><span class="kw">filter</span>(publicid ==<span class="st"> &quot;2012p571580&quot;</span>) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">select</span>(eq_vertical, eq_e_angle, eq_w_angle)
+
+## ------------------------------------------------------------------------
+all &lt;-<span class="st"> </span>eqnz %&gt;%<span class="st"> </span><span class="kw">group_by</span>(decile_overall) %&gt;%
+<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">subtotal =</span> <span class="kw">n</span>()) %&gt;%<span class="st"> </span><span class="kw">ungroup</span>() %&gt;%
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">percent =</span> <span class="kw">round</span>(<span class="dv">100</span>*<span class="st"> </span>subtotal/<span class="kw">sum</span>(subtotal),<span class="dv">2</span>),
+         <span class="dt">combined =</span> <span class="kw">paste</span>(subtotal,<span class="st">&quot; (&quot;</span>,percent,<span class="st">&quot;%)&quot;</span>, <span class="dt">sep=</span><span class="st">&quot;&quot;</span>))
+
+dy &lt;-<span class="st"> </span>eqnz %&gt;%<span class="st"> </span><span class="kw">filter</span>(!eq_is_night) %&gt;%<span class="st"> </span><span class="kw">group_by</span>(decile_day) %&gt;%
+<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">subtotal =</span> <span class="kw">n</span>()) %&gt;%<span class="st"> </span><span class="kw">ungroup</span>() %&gt;%
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">percent =</span> <span class="kw">round</span>(<span class="dv">100</span>*<span class="st"> </span>subtotal/<span class="kw">sum</span>(subtotal),<span class="dv">2</span>),
+         <span class="dt">day =</span> <span class="kw">paste</span>(subtotal,<span class="st">&quot; (&quot;</span>,percent,<span class="st">&quot;%)&quot;</span>, <span class="dt">sep=</span><span class="st">&quot;&quot;</span>)) 
+
+nt &lt;-<span class="st"> </span>eqnz %&gt;%<span class="st"> </span><span class="kw">filter</span>(eq_is_night) %&gt;%<span class="st"> </span><span class="kw">group_by</span>(decile_night) %&gt;%
+<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">subtotal =</span> <span class="kw">n</span>()) %&gt;%<span class="st"> </span><span class="kw">ungroup</span>() %&gt;%
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">percent =</span> <span class="kw">round</span>(<span class="dv">100</span>*<span class="st"> </span>subtotal/<span class="kw">sum</span>(subtotal),<span class="dv">2</span>),
+         <span class="dt">night =</span> <span class="kw">paste</span>(subtotal,<span class="st">&quot; (&quot;</span>,percent,<span class="st">&quot;%)&quot;</span>, <span class="dt">sep=</span><span class="st">&quot;&quot;</span>))
+
+deciles &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">decile=</span> nt$decile_night, <span class="dt">night=</span>nt$night)
+deciles$day &lt;-<span class="st"> </span>dy$day
+deciles$combined &lt;-<span class="st"> </span>all$combined
+knitr::<span class="kw">kable</span>(deciles, <span class="dt">caption=</span><span class="st">&quot;Number of earthquakes by sun angle differential decile&quot;</span>)
+
+## ------------------------------------------------------------------------
+df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">day=</span>dy$subtotal, <span class="dt">night=</span>nt$subtotal)
+ntvsdy_chi &lt;-<span class="st"> </span><span class="kw">chisq.test</span>(df)
+nt_chi &lt;-<span class="st"> </span><span class="kw">chisq.test</span>(nt$subtotal)
+dy_chi &lt;-<span class="st"> </span><span class="kw">chisq.test</span>(dy$subtotal)
+dy_chi &lt;-<span class="st"> </span><span class="kw">chisq.test</span>(dy$subtotal)
+
+## ---- fig.cap=&quot;Distribution of Earthquakes by Gravitational Imbalance in east/west arc of crust&quot;----
+
+ sigmas &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">0.682689492137086</span>,
+ <span class="fl">0.954499736103642</span>,
+ <span class="fl">0.997300203936740</span>,
+ <span class="fl">0.999936657516334</span>,
+ <span class="fl">0.999999426696856</span>,
+ <span class="fl">0.999999998026825</span>,
+ <span class="fl">0.999999999997440</span>)
+
+ci_brackets_nt &lt;-<span class="st"> </span>nt %&gt;%<span class="st"> </span><span class="kw">ungroup</span>() %&gt;%<span class="st"> </span><span class="kw">mutate</span>(<span class="dt">grand_total=</span><span class="kw">sum</span>(subtotal)) %&gt;%
+<span class="st">  </span><span class="kw">rowwise</span>() %&gt;%<span class="st"> </span><span class="kw">mutate</span>(<span class="dt">ci_lower_7 =</span> <span class="kw">binom.confint</span>(subtotal, grand_total, <span class="dt">method=</span><span class="kw">c</span>(<span class="st">&quot;wilson&quot;</span>), <span class="dt">conf.level =</span> sigmas[<span class="dv">7</span>])[<span class="dv">1</span>,<span class="dv">5</span>] *<span class="st"> </span>grand_total,
+                       <span class="dt">ci_upper_7 =</span> <span class="kw">binom.confint</span>(subtotal, grand_total, <span class="dt">method=</span><span class="kw">c</span>(<span class="st">&quot;wilson&quot;</span>), <span class="dt">conf.level =</span> sigmas[<span class="dv">7</span>])[<span class="dv">1</span>,<span class="dv">6</span>] *<span class="st"> </span>grand_total,
+                       <span class="dt">ci_lower_6 =</span> <span class="kw">binom.confint</span>(subtotal, grand_total, <span class="dt">method=</span><span class="kw">c</span>(<span class="st">&quot;wilson&quot;</span>), <span class="dt">conf.level =</span> sigmas[<span class="dv">6</span>])[<span class="dv">1</span>,<span class="dv">5</span>] *<span class="st"> </span>grand_total,
+                       <span class="dt">ci_upper_6 =</span> <span class="kw">binom.confint</span>(subtotal, grand_total, <span class="dt">method=</span><span class="kw">c</span>(<span class="st">&quot;wilson&quot;</span>), <span class="dt">conf.level =</span> sigmas[<span class="dv">6</span>])[<span class="dv">1</span>,<span class="dv">6</span>] *<span class="st"> </span>grand_total,
+                       <span class="dt">ci_lower_5 =</span> <span class="kw">binom.confint</span>(subtotal, grand_total, <span class="dt">method=</span><span class="kw">c</span>(<span class="st">&quot;wilson&quot;</span>), <span class="dt">conf.level =</span> sigmas[<span class="dv">5</span>])[<span class="dv">1</span>,<span class="dv">5</span>] *<span class="st"> </span>grand_total,
+                       <span class="dt">ci_upper_5 =</span> <span class="kw">binom.confint</span>(subtotal, grand_total, <span class="dt">method=</span><span class="kw">c</span>(<span class="st">&quot;wilson&quot;</span>), <span class="dt">conf.level =</span> sigmas[<span class="dv">5</span>])[<span class="dv">1</span>,<span class="dv">6</span>] *<span class="st"> </span>grand_total,
+                       <span class="dt">ci_lower_4 =</span> <span class="kw">binom.confint</span>(subtotal, grand_total, <span class="dt">method=</span><span class="kw">c</span>(<span class="st">&quot;wilson&quot;</span>), <span class="dt">conf.level =</span> sigmas[<span class="dv">4</span>])[<span class="dv">1</span>,<span class="dv">5</span>] *<span class="st"> </span>grand_total,
+                       <span class="dt">ci_upper_4 =</span> <span class="kw">binom.confint</span>(subtotal, grand_total, <span class="dt">method=</span><span class="kw">c</span>(<span class="st">&quot;wilson&quot;</span>), <span class="dt">conf.level =</span> sigmas[<span class="dv">4</span>])[<span class="dv">1</span>,<span class="dv">6</span>] *<span class="st"> </span>grand_total,
+                       <span class="dt">ci_lower_3 =</span> <span class="kw">binom.confint</span>(subtotal, grand_total, <span class="dt">method=</span><span class="kw">c</span>(<span class="st">&quot;wilson&quot;</span>), <span class="dt">conf.level =</span> sigmas[<span class="dv">3</span>])[<span class="dv">1</span>,<span class="dv">5</span>] *<span class="st"> </span>grand_total,
+                       <span class="dt">ci_upper_3 =</span> <span class="kw">binom.confint</span>(subtotal, grand_total, <span class="dt">method=</span><span class="kw">c</span>(<span class="st">&quot;wilson&quot;</span>), <span class="dt">conf.level =</span> sigmas[<span class="dv">3</span>])[<span class="dv">1</span>,<span class="dv">6</span>] *<span class="st"> </span>grand_total,
+                       <span class="dt">ci_lower_2 =</span> <span class="kw">binom.confint</span>(subtotal, grand_total, <span class="dt">method=</span><span class="kw">c</span>(<span class="st">&quot;wilson&quot;</span>), <span class="dt">conf.level =</span> sigmas[<span class="dv">2</span>])[<span class="dv">1</span>,<span class="dv">5</span>] *<span class="st"> </span>grand_total,
+                       <span class="dt">ci_upper_2 =</span> <span class="kw">binom.confint</span>(subtotal, grand_total, <span class="dt">method=</span><span class="kw">c</span>(<span class="st">&quot;wilson&quot;</span>), <span class="dt">conf.level =</span> sigmas[<span class="dv">2</span>])[<span class="dv">1</span>,<span class="dv">6</span>] *<span class="st"> </span>grand_total,
+                       <span class="dt">ci_lower_1 =</span> <span class="kw">binom.confint</span>(subtotal, grand_total, <span class="dt">method=</span><span class="kw">c</span>(<span class="st">&quot;wilson&quot;</span>), <span class="dt">conf.level =</span> sigmas[<span class="dv">1</span>])[<span class="dv">1</span>,<span class="dv">5</span>] *<span class="st"> </span>grand_total,
+                       <span class="dt">ci_upper_1 =</span> <span class="kw">binom.confint</span>(subtotal, grand_total, <span class="dt">method=</span><span class="kw">c</span>(<span class="st">&quot;wilson&quot;</span>), <span class="dt">conf.level =</span> sigmas[<span class="dv">1</span>])[<span class="dv">1</span>,<span class="dv">6</span>] *<span class="st"> </span>grand_total)
+ci_brackets_nt$night &lt;-<span class="st"> </span><span class="dv">0</span> <span class="co">#quick fix for being a character column</span>
+
+ci_brackets_dy &lt;-<span class="st"> </span>dy %&gt;%<span class="st"> </span><span class="kw">ungroup</span>() %&gt;%<span class="st"> </span><span class="kw">mutate</span>(<span class="dt">grand_total=</span><span class="kw">sum</span>(subtotal)) %&gt;%
+<span class="st">  </span><span class="kw">rowwise</span>() %&gt;%<span class="st"> </span><span class="kw">mutate</span>(<span class="dt">ci_lower_7 =</span> <span class="kw">binom.confint</span>(subtotal, grand_total, <span class="dt">method=</span><span class="kw">c</span>(<span class="st">&quot;wilson&quot;</span>), <span class="dt">conf.level =</span> sigmas[<span class="dv">7</span>])[<span class="dv">1</span>,<span class="dv">5</span>] *<span class="st"> </span>grand_total,
+                       <span class="dt">ci_upper_7 =</span> <span class="kw">binom.confint</span>(subtotal, grand_total, <span class="dt">method=</span><span class="kw">c</span>(<span class="st">&quot;wilson&quot;</span>), <span class="dt">conf.level =</span> sigmas[<span class="dv">7</span>])[<span class="dv">1</span>,<span class="dv">6</span>] *<span class="st"> </span>grand_total,
+                       <span class="dt">ci_lower_6 =</span> <span class="kw">binom.confint</span>(subtotal, grand_total, <span class="dt">method=</span><span class="kw">c</span>(<span class="st">&quot;wilson&quot;</span>), <span class="dt">conf.level =</span> sigmas[<span class="dv">6</span>])[<span class="dv">1</span>,<span class="dv">5</span>] *<span class="st"> </span>grand_total,
+                       <span class="dt">ci_upper_6 =</span> <span class="kw">binom.confint</span>(subtotal, grand_total, <span class="dt">method=</span><span class="kw">c</span>(<span class="st">&quot;wilson&quot;</span>), <span class="dt">conf.level =</span> sigmas[<span class="dv">6</span>])[<span class="dv">1</span>,<span class="dv">6</span>] *<span class="st"> </span>grand_total,
+                       <span class="dt">ci_lower_5 =</span> <span class="kw">binom.confint</span>(subtotal, grand_total, <span class="dt">method=</span><span class="kw">c</span>(<span class="st">&quot;wilson&quot;</span>), <span class="dt">conf.level =</span> sigmas[<span class="dv">5</span>])[<span class="dv">1</span>,<span class="dv">5</span>] *<span class="st"> </span>grand_total,
+                       <span class="dt">ci_upper_5 =</span> <span class="kw">binom.confint</span>(subtotal, grand_total, <span class="dt">method=</span><span class="kw">c</span>(<span class="st">&quot;wilson&quot;</span>), <span class="dt">conf.level =</span> sigmas[<span class="dv">5</span>])[<span class="dv">1</span>,<span class="dv">6</span>] *<span class="st"> </span>grand_total,
+                       <span class="dt">ci_lower_4 =</span> <span class="kw">binom.confint</span>(subtotal, grand_total, <span class="dt">method=</span><span class="kw">c</span>(<span class="st">&quot;wilson&quot;</span>), <span class="dt">conf.level =</span> sigmas[<span class="dv">4</span>])[<span class="dv">1</span>,<span class="dv">5</span>] *<span class="st"> </span>grand_total,
+                       <span class="dt">ci_upper_4 =</span> <span class="kw">binom.confint</span>(subtotal, grand_total, <span class="dt">method=</span><span class="kw">c</span>(<span class="st">&quot;wilson&quot;</span>), <span class="dt">conf.level =</span> sigmas[<span class="dv">4</span>])[<span class="dv">1</span>,<span class="dv">6</span>] *<span class="st"> </span>grand_total,
+                       <span class="dt">ci_lower_3 =</span> <span class="kw">binom.confint</span>(subtotal, grand_total, <span class="dt">method=</span><span class="kw">c</span>(<span class="st">&quot;wilson&quot;</span>), <span class="dt">conf.level =</span> sigmas[<span class="dv">3</span>])[<span class="dv">1</span>,<span class="dv">5</span>] *<span class="st"> </span>grand_total,
+                       <span class="dt">ci_upper_3 =</span> <span class="kw">binom.confint</span>(subtotal, grand_total, <span class="dt">method=</span><span class="kw">c</span>(<span class="st">&quot;wilson&quot;</span>), <span class="dt">conf.level =</span> sigmas[<span class="dv">3</span>])[<span class="dv">1</span>,<span class="dv">6</span>] *<span class="st"> </span>grand_total,
+                       <span class="dt">ci_lower_2 =</span> <span class="kw">binom.confint</span>(subtotal, grand_total, <span class="dt">method=</span><span class="kw">c</span>(<span class="st">&quot;wilson&quot;</span>), <span class="dt">conf.level =</span> sigmas[<span class="dv">2</span>])[<span class="dv">1</span>,<span class="dv">5</span>] *<span class="st"> </span>grand_total,
+                       <span class="dt">ci_upper_2 =</span> <span class="kw">binom.confint</span>(subtotal, grand_total, <span class="dt">method=</span><span class="kw">c</span>(<span class="st">&quot;wilson&quot;</span>), <span class="dt">conf.level =</span> sigmas[<span class="dv">2</span>])[<span class="dv">1</span>,<span class="dv">6</span>] *<span class="st"> </span>grand_total,
+                       <span class="dt">ci_lower_1 =</span> <span class="kw">binom.confint</span>(subtotal, grand_total, <span class="dt">method=</span><span class="kw">c</span>(<span class="st">&quot;wilson&quot;</span>), <span class="dt">conf.level =</span> sigmas[<span class="dv">1</span>])[<span class="dv">1</span>,<span class="dv">5</span>] *<span class="st"> </span>grand_total,
+                       <span class="dt">ci_upper_1 =</span> <span class="kw">binom.confint</span>(subtotal, grand_total, <span class="dt">method=</span><span class="kw">c</span>(<span class="st">&quot;wilson&quot;</span>), <span class="dt">conf.level =</span> sigmas[<span class="dv">1</span>])[<span class="dv">1</span>,<span class="dv">6</span>] *<span class="st"> </span>grand_total)
+ci_brackets_dy$day &lt;-<span class="st">  </span><span class="dv">0</span> <span class="co">#quick fix for being a character column</span>
+
+bands &lt;-<span class="st"> </span><span class="kw">rev</span>(<span class="kw">c</span>(<span class="st">&#39;#ffffcc&#39;</span>,<span class="st">&#39;#d9f0a3&#39;</span>,<span class="st">&#39;#addd8e&#39;</span>,<span class="st">&#39;#78c679&#39;</span>,<span class="st">&#39;#41ab5d&#39;</span>,<span class="st">&#39;#238443&#39;</span>,<span class="st">&#39;#005a32&#39;</span>))
+old_par=<span class="kw">par</span>()
+<span class="kw">layout</span>(<span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">2</span>), <span class="dt">ncol=</span><span class="dv">4</span>))
+<span class="kw">plot</span>(<span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">10</span>),<span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">7000</span>), <span class="dt">bty=</span><span class="st">&quot;n&quot;</span>, <span class="dt">type=</span><span class="st">&quot;n&quot;</span>,
+     <span class="dt">ylab=</span><span class="st">&quot;Number of earthquakes&quot;</span>, <span class="dt">xlab=</span><span class="st">&quot;Decile&quot;</span>)
+a &lt;-<span class="st"> </span><span class="kw">apply</span>(ci_brackets_nt, <span class="dv">1</span>, function(x){<span class="kw">polygon</span>(<span class="kw">c</span>(x[<span class="dv">1</span>] -<span class="dv">1</span>, x[<span class="dv">1</span>], x[<span class="dv">1</span>], x[<span class="dv">1</span>]-<span class="dv">1</span>), <span class="kw">c</span>(x[<span class="dv">6</span>],x[<span class="dv">6</span>], x[<span class="dv">7</span>],x[<span class="dv">7</span>]), <span class="dt">col=</span>bands[<span class="dv">6</span>], <span class="dt">border=</span><span class="ot">NA</span>)})
+a &lt;-<span class="st"> </span><span class="kw">apply</span>(ci_brackets_nt, <span class="dv">1</span>, function(x){<span class="kw">polygon</span>(<span class="kw">c</span>(x[<span class="dv">1</span>] -<span class="dv">1</span>, x[<span class="dv">1</span>], x[<span class="dv">1</span>], x[<span class="dv">1</span>]-<span class="dv">1</span>), <span class="kw">c</span>(x[<span class="dv">8</span>],x[<span class="dv">8</span>], x[<span class="dv">9</span>],x[<span class="dv">9</span>]), <span class="dt">col=</span>bands[<span class="dv">6</span>], <span class="dt">border=</span><span class="ot">NA</span>)})
+a &lt;-<span class="st"> </span><span class="kw">apply</span>(ci_brackets_nt, <span class="dv">1</span>, function(x){<span class="kw">polygon</span>(<span class="kw">c</span>(x[<span class="dv">1</span>] -<span class="dv">1</span>, x[<span class="dv">1</span>], x[<span class="dv">1</span>], x[<span class="dv">1</span>]-<span class="dv">1</span>), <span class="kw">c</span>(x[<span class="dv">10</span>],x[<span class="dv">10</span>], x[<span class="dv">11</span>],x[<span class="dv">11</span>]), <span class="dt">col=</span>bands[<span class="dv">4</span>], <span class="dt">border=</span><span class="ot">NA</span>)})
+a &lt;-<span class="st"> </span><span class="kw">apply</span>(ci_brackets_nt, <span class="dv">1</span>, function(x){<span class="kw">polygon</span>(<span class="kw">c</span>(x[<span class="dv">1</span>] -<span class="dv">1</span>, x[<span class="dv">1</span>], x[<span class="dv">1</span>], x[<span class="dv">1</span>]-<span class="dv">1</span>), <span class="kw">c</span>(x[<span class="dv">12</span>],x[<span class="dv">12</span>], x[<span class="dv">13</span>],x[<span class="dv">13</span>]), <span class="dt">col=</span>bands[<span class="dv">4</span>], <span class="dt">border=</span><span class="ot">NA</span>)})
+a &lt;-<span class="st"> </span><span class="kw">apply</span>(ci_brackets_nt, <span class="dv">1</span>, function(x){<span class="kw">polygon</span>(<span class="kw">c</span>(x[<span class="dv">1</span>] -<span class="dv">1</span>, x[<span class="dv">1</span>], x[<span class="dv">1</span>], x[<span class="dv">1</span>]-<span class="dv">1</span>), <span class="kw">c</span>(x[<span class="dv">14</span>],x[<span class="dv">14</span>], x[<span class="dv">15</span>],x[<span class="dv">15</span>]), <span class="dt">col=</span>bands[<span class="dv">3</span>], <span class="dt">border=</span><span class="ot">NA</span>)})
+a &lt;-<span class="st"> </span><span class="kw">apply</span>(ci_brackets_nt, <span class="dv">1</span>, function(x){<span class="kw">polygon</span>(<span class="kw">c</span>(x[<span class="dv">1</span>] -<span class="dv">1</span>, x[<span class="dv">1</span>], x[<span class="dv">1</span>], x[<span class="dv">1</span>]-<span class="dv">1</span>), <span class="kw">c</span>(x[<span class="dv">16</span>],x[<span class="dv">16</span>], x[<span class="dv">17</span>],x[<span class="dv">17</span>]), <span class="dt">col=</span>bands[<span class="dv">2</span>], <span class="dt">border=</span><span class="ot">NA</span>)})
+a &lt;-<span class="st"> </span><span class="kw">apply</span>(ci_brackets_nt, <span class="dv">1</span>, function(x){<span class="kw">polygon</span>(<span class="kw">c</span>(x[<span class="dv">1</span>] -<span class="dv">1</span>, x[<span class="dv">1</span>], x[<span class="dv">1</span>], x[<span class="dv">1</span>]-<span class="dv">1</span>), <span class="kw">c</span>(x[<span class="dv">18</span>],x[<span class="dv">18</span>], x[<span class="dv">19</span>],x[<span class="dv">19</span>]), <span class="dt">col=</span>bands[<span class="dv">1</span>], <span class="dt">border=</span><span class="ot">NA</span>)})
+a &lt;-<span class="st"> </span><span class="kw">apply</span>(ci_brackets_nt, <span class="dv">1</span>, function(x){<span class="kw">lines</span>(<span class="kw">c</span>(x[<span class="dv">1</span>]-<span class="dv">1</span>, x[<span class="dv">1</span>]), <span class="kw">c</span>(x[<span class="dv">2</span>],x[<span class="dv">2</span>]), <span class="dt">lwd=</span><span class="dv">2</span>)})
+expect &lt;-<span class="st"> </span><span class="kw">sum</span>(ci_brackets_nt$subtotal)/<span class="dv">10</span>
+a &lt;-<span class="st"> </span><span class="kw">apply</span>(ci_brackets_nt, <span class="dv">1</span>, function(x){<span class="kw">lines</span>(<span class="kw">c</span>(x[<span class="dv">1</span>]-<span class="dv">1</span>, x[<span class="dv">1</span>]), <span class="kw">c</span>(expect,expect), <span class="dt">col=</span><span class="st">&quot;white&quot;</span>)})
+a &lt;-<span class="st"> </span><span class="kw">apply</span>(ci_brackets_nt, <span class="dv">1</span>, function(x){<span class="kw">lines</span>(<span class="kw">c</span>(x[<span class="dv">1</span>]-<span class="dv">1</span>, x[<span class="dv">1</span>]), <span class="kw">c</span>(expect,expect), <span class="dt">lty=</span><span class="dv">3</span>)})
+
+a &lt;-<span class="st"> </span><span class="kw">apply</span>(ci_brackets_dy, <span class="dv">1</span>, function(x){<span class="kw">polygon</span>(<span class="kw">c</span>(x[<span class="dv">1</span>] -<span class="dv">1</span>, x[<span class="dv">1</span>], x[<span class="dv">1</span>], x[<span class="dv">1</span>]-<span class="dv">1</span>), <span class="kw">c</span>(x[<span class="dv">6</span>],x[<span class="dv">6</span>], x[<span class="dv">7</span>],x[<span class="dv">7</span>]), <span class="dt">col=</span>bands[<span class="dv">6</span>], <span class="dt">border=</span><span class="ot">NA</span>)})
+a &lt;-<span class="st"> </span><span class="kw">apply</span>(ci_brackets_dy, <span class="dv">1</span>, function(x){<span class="kw">polygon</span>(<span class="kw">c</span>(x[<span class="dv">1</span>] -<span class="dv">1</span>, x[<span class="dv">1</span>], x[<span class="dv">1</span>], x[<span class="dv">1</span>]-<span class="dv">1</span>), <span class="kw">c</span>(x[<span class="dv">8</span>],x[<span class="dv">8</span>], x[<span class="dv">9</span>],x[<span class="dv">9</span>]), <span class="dt">col=</span>bands[<span class="dv">6</span>], <span class="dt">border=</span><span class="ot">NA</span>)})
+a &lt;-<span class="st"> </span><span class="kw">apply</span>(ci_brackets_dy, <span class="dv">1</span>, function(x){<span class="kw">polygon</span>(<span class="kw">c</span>(x[<span class="dv">1</span>] -<span class="dv">1</span>, x[<span class="dv">1</span>], x[<span class="dv">1</span>], x[<span class="dv">1</span>]-<span class="dv">1</span>), <span class="kw">c</span>(x[<span class="dv">10</span>],x[<span class="dv">10</span>], x[<span class="dv">11</span>],x[<span class="dv">11</span>]), <span class="dt">col=</span>bands[<span class="dv">4</span>], <span class="dt">border=</span><span class="ot">NA</span>)})
+a &lt;-<span class="st"> </span><span class="kw">apply</span>(ci_brackets_dy, <span class="dv">1</span>, function(x){<span class="kw">polygon</span>(<span class="kw">c</span>(x[<span class="dv">1</span>] -<span class="dv">1</span>, x[<span class="dv">1</span>], x[<span class="dv">1</span>], x[<span class="dv">1</span>]-<span class="dv">1</span>), <span class="kw">c</span>(x[<span class="dv">12</span>],x[<span class="dv">12</span>], x[<span class="dv">13</span>],x[<span class="dv">13</span>]), <span class="dt">col=</span>bands[<span class="dv">4</span>], <span class="dt">border=</span><span class="ot">NA</span>)})
+a &lt;-<span class="st"> </span><span class="kw">apply</span>(ci_brackets_dy, <span class="dv">1</span>, function(x){<span class="kw">polygon</span>(<span class="kw">c</span>(x[<span class="dv">1</span>] -<span class="dv">1</span>, x[<span class="dv">1</span>], x[<span class="dv">1</span>], x[<span class="dv">1</span>]-<span class="dv">1</span>), <span class="kw">c</span>(x[<span class="dv">14</span>],x[<span class="dv">14</span>], x[<span class="dv">15</span>],x[<span class="dv">15</span>]), <span class="dt">col=</span>bands[<span class="dv">3</span>], <span class="dt">border=</span><span class="ot">NA</span>)})
+a &lt;-<span class="st"> </span><span class="kw">apply</span>(ci_brackets_dy, <span class="dv">1</span>, function(x){<span class="kw">polygon</span>(<span class="kw">c</span>(x[<span class="dv">1</span>] -<span class="dv">1</span>, x[<span class="dv">1</span>], x[<span class="dv">1</span>], x[<span class="dv">1</span>]-<span class="dv">1</span>), <span class="kw">c</span>(x[<span class="dv">16</span>],x[<span class="dv">16</span>], x[<span class="dv">17</span>],x[<span class="dv">17</span>]), <span class="dt">col=</span>bands[<span class="dv">2</span>], <span class="dt">border=</span><span class="ot">NA</span>)})
+a &lt;-<span class="st"> </span><span class="kw">apply</span>(ci_brackets_dy, <span class="dv">1</span>, function(x){<span class="kw">polygon</span>(<span class="kw">c</span>(x[<span class="dv">1</span>] -<span class="dv">1</span>, x[<span class="dv">1</span>], x[<span class="dv">1</span>], x[<span class="dv">1</span>]-<span class="dv">1</span>), <span class="kw">c</span>(x[<span class="dv">18</span>],x[<span class="dv">18</span>], x[<span class="dv">19</span>],x[<span class="dv">19</span>]), <span class="dt">col=</span>bands[<span class="dv">1</span>], <span class="dt">border=</span><span class="ot">NA</span>)})
+a &lt;-<span class="st"> </span><span class="kw">apply</span>(ci_brackets_dy, <span class="dv">1</span>, function(x){<span class="kw">lines</span>(<span class="kw">c</span>(x[<span class="dv">1</span>]-<span class="dv">1</span>, x[<span class="dv">1</span>]), <span class="kw">c</span>(x[<span class="dv">2</span>],x[<span class="dv">2</span>]), <span class="dt">lwd=</span><span class="dv">2</span>, <span class="dt">col=</span><span class="st">&quot;blue&quot;</span>)})
+expect &lt;-<span class="st"> </span><span class="kw">sum</span>(ci_brackets_dy$subtotal)/<span class="dv">10</span>
+a &lt;-<span class="st"> </span><span class="kw">apply</span>(ci_brackets_dy, <span class="dv">1</span>, function(x){<span class="kw">lines</span>(<span class="kw">c</span>(x[<span class="dv">1</span>]-<span class="dv">1</span>, x[<span class="dv">1</span>]), <span class="kw">c</span>(expect,expect), <span class="dt">col=</span><span class="st">&quot;white&quot;</span>)})
+a &lt;-<span class="st"> </span><span class="kw">apply</span>(ci_brackets_dy, <span class="dv">1</span>, function(x){<span class="kw">lines</span>(<span class="kw">c</span>(x[<span class="dv">1</span>]-<span class="dv">1</span>, x[<span class="dv">1</span>]), <span class="kw">c</span>(expect,expect), <span class="dt">lty=</span><span class="dv">3</span>)})
+
+
+
+<span class="kw">par</span>(<span class="dt">mar=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>))
+<span class="kw">plot</span>(<span class="dt">x=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">10</span>), <span class="dt">y=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">10</span>), <span class="dt">type=</span><span class="st">&quot;n&quot;</span>, <span class="dt">bty=</span><span class="st">&quot;n&quot;</span>, <span class="dt">axes=</span><span class="ot">FALSE</span>)
+
+lbls &lt;-<span class="st"> </span><span class="kw">c</span>(
+  <span class="st">&quot;1 sigma&quot;</span>, <span class="st">&quot;2 sigma&quot;</span>,
+  <span class="st">&quot;3 sigma&quot;</span>, <span class="st">&quot;4 sigma&quot;</span>,
+  <span class="st">&quot;5 sigma&quot;</span>, <span class="st">&quot;6 sigma&quot;</span>,
+  <span class="st">&quot;7 sigma&quot;</span>)
+typs &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>)
+weights &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>)
+clrs &lt;-<span class="st"> </span><span class="kw">rev</span>(<span class="kw">c</span>(<span class="st">&#39;#ffffcc&#39;</span>,<span class="st">&#39;#d9f0a3&#39;</span>,<span class="st">&#39;#addd8e&#39;</span>,<span class="st">&#39;#78c679&#39;</span>,<span class="st">&#39;#41ab5d&#39;</span>,<span class="st">&#39;#238443&#39;</span>,<span class="st">&#39;#005a32&#39;</span>))
+<span class="kw">legend</span>(<span class="dv">0</span>,<span class="dv">5</span>, <span class="dt">legend=</span>lbls, <span class="dt">lty=</span>typs, <span class="dt">lwd=</span>weights, <span class="dt">col=</span>clrs, <span class="dt">bty=</span><span class="st">&quot;n&quot;</span>, <span class="dt">xjust=</span><span class="dv">0</span>, <span class="dt">title=</span><span class="st">&quot;Confidence</span><span class="ch">\n</span><span class="st">Intervals:&quot;</span>, <span class="dt">cex=</span><span class="fl">0.9</span>)
+
+lbls=<span class="kw">c</span>(<span class="st">&quot;Expected Number&quot;</span>, <span class="st">&quot;Observed Night&quot;</span>, <span class="st">&quot;Observed Day&quot;</span>)
+typs=<span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">1</span>)
+weights=<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">2</span>)
+clrs=<span class="kw">c</span>(<span class="st">&quot;black&quot;</span>,<span class="st">&quot;black&quot;</span>,<span class="st">&quot;blue&quot;</span>)
+<span class="kw">legend</span>(<span class="dv">0</span>,<span class="dv">9</span>, <span class="dt">legend=</span>lbls, <span class="dt">lty=</span>typs, <span class="dt">lwd=</span>weights, <span class="dt">col=</span>clrs,<span class="dt">bty=</span><span class="st">&quot;n&quot;</span>, <span class="dt">xjust=</span><span class="dv">0</span>, <span class="dt">title=</span><span class="st">&quot;Legend&quot;</span>, <span class="dt">y.intersp=</span><span class="fl">1.2</span>)
+
+
+<span class="kw">par</span>(<span class="dt">mar=</span>old_par$mar)
+<span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>))</code></pre></div>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="australia-is-similar.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,567 @@
+# It is gravity
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(warnings=FALSE)
+knitr::opts_chunk$set(errors=FALSE)
+knitr::opts_chunk$set(message=FALSE)
+knitr::opts_chunk$set(dpi = 150)
+knitr::opts_chunk$set(fig.width =  6)
+knitr::opts_chunk$set(fig.height =  4)
+```
+
+
+```{r c002_libraries}
+Sys.setenv(TZ = "UTC") 
+library(dplyr)
+library(ggplot2)
+library(lubridate)
+library(maptools)
+library(binom)
+library(parallel)
+library(plotrix)
+library(solidearthtide)
+library(geosphere)
+library(tidyr)
+# Assumes there is eqnz_processed data created in chapter 2
+load("eqdata/eqnz_processed.RData")
+old_par <- par()
+
+lbls <- c(
+ "1 sigma", "2 sigma",
+ "3 sigma", "4 sigma",
+ "5 sigma", "6 sigma",
+ "7 sigma")
+typs <- c(1,1,1,1,1,1,1)
+weights <- c(3,3,3,3,3,3,3)
+clrs <- rev(c('#ffffcc','#d9f0a3','#addd8e','#78c679','#41ab5d','#238443','#005a32'))
+
+
+```
+
+I can assert that no other mechanism than the sun's gravity (relative to the earth's gravity) makes sense given all the results I have gotten. When the sun is below the horizon, the gravity of the sun (though tiny compared to that of the earth) is added to the earth's gravity pulling bits of crust down into other bits of crust. When the sun is above the horizon, it is mitigating the gravity of the earth by pulling against it. The daily pulling in opposite directions is, in effect, a high-speed vibration in geological time.
+
+I can point out that the forces involved when the sun is below the horizon but not directly in line with the centre of the earth bear a strong resemblance to the forces expressed geologically. When the sun is below the horizon at night, this is a general compression state similar to subduction zones, however the sun being to the side is creating a second vector of force. The angular imbalance is the same kind of effect as that observed in thrust earthquakes, where two sections of crust either side of a fault come into contact at different angles. I can also note that nighttime earthquakes seem to be more frequent in countries which have thrust faults in subduction zones, and suggest that the presence of such areas is a determining factor in the frequency of nighttime earthquakes.
+
+I can establish that there are a number of different ways solar gravity can act- as daily compression, as an angular force relative to the earth's gravity, and as a component of the solid earth tide. I can then say any explanation should explain all the different highly statistically significant observations, and the response of local geological conditions to changing solar gravity does so.
+
+But as a "last explanation standing" I am not proving this, I am saying this alternative hypothesis is consistent with the facts and disproving all the alternatives. So to strengthen the argument that gravity did it, I came up one more test. This test is for such an extremely specific set of circumstances that I can think of no possible explanation other than gravity as the alternative hypothesis.
+
+## Gravitational force differentials
+
+The solar gravitational force creates a natural force differential across arcs of the earth’s crust. At any point on the earth’s crust, the sun is at an angle to that point. This angle to the gravitational source has a horizontal and vertical component of force. At the same time, the crust to the east or west of this point is at a different angle to the sun with different horizontal and vertical forces. The epicentre of an earthquake can be thought of as a weak point along an arc of the earth experiencing force differentials.
+
+```{r}
+if (!file.exists("eqdata/eqnz_offsets.RData")){
+eqnz <- eqnz %>% mutate %>% rowwise() %>%
+  mutate(eq_long_eastern = destPoint(p=c(longitude, latitude), b=90, d=500000)[1],
+         eq_long_western = destPoint(p=c(longitude, latitude), b=-90, d=500000)[1]) %>%
+  ungroup() %>%
+  mutate(eq_e_angle = solarpos(matrix(c(eq_long_eastern,latitude), ncol=2), time_UTC)[,2],
+         eq_w_angle = solarpos(matrix(c(eq_long_western,latitude), ncol=2), time_UTC)[,2],
+         eq_vdiff = abs(eq_w_angle - eq_e_angle ))
+
+# collective for country
+
+med_long <- median(eqnz$eq_roundedlong)
+range_lat <- unique(eqnz$eq_roundedlat)
+range_east <- sapply(range_lat, function(x){destPoint(p=c(med_long, x), b=90, d=500000)[1]})
+range_west <- sapply(range_lat, function(x){destPoint(p=c(med_long, x), b=-90, d=500000)[1]})
+
+# 1 minute intervals for a full solar year
+time1 <- ymd_hms("2015-01-01 00:00:00")
+time2 <- ymd_hms("2015-12-31 23:59:00")
+time_sq <- seq.POSIXt(from=time1, to=time2, by="min")
+
+# each combination of latitude point and time
+expected_sun <- data.frame(latitude = rep(range_lat, each=length(time_sq)), 
+                           long_east = rep(range_east, each=length(time_sq)), 
+                           long_west = rep(range_west, each=length(time_sq)),
+                           time_UTC = rep(time_sq, times=length(range_lat)))
+expected_sun$longitude <- med_long
+
+#calc sun angles just like with earthquake data
+sun_angles <- solarpos(matrix(c(expected_sun$longitude,expected_sun$latitude), ncol=2), expected_sun$time_UTC)[,2]
+east_angles <- solarpos(matrix(c(expected_sun$long_east,expected_sun$latitude), ncol=2), expected_sun$time_UTC)[,2]
+west_angles <- solarpos(matrix(c(expected_sun$long_west,expected_sun$latitude), ncol=2), expected_sun$time_UTC)[,2]
+
+expected_sun$eq_is_night <- sun_angles < 0
+expected_sun$eq_v_offset_expected <- abs(west_angles - east_angles)
+
+rm(sun_angles, east_angles, west_angles)
+
+# To big to database merge and do deciles at once
+# but we can ask the elegent question, for each location, which decile is the earthquake in.
+# So we calcuate decile threholds for each location, then merge and size is only * 10 ish
+
+all_dec_thres <- expected_sun %>% group_by(latitude) %>%
+  mutate(deciles = ntile(eq_v_offset_expected, 10)) %>%
+  group_by(latitude, deciles) %>%
+  summarise(thres_value = max(eq_v_offset_expected)) %>%
+  ungroup() %>% mutate(thres_value = ifelse(deciles==10,700,thres_value))
+
+day_dec_thres <- expected_sun %>% filter(!eq_is_night) %>% group_by(latitude) %>%
+  mutate(deciles = ntile(eq_v_offset_expected, 10)) %>%
+  group_by(latitude, deciles) %>%
+  summarise(thres_value = max(eq_v_offset_expected)) %>%
+  ungroup() %>% mutate(thres_value = ifelse(deciles==10,700,thres_value))
+
+
+ngt_dec_thres <- expected_sun %>% filter(eq_is_night) %>% group_by(latitude) %>%
+  mutate(deciles = ntile(eq_v_offset_expected, 10)) %>%
+  group_by(latitude, deciles) %>%
+  summarise(thres_value = max(eq_v_offset_expected)) %>%
+  ungroup() %>% mutate(thres_value = ifelse(deciles==10,700,thres_value))
+
+
+rm(expected_sun)
+
+meq <- merge(eqnz,all_dec_thres, by.x="eq_roundedlat", by.y="latitude")
+decall <- meq %>% filter(eq_vdiff < thres_value) %>% group_by(publicid) %>%
+  arrange(deciles) %>% slice(1) %>% ungroup() %>% select(publicid, deciles)
+rm(all_dec_thres, meq)
+##
+meq <- merge(eqnz,ngt_dec_thres, by.x="eq_roundedlat", by.y="latitude")
+decngt<- meq %>% filter(eq_vdiff < thres_value) %>% group_by(publicid) %>%
+  arrange(deciles) %>% slice(1) %>% ungroup() %>% select(publicid, deciles)
+rm(ngt_dec_thres, meq)
+##
+meq <- merge(eqnz,day_dec_thres, by.x="eq_roundedlat", by.y="latitude")
+decday<- meq %>% filter(eq_vdiff < thres_value) %>% group_by(publicid) %>%
+  arrange(deciles) %>% slice(1) %>% ungroup() %>% select(publicid, deciles)
+rm(day_dec_thres, meq)
+
+names(decall)[2] <- "decile_overall"
+names(decngt)[2] <- "decile_night"
+names(decday)[2] <- "decile_day"
+
+eqnz <- merge(eqnz,decall, by="publicid")
+eqnz <- merge(eqnz,decngt, by="publicid")
+eqnz <- merge(eqnz,decday, by="publicid")
+
+save(eqnz, file="eqdata/eqnz_offsets.RData")
+rm(list=ls())
+}
+
+load("eqdata/eqnz_offsets.RData")
+examp <- eqnz %>% filter(publicid == "2012p571580") %>% 
+  select(eq_vertical, eq_e_angle, eq_w_angle)
+```
+
+For a specific example, the New Zealand earthquake event with public ID 2012p571580, occurred on 2012-07-30 11:53:59 UTC at latitude -38.36902 and longitude 178.5677. At the moment of the earthquake the sun was at a vertical angle of `r round(examp[1,1], 3)` degrees relative to a point on the earth’s surface at the epicentre. 500 kilometres to the east the angle to the sun was `r round(examp[1,1] - examp[1,2], 3)` degrees further from the horizon than at the epicentre. 500 kilometres to the west the angle to the sun was `r round(examp[1,3] - examp[1,1], 3)` degrees close to the horizon than at the epicentre. This gives an asymmetry of `r round(examp[1,3] - examp[1,12], 3)` degrees between the crust either side of the epicentre. This asymmetry means that there is an imbalance in the horizontal and vertical components of the suns gravity along the crust either side of the epicentre.
+
+As the sun’s orbit is not purely circular, for a given east-west arc of crust the difference in the angle to the sun fluctuates through time. If this change in gravity force is not associated with a difference in earthquake frequency, then that is evidence against the gravity hypothesis. If there is a difference in earthquake frequency on the basis of the asymmetry of the sun's angle to the earth's crust, then that is highly specific support for gravity as a mechanism.
+
+To test this I am taking a similar approach to when I tested the angle of the sun at time of earthquake. For each minute of a solar year, for each 50 kilometre grid point in the data, I calculate the difference in size of the suns angle between 500 kilometres east and 500 kilometres west of the point. For this angle (and thus force) differentials, due to the size of the data, I calculate the decile steps for force differentials in that area from least to most imbalanced. These are effectively the deciles of "opportunities to have an earthquake in, based on force differential"
+
+I then calculate the force differential at the time and place of the earthquake, and see which decile the earthquake falls into for the area of the earthquake. If there is no relationship between earthquakes, then approximately 10% of earthquakes should fall into each decile. As there are more earthquakes at night, I am separating the tests into day earthquakes compared to potential daytime gravity imbalance and night earthquakes compared to potential nighttime gravity imbalance. Because other evidence has indicated different night and day patterns, I thought might learn more by separating the two.
+
+```{r}
+all <- eqnz %>% group_by(decile_overall) %>%
+  summarise(subtotal = n()) %>% ungroup() %>%
+  mutate(percent = round(100* subtotal/sum(subtotal),2),
+         combined = paste(subtotal," (",percent,"%)", sep=""))
+
+dy <- eqnz %>% filter(!eq_is_night) %>% group_by(decile_day) %>%
+  summarise(subtotal = n()) %>% ungroup() %>%
+  mutate(percent = round(100* subtotal/sum(subtotal),2),
+         day = paste(subtotal," (",percent,"%)", sep="")) 
+
+nt <- eqnz %>% filter(eq_is_night) %>% group_by(decile_night) %>%
+  summarise(subtotal = n()) %>% ungroup() %>%
+  mutate(percent = round(100* subtotal/sum(subtotal),2),
+         night = paste(subtotal," (",percent,"%)", sep=""))
+
+deciles <- data.frame(decile= nt$decile_night, night=nt$night)
+deciles$day <- dy$day
+deciles$combined <- all$combined
+knitr::kable(deciles, caption="Number of earthquakes by sun angle differential decile")
+```
+
+```{r}
+df <- data.frame(day=dy$subtotal, night=nt$subtotal)
+ntvsdy_chi <- chisq.test(df)
+nt_chi <- chisq.test(nt$subtotal)
+dy_chi <- chisq.test(dy$subtotal)
+dy_chi <- chisq.test(dy$subtotal)
+```
+
+A chi squared test of both the night and day together gives a p-value of 8.4 x 10^-32^, a chi squared test of the night alone gives a p-value of 3.7 x 10^-25^, and a chi squared test of just the day values gives a p-value of 1.9 x 10^-9^. As a result we can say that there are overall difference and differences within the night and within the day.
+
+
+```{r, fig.cap="Distribution of Earthquakes by Gravitational Imbalance in east/west arc of crust"}
+
+ sigmas <- c(0.682689492137086,
+ 0.954499736103642,
+ 0.997300203936740,
+ 0.999936657516334,
+ 0.999999426696856,
+ 0.999999998026825,
+ 0.999999999997440)
+
+ci_brackets_nt <- nt %>% ungroup() %>% mutate(grand_total=sum(subtotal)) %>%
+  rowwise() %>% mutate(ci_lower_7 = binom.confint(subtotal, grand_total, method=c("wilson"), conf.level = sigmas[7])[1,5] * grand_total,
+                       ci_upper_7 = binom.confint(subtotal, grand_total, method=c("wilson"), conf.level = sigmas[7])[1,6] * grand_total,
+                       ci_lower_6 = binom.confint(subtotal, grand_total, method=c("wilson"), conf.level = sigmas[6])[1,5] * grand_total,
+                       ci_upper_6 = binom.confint(subtotal, grand_total, method=c("wilson"), conf.level = sigmas[6])[1,6] * grand_total,
+                       ci_lower_5 = binom.confint(subtotal, grand_total, method=c("wilson"), conf.level = sigmas[5])[1,5] * grand_total,
+                       ci_upper_5 = binom.confint(subtotal, grand_total, method=c("wilson"), conf.level = sigmas[5])[1,6] * grand_total,
+                       ci_lower_4 = binom.confint(subtotal, grand_total, method=c("wilson"), conf.level = sigmas[4])[1,5] * grand_total,
+                       ci_upper_4 = binom.confint(subtotal, grand_total, method=c("wilson"), conf.level = sigmas[4])[1,6] * grand_total,
+                       ci_lower_3 = binom.confint(subtotal, grand_total, method=c("wilson"), conf.level = sigmas[3])[1,5] * grand_total,
+                       ci_upper_3 = binom.confint(subtotal, grand_total, method=c("wilson"), conf.level = sigmas[3])[1,6] * grand_total,
+                       ci_lower_2 = binom.confint(subtotal, grand_total, method=c("wilson"), conf.level = sigmas[2])[1,5] * grand_total,
+                       ci_upper_2 = binom.confint(subtotal, grand_total, method=c("wilson"), conf.level = sigmas[2])[1,6] * grand_total,
+                       ci_lower_1 = binom.confint(subtotal, grand_total, method=c("wilson"), conf.level = sigmas[1])[1,5] * grand_total,
+                       ci_upper_1 = binom.confint(subtotal, grand_total, method=c("wilson"), conf.level = sigmas[1])[1,6] * grand_total)
+ci_brackets_nt$night <- 0 #quick fix for being a character column
+
+ci_brackets_dy <- dy %>% ungroup() %>% mutate(grand_total=sum(subtotal)) %>%
+  rowwise() %>% mutate(ci_lower_7 = binom.confint(subtotal, grand_total, method=c("wilson"), conf.level = sigmas[7])[1,5] * grand_total,
+                       ci_upper_7 = binom.confint(subtotal, grand_total, method=c("wilson"), conf.level = sigmas[7])[1,6] * grand_total,
+                       ci_lower_6 = binom.confint(subtotal, grand_total, method=c("wilson"), conf.level = sigmas[6])[1,5] * grand_total,
+                       ci_upper_6 = binom.confint(subtotal, grand_total, method=c("wilson"), conf.level = sigmas[6])[1,6] * grand_total,
+                       ci_lower_5 = binom.confint(subtotal, grand_total, method=c("wilson"), conf.level = sigmas[5])[1,5] * grand_total,
+                       ci_upper_5 = binom.confint(subtotal, grand_total, method=c("wilson"), conf.level = sigmas[5])[1,6] * grand_total,
+                       ci_lower_4 = binom.confint(subtotal, grand_total, method=c("wilson"), conf.level = sigmas[4])[1,5] * grand_total,
+                       ci_upper_4 = binom.confint(subtotal, grand_total, method=c("wilson"), conf.level = sigmas[4])[1,6] * grand_total,
+                       ci_lower_3 = binom.confint(subtotal, grand_total, method=c("wilson"), conf.level = sigmas[3])[1,5] * grand_total,
+                       ci_upper_3 = binom.confint(subtotal, grand_total, method=c("wilson"), conf.level = sigmas[3])[1,6] * grand_total,
+                       ci_lower_2 = binom.confint(subtotal, grand_total, method=c("wilson"), conf.level = sigmas[2])[1,5] * grand_total,
+                       ci_upper_2 = binom.confint(subtotal, grand_total, method=c("wilson"), conf.level = sigmas[2])[1,6] * grand_total,
+                       ci_lower_1 = binom.confint(subtotal, grand_total, method=c("wilson"), conf.level = sigmas[1])[1,5] * grand_total,
+                       ci_upper_1 = binom.confint(subtotal, grand_total, method=c("wilson"), conf.level = sigmas[1])[1,6] * grand_total)
+ci_brackets_dy$day <-  0 #quick fix for being a character column
+
+bands <- rev(c('#ffffcc','#d9f0a3','#addd8e','#78c679','#41ab5d','#238443','#005a32'))
+old_par=par()
+layout(matrix(c(1,1,1,2), ncol=4))
+plot(c(0,10),c(0,7000), bty="n", type="n",
+     ylab="Number of earthquakes", xlab="Decile")
+a <- apply(ci_brackets_nt, 1, function(x){polygon(c(x[1] -1, x[1], x[1], x[1]-1), c(x[6],x[6], x[7],x[7]), col=bands[6], border=NA)})
+a <- apply(ci_brackets_nt, 1, function(x){polygon(c(x[1] -1, x[1], x[1], x[1]-1), c(x[8],x[8], x[9],x[9]), col=bands[6], border=NA)})
+a <- apply(ci_brackets_nt, 1, function(x){polygon(c(x[1] -1, x[1], x[1], x[1]-1), c(x[10],x[10], x[11],x[11]), col=bands[4], border=NA)})
+a <- apply(ci_brackets_nt, 1, function(x){polygon(c(x[1] -1, x[1], x[1], x[1]-1), c(x[12],x[12], x[13],x[13]), col=bands[4], border=NA)})
+a <- apply(ci_brackets_nt, 1, function(x){polygon(c(x[1] -1, x[1], x[1], x[1]-1), c(x[14],x[14], x[15],x[15]), col=bands[3], border=NA)})
+a <- apply(ci_brackets_nt, 1, function(x){polygon(c(x[1] -1, x[1], x[1], x[1]-1), c(x[16],x[16], x[17],x[17]), col=bands[2], border=NA)})
+a <- apply(ci_brackets_nt, 1, function(x){polygon(c(x[1] -1, x[1], x[1], x[1]-1), c(x[18],x[18], x[19],x[19]), col=bands[1], border=NA)})
+a <- apply(ci_brackets_nt, 1, function(x){lines(c(x[1]-1, x[1]), c(x[2],x[2]), lwd=2)})
+expect <- sum(ci_brackets_nt$subtotal)/10
+a <- apply(ci_brackets_nt, 1, function(x){lines(c(x[1]-1, x[1]), c(expect,expect), col="white")})
+a <- apply(ci_brackets_nt, 1, function(x){lines(c(x[1]-1, x[1]), c(expect,expect), lty=3)})
+
+a <- apply(ci_brackets_dy, 1, function(x){polygon(c(x[1] -1, x[1], x[1], x[1]-1), c(x[6],x[6], x[7],x[7]), col=bands[6], border=NA)})
+a <- apply(ci_brackets_dy, 1, function(x){polygon(c(x[1] -1, x[1], x[1], x[1]-1), c(x[8],x[8], x[9],x[9]), col=bands[6], border=NA)})
+a <- apply(ci_brackets_dy, 1, function(x){polygon(c(x[1] -1, x[1], x[1], x[1]-1), c(x[10],x[10], x[11],x[11]), col=bands[4], border=NA)})
+a <- apply(ci_brackets_dy, 1, function(x){polygon(c(x[1] -1, x[1], x[1], x[1]-1), c(x[12],x[12], x[13],x[13]), col=bands[4], border=NA)})
+a <- apply(ci_brackets_dy, 1, function(x){polygon(c(x[1] -1, x[1], x[1], x[1]-1), c(x[14],x[14], x[15],x[15]), col=bands[3], border=NA)})
+a <- apply(ci_brackets_dy, 1, function(x){polygon(c(x[1] -1, x[1], x[1], x[1]-1), c(x[16],x[16], x[17],x[17]), col=bands[2], border=NA)})
+a <- apply(ci_brackets_dy, 1, function(x){polygon(c(x[1] -1, x[1], x[1], x[1]-1), c(x[18],x[18], x[19],x[19]), col=bands[1], border=NA)})
+a <- apply(ci_brackets_dy, 1, function(x){lines(c(x[1]-1, x[1]), c(x[2],x[2]), lwd=2, col="blue")})
+expect <- sum(ci_brackets_dy$subtotal)/10
+a <- apply(ci_brackets_dy, 1, function(x){lines(c(x[1]-1, x[1]), c(expect,expect), col="white")})
+a <- apply(ci_brackets_dy, 1, function(x){lines(c(x[1]-1, x[1]), c(expect,expect), lty=3)})
+
+
+
+par(mar=c(0,0,0,0))
+plot(x=c(0,10), y=c(0,10), type="n", bty="n", axes=FALSE)
+
+lbls <- c(
+  "1 sigma", "2 sigma",
+  "3 sigma", "4 sigma",
+  "5 sigma", "6 sigma",
+  "7 sigma")
+typs <- c(1,1,1,1,1,1,1)
+weights <- c(3,3,3,3,3,3,3)
+clrs <- rev(c('#ffffcc','#d9f0a3','#addd8e','#78c679','#41ab5d','#238443','#005a32'))
+legend(0,5, legend=lbls, lty=typs, lwd=weights, col=clrs, bty="n", xjust=0, title="Confidence\nIntervals:", cex=0.9)
+
+lbls=c("Expected Number", "Observed Night", "Observed Day")
+typs=c(2,1,1)
+weights=c(1,2,2)
+clrs=c("black","black","blue")
+legend(0,9, legend=lbls, lty=typs, lwd=weights, col=clrs,bty="n", xjust=0, title="Legend", y.intersp=1.2)
+
+
+par(mar=old_par$mar)
+par(mfrow=c(1,1))
+
+
+```
+
+
+While only a few of the deciles are overwhelming different to the expected amount by themselves, having so many deciles different to expected is very improbable to have occurred by chance. So I can conclude that gravity, as expressed through differential force along arcs of the earth, is related to earthquake frequency.
+
+From the graph, the pattern between the deciles seems non-random. The effects of the gravitational differential are reversed between day and night, as the two sets of data are mirroring each other with respect to their relationships to the expected values. From the perspective of gravity having something to do with it, that is indicated by the non-random pattern. The complexity of the mirroring suggests this effect is also influenced by other factors.
+
+## Formal Statement
+
+Local geological response to solar gravitational effects is consistent with all the evidence.
+
+## Chapter Code
+
+```{r eval=FALSE, echo=TRUE, purl=FALSE}
+
+## ----setup, include=FALSE------------------------------------------------
+knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(warnings=FALSE)
+knitr::opts_chunk$set(errors=FALSE)
+knitr::opts_chunk$set(message=FALSE)
+knitr::opts_chunk$set(dpi = 150)
+knitr::opts_chunk$set(fig.width =  6)
+knitr::opts_chunk$set(fig.height =  4)
+
+## ----c002_libraries------------------------------------------------------
+Sys.setenv(TZ = "UTC") 
+library(dplyr)
+library(ggplot2)
+library(lubridate)
+library(maptools)
+library(binom)
+library(parallel)
+library(plotrix)
+library(solidearthtide)
+library(geosphere)
+library(tidyr)
+# Assumes there is eqnz_processed data created in chapter 2
+load("eqdata/eqnz_processed.RData")
+old_par <- par()
+
+lbls <- c(
+ "1 sigma", "2 sigma",
+ "3 sigma", "4 sigma",
+ "5 sigma", "6 sigma",
+ "7 sigma")
+typs <- c(1,1,1,1,1,1,1)
+weights <- c(3,3,3,3,3,3,3)
+clrs <- rev(c('#ffffcc','#d9f0a3','#addd8e','#78c679','#41ab5d','#238443','#005a32'))
+
+
+
+## ------------------------------------------------------------------------
+if (!file.exists("eqdata/eqnz_offsets.RData")){
+eqnz <- eqnz %>% mutate %>% rowwise() %>%
+  mutate(eq_long_eastern = destPoint(p=c(longitude, latitude), b=90, d=500000)[1],
+         eq_long_western = destPoint(p=c(longitude, latitude), b=-90, d=500000)[1]) %>%
+  ungroup() %>%
+  mutate(eq_e_angle = solarpos(matrix(c(eq_long_eastern,latitude), ncol=2), time_UTC)[,2],
+         eq_w_angle = solarpos(matrix(c(eq_long_western,latitude), ncol=2), time_UTC)[,2],
+         eq_vdiff = abs(eq_w_angle - eq_e_angle ))
+
+# collective for country
+
+med_long <- median(eqnz$eq_roundedlong)
+range_lat <- unique(eqnz$eq_roundedlat)
+range_east <- sapply(range_lat, function(x){destPoint(p=c(med_long, x), b=90, d=500000)[1]})
+range_west <- sapply(range_lat, function(x){destPoint(p=c(med_long, x), b=-90, d=500000)[1]})
+
+# 1 minute intervals for a full solar year
+time1 <- ymd_hms("2015-01-01 00:00:00")
+time2 <- ymd_hms("2015-12-31 23:59:00")
+time_sq <- seq.POSIXt(from=time1, to=time2, by="min")
+
+# each combination of latitude point and time
+expected_sun <- data.frame(latitude = rep(range_lat, each=length(time_sq)), 
+                           long_east = rep(range_east, each=length(time_sq)), 
+                           long_west = rep(range_west, each=length(time_sq)),
+                           time_UTC = rep(time_sq, times=length(range_lat)))
+expected_sun$longitude <- med_long
+
+#calc sun angles just like with earthquake data
+sun_angles <- solarpos(matrix(c(expected_sun$longitude,expected_sun$latitude), ncol=2), expected_sun$time_UTC)[,2]
+east_angles <- solarpos(matrix(c(expected_sun$long_east,expected_sun$latitude), ncol=2), expected_sun$time_UTC)[,2]
+west_angles <- solarpos(matrix(c(expected_sun$long_west,expected_sun$latitude), ncol=2), expected_sun$time_UTC)[,2]
+
+expected_sun$eq_is_night <- sun_angles < 0
+expected_sun$eq_v_offset_expected <- abs(west_angles - east_angles)
+
+rm(sun_angles, east_angles, west_angles)
+
+# To big to database merge and do deciles at once
+# but we can ask the elegent question, for each location, which decile is the earthquake in.
+# So we calcuate decile threholds for each location, then merge and size is only * 10 ish
+
+all_dec_thres <- expected_sun %>% group_by(latitude) %>%
+  mutate(deciles = ntile(eq_v_offset_expected, 10)) %>%
+  group_by(latitude, deciles) %>%
+  summarise(thres_value = max(eq_v_offset_expected)) %>%
+  ungroup() %>% mutate(thres_value = ifelse(deciles==10,700,thres_value))
+
+day_dec_thres <- expected_sun %>% filter(!eq_is_night) %>% group_by(latitude) %>%
+  mutate(deciles = ntile(eq_v_offset_expected, 10)) %>%
+  group_by(latitude, deciles) %>%
+  summarise(thres_value = max(eq_v_offset_expected)) %>%
+  ungroup() %>% mutate(thres_value = ifelse(deciles==10,700,thres_value))
+
+
+ngt_dec_thres <- expected_sun %>% filter(eq_is_night) %>% group_by(latitude) %>%
+  mutate(deciles = ntile(eq_v_offset_expected, 10)) %>%
+  group_by(latitude, deciles) %>%
+  summarise(thres_value = max(eq_v_offset_expected)) %>%
+  ungroup() %>% mutate(thres_value = ifelse(deciles==10,700,thres_value))
+
+
+rm(expected_sun)
+
+meq <- merge(eqnz,all_dec_thres, by.x="eq_roundedlat", by.y="latitude")
+decall <- meq %>% filter(eq_vdiff < thres_value) %>% group_by(publicid) %>%
+  arrange(deciles) %>% slice(1) %>% ungroup() %>% select(publicid, deciles)
+rm(all_dec_thres, meq)
+##
+meq <- merge(eqnz,ngt_dec_thres, by.x="eq_roundedlat", by.y="latitude")
+decngt<- meq %>% filter(eq_vdiff < thres_value) %>% group_by(publicid) %>%
+  arrange(deciles) %>% slice(1) %>% ungroup() %>% select(publicid, deciles)
+rm(ngt_dec_thres, meq)
+##
+meq <- merge(eqnz,day_dec_thres, by.x="eq_roundedlat", by.y="latitude")
+decday<- meq %>% filter(eq_vdiff < thres_value) %>% group_by(publicid) %>%
+  arrange(deciles) %>% slice(1) %>% ungroup() %>% select(publicid, deciles)
+rm(day_dec_thres, meq)
+
+names(decall)[2] <- "decile_overall"
+names(decngt)[2] <- "decile_night"
+names(decday)[2] <- "decile_day"
+
+eqnz <- merge(eqnz,decall, by="publicid")
+eqnz <- merge(eqnz,decngt, by="publicid")
+eqnz <- merge(eqnz,decday, by="publicid")
+
+save(eqnz, file="eqdata/eqnz_offsets.RData")
+rm(list=ls())
+}
+
+load("eqdata/eqnz_offsets.RData")
+examp <- eqnz %>% filter(publicid == "2012p571580") %>% 
+  select(eq_vertical, eq_e_angle, eq_w_angle)
+
+## ------------------------------------------------------------------------
+all <- eqnz %>% group_by(decile_overall) %>%
+  summarise(subtotal = n()) %>% ungroup() %>%
+  mutate(percent = round(100* subtotal/sum(subtotal),2),
+         combined = paste(subtotal," (",percent,"%)", sep=""))
+
+dy <- eqnz %>% filter(!eq_is_night) %>% group_by(decile_day) %>%
+  summarise(subtotal = n()) %>% ungroup() %>%
+  mutate(percent = round(100* subtotal/sum(subtotal),2),
+         day = paste(subtotal," (",percent,"%)", sep="")) 
+
+nt <- eqnz %>% filter(eq_is_night) %>% group_by(decile_night) %>%
+  summarise(subtotal = n()) %>% ungroup() %>%
+  mutate(percent = round(100* subtotal/sum(subtotal),2),
+         night = paste(subtotal," (",percent,"%)", sep=""))
+
+deciles <- data.frame(decile= nt$decile_night, night=nt$night)
+deciles$day <- dy$day
+deciles$combined <- all$combined
+knitr::kable(deciles, caption="Number of earthquakes by sun angle differential decile")
+
+## ------------------------------------------------------------------------
+df <- data.frame(day=dy$subtotal, night=nt$subtotal)
+ntvsdy_chi <- chisq.test(df)
+nt_chi <- chisq.test(nt$subtotal)
+dy_chi <- chisq.test(dy$subtotal)
+dy_chi <- chisq.test(dy$subtotal)
+
+## ---- fig.cap="Distribution of Earthquakes by Gravitational Imbalance in east/west arc of crust"----
+
+ sigmas <- c(0.682689492137086,
+ 0.954499736103642,
+ 0.997300203936740,
+ 0.999936657516334,
+ 0.999999426696856,
+ 0.999999998026825,
+ 0.999999999997440)
+
+ci_brackets_nt <- nt %>% ungroup() %>% mutate(grand_total=sum(subtotal)) %>%
+  rowwise() %>% mutate(ci_lower_7 = binom.confint(subtotal, grand_total, method=c("wilson"), conf.level = sigmas[7])[1,5] * grand_total,
+                       ci_upper_7 = binom.confint(subtotal, grand_total, method=c("wilson"), conf.level = sigmas[7])[1,6] * grand_total,
+                       ci_lower_6 = binom.confint(subtotal, grand_total, method=c("wilson"), conf.level = sigmas[6])[1,5] * grand_total,
+                       ci_upper_6 = binom.confint(subtotal, grand_total, method=c("wilson"), conf.level = sigmas[6])[1,6] * grand_total,
+                       ci_lower_5 = binom.confint(subtotal, grand_total, method=c("wilson"), conf.level = sigmas[5])[1,5] * grand_total,
+                       ci_upper_5 = binom.confint(subtotal, grand_total, method=c("wilson"), conf.level = sigmas[5])[1,6] * grand_total,
+                       ci_lower_4 = binom.confint(subtotal, grand_total, method=c("wilson"), conf.level = sigmas[4])[1,5] * grand_total,
+                       ci_upper_4 = binom.confint(subtotal, grand_total, method=c("wilson"), conf.level = sigmas[4])[1,6] * grand_total,
+                       ci_lower_3 = binom.confint(subtotal, grand_total, method=c("wilson"), conf.level = sigmas[3])[1,5] * grand_total,
+                       ci_upper_3 = binom.confint(subtotal, grand_total, method=c("wilson"), conf.level = sigmas[3])[1,6] * grand_total,
+                       ci_lower_2 = binom.confint(subtotal, grand_total, method=c("wilson"), conf.level = sigmas[2])[1,5] * grand_total,
+                       ci_upper_2 = binom.confint(subtotal, grand_total, method=c("wilson"), conf.level = sigmas[2])[1,6] * grand_total,
+                       ci_lower_1 = binom.confint(subtotal, grand_total, method=c("wilson"), conf.level = sigmas[1])[1,5] * grand_total,
+                       ci_upper_1 = binom.confint(subtotal, grand_total, method=c("wilson"), conf.level = sigmas[1])[1,6] * grand_total)
+ci_brackets_nt$night <- 0 #quick fix for being a character column
+
+ci_brackets_dy <- dy %>% ungroup() %>% mutate(grand_total=sum(subtotal)) %>%
+  rowwise() %>% mutate(ci_lower_7 = binom.confint(subtotal, grand_total, method=c("wilson"), conf.level = sigmas[7])[1,5] * grand_total,
+                       ci_upper_7 = binom.confint(subtotal, grand_total, method=c("wilson"), conf.level = sigmas[7])[1,6] * grand_total,
+                       ci_lower_6 = binom.confint(subtotal, grand_total, method=c("wilson"), conf.level = sigmas[6])[1,5] * grand_total,
+                       ci_upper_6 = binom.confint(subtotal, grand_total, method=c("wilson"), conf.level = sigmas[6])[1,6] * grand_total,
+                       ci_lower_5 = binom.confint(subtotal, grand_total, method=c("wilson"), conf.level = sigmas[5])[1,5] * grand_total,
+                       ci_upper_5 = binom.confint(subtotal, grand_total, method=c("wilson"), conf.level = sigmas[5])[1,6] * grand_total,
+                       ci_lower_4 = binom.confint(subtotal, grand_total, method=c("wilson"), conf.level = sigmas[4])[1,5] * grand_total,
+                       ci_upper_4 = binom.confint(subtotal, grand_total, method=c("wilson"), conf.level = sigmas[4])[1,6] * grand_total,
+                       ci_lower_3 = binom.confint(subtotal, grand_total, method=c("wilson"), conf.level = sigmas[3])[1,5] * grand_total,
+                       ci_upper_3 = binom.confint(subtotal, grand_total, method=c("wilson"), conf.level = sigmas[3])[1,6] * grand_total,
+                       ci_lower_2 = binom.confint(subtotal, grand_total, method=c("wilson"), conf.level = sigmas[2])[1,5] * grand_total,
+                       ci_upper_2 = binom.confint(subtotal, grand_total, method=c("wilson"), conf.level = sigmas[2])[1,6] * grand_total,
+                       ci_lower_1 = binom.confint(subtotal, grand_total, method=c("wilson"), conf.level = sigmas[1])[1,5] * grand_total,
+                       ci_upper_1 = binom.confint(subtotal, grand_total, method=c("wilson"), conf.level = sigmas[1])[1,6] * grand_total)
+ci_brackets_dy$day <-  0 #quick fix for being a character column
+
+bands <- rev(c('#ffffcc','#d9f0a3','#addd8e','#78c679','#41ab5d','#238443','#005a32'))
+old_par=par()
+layout(matrix(c(1,1,1,2), ncol=4))
+plot(c(0,10),c(0,7000), bty="n", type="n",
+     ylab="Number of earthquakes", xlab="Decile")
+a <- apply(ci_brackets_nt, 1, function(x){polygon(c(x[1] -1, x[1], x[1], x[1]-1), c(x[6],x[6], x[7],x[7]), col=bands[6], border=NA)})
+a <- apply(ci_brackets_nt, 1, function(x){polygon(c(x[1] -1, x[1], x[1], x[1]-1), c(x[8],x[8], x[9],x[9]), col=bands[6], border=NA)})
+a <- apply(ci_brackets_nt, 1, function(x){polygon(c(x[1] -1, x[1], x[1], x[1]-1), c(x[10],x[10], x[11],x[11]), col=bands[4], border=NA)})
+a <- apply(ci_brackets_nt, 1, function(x){polygon(c(x[1] -1, x[1], x[1], x[1]-1), c(x[12],x[12], x[13],x[13]), col=bands[4], border=NA)})
+a <- apply(ci_brackets_nt, 1, function(x){polygon(c(x[1] -1, x[1], x[1], x[1]-1), c(x[14],x[14], x[15],x[15]), col=bands[3], border=NA)})
+a <- apply(ci_brackets_nt, 1, function(x){polygon(c(x[1] -1, x[1], x[1], x[1]-1), c(x[16],x[16], x[17],x[17]), col=bands[2], border=NA)})
+a <- apply(ci_brackets_nt, 1, function(x){polygon(c(x[1] -1, x[1], x[1], x[1]-1), c(x[18],x[18], x[19],x[19]), col=bands[1], border=NA)})
+a <- apply(ci_brackets_nt, 1, function(x){lines(c(x[1]-1, x[1]), c(x[2],x[2]), lwd=2)})
+expect <- sum(ci_brackets_nt$subtotal)/10
+a <- apply(ci_brackets_nt, 1, function(x){lines(c(x[1]-1, x[1]), c(expect,expect), col="white")})
+a <- apply(ci_brackets_nt, 1, function(x){lines(c(x[1]-1, x[1]), c(expect,expect), lty=3)})
+
+a <- apply(ci_brackets_dy, 1, function(x){polygon(c(x[1] -1, x[1], x[1], x[1]-1), c(x[6],x[6], x[7],x[7]), col=bands[6], border=NA)})
+a <- apply(ci_brackets_dy, 1, function(x){polygon(c(x[1] -1, x[1], x[1], x[1]-1), c(x[8],x[8], x[9],x[9]), col=bands[6], border=NA)})
+a <- apply(ci_brackets_dy, 1, function(x){polygon(c(x[1] -1, x[1], x[1], x[1]-1), c(x[10],x[10], x[11],x[11]), col=bands[4], border=NA)})
+a <- apply(ci_brackets_dy, 1, function(x){polygon(c(x[1] -1, x[1], x[1], x[1]-1), c(x[12],x[12], x[13],x[13]), col=bands[4], border=NA)})
+a <- apply(ci_brackets_dy, 1, function(x){polygon(c(x[1] -1, x[1], x[1], x[1]-1), c(x[14],x[14], x[15],x[15]), col=bands[3], border=NA)})
+a <- apply(ci_brackets_dy, 1, function(x){polygon(c(x[1] -1, x[1], x[1], x[1]-1), c(x[16],x[16], x[17],x[17]), col=bands[2], border=NA)})
+a <- apply(ci_brackets_dy, 1, function(x){polygon(c(x[1] -1, x[1], x[1], x[1]-1), c(x[18],x[18], x[19],x[19]), col=bands[1], border=NA)})
+a <- apply(ci_brackets_dy, 1, function(x){lines(c(x[1]-1, x[1]), c(x[2],x[2]), lwd=2, col="blue")})
+expect <- sum(ci_brackets_dy$subtotal)/10
+a <- apply(ci_brackets_dy, 1, function(x){lines(c(x[1]-1, x[1]), c(expect,expect), col="white")})
+a <- apply(ci_brackets_dy, 1, function(x){lines(c(x[1]-1, x[1]), c(expect,expect), lty=3)})
+
+
+
+par(mar=c(0,0,0,0))
+plot(x=c(0,10), y=c(0,10), type="n", bty="n", axes=FALSE)
+
+lbls <- c(
+  "1 sigma", "2 sigma",
+  "3 sigma", "4 sigma",
+  "5 sigma", "6 sigma",
+  "7 sigma")
+typs <- c(1,1,1,1,1,1,1)
+weights <- c(3,3,3,3,3,3,3)
+clrs <- rev(c('#ffffcc','#d9f0a3','#addd8e','#78c679','#41ab5d','#238443','#005a32'))
+legend(0,5, legend=lbls, lty=typs, lwd=weights, col=clrs, bty="n", xjust=0, title="Confidence\nIntervals:", cex=0.9)
+
+lbls=c("Expected Number", "Observed Night", "Observed Day")
+typs=c(2,1,1)
+weights=c(1,2,2)
+clrs=c("black","black","blue")
+legend(0,9, legend=lbls, lty=typs, lwd=weights, col=clrs,bty="n", xjust=0, title="Legend", y.intersp=1.2)
+
+
+par(mar=old_par$mar)
+par(mfrow=c(1,1))
+
+
+
+
+```

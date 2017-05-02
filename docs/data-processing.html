@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Night Tremors: There are more earthquakes at night</title>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+  <meta name="description" content="The sun’s daily cycle + gravity = earthquakes">
+  <meta name="generator" content="bookdown 0.3 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Night Tremors: There are more earthquakes at night" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="The sun’s daily cycle + gravity = earthquakes" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Night Tremors: There are more earthquakes at night" />
+  
+  <meta name="twitter:description" content="The sun’s daily cycle + gravity = earthquakes" />
+  
+
+<meta name="author" content="David Hood">
+
+
+<meta name="date" content="2017-05-02">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="motivation.html">
+<link rel="next" href="key-result.html">
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Night Tremors</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Front Matter</a><ul>
+<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#intended-audiences"><i class="fa fa-check"></i><b>0.1</b> Intended Audiences</a></li>
+<li class="chapter" data-level="0.2" data-path="index.html"><a href="index.html#acknowledgements"><i class="fa fa-check"></i><b>0.2</b> Acknowledgements</a></li>
+<li class="chapter" data-level="0.3" data-path="index.html"><a href="index.html#cover-picture"><i class="fa fa-check"></i><b>0.3</b> Cover Picture</a></li>
+<li class="chapter" data-level="0.4" data-path="index.html"><a href="index.html#edition"><i class="fa fa-check"></i><b>0.4</b> Edition</a></li>
+<li class="chapter" data-level="0.5" data-path="index.html"><a href="index.html#statistics"><i class="fa fa-check"></i><b>0.5</b> Statistics</a></li>
+<li class="chapter" data-level="0.6" data-path="index.html"><a href="index.html#using-r"><i class="fa fa-check"></i><b>0.6</b> Using R</a></li>
+<li class="chapter" data-level="0.7" data-path="index.html"><a href="index.html#contacting-me"><i class="fa fa-check"></i><b>0.7</b> Contacting me</a></li>
+<li class="chapter" data-level="0.8" data-path="index.html"><a href="index.html#Links0"><i class="fa fa-check"></i><b>0.8</b> Links</a></li>
+<li class="chapter" data-level="0.9" data-path="index.html"><a href="index.html#chapter-code"><i class="fa fa-check"></i><b>0.9</b> Chapter Code</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="motivation.html"><a href="motivation.html"><i class="fa fa-check"></i><b>1</b> Motivation</a><ul>
+<li class="chapter" data-level="1.1" data-path="motivation.html"><a href="motivation.html#formal-statement"><i class="fa fa-check"></i><b>1.1</b> Formal Statement</a></li>
+<li class="chapter" data-level="1.2" data-path="motivation.html"><a href="motivation.html#Links1"><i class="fa fa-check"></i><b>1.2</b> Links</a></li>
+<li class="chapter" data-level="1.3" data-path="motivation.html"><a href="motivation.html#code"><i class="fa fa-check"></i><b>1.3</b> Code</a></li>
+<li class="chapter" data-level="1.4" data-path="motivation.html"><a href="motivation.html#chapter-code-1"><i class="fa fa-check"></i><b>1.4</b> Chapter Code</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="data-processing.html"><a href="data-processing.html"><i class="fa fa-check"></i><b>2</b> Data Processing</a><ul>
+<li class="chapter" data-level="2.1" data-path="data-processing.html"><a href="data-processing.html#event-types"><i class="fa fa-check"></i><b>2.1</b> Event types</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="data-processing.html"><a href="data-processing.html#latitude-and-longitude"><i class="fa fa-check"></i><b>2.1.1</b> Latitude and Longitude</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="data-processing.html"><a href="data-processing.html#gridded-latitude-and-longitude"><i class="fa fa-check"></i><b>2.2</b> Gridded Latitude and Longitude</a></li>
+<li class="chapter" data-level="2.3" data-path="data-processing.html"><a href="data-processing.html#angle-of-the-sun"><i class="fa fa-check"></i><b>2.3</b> Angle of the sun</a></li>
+<li class="chapter" data-level="2.4" data-path="data-processing.html"><a href="data-processing.html#formal-statement-1"><i class="fa fa-check"></i><b>2.4</b> Formal statement</a></li>
+<li class="chapter" data-level="2.5" data-path="data-processing.html"><a href="data-processing.html#code-1"><i class="fa fa-check"></i><b>2.5</b> Code</a></li>
+<li class="chapter" data-level="2.6" data-path="data-processing.html"><a href="data-processing.html#chapter-code-2"><i class="fa fa-check"></i><b>2.6</b> Chapter Code</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="key-result.html"><a href="key-result.html"><i class="fa fa-check"></i><b>3</b> Key result</a><ul>
+<li class="chapter" data-level="3.1" data-path="key-result.html"><a href="key-result.html#formal-statement-2"><i class="fa fa-check"></i><b>3.1</b> Formal Statement</a></li>
+<li class="chapter" data-level="3.2" data-path="key-result.html"><a href="key-result.html#chapter-code-3"><i class="fa fa-check"></i><b>3.2</b> Chapter Code</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="it-is-not-dependence.html"><a href="it-is-not-dependence.html"><i class="fa fa-check"></i><b>4</b> It is not dependence</a><ul>
+<li class="chapter" data-level="4.1" data-path="it-is-not-dependence.html"><a href="it-is-not-dependence.html#formal-statement-3"><i class="fa fa-check"></i><b>4.1</b> Formal Statement</a></li>
+<li class="chapter" data-level="4.2" data-path="it-is-not-dependence.html"><a href="it-is-not-dependence.html#chapter-code-4"><i class="fa fa-check"></i><b>4.2</b> Chapter Code</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="it-is-not-masking.html"><a href="it-is-not-masking.html"><i class="fa fa-check"></i><b>5</b> It is not masking</a><ul>
+<li class="chapter" data-level="5.1" data-path="it-is-not-masking.html"><a href="it-is-not-masking.html#formal-statement-4"><i class="fa fa-check"></i><b>5.1</b> Formal Statement</a></li>
+<li class="chapter" data-level="5.2" data-path="it-is-not-masking.html"><a href="it-is-not-masking.html#links"><i class="fa fa-check"></i><b>5.2</b> Links</a></li>
+<li class="chapter" data-level="5.3" data-path="it-is-not-masking.html"><a href="it-is-not-masking.html#chapter-code-5"><i class="fa fa-check"></i><b>5.3</b> Chapter Code</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="it-is-not-seasonal.html"><a href="it-is-not-seasonal.html"><i class="fa fa-check"></i><b>6</b> It is not seasonal</a><ul>
+<li class="chapter" data-level="6.1" data-path="it-is-not-seasonal.html"><a href="it-is-not-seasonal.html#formal-statement-5"><i class="fa fa-check"></i><b>6.1</b> Formal statement</a></li>
+<li class="chapter" data-level="6.2" data-path="it-is-not-seasonal.html"><a href="it-is-not-seasonal.html#chapter-code-6"><i class="fa fa-check"></i><b>6.2</b> Chapter Code</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="it-is-not-the-moon.html"><a href="it-is-not-the-moon.html"><i class="fa fa-check"></i><b>7</b> It is not the moon</a><ul>
+<li class="chapter" data-level="7.1" data-path="it-is-not-the-moon.html"><a href="it-is-not-the-moon.html#absolute-difference"><i class="fa fa-check"></i><b>7.1</b> Absolute difference</a></li>
+<li class="chapter" data-level="7.2" data-path="it-is-not-the-moon.html"><a href="it-is-not-the-moon.html#relative"><i class="fa fa-check"></i><b>7.2</b> Relative</a></li>
+<li class="chapter" data-level="7.3" data-path="it-is-not-the-moon.html"><a href="it-is-not-the-moon.html#formal-statement-6"><i class="fa fa-check"></i><b>7.3</b> Formal Statement</a></li>
+<li class="chapter" data-level="7.4" data-path="it-is-not-the-moon.html"><a href="it-is-not-the-moon.html#links-1"><i class="fa fa-check"></i><b>7.4</b> Links</a></li>
+<li class="chapter" data-level="7.5" data-path="it-is-not-the-moon.html"><a href="it-is-not-the-moon.html#chapter-code-7"><i class="fa fa-check"></i><b>7.5</b> Chapter Code</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="it-is-not-uniform.html"><a href="it-is-not-uniform.html"><i class="fa fa-check"></i><b>8</b> It is not uniform</a><ul>
+<li class="chapter" data-level="8.1" data-path="it-is-not-uniform.html"><a href="it-is-not-uniform.html#formal-statement-7"><i class="fa fa-check"></i><b>8.1</b> Formal Statement</a></li>
+<li class="chapter" data-level="8.2" data-path="it-is-not-uniform.html"><a href="it-is-not-uniform.html#chapter-code-8"><i class="fa fa-check"></i><b>8.2</b> Chapter Code</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="japanese-earthquakes-are-the-same.html"><a href="japanese-earthquakes-are-the-same.html"><i class="fa fa-check"></i><b>9</b> Japanese earthquakes are the same</a><ul>
+<li class="chapter" data-level="9.1" data-path="japanese-earthquakes-are-the-same.html"><a href="japanese-earthquakes-are-the-same.html#formal-statement-8"><i class="fa fa-check"></i><b>9.1</b> Formal Statement</a></li>
+<li class="chapter" data-level="9.2" data-path="japanese-earthquakes-are-the-same.html"><a href="japanese-earthquakes-are-the-same.html#Links9"><i class="fa fa-check"></i><b>9.2</b> Links</a></li>
+<li class="chapter" data-level="9.3" data-path="japanese-earthquakes-are-the-same.html"><a href="japanese-earthquakes-are-the-same.html#chapter-code-9"><i class="fa fa-check"></i><b>9.3</b> Chapter Code</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="the-continental-united-states-is-similar.html"><a href="the-continental-united-states-is-similar.html"><i class="fa fa-check"></i><b>10</b> The continental United States is similar</a><ul>
+<li class="chapter" data-level="10.1" data-path="the-continental-united-states-is-similar.html"><a href="the-continental-united-states-is-similar.html#formal-statement-9"><i class="fa fa-check"></i><b>10.1</b> Formal Statement</a></li>
+<li class="chapter" data-level="10.2" data-path="the-continental-united-states-is-similar.html"><a href="the-continental-united-states-is-similar.html#Links10"><i class="fa fa-check"></i><b>10.2</b> Links</a></li>
+<li class="chapter" data-level="10.3" data-path="the-continental-united-states-is-similar.html"><a href="the-continental-united-states-is-similar.html#chapter-code-10"><i class="fa fa-check"></i><b>10.3</b> Chapter Code</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="italian-earthquakes-are-the-same.html"><a href="italian-earthquakes-are-the-same.html"><i class="fa fa-check"></i><b>11</b> Italian earthquakes are the same</a><ul>
+<li class="chapter" data-level="11.1" data-path="italian-earthquakes-are-the-same.html"><a href="italian-earthquakes-are-the-same.html#formal-statement-10"><i class="fa fa-check"></i><b>11.1</b> Formal Statement</a></li>
+<li class="chapter" data-level="11.2" data-path="italian-earthquakes-are-the-same.html"><a href="italian-earthquakes-are-the-same.html#Links11"><i class="fa fa-check"></i><b>11.2</b> Links</a></li>
+<li class="chapter" data-level="11.3" data-path="italian-earthquakes-are-the-same.html"><a href="italian-earthquakes-are-the-same.html#chapter-code-11"><i class="fa fa-check"></i><b>11.3</b> Chapter Code</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="hawaii-is-similar.html"><a href="hawaii-is-similar.html"><i class="fa fa-check"></i><b>12</b> Hawaii is similar</a><ul>
+<li class="chapter" data-level="12.1" data-path="hawaii-is-similar.html"><a href="hawaii-is-similar.html#formal-statement-11"><i class="fa fa-check"></i><b>12.1</b> Formal Statement</a></li>
+<li class="chapter" data-level="12.2" data-path="hawaii-is-similar.html"><a href="hawaii-is-similar.html#Links12"><i class="fa fa-check"></i><b>12.2</b> Links</a></li>
+<li class="chapter" data-level="12.3" data-path="hawaii-is-similar.html"><a href="hawaii-is-similar.html#chapter-code-12"><i class="fa fa-check"></i><b>12.3</b> Chapter Code</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="the-philippines-is-similar.html"><a href="the-philippines-is-similar.html"><i class="fa fa-check"></i><b>13</b> The Philippines is similar</a><ul>
+<li class="chapter" data-level="13.1" data-path="the-philippines-is-similar.html"><a href="the-philippines-is-similar.html#formal-statement-12"><i class="fa fa-check"></i><b>13.1</b> Formal Statement</a></li>
+<li class="chapter" data-level="13.2" data-path="the-philippines-is-similar.html"><a href="the-philippines-is-similar.html#Links13"><i class="fa fa-check"></i><b>13.2</b> Links</a></li>
+<li class="chapter" data-level="13.3" data-path="the-philippines-is-similar.html"><a href="the-philippines-is-similar.html#chapter-code-13"><i class="fa fa-check"></i><b>13.3</b> Chapter Code</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="thailand-is-similar.html"><a href="thailand-is-similar.html"><i class="fa fa-check"></i><b>14</b> Thailand is similar</a><ul>
+<li class="chapter" data-level="14.1" data-path="thailand-is-similar.html"><a href="thailand-is-similar.html#formal-statement-13"><i class="fa fa-check"></i><b>14.1</b> Formal Statement</a></li>
+<li class="chapter" data-level="14.2" data-path="hawaii-is-similar.html"><a href="hawaii-is-similar.html#Links12"><i class="fa fa-check"></i><b>14.2</b> Links</a></li>
+<li class="chapter" data-level="14.3" data-path="thailand-is-similar.html"><a href="thailand-is-similar.html#chapter-code-14"><i class="fa fa-check"></i><b>14.3</b> Chapter Code</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="taiwan-is-not-similar.html"><a href="taiwan-is-not-similar.html"><i class="fa fa-check"></i><b>15</b> Taiwan is not similar</a><ul>
+<li class="chapter" data-level="15.1" data-path="taiwan-is-not-similar.html"><a href="taiwan-is-not-similar.html#formal-statement-14"><i class="fa fa-check"></i><b>15.1</b> Formal Statement</a></li>
+<li class="chapter" data-level="15.2" data-path="taiwan-is-not-similar.html"><a href="taiwan-is-not-similar.html#Links15"><i class="fa fa-check"></i><b>15.2</b> Links</a></li>
+<li class="chapter" data-level="15.3" data-path="taiwan-is-not-similar.html"><a href="taiwan-is-not-similar.html#chapter-code-15"><i class="fa fa-check"></i><b>15.3</b> Chapter Code</a></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="australia-is-similar.html"><a href="australia-is-similar.html"><i class="fa fa-check"></i><b>16</b> Australia is similar</a><ul>
+<li class="chapter" data-level="16.1" data-path="australia-is-similar.html"><a href="australia-is-similar.html#formal-statement-15"><i class="fa fa-check"></i><b>16.1</b> Formal Statement</a></li>
+<li class="chapter" data-level="16.2" data-path="australia-is-similar.html"><a href="australia-is-similar.html#Links16"><i class="fa fa-check"></i><b>16.2</b> Links</a></li>
+<li class="chapter" data-level="16.3" data-path="australia-is-similar.html"><a href="australia-is-similar.html#chapter-code-16"><i class="fa fa-check"></i><b>16.3</b> Chapter Code</a></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="it-is-gravity.html"><a href="it-is-gravity.html"><i class="fa fa-check"></i><b>17</b> It is gravity</a><ul>
+<li class="chapter" data-level="17.1" data-path="it-is-gravity.html"><a href="it-is-gravity.html#gravitational-force-differentials"><i class="fa fa-check"></i><b>17.1</b> Gravitational force differentials</a></li>
+<li class="chapter" data-level="17.2" data-path="it-is-gravity.html"><a href="it-is-gravity.html#formal-statement-16"><i class="fa fa-check"></i><b>17.2</b> Formal Statement</a></li>
+<li class="chapter" data-level="17.3" data-path="it-is-gravity.html"><a href="it-is-gravity.html#chapter-code-17"><i class="fa fa-check"></i><b>17.3</b> Chapter Code</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://thoughtfulbloke.github.io/eqnz/night_tremors.pdf">pdf version</a></li>
+<li><a href="https://thoughtfulbloke.github.io/eqnz/night_tremors.epub">epub version</a></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Night Tremors: There are more earthquakes at night</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="data-processing" class="section level1">
+<h1><span class="header-section-number">Chapter 2</span> Data Processing</h1>
+<p>Data processing involves finding, and ideally fixing, problems in the data that prevent an analysis being made. It also involves inventing transformations in the data to allow new insights. To me, the first of these is largely a matter of practice in becoming familiar with what goes wrong with data. The second is a more creative process of “what can be done to the data to get it to reveal things it otherwise would not, and is there a price to be paid in doing so?”</p>
+<p>A good place to start is to make some general summaries looking for any odd biases in the data.</p>
+<div class="figure"><span id="fig:unnamed-chunk-2"></span>
+<img src="002_nz_data_files/figure-html/unnamed-chunk-2-1.png" alt="Distribution of Magnitude (steps of .1)" width="900" />
+<p class="caption">
+Figure 2.1: Distribution of Magnitude (steps of .1)
+</p>
+</div>
+<p>This is an artificially normal looking distribution. To the right of the peak of the histogram, at about magnitude 2.2, the number of earthquakes are decreasing as earthquakes become less frequent at higher magnitudes. To the left of the peak, the number is decreasing due to smaller earthquakes being more difficult to detect. This missing data might cause potential biases in the results if there is a connection between an earthquake being detected at all and the time that it was detected.</p>
+<p>In checking, there are a small number of events of -9 magnitude (negative magnitude is possible but rare). These seem to be extreme outliers and are likely to badly affect any model I create (as well as cause annoying amounts of empty space on graphs of magnitude).</p>
+<div class="figure"><span id="fig:unnamed-chunk-3"></span>
+<img src="002_nz_data_files/figure-html/unnamed-chunk-3-1.png" alt="Distribution of Depth (steps of 10 km)" width="900" />
+<p class="caption">
+Figure 1.1: Distribution of Depth (steps of 10 km)
+</p>
+</div>
+<p>The graph of estimated earthquake depth does not have a smooth distribution; it is worth nothing that the earth’s crust is not smoothly distributed either, so this is unsurprising. There is an unusual reduction in events around depth 0. This is as much an excuse not to include events at this depth as a reason; the mechanics of bits of ground pushing and pulling against other bits of ground feels like it should be different at surface level, and on that basis alone I am happy to put surface events to one side</p>
+<p>From the exploratory analysis this far I am inclined to:</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>remove events of less than zero magnitude as being very few and suspiciously different to the rest of the data</p></li>
+<li><p>remove surface events as being different to subsurface ones.</p></li>
+</ol>
+<div class="figure"><span id="fig:unnamed-chunk-4"></span>
+<img src="002_nz_data_files/figure-html/unnamed-chunk-4-1.png" alt="Depth and Magnitude of earthquakes" width="900" />
+<p class="caption">
+Figure 2.2: Depth and Magnitude of earthquakes
+</p>
+</div>
+<p>From the graph of magnitude vs depth I see no reason to keep either the surface earthquakes or the negative magnitude earthquakes. In this I am technically not following best practice; since neither group of earthquakes affect the overall analysis, it would be better practice to keep them in (those comfortable in modifying the code I provide can easily discover the inclusion of these earthquakes makes no difference to the conclusions). Best practice would be to include the most data to make the broadest conclusions. However, I personally do not want to get bogged down in comparatively trivial debates about the quality of the data with the negative magnitude earthquakes included, or the interplay of forces with surface level earthquakes, so I am personally happy to discuss things in terms of positive magnitude subsurface earthquakes.</p>
+<p>After removing the events at the surface and the events below zero magnitude, I did a quick check of what the magnitude distributions for under 3 magnitude earthquakes look like for each hour of the day. Magnitudes of under three were chosen because that is the level at which the number of detectable earthquakes begins to decrease, and therefore the missing data could cause biases.</p>
+<div class="figure"><span id="fig:unnamed-chunk-5"></span>
+<img src="002_nz_data_files/figure-html/unnamed-chunk-5-1.png" alt="Number of earthquakes by magnitude, split by hour of day (UTC)" width="900" />
+<p class="caption">
+Figure 2.3: Number of earthquakes by magnitude, split by hour of day (UTC)
+</p>
+</div>
+<p>All the individual hours seem to be showing a similar pattern, which leads me (in judging it by eye) to suspect it will be unlikely that there is any relationship between detected earthquakes and time of day that could be influencing results.</p>
+<div id="event-types" class="section level2">
+<h2><span class="header-section-number">2.1</span> Event types</h2>
+<p>From the Earthquake Catalogue documentation, I am interested in two classes of events: earthquakes (reviewed by a human being) and likely earthquakes (indicated by a blank entry, but as that is annoying in tables I am replacing it with the term <strong>“likely earthquake”</strong> in the data)</p>
+<table>
+<caption><span id="tab:unnamed-chunk-7">Table 2.1: </span>Events types and number in the Geonet Database</caption>
+<thead>
+<tr class="header">
+<th align="left">Event type</th>
+<th align="right">Total</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">duplicate</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">earthquake</td>
+<td align="right">36424</td>
+</tr>
+<tr class="odd">
+<td align="left">explosion</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">induced earthquake</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">landslide</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">likely earthquake</td>
+<td align="right">63855</td>
+</tr>
+<tr class="odd">
+<td align="left">not locatable</td>
+<td align="right">19</td>
+</tr>
+<tr class="even">
+<td align="left">nuclear explosion</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">other</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">outside of network interest</td>
+<td align="right">1367</td>
+</tr>
+<tr class="odd">
+<td align="left">quarry blast</td>
+<td align="right">21</td>
+</tr>
+<tr class="even">
+<td align="left">volcanic eruption</td>
+<td align="right">1</td>
+</tr>
+</tbody>
+</table>
+<div class="figure"><span id="fig:unnamed-chunk-8"></span>
+<img src="002_nz_data_files/figure-html/unnamed-chunk-8-1.png" alt="Number of earthquakes by Magnitude and Classification" width="900" />
+<p class="caption">
+Figure 2.4: Number of earthquakes by Magnitude and Classification
+</p>
+</div>
+<p>This human review process could, in theory, mean that there are unknown confounders causing a large number of low magnitude events. However, there are no significant numbers of non-earthquake classified events with a magnitude of less than three, so there is no evidence for any alternative. As a result, I am agreement with the Geonet documentation that likely earthquakes can be considered earthquakes.</p>
+<div id="latitude-and-longitude" class="section level3">
+<h3><span class="header-section-number">2.1.1</span> Latitude and Longitude</h3>
+<p>Latitude and longitude are critical to the analysis, so it seems like a good idea to actually check them, particularly since New Zealand is near the international date line with a sudden longitude shift from 180 to -180.</p>
+<p>Latitudes range from -49.3178902 to -32.4753952, while longitudes range from -179.9998322 to 180.63854 (thought it might be better to say longitudes from 164.2942963 to -177.59093).</p>
+<p>The presence of negative longitudes represented as positive numbers greater than 180 causes problems for some R packages when conducting longitude related calculations, so I will correct the greater than 180 values to be negative values slightly greater than -180.</p>
+<p>From the raw earthquake data I calculate a series of out variables, mostly following the principle of “it seemed like a good idea at the time”.</p>
+</div>
+</div>
+<div id="gridded-latitude-and-longitude" class="section level2">
+<h2><span class="header-section-number">2.2</span> Gridded Latitude and Longitude</h2>
+<p>In the raw data, the earthquakes are individual events, but another way of looking at the data is as regions which have earthquakes. One straightforward approach is to take the entire area represented by the data, and divided that area into grids.</p>
+<p>The size of the grids is a trade-off. Larger grids mean that local differences are homogenised into one block and variation between smaller in-block areas is lost. In this view, the analysis of the entire data is an analysis of one large grid square. On the other hand, smaller areas reduce the number of earthquakes in any single area, reducing the sample size and therefore weakening our confidence in our statistical results. An individual earthquake by itself is representative of a tiny area. An initial grid composed of squared 50km on a side seems reasonable here, given the size of the total area and the number of earthquakes within the 5 year period.</p>
+<p>To make the grids, I found the southernmost of the earthquake events and calculate how far north of that base point each earthquake is. Then divided that distance by 50 and rounded to a whole number. I converted that distance back to a latitude for convenience of future plotting.</p>
+<p>I take the same approach for longitude, starting from the easternmost earthquake and working westwards to calculate the grid centre closest to the earthquake event location.</p>
+<p>While I might feel that 50 kilometres per side is a good grid size, I should also verify this intuition using tests:</p>
+<p>104 (28%) of the 377 grid locations have more than 100 earthquakes, which I would expect to be enough to draw useful conclusions from, as each grid point contributes less than 1% to the overall figures. Each earthquake in each grid square also contributes less than 1% to the overall aggregate for the square. Among the data that we have, this minimises the effects of unusual variation.</p>
+</div>
+<div id="angle-of-the-sun" class="section level2">
+<h2><span class="header-section-number">2.3</span> Angle of the sun</h2>
+<p>Using the hour of the day is only an approximate measure of night and day, as the position of the sun at a particular hour changes with latitude, longitude, and time of year. Exactly declaring a particular place and time night or day requires knowing the position of the sun at that moment. This can be done with a function in the maptools package. The function returns both a compass and vertical angle for the sun’s position, and I convert that to a 360 degree angle along an east-west arc. My reason for doing so is that the east-west arc of the sun sees the significant daily change, while the north-south component is a gradual seasonal change. This, in turn, allows me to simplify the problem from a three-dimensional one to a two-dimensional problem focused on the change within a day.</p>
+<p>At the same time, I can use time of sunrise and sunset to calculate the length of night in the day the earthquake took place on, as this can be a better measure for seasonality than month, since the months cycle is slightly offset from the solar cycle of around 21st of December to 21st of June.</p>
+<p>From the help files for the solar position function, the N.O.A.A. provided algorithms are accurate to approximately one minute for sunrise and sunset among latitudes with +/- 72 degrees.</p>
+<p>Given there is a tiny potential uncertainty, I carry out quick test that it is giving sensible answers, by checking the range of sun angles per hour of UTC day.</p>
+<div class="figure"><span id="fig:unnamed-chunk-11"></span>
+<img src="002_nz_data_files/figure-html/unnamed-chunk-11-1.png" alt="Variation in angle of sun by hour of day" width="900" />
+<p class="caption">
+Figure 2.5: Variation in angle of sun by hour of day
+</p>
+</div>
+<p>The range of values seems reasonable, so I have no concerns about the calculated angles.</p>
+</div>
+<div id="formal-statement-1" class="section level2">
+<h2><span class="header-section-number">2.4</span> Formal statement</h2>
+<p>This analysis is restricted to subsurface earthquake and likely earthquake events of greater than zero magnitude.</p>
+</div>
+<div id="code-1" class="section level2">
+<h2><span class="header-section-number">2.5</span> Code</h2>
+</div>
+<div id="chapter-code-2" class="section level2">
+<h2><span class="header-section-number">2.6</span> Chapter Code</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## ----setup, include=FALSE------------------------------------------------
+knitr::opts_chunk$<span class="kw">set</span>(<span class="dt">echo =</span> <span class="ot">FALSE</span>)
+knitr::opts_chunk$<span class="kw">set</span>(<span class="dt">warnings=</span><span class="ot">FALSE</span>)
+knitr::opts_chunk$<span class="kw">set</span>(<span class="dt">errors=</span><span class="ot">FALSE</span>)
+knitr::opts_chunk$<span class="kw">set</span>(<span class="dt">message=</span><span class="ot">FALSE</span>)
+knitr::opts_chunk$<span class="kw">set</span>(<span class="dt">dpi =</span> <span class="dv">150</span>)
+knitr::opts_chunk$<span class="kw">set</span>(<span class="dt">fig.width =</span>  <span class="dv">6</span>)
+knitr::opts_chunk$<span class="kw">set</span>(<span class="dt">fig.height =</span>  <span class="dv">4</span>)
+
+## ------------------------------------------------------------------------
+<span class="kw">library</span>(dplyr)
+<span class="kw">library</span>(lubridate)
+<span class="kw">library</span>(ggplot2)
+<span class="kw">library</span>(maptools)
+<span class="kw">library</span>(geosphere)
+<span class="kw">library</span>(solidearthtide)
+<span class="kw">Sys.setenv</span>(<span class="dt">TZ =</span> <span class="st">&quot;UTC&quot;</span>) 
+
+<span class="co"># Assumes there is eqnz_raw data created in chapter 1</span>
+<span class="kw">load</span>(<span class="st">&quot;eqdata/eqnz_raw.RData&quot;</span>)
+
+## ----fig.cap=&quot;Distribution of Magnitude (steps of .1)&quot;-------------------
+eqnz %&gt;%<span class="st"> </span><span class="kw">mutate</span>(<span class="dt">rounded_magnitude=</span><span class="kw">round</span>(magnitude,<span class="dv">1</span>)) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">group_by</span>(rounded_magnitude) %&gt;%
+<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">subtotal =</span> <span class="kw">n</span>()) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x=</span>rounded_magnitude, <span class="dt">y=</span>subtotal)) +<span class="st"> </span><span class="kw">geom_bar</span>(<span class="dt">stat=</span><span class="st">&quot;identity&quot;</span>) +
+<span class="st">  </span><span class="kw">ylab</span>(<span class="st">&quot;Number of earthquakes&quot;</span>) +<span class="st"> </span><span class="kw">xlab</span>(<span class="st">&quot;Magnitude&quot;</span>)
+
+## ----fig.cap=&quot;Distribution of Depth (steps of 10 km)&quot;--------------------
+eqnz %&gt;%<span class="st"> </span><span class="kw">mutate</span>(<span class="dt">rounded_depth=</span><span class="kw">round</span>(depth,-<span class="dv">1</span>)) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">group_by</span>(rounded_depth) %&gt;%
+<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">subtotal =</span> <span class="kw">n</span>()) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x=</span>rounded_depth, <span class="dt">y=</span>subtotal)) +<span class="st"> </span><span class="kw">geom_bar</span>(<span class="dt">stat=</span><span class="st">&quot;identity&quot;</span>) +
+<span class="st">  </span><span class="kw">ylab</span>(<span class="st">&quot;Number of earthquakes&quot;</span>) +<span class="st"> </span><span class="kw">xlab</span>(<span class="st">&quot;Depth&quot;</span>)
+
+## ----fig.cap=&quot;Depth and Magnitude of earthquakes&quot;------------------------
+<span class="kw">ggplot</span>(eqnz, <span class="kw">aes</span>(<span class="dt">x=</span>depth, <span class="dt">y=</span>magnitude)) +<span class="st"> </span><span class="kw">geom_point</span>() +
+<span class="st">  </span><span class="kw">ylab</span>(<span class="st">&quot;Magnitude&quot;</span>) +<span class="st"> </span><span class="kw">xlab</span>(<span class="st">&quot;Depth (km)&quot;</span>)
+
+## ----fig.cap=&quot;Number of earthquakes by magnitude, split by hour of day (UTC)&quot;----
+eqnz %&gt;%<span class="st"> </span><span class="kw">filter</span>(magnitude &gt;<span class="st"> </span><span class="dv">0</span>, magnitude &lt;<span class="st"> </span><span class="dv">3</span>) %&gt;%
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">rounded_magnitude=</span><span class="kw">round</span>(magnitude,<span class="dv">1</span>), <span class="dt">eq_hour =</span> <span class="kw">hour</span>(time_UTC)) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">group_by</span>(rounded_magnitude, eq_hour) %&gt;%
+<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">subtotal =</span> <span class="kw">n</span>()) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x=</span>rounded_magnitude, <span class="dt">y=</span>subtotal)) +<span class="st"> </span><span class="kw">geom_bar</span>(<span class="dt">stat=</span><span class="st">&quot;identity&quot;</span>) +<span class="st"> </span><span class="kw">facet_wrap</span>(~<span class="st"> </span><span class="kw">as.factor</span>(eq_hour)) +<span class="st"> </span><span class="kw">ylab</span>(<span class="st">&quot;Number of earthquakes&quot;</span>) +<span class="st"> </span><span class="kw">xlab</span>(<span class="st">&quot;Magnitude&quot;</span>)
+
+
+## ------------------------------------------------------------------------
+eqnz$eventtype[eqnz$eventtype ==<span class="st"> &quot;&quot;</span>] &lt;-<span class="st"> &quot;likely earthquake&quot;</span>
+
+## ------------------------------------------------------------------------
+eqnz %&gt;%<span class="st"> </span><span class="kw">filter</span>(magnitude &gt;<span class="st"> </span><span class="dv">0</span>, depth &gt;<span class="st"> </span><span class="dv">0</span>) %&gt;%
+<span class="st">  </span><span class="kw">group_by</span>(eventtype) %&gt;%<span class="st"> </span><span class="kw">summarise</span>(<span class="dt">total=</span><span class="kw">n</span>()) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">select</span>(<span class="st">`</span><span class="dt">Event type</span><span class="st">`</span>=eventtype, <span class="dt">Total=</span>total) %&gt;%
+<span class="st">  </span>knitr::<span class="kw">kable</span>(<span class="dt">caption =</span> <span class="st">&quot;Events types and number in the Geonet Database&quot;</span>) 
+
+## ----fig.cap=&quot;Number of earthquakes by Magnitude and Classification&quot;-----
+eqnz %&gt;%<span class="st"> </span><span class="kw">filter</span>(magnitude &gt;<span class="st"> </span><span class="dv">0</span>, depth &gt;<span class="st"> </span><span class="dv">0</span>) %&gt;%
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">rounded_magnitude=</span><span class="kw">round</span>(magnitude,<span class="dv">1</span>)) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">group_by</span>(rounded_magnitude, eventtype) %&gt;%
+<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">subtotal =</span> <span class="kw">n</span>()) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x=</span>rounded_magnitude, <span class="dt">y=</span>subtotal, <span class="dt">fill=</span>eventtype)) +
+<span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">stat=</span><span class="st">&quot;identity&quot;</span>)
+
+## ------------------------------------------------------------------------
+
+<span class="co"># only do all the work if work is not done</span>
+<span class="co"># to make calculated variables clear, I name them with an eq_prefix</span>
+
+if (!<span class="kw">file.exists</span>(<span class="st">&quot;eqdata/eqnz_processed.RData&quot;</span>)){
+eqnz$eventtype[eqnz$eventtype ==<span class="st"> &quot;&quot;</span>] &lt;-<span class="st"> &quot;likely earthquake&quot;</span>
+eqnz$longitude[eqnz$longitude &gt;<span class="st"> </span><span class="dv">180</span>] &lt;-<span class="st"> </span>eqnz$longitude[eqnz$longitude &gt;<span class="st"> </span><span class="dv">180</span>] -<span class="st"> </span><span class="dv">360</span>
+southmost &lt;-<span class="st"> </span><span class="kw">min</span>(eqnz$latitude)
+westmost &lt;-<span class="st"> </span><span class="kw">min</span>(eqnz$longitude[eqnz$longitude &gt;<span class="st"> </span><span class="dv">0</span>])
+
+eqnz &lt;-<span class="st"> </span>eqnz %&gt;%<span class="st"> </span><span class="kw">filter</span>(
+  magnitude &gt;<span class="st"> </span><span class="dv">0</span>, depth &gt;<span class="st"> </span><span class="dv">0</span>, eventtype %in%<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;earthquake&quot;</span>, <span class="st">&quot;likely earthquake&quot;</span>)
+) %&gt;%<span class="st"> </span><span class="kw">rowwise</span>() %&gt;%<span class="st"> </span><span class="kw">mutate</span>(
+  <span class="dt">eq_gridpoint_y =</span> <span class="kw">round</span>(<span class="kw">distVincentyEllipsoid</span>(<span class="kw">c</span>(longitude, southmost), <span class="kw">c</span>(longitude,latitude)) /<span class="dv">50000</span>,<span class="dv">0</span>),
+  <span class="dt">eq_gridpoint_x =</span> <span class="kw">round</span>(<span class="kw">distVincentyEllipsoid</span>(<span class="kw">c</span>(westmost, latitude), <span class="kw">c</span>(longitude,latitude)) /<span class="dv">50000</span>,<span class="dv">0</span>),
+  <span class="dt">eq_roundedlat =</span> <span class="kw">destPoint</span>(<span class="dt">p=</span><span class="kw">c</span>(longitude, southmost), <span class="dt">b=</span><span class="dv">0</span>, <span class="dt">d=</span>eq_gridpoint_y*<span class="dv">50000</span>)[<span class="dv">2</span>],
+  <span class="dt">eq_roundedlong =</span> <span class="kw">destPoint</span>(<span class="dt">p=</span><span class="kw">c</span>(westmost, eq_roundedlat), <span class="dt">b=</span><span class="dv">90</span>, <span class="dt">d=</span>eq_gridpoint_x*<span class="dv">50000</span>)[<span class="dv">1</span>]) %&gt;%<span class="st"> </span><span class="kw">ungroup</span>()
+<span class="co"># use maptools to calculate solar angles</span>
+sun_angles &lt;-<span class="st"> </span><span class="kw">solarpos</span>(<span class="kw">matrix</span>(<span class="kw">c</span>(eqnz$longitude, eqnz$latitude), <span class="dt">ncol=</span><span class="dv">2</span>), eqnz$time_UTC)
+<span class="kw">colnames</span>(sun_angles) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;eq_compass&quot;</span>, <span class="st">&quot;eq_vertical&quot;</span>)
+eqnz &lt;-<span class="st"> </span><span class="kw">cbind</span>(eqnz,sun_angles)
+eqnz$eq_is_night &lt;-<span class="st"> </span>eqnz$eq_vertical &lt;<span class="st"> </span><span class="dv">0</span>
+<span class="co"># calculate 360 degree as well as vertical</span>
+eqnz &lt;-<span class="st"> </span>eqnz %&gt;%<span class="st"> </span><span class="kw">mutate</span>(<span class="dt">eq_angle_360 =</span> eq_vertical,
+                                 <span class="dt">eq_angle_360 =</span> <span class="kw">ifelse</span>(eq_compass &gt;<span class="st"> </span><span class="dv">180</span>, <span class="dv">180</span> -<span class="st"> </span>eq_angle_360, eq_angle_360),
+                                 <span class="dt">eq_angle_360 =</span> <span class="kw">ifelse</span>(eq_vertical &lt;<span class="st"> </span><span class="dv">0</span> &amp;<span class="st"> </span>eq_compass &lt;=<span class="st"> </span><span class="dv">180</span>, <span class="dv">360</span> +<span class="st"> </span>eq_angle_360, eq_angle_360),
+                                 <span class="dt">eq_angle_by_10 =</span> <span class="kw">floor</span>(eq_angle_360 /<span class="dv">10</span>) *<span class="st"> </span><span class="dv">10</span>)
+<span class="co"># get length of night earthquake in hours for UTC day occured in</span>
+sunr &lt;-<span class="st"> </span><span class="kw">sunriset</span>(<span class="kw">matrix</span>(<span class="kw">c</span>(eqnz$longitude, eqnz$latitude), <span class="dt">ncol=</span><span class="dv">2</span>), eqnz$time_UTC, <span class="dt">direction=</span><span class="st">&quot;sunrise&quot;</span>, <span class="dt">POSIXct.out=</span><span class="ot">TRUE</span>)
+suns &lt;-<span class="st"> </span><span class="kw">sunriset</span>(<span class="kw">matrix</span>(<span class="kw">c</span>(eqnz$longitude, eqnz$latitude), <span class="dt">ncol=</span><span class="dv">2</span>), eqnz$time_UTC, <span class="dt">direction=</span><span class="st">&quot;sunset&quot;</span>, <span class="dt">POSIXct.out=</span><span class="ot">TRUE</span>)
+eqnz$eq_nightlength =<span class="st"> </span><span class="dv">24</span> -<span class="st"> </span><span class="kw">as.numeric</span>(suns$time -<span class="st"> </span>sunr$time)
+<span class="co">#calculating the solid earth tide vertical component </span>
+soletide_date &lt;-<span class="st"> </span><span class="kw">Datenum</span>(<span class="kw">as.Date</span>(eqnz$time_UTC)) +<span class="st"> </span>(<span class="kw">hour</span>(eqnz$time_UTC) *<span class="st"> </span><span class="dv">3600</span> +<span class="st"> </span><span class="kw">minute</span>(eqnz$time_UTC)*<span class="dv">60</span> *<span class="st"> </span><span class="kw">second</span>(eqnz$time_UTC))/<span class="dv">86400</span>
+etv &lt;-<span class="st"> </span><span class="kw">Earthtide</span>(eqnz$latitude, eqnz$longitude, soletide_date)
+eqnz$eq_solidearth_vertical &lt;-<span class="st"> </span>(<span class="kw">t</span>(etv))[,<span class="dv">1</span>]
+<span class="kw">save</span>(eqnz, <span class="dt">file=</span><span class="st">&quot;eqdata/eqnz_processed.RData&quot;</span>)
+
+<span class="kw">rm</span>(<span class="dt">list=</span><span class="kw">ls</span>())
+}
+<span class="kw">load</span>(<span class="st">&quot;eqdata/eqnz_processed.RData&quot;</span>)
+
+## ------------------------------------------------------------------------
+grid_summary &lt;-<span class="st"> </span>eqnz %&gt;%<span class="st"> </span><span class="kw">group_by</span>(eq_roundedlat, eq_roundedlong) %&gt;%<span class="st"> </span><span class="kw">summarise</span>(<span class="dt">subtotal=</span><span class="kw">n</span>()) %&gt;%<span class="st"> </span><span class="kw">ungroup</span>() %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">above_100 =</span> <span class="kw">sum</span>(subtotal &gt;<span class="st"> </span><span class="dv">100</span>), <span class="dt">total=</span><span class="kw">n</span>())
+n_above100 &lt;-<span class="st"> </span>grid_summary$above_100[<span class="dv">1</span>]
+total_grids &lt;-<span class="st"> </span>grid_summary$total[<span class="dv">1</span>]
+
+## ----fig.cap=&quot;Variation in angle of sun by hour of day&quot;------------------
+<span class="kw">boxplot</span>(eqnz$eq_vertical ~<span class="st"> </span><span class="kw">hour</span>(eqnz$time_UTC))</code></pre></div>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="motivation.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="key-result.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Night Tremors: There are more earthquakes at night</title>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+  <meta name="description" content="The sun’s daily cycle + gravity = earthquakes">
+  <meta name="generator" content="bookdown 0.3 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Night Tremors: There are more earthquakes at night" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="The sun’s daily cycle + gravity = earthquakes" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Night Tremors: There are more earthquakes at night" />
+  
+  <meta name="twitter:description" content="The sun’s daily cycle + gravity = earthquakes" />
+  
+
+<meta name="author" content="David Hood">
+
+
+<meta name="date" content="2017-05-02">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="it-is-not-uniform.html">
+<link rel="next" href="the-continental-united-states-is-similar.html">
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Night Tremors</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Front Matter</a><ul>
+<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#intended-audiences"><i class="fa fa-check"></i><b>0.1</b> Intended Audiences</a></li>
+<li class="chapter" data-level="0.2" data-path="index.html"><a href="index.html#acknowledgements"><i class="fa fa-check"></i><b>0.2</b> Acknowledgements</a></li>
+<li class="chapter" data-level="0.3" data-path="index.html"><a href="index.html#cover-picture"><i class="fa fa-check"></i><b>0.3</b> Cover Picture</a></li>
+<li class="chapter" data-level="0.4" data-path="index.html"><a href="index.html#edition"><i class="fa fa-check"></i><b>0.4</b> Edition</a></li>
+<li class="chapter" data-level="0.5" data-path="index.html"><a href="index.html#statistics"><i class="fa fa-check"></i><b>0.5</b> Statistics</a></li>
+<li class="chapter" data-level="0.6" data-path="index.html"><a href="index.html#using-r"><i class="fa fa-check"></i><b>0.6</b> Using R</a></li>
+<li class="chapter" data-level="0.7" data-path="index.html"><a href="index.html#contacting-me"><i class="fa fa-check"></i><b>0.7</b> Contacting me</a></li>
+<li class="chapter" data-level="0.8" data-path="index.html"><a href="index.html#Links0"><i class="fa fa-check"></i><b>0.8</b> Links</a></li>
+<li class="chapter" data-level="0.9" data-path="index.html"><a href="index.html#chapter-code"><i class="fa fa-check"></i><b>0.9</b> Chapter Code</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="motivation.html"><a href="motivation.html"><i class="fa fa-check"></i><b>1</b> Motivation</a><ul>
+<li class="chapter" data-level="1.1" data-path="motivation.html"><a href="motivation.html#formal-statement"><i class="fa fa-check"></i><b>1.1</b> Formal Statement</a></li>
+<li class="chapter" data-level="1.2" data-path="motivation.html"><a href="motivation.html#Links1"><i class="fa fa-check"></i><b>1.2</b> Links</a></li>
+<li class="chapter" data-level="1.3" data-path="motivation.html"><a href="motivation.html#code"><i class="fa fa-check"></i><b>1.3</b> Code</a></li>
+<li class="chapter" data-level="1.4" data-path="motivation.html"><a href="motivation.html#chapter-code-1"><i class="fa fa-check"></i><b>1.4</b> Chapter Code</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="data-processing.html"><a href="data-processing.html"><i class="fa fa-check"></i><b>2</b> Data Processing</a><ul>
+<li class="chapter" data-level="2.1" data-path="data-processing.html"><a href="data-processing.html#event-types"><i class="fa fa-check"></i><b>2.1</b> Event types</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="data-processing.html"><a href="data-processing.html#latitude-and-longitude"><i class="fa fa-check"></i><b>2.1.1</b> Latitude and Longitude</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="data-processing.html"><a href="data-processing.html#gridded-latitude-and-longitude"><i class="fa fa-check"></i><b>2.2</b> Gridded Latitude and Longitude</a></li>
+<li class="chapter" data-level="2.3" data-path="data-processing.html"><a href="data-processing.html#angle-of-the-sun"><i class="fa fa-check"></i><b>2.3</b> Angle of the sun</a></li>
+<li class="chapter" data-level="2.4" data-path="data-processing.html"><a href="data-processing.html#formal-statement-1"><i class="fa fa-check"></i><b>2.4</b> Formal statement</a></li>
+<li class="chapter" data-level="2.5" data-path="data-processing.html"><a href="data-processing.html#code-1"><i class="fa fa-check"></i><b>2.5</b> Code</a></li>
+<li class="chapter" data-level="2.6" data-path="data-processing.html"><a href="data-processing.html#chapter-code-2"><i class="fa fa-check"></i><b>2.6</b> Chapter Code</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="key-result.html"><a href="key-result.html"><i class="fa fa-check"></i><b>3</b> Key result</a><ul>
+<li class="chapter" data-level="3.1" data-path="key-result.html"><a href="key-result.html#formal-statement-2"><i class="fa fa-check"></i><b>3.1</b> Formal Statement</a></li>
+<li class="chapter" data-level="3.2" data-path="key-result.html"><a href="key-result.html#chapter-code-3"><i class="fa fa-check"></i><b>3.2</b> Chapter Code</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="it-is-not-dependence.html"><a href="it-is-not-dependence.html"><i class="fa fa-check"></i><b>4</b> It is not dependence</a><ul>
+<li class="chapter" data-level="4.1" data-path="it-is-not-dependence.html"><a href="it-is-not-dependence.html#formal-statement-3"><i class="fa fa-check"></i><b>4.1</b> Formal Statement</a></li>
+<li class="chapter" data-level="4.2" data-path="it-is-not-dependence.html"><a href="it-is-not-dependence.html#chapter-code-4"><i class="fa fa-check"></i><b>4.2</b> Chapter Code</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="it-is-not-masking.html"><a href="it-is-not-masking.html"><i class="fa fa-check"></i><b>5</b> It is not masking</a><ul>
+<li class="chapter" data-level="5.1" data-path="it-is-not-masking.html"><a href="it-is-not-masking.html#formal-statement-4"><i class="fa fa-check"></i><b>5.1</b> Formal Statement</a></li>
+<li class="chapter" data-level="5.2" data-path="it-is-not-masking.html"><a href="it-is-not-masking.html#links"><i class="fa fa-check"></i><b>5.2</b> Links</a></li>
+<li class="chapter" data-level="5.3" data-path="it-is-not-masking.html"><a href="it-is-not-masking.html#chapter-code-5"><i class="fa fa-check"></i><b>5.3</b> Chapter Code</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="it-is-not-seasonal.html"><a href="it-is-not-seasonal.html"><i class="fa fa-check"></i><b>6</b> It is not seasonal</a><ul>
+<li class="chapter" data-level="6.1" data-path="it-is-not-seasonal.html"><a href="it-is-not-seasonal.html#formal-statement-5"><i class="fa fa-check"></i><b>6.1</b> Formal statement</a></li>
+<li class="chapter" data-level="6.2" data-path="it-is-not-seasonal.html"><a href="it-is-not-seasonal.html#chapter-code-6"><i class="fa fa-check"></i><b>6.2</b> Chapter Code</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="it-is-not-the-moon.html"><a href="it-is-not-the-moon.html"><i class="fa fa-check"></i><b>7</b> It is not the moon</a><ul>
+<li class="chapter" data-level="7.1" data-path="it-is-not-the-moon.html"><a href="it-is-not-the-moon.html#absolute-difference"><i class="fa fa-check"></i><b>7.1</b> Absolute difference</a></li>
+<li class="chapter" data-level="7.2" data-path="it-is-not-the-moon.html"><a href="it-is-not-the-moon.html#relative"><i class="fa fa-check"></i><b>7.2</b> Relative</a></li>
+<li class="chapter" data-level="7.3" data-path="it-is-not-the-moon.html"><a href="it-is-not-the-moon.html#formal-statement-6"><i class="fa fa-check"></i><b>7.3</b> Formal Statement</a></li>
+<li class="chapter" data-level="7.4" data-path="it-is-not-the-moon.html"><a href="it-is-not-the-moon.html#links-1"><i class="fa fa-check"></i><b>7.4</b> Links</a></li>
+<li class="chapter" data-level="7.5" data-path="it-is-not-the-moon.html"><a href="it-is-not-the-moon.html#chapter-code-7"><i class="fa fa-check"></i><b>7.5</b> Chapter Code</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="it-is-not-uniform.html"><a href="it-is-not-uniform.html"><i class="fa fa-check"></i><b>8</b> It is not uniform</a><ul>
+<li class="chapter" data-level="8.1" data-path="it-is-not-uniform.html"><a href="it-is-not-uniform.html#formal-statement-7"><i class="fa fa-check"></i><b>8.1</b> Formal Statement</a></li>
+<li class="chapter" data-level="8.2" data-path="it-is-not-uniform.html"><a href="it-is-not-uniform.html#chapter-code-8"><i class="fa fa-check"></i><b>8.2</b> Chapter Code</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="japanese-earthquakes-are-the-same.html"><a href="japanese-earthquakes-are-the-same.html"><i class="fa fa-check"></i><b>9</b> Japanese earthquakes are the same</a><ul>
+<li class="chapter" data-level="9.1" data-path="japanese-earthquakes-are-the-same.html"><a href="japanese-earthquakes-are-the-same.html#formal-statement-8"><i class="fa fa-check"></i><b>9.1</b> Formal Statement</a></li>
+<li class="chapter" data-level="9.2" data-path="japanese-earthquakes-are-the-same.html"><a href="japanese-earthquakes-are-the-same.html#Links9"><i class="fa fa-check"></i><b>9.2</b> Links</a></li>
+<li class="chapter" data-level="9.3" data-path="japanese-earthquakes-are-the-same.html"><a href="japanese-earthquakes-are-the-same.html#chapter-code-9"><i class="fa fa-check"></i><b>9.3</b> Chapter Code</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="the-continental-united-states-is-similar.html"><a href="the-continental-united-states-is-similar.html"><i class="fa fa-check"></i><b>10</b> The continental United States is similar</a><ul>
+<li class="chapter" data-level="10.1" data-path="the-continental-united-states-is-similar.html"><a href="the-continental-united-states-is-similar.html#formal-statement-9"><i class="fa fa-check"></i><b>10.1</b> Formal Statement</a></li>
+<li class="chapter" data-level="10.2" data-path="the-continental-united-states-is-similar.html"><a href="the-continental-united-states-is-similar.html#Links10"><i class="fa fa-check"></i><b>10.2</b> Links</a></li>
+<li class="chapter" data-level="10.3" data-path="the-continental-united-states-is-similar.html"><a href="the-continental-united-states-is-similar.html#chapter-code-10"><i class="fa fa-check"></i><b>10.3</b> Chapter Code</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="italian-earthquakes-are-the-same.html"><a href="italian-earthquakes-are-the-same.html"><i class="fa fa-check"></i><b>11</b> Italian earthquakes are the same</a><ul>
+<li class="chapter" data-level="11.1" data-path="italian-earthquakes-are-the-same.html"><a href="italian-earthquakes-are-the-same.html#formal-statement-10"><i class="fa fa-check"></i><b>11.1</b> Formal Statement</a></li>
+<li class="chapter" data-level="11.2" data-path="italian-earthquakes-are-the-same.html"><a href="italian-earthquakes-are-the-same.html#Links11"><i class="fa fa-check"></i><b>11.2</b> Links</a></li>
+<li class="chapter" data-level="11.3" data-path="italian-earthquakes-are-the-same.html"><a href="italian-earthquakes-are-the-same.html#chapter-code-11"><i class="fa fa-check"></i><b>11.3</b> Chapter Code</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="hawaii-is-similar.html"><a href="hawaii-is-similar.html"><i class="fa fa-check"></i><b>12</b> Hawaii is similar</a><ul>
+<li class="chapter" data-level="12.1" data-path="hawaii-is-similar.html"><a href="hawaii-is-similar.html#formal-statement-11"><i class="fa fa-check"></i><b>12.1</b> Formal Statement</a></li>
+<li class="chapter" data-level="12.2" data-path="hawaii-is-similar.html"><a href="hawaii-is-similar.html#Links12"><i class="fa fa-check"></i><b>12.2</b> Links</a></li>
+<li class="chapter" data-level="12.3" data-path="hawaii-is-similar.html"><a href="hawaii-is-similar.html#chapter-code-12"><i class="fa fa-check"></i><b>12.3</b> Chapter Code</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="the-philippines-is-similar.html"><a href="the-philippines-is-similar.html"><i class="fa fa-check"></i><b>13</b> The Philippines is similar</a><ul>
+<li class="chapter" data-level="13.1" data-path="the-philippines-is-similar.html"><a href="the-philippines-is-similar.html#formal-statement-12"><i class="fa fa-check"></i><b>13.1</b> Formal Statement</a></li>
+<li class="chapter" data-level="13.2" data-path="the-philippines-is-similar.html"><a href="the-philippines-is-similar.html#Links13"><i class="fa fa-check"></i><b>13.2</b> Links</a></li>
+<li class="chapter" data-level="13.3" data-path="the-philippines-is-similar.html"><a href="the-philippines-is-similar.html#chapter-code-13"><i class="fa fa-check"></i><b>13.3</b> Chapter Code</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="thailand-is-similar.html"><a href="thailand-is-similar.html"><i class="fa fa-check"></i><b>14</b> Thailand is similar</a><ul>
+<li class="chapter" data-level="14.1" data-path="thailand-is-similar.html"><a href="thailand-is-similar.html#formal-statement-13"><i class="fa fa-check"></i><b>14.1</b> Formal Statement</a></li>
+<li class="chapter" data-level="14.2" data-path="hawaii-is-similar.html"><a href="hawaii-is-similar.html#Links12"><i class="fa fa-check"></i><b>14.2</b> Links</a></li>
+<li class="chapter" data-level="14.3" data-path="thailand-is-similar.html"><a href="thailand-is-similar.html#chapter-code-14"><i class="fa fa-check"></i><b>14.3</b> Chapter Code</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="taiwan-is-not-similar.html"><a href="taiwan-is-not-similar.html"><i class="fa fa-check"></i><b>15</b> Taiwan is not similar</a><ul>
+<li class="chapter" data-level="15.1" data-path="taiwan-is-not-similar.html"><a href="taiwan-is-not-similar.html#formal-statement-14"><i class="fa fa-check"></i><b>15.1</b> Formal Statement</a></li>
+<li class="chapter" data-level="15.2" data-path="taiwan-is-not-similar.html"><a href="taiwan-is-not-similar.html#Links15"><i class="fa fa-check"></i><b>15.2</b> Links</a></li>
+<li class="chapter" data-level="15.3" data-path="taiwan-is-not-similar.html"><a href="taiwan-is-not-similar.html#chapter-code-15"><i class="fa fa-check"></i><b>15.3</b> Chapter Code</a></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="australia-is-similar.html"><a href="australia-is-similar.html"><i class="fa fa-check"></i><b>16</b> Australia is similar</a><ul>
+<li class="chapter" data-level="16.1" data-path="australia-is-similar.html"><a href="australia-is-similar.html#formal-statement-15"><i class="fa fa-check"></i><b>16.1</b> Formal Statement</a></li>
+<li class="chapter" data-level="16.2" data-path="australia-is-similar.html"><a href="australia-is-similar.html#Links16"><i class="fa fa-check"></i><b>16.2</b> Links</a></li>
+<li class="chapter" data-level="16.3" data-path="australia-is-similar.html"><a href="australia-is-similar.html#chapter-code-16"><i class="fa fa-check"></i><b>16.3</b> Chapter Code</a></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="it-is-gravity.html"><a href="it-is-gravity.html"><i class="fa fa-check"></i><b>17</b> It is gravity</a><ul>
+<li class="chapter" data-level="17.1" data-path="it-is-gravity.html"><a href="it-is-gravity.html#gravitational-force-differentials"><i class="fa fa-check"></i><b>17.1</b> Gravitational force differentials</a></li>
+<li class="chapter" data-level="17.2" data-path="it-is-gravity.html"><a href="it-is-gravity.html#formal-statement-16"><i class="fa fa-check"></i><b>17.2</b> Formal Statement</a></li>
+<li class="chapter" data-level="17.3" data-path="it-is-gravity.html"><a href="it-is-gravity.html#chapter-code-17"><i class="fa fa-check"></i><b>17.3</b> Chapter Code</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://thoughtfulbloke.github.io/eqnz/night_tremors.pdf">pdf version</a></li>
+<li><a href="https://thoughtfulbloke.github.io/eqnz/night_tremors.epub">epub version</a></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Night Tremors: There are more earthquakes at night</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="japanese-earthquakes-are-the-same" class="section level1">
+<h1><span class="header-section-number">Chapter 9</span> Japanese earthquakes are the same</h1>
+<p>One concern expressed to me is that even if it is a genuine effect, it might just be a New Zealand quirk, rather than a global effect.</p>
+<p>A replication in science is when you conduct the same analysis with different data, and see if you reach a similar conclusion. Providing I have earthquake time, location, and magnitude it is easy to repeat the analysis as I just rerun the computer code, and there are many countries that have independently gathered their own earthquake data on their own seismographs. The main way I chose countries was that I could easily find the earthquake collections with an English language web search.</p>
+<p>Japan is the source of the best, most detailed, earthquake data. To access the earthquake catalogue, you must register(<a href="japanese-earthquakes-are-the-same.html#Links9">Link 1</a>), and can then download earthquake information. If you do download 5 years of earthquake data by requesting seven days of earthquakes and saving the web page result, the code is an example of extracting and combining the earthquake data to form a five year set for all Japan.</p>
+<p>For the same period as the New Zealand Data (from September 2011 to September 2016) Earthquakes data from the Japan Meteorological Agency, there are 719348 events of depth greater than 0 and magnitude greater than 0.</p>
+<table>
+<caption><span id="tab:unnamed-chunk-7">Table 2.1: </span>Data description</caption>
+<thead>
+<tr class="header">
+<th align="left">feature</th>
+<th align="left">value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Earliest (UTC)</td>
+<td align="left">2011-09-01 00:02:10</td>
+</tr>
+<tr class="even">
+<td align="left">Latest (UTC)</td>
+<td align="left">2016-08-31 23:58:56</td>
+</tr>
+<tr class="odd">
+<td align="left">Northernmost</td>
+<td align="left">54.007</td>
+</tr>
+<tr class="even">
+<td align="left">Southernmost</td>
+<td align="left">18.335</td>
+</tr>
+<tr class="odd">
+<td align="left">Westmost</td>
+<td align="left">120.1</td>
+</tr>
+<tr class="even">
+<td align="left">Eastmost</td>
+<td align="left">158.506</td>
+</tr>
+<tr class="odd">
+<td align="left">Percent &lt; Mag 3</td>
+<td align="left">94.47</td>
+</tr>
+<tr class="even">
+<td align="left">total entries</td>
+<td align="left">719348</td>
+</tr>
+<tr class="odd">
+<td align="left">nighttime quakes</td>
+<td align="left">385156</td>
+</tr>
+</tbody>
+</table>
+<p>Of the 719348 in the data, 385156 occurred at night, a proportion of 0.5354. A seven sigma confidence interval for the proportion of earthquakes occurring at night would be 0.5313 to 0.5395. This confidence interval in no way coincides with 0.5, and using one so large we can confidently say that if earthquakes occur randomly, this result would never occur.</p>
+<div class="figure"><span id="fig:unnamed-chunk-8"></span>
+<img src="009_japan_files/figure-html/unnamed-chunk-8-1.png" alt="Proportion of earthquakes at night: Japan. n=719348" width="672" />
+<p class="caption">
+Figure 2.4: Proportion of earthquakes at night: Japan. n=719348
+</p>
+</div>
+<p>While the proportion is not as high as New Zealand’s, the greater number of earthquakes means that the confidence intervals are smaller, so there is more certainty that the rate of night earthquakes is not 50%</p>
+<div class="figure"><span id="fig:unnamed-chunk-9"></span>
+<img src="009_japan_files/figure-html/unnamed-chunk-9-1.png" alt="Proportion of night earthquakes by magnitude, Japan. n=719348" width="672" />
+<p class="caption">
+Figure 7.2: Proportion of night earthquakes by magnitude, Japan. n=719348
+</p>
+</div>
+<p>Examining magnitude, there is a similar pattern to New Zealand. Unequivocally high numbers of earthquakes in the low magnitudes falling towards 50% as magnitude increases, then becoming unclear as sample size decreases.</p>
+<p>Taking the expected, and calculating the angle by 10s, and the day night slope.</p>
+<div class="figure"><span id="fig:unnamed-chunk-11"></span>
+<img src="009_japan_files/figure-html/unnamed-chunk-11-1.png" alt="Over- and under- supply of earthquakes by angle of the sun (10 degree steps). Japan. n=719348" width="672" />
+<p class="caption">
+Figure 2.5: Over- and under- supply of earthquakes by angle of the sun (10 degree steps). Japan. n=719348
+</p>
+</div>
+<p>The trend for the number of earthquakes by 10 degree arc of the sun is similar to New Zealand- undersupplies at 30 degrees above the horizon and oversupplies 30-40 degrees below the horizon. The Japanese data is skewed slightly compared to New Zealand, as the oversupply is clearly at its greatest when the sun is 30 to 40 degrees below the horizon to the east.</p>
+<div id="formal-statement-8" class="section level2">
+<h2><span class="header-section-number">9.1</span> Formal Statement</h2>
+<p>Earthquakes in Japan show the same pattern as New Zealand, displaying an oversupply of earthquakes at night that is not the result of chance. The magnitude pattern of the oversupply is similar to New Zealand’s pattern, and the pattern with respect to the position of the sun is similar to that of New Zealand.</p>
+</div>
+<div id="Links9" class="section level2">
+<h2><span class="header-section-number">9.2</span> Links</h2>
+<p>1 - JMA Unified Hypocentre Catalogs <a href="https://hinetwww11.bosai.go.jp/auth/?LANG" class="uri">https://hinetwww11.bosai.go.jp/auth/?LANG</a>=</p>
+</div>
+<div id="chapter-code-9" class="section level2">
+<h2><span class="header-section-number">9.3</span> Chapter Code</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## ----setup, include=FALSE------------------------------------------------
+knitr::opts_chunk$<span class="kw">set</span>(<span class="dt">echo =</span> <span class="ot">FALSE</span>)
+
+## ---- warnings=FALSE, errors=FALSE, message=FALSE------------------------
+<span class="kw">library</span>(geosphere)
+<span class="kw">library</span>(lubridate, <span class="dt">quietly=</span><span class="ot">TRUE</span>)
+<span class="kw">library</span>(dplyr)
+<span class="kw">library</span>(binom)
+<span class="kw">library</span>(ggplot2)
+<span class="kw">library</span>(maps)
+<span class="kw">library</span>(mapdata)
+<span class="kw">library</span>(parallel)
+<span class="kw">library</span>(readr)
+<span class="kw">library</span>(plotrix)
+<span class="kw">library</span>(tidyr)
+<span class="kw">library</span>(maptools)
+<span class="kw">Sys.setenv</span>(<span class="dt">TZ =</span> <span class="st">&quot;UTC&quot;</span>) 
+
+
+
+## ----warnings=FALSE, errors=FALSE, message=FALSE-------------------------
+<span class="co"># Note:</span>
+<span class="co"># Data is from the the Japan Meteorological Agency Unified Hypocenter Catalogs  https://hinetwww11.bosai.go.jp/auth/?LANG=</span>
+<span class="co"># As this service requires registration to access the data, this script proceeds from the point that a registered user </span>
+<span class="co"># has used the web catalogue to save web pages of earthquake results from the catalog, with each saved file having the suffix .html</span>
+<span class="co"># the files are stored in a folder called JMA_web_results</span>
+<span class="co"># the files are fixed width entries embedded within html</span>
+
+if(!<span class="kw">dir.exists</span>(<span class="st">&quot;../othereqdata&quot;</span>)){
+  <span class="kw">dir.create</span>(<span class="st">&quot;../othereqdata&quot;</span>)
+}
+if(!<span class="kw">file.exists</span>(<span class="st">&quot;../othereqdata/eq_japan_raw.RData&quot;</span>)){
+
+extract_eq &lt;-<span class="st"> </span>function(x){
+  wbtbl &lt;-<span class="st"> </span><span class="kw">read_fwf</span>(<span class="dt">file=</span><span class="kw">paste</span>(<span class="st">&quot;../japan/JMA_web_results/&quot;</span>,x, <span class="dt">sep=</span><span class="st">&quot;&quot;</span>), 
+                    <span class="dt">col_positions=</span><span class="kw">fwf_positions</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">32</span>,<span class="dv">46</span>,<span class="dv">61</span>,<span class="dv">74</span>, <span class="dv">84</span>), <span class="kw">c</span>(<span class="dv">19</span>,<span class="dv">37</span>,<span class="dv">52</span>,<span class="dv">66</span>,<span class="dv">78</span>, <span class="ot">NA</span>), <span class="dt">col_names =</span> <span class="kw">c</span>(<span class="st">&quot;date_raw&quot;</span>, <span class="st">&quot;latitude&quot;</span>, <span class="st">&quot;longitude&quot;</span>, <span class="st">&quot;depth&quot;</span>, <span class="st">&quot;magnitude&quot;</span>, <span class="st">&quot;description&quot;</span>)),
+                    <span class="dt">skip=</span><span class="dv">304</span>)
+  <span class="co">#this does generate a lot of errors, but that is OK, it is haivng trouble with the stuff we don&#39;t actually want</span>
+  <span class="kw">return</span>(wbtbl)
+}
+
+j_e &lt;-<span class="st"> </span><span class="kw">lapply</span>(<span class="kw">list.files</span>(<span class="dt">path=</span><span class="st">&quot;../japan/JMA_web_results/&quot;</span>, <span class="dt">pattern=</span><span class="st">&quot;*html&quot;</span>),extract_eq)
+eqjp &lt;-<span class="st"> </span><span class="kw">bind_rows</span>(j_e)
+<span class="kw">rm</span>(j_e)
+eqjp$time_UTC &lt;-<span class="st"> </span><span class="kw">ymd_hms</span>(eqjp$date_raw, <span class="dt">tz=</span><span class="st">&quot;UTC&quot;</span>) -<span class="st"> </span><span class="kw">hours</span>(<span class="dv">9</span>) <span class="co">#time in Japanese standard so convert to UTC</span>
+
+eqjp &lt;-<span class="st"> </span>eqjp[<span class="kw">complete.cases</span>(eqjp),]
+eqjp$latitude &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(eqjp$latitude)
+eqjp$longitude &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(eqjp$longitude)
+eqjp$depth &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(eqjp$depth)
+eqjp$magnitude &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(<span class="kw">gsub</span>(<span class="st">&quot;[A-Z]+&quot;</span>, <span class="st">&quot;&quot;</span>,eqjp$magnitude, <span class="dt">ignore.case =</span> <span class="ot">TRUE</span>))
+eq_national &lt;-<span class="st"> </span>eqjp %&gt;%<span class="st"> </span><span class="kw">filter</span>(depth &gt;<span class="st"> </span><span class="dv">0</span> &amp;<span class="st"> </span>magnitude &gt;=<span class="st"> </span><span class="dv">0</span> &amp;
+<span class="st">                  </span>time_UTC &gt;=<span class="st"> </span><span class="kw">as.POSIXct</span>(<span class="st">&quot;2011-09-01T00:00:00&quot;</span>, <span class="dt">format=</span><span class="st">&quot;%Y-%m-%dT%H:%M:%S&quot;</span>, <span class="dt">tz=</span><span class="st">&quot;UTC&quot;</span>) &amp;
+<span class="st">                  </span>time_UTC &lt;<span class="st"> </span><span class="kw">as.POSIXct</span>(<span class="st">&quot;2016-09-01T00:00:00&quot;</span>, <span class="dt">format=</span><span class="st">&quot;%Y-%m-%dT%H:%M:%S&quot;</span>, <span class="dt">tz=</span><span class="st">&quot;UTC&quot;</span>)) %&gt;%
+<span class="st">  </span><span class="kw">distinct</span>()  %&gt;%<span class="st"> </span><span class="kw">arrange</span>(time_UTC) 
+
+<span class="kw">save</span>(eq_national, <span class="dt">file=</span><span class="st">&quot;../othereqdata/eq_japan_raw.RData&quot;</span>)
+}
+<span class="kw">rm</span>(<span class="dt">list=</span><span class="kw">ls</span>())
+
+## ------------------------------------------------------------------------
+
+if(!<span class="kw">file.exists</span>(<span class="st">&quot;../othereqdata/eq_japan_processed.RData&quot;</span>)){
+<span class="kw">load</span>(<span class="st">&quot;../othereqdata/eq_japan_raw.RData&quot;</span>)
+southmost &lt;-<span class="st"> </span><span class="kw">min</span>(eq_national$latitude)
+westmost &lt;-<span class="st"> </span><span class="kw">min</span>(eq_national$longitude)
+
+eq_national &lt;-<span class="st"> </span>eq_national %&gt;%<span class="st"> </span><span class="kw">filter</span>(
+  magnitude &gt;<span class="st"> </span><span class="dv">0</span>, depth &gt;<span class="st"> </span><span class="dv">0</span>) %&gt;%<span class="st"> </span><span class="kw">rowwise</span>() %&gt;%<span class="st"> </span><span class="kw">mutate</span>(
+  <span class="dt">eq_gridpoint_y =</span> <span class="kw">round</span>(<span class="kw">distVincentyEllipsoid</span>(<span class="kw">c</span>(longitude, southmost), <span class="kw">c</span>(longitude,latitude)) /<span class="dv">50000</span>,<span class="dv">0</span>),
+  <span class="dt">eq_gridpoint_x =</span> <span class="kw">round</span>(<span class="kw">distVincentyEllipsoid</span>(<span class="kw">c</span>(westmost, latitude), <span class="kw">c</span>(longitude,latitude)) /<span class="dv">50000</span>,<span class="dv">0</span>),
+  <span class="dt">eq_roundedlat =</span> <span class="kw">destPoint</span>(<span class="dt">p=</span><span class="kw">c</span>(longitude, southmost), <span class="dt">b=</span><span class="dv">0</span>, <span class="dt">d=</span>eq_gridpoint_y*<span class="dv">50000</span>)[<span class="dv">2</span>],
+  <span class="dt">eq_roundedlong =</span> <span class="kw">destPoint</span>(<span class="dt">p=</span><span class="kw">c</span>(westmost, eq_roundedlat), <span class="dt">b=</span><span class="dv">90</span>, <span class="dt">d=</span>eq_gridpoint_x*<span class="dv">50000</span>)[<span class="dv">1</span>]) %&gt;%<span class="st"> </span><span class="kw">ungroup</span>()
+<span class="co"># use maptools to calculate solar angles</span>
+sun_angles &lt;-<span class="st"> </span><span class="kw">solarpos</span>(<span class="kw">matrix</span>(<span class="kw">c</span>(eq_national$longitude, eq_national$latitude), <span class="dt">ncol=</span><span class="dv">2</span>), eq_national$time_UTC)
+<span class="kw">colnames</span>(sun_angles) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;eq_compass&quot;</span>, <span class="st">&quot;eq_vertical&quot;</span>)
+eq_national &lt;-<span class="st"> </span><span class="kw">cbind</span>(eq_national,sun_angles)
+eq_national$eq_is_night &lt;-<span class="st"> </span>eq_national$eq_vertical &lt;<span class="st"> </span><span class="dv">0</span>
+<span class="co"># calculate 360 degree as well as vertical</span>
+eq_national &lt;-<span class="st"> </span>eq_national %&gt;%<span class="st"> </span><span class="kw">mutate</span>(<span class="dt">eq_angle_360 =</span> eq_vertical,
+                                 <span class="dt">eq_angle_360 =</span> <span class="kw">ifelse</span>(eq_compass &gt;<span class="st"> </span><span class="dv">180</span>, <span class="dv">180</span> -<span class="st"> </span>eq_angle_360, eq_angle_360),
+                                 <span class="dt">eq_angle_360 =</span> <span class="kw">ifelse</span>(eq_vertical &lt;<span class="st"> </span><span class="dv">0</span> &amp;<span class="st"> </span>eq_compass &lt;=<span class="st"> </span><span class="dv">180</span>, <span class="dv">360</span> +<span class="st"> </span>eq_angle_360, eq_angle_360),
+                                 <span class="dt">eq_angle_by_10 =</span> <span class="kw">floor</span>(eq_angle_360 /<span class="dv">10</span>) *<span class="st"> </span><span class="dv">10</span>)
+<span class="kw">save</span>(eq_national, <span class="dt">file=</span><span class="st">&quot;../othereqdata/eq_japan_processed.RData&quot;</span>)
+}
+<span class="kw">rm</span>(<span class="dt">list=</span><span class="kw">ls</span>())
+
+## ------------------------------------------------------------------------
+if(!<span class="kw">file.exists</span>(<span class="st">&quot;../othereqdata/eq_japan_expected.RData&quot;</span>)){
+<span class="kw">load</span>(<span class="st">&quot;../othereqdata/eq_japan_processed.RData&quot;</span>)
+
+lat_range &lt;-<span class="st"> </span><span class="kw">unique</span>(eq_national$eq_roundedlat)
+long_med &lt;-<span class="st"> </span><span class="kw">median</span>(eq_national$eq_roundedlong)
+
+<span class="co"># 1 minute intervals for a full solar year</span>
+time1 &lt;-<span class="st"> </span><span class="kw">ymd_hms</span>(<span class="st">&quot;2015-01-01 00:00:00&quot;</span>)
+time2 &lt;-<span class="st"> </span><span class="kw">ymd_hms</span>(<span class="st">&quot;2015-12-31 23:59:00&quot;</span>)
+time_sq &lt;-<span class="st"> </span><span class="kw">seq.POSIXt</span>(<span class="dt">from=</span>time1, <span class="dt">to=</span>time2, <span class="dt">by=</span><span class="st">&quot;min&quot;</span>)
+
+
+calc_angs &lt;-<span class="st"> </span>function(x, longinput, timeinput){
+  <span class="kw">library</span>(dplyr)
+  sun_angles &lt;-<span class="st"> </span>maptools::<span class="kw">solarpos</span>(<span class="kw">matrix</span>(<span class="kw">c</span>(longinput, x), <span class="dt">ncol=</span><span class="dv">2</span>), timeinput)
+  <span class="kw">colnames</span>(sun_angles) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;eq_compass&quot;</span>, <span class="st">&quot;eq_vertical&quot;</span>)
+<span class="co"># calculate 360 degree as well as vertical</span>
+site_summary &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(sun_angles) %&gt;%<span class="st"> </span><span class="kw">mutate</span>(<span class="dt">eq_angle_360 =</span> eq_vertical,
+                                    <span class="dt">eq_angle_360 =</span> <span class="kw">ifelse</span>(eq_compass &gt;<span class="st"> </span><span class="dv">180</span>, <span class="dv">180</span> -<span class="st"> </span>eq_angle_360, eq_angle_360),
+                                    <span class="dt">eq_angle_360 =</span> <span class="kw">ifelse</span>(eq_vertical &lt;<span class="st"> </span><span class="dv">0</span> &amp;<span class="st"> </span>eq_compass &lt;=<span class="st"> </span><span class="dv">180</span>, <span class="dv">360</span> +<span class="st"> </span>eq_angle_360, eq_angle_360),
+                                    <span class="dt">eq_angle_by_10 =</span> <span class="kw">floor</span>(eq_angle_360 /<span class="dv">10</span>) *<span class="st"> </span><span class="dv">10</span>) %&gt;%
+<span class="st">  </span><span class="kw">group_by</span>(eq_angle_by_10) %&gt;%<span class="st"> </span><span class="kw">summarise</span>(<span class="dt">total=</span> <span class="kw">n</span>())
+  site_summary$lat &lt;-<span class="st"> </span>x
+  <span class="kw">return</span>(site_summary)
+}
+###
+<span class="co"># Calculate the number of cores</span>
+no_cores &lt;-<span class="st"> </span><span class="kw">detectCores</span>() -<span class="st"> </span><span class="dv">1</span>
+<span class="co"># Initiate cluster</span>
+cl &lt;-<span class="st"> </span><span class="kw">makeCluster</span>(no_cores)
+<span class="kw">clusterExport</span>(cl, <span class="dt">varlist=</span><span class="kw">c</span>(<span class="st">&quot;lat_range&quot;</span>, <span class="st">&quot;long_med&quot;</span>, <span class="st">&quot;time_sq&quot;</span>, <span class="st">&quot;calc_angs&quot;</span>))
+list_angs &lt;-<span class="st"> </span><span class="kw">parLapply</span>(cl, lat_range,
+                         function(x){<span class="kw">calc_angs</span>(<span class="dt">x=</span>x, <span class="dt">longinput=</span>long_med, <span class="dt">timeinput=</span>time_sq)})
+<span class="kw">stopCluster</span>(cl)
+###
+<span class="kw">library</span>(tidyr)
+anglong &lt;-<span class="st"> </span><span class="kw">bind_rows</span>(list_angs)
+angwide &lt;-<span class="st"> </span><span class="kw">spread</span>(anglong, <span class="dt">key=</span>eq_angle_by_10,<span class="dt">value=</span>total)
+<span class="kw">rm</span>(anglong, list_angs, time_sq)
+<span class="kw">save</span>(angwide, <span class="dt">file=</span><span class="st">&quot;../othereqdata/eq_japan_expected.RData&quot;</span>)
+}
+<span class="kw">rm</span>(<span class="dt">list=</span><span class="kw">ls</span>())
+
+## ------------------------------------------------------------------------
+<span class="kw">load</span>(<span class="st">&quot;../othereqdata/eq_japan_processed.RData&quot;</span>)
+<span class="kw">load</span>(<span class="st">&quot;../othereqdata/eq_japan_expected.RData&quot;</span>)
+eq_night =<span class="st"> </span><span class="kw">sum</span>(eq_national$eq_is_night)
+eq_total =<span class="st"> </span><span class="kw">nrow</span>(eq_national)
+ bands &lt;-<span class="st"> </span><span class="kw">rev</span>(<span class="kw">c</span>(<span class="st">&#39;#ffffcc&#39;</span>,<span class="st">&#39;#d9f0a3&#39;</span>,<span class="st">&#39;#addd8e&#39;</span>,<span class="st">&#39;#78c679&#39;</span>,<span class="st">&#39;#41ab5d&#39;</span>,<span class="st">&#39;#238443&#39;</span>,<span class="st">&#39;#005a32&#39;</span>))
+ sigmas &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">0.682689492137086</span>,
+ <span class="fl">0.954499736103642</span>,
+ <span class="fl">0.997300203936740</span>,
+ <span class="fl">0.999936657516334</span>,
+ <span class="fl">0.999999426696856</span>,
+ <span class="fl">0.999999998026825</span>,
+ <span class="fl">0.999999999997440</span>)
+ lbls &lt;-<span class="st"> </span><span class="kw">c</span>(
+ <span class="st">&quot;1 sigma&quot;</span>, <span class="st">&quot;2 sigma&quot;</span>,
+ <span class="st">&quot;3 sigma&quot;</span>, <span class="st">&quot;4 sigma&quot;</span>,
+ <span class="st">&quot;5 sigma&quot;</span>, <span class="st">&quot;6 sigma&quot;</span>,
+ <span class="st">&quot;7 sigma&quot;</span>)
+typs &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>)
+weights &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>)
+old_par=<span class="kw">par</span>()
+
+## ------------------------------------------------------------------------
+bt &lt;-<span class="st"> </span><span class="kw">binom.test</span>(eq_night ,eq_total, <span class="dt">conf.level=</span> .<span class="dv">999999999997440</span>)
+
+## ------------------------------------------------------------------------
+feature &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Earliest (UTC)&quot;</span>, <span class="st">&quot;Latest (UTC)&quot;</span>,
+             <span class="st">&quot;Northernmost&quot;</span>, <span class="st">&quot;Southernmost&quot;</span>,
+             <span class="st">&quot;Westmost&quot;</span>, <span class="st">&quot;Eastmost&quot;</span>,
+             <span class="st">&quot;Percent &lt; Mag 3&quot;</span>, <span class="st">&quot;total entries&quot;</span>,
+             <span class="st">&quot;nighttime quakes&quot;</span>)
+value &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="kw">as.character</span>(<span class="kw">min</span>(eq_national$time_UTC)),
+           <span class="kw">as.character</span>(<span class="kw">max</span>(eq_national$time_UTC)),
+           <span class="kw">as.character</span>(<span class="kw">max</span>(eq_national$latitude)),
+           <span class="kw">as.character</span>(<span class="kw">min</span>(eq_national$latitude)),
+           <span class="kw">as.character</span>(<span class="kw">min</span>(eq_national$longitude)),
+           <span class="kw">as.character</span>(<span class="kw">max</span>(eq_national$longitude)),
+           <span class="kw">as.character</span>(<span class="kw">round</span>(<span class="dv">100</span>*<span class="kw">sum</span>(eq_national$magnitude &lt;<span class="st"> </span><span class="dv">3</span>)/eq_total,<span class="dv">2</span>)),
+           <span class="kw">as.character</span>(eq_total),
+           <span class="kw">as.character</span>(eq_night))
+<span class="kw">data.frame</span>(feature,value) %&gt;%<span class="st"> </span>knitr::<span class="kw">kable</span>(<span class="dt">caption=</span><span class="st">&quot;Data description&quot;</span>)
+
+## ---- fig.cap=&quot;Proportion of earthquakes at night: Japan. n=719348&quot;------
+### making the basic proportion graph
+eq_night =<span class="st"> </span><span class="kw">sum</span>(eq_national$eq_is_night)
+eq_total =<span class="st"> </span><span class="kw">nrow</span>(eq_national)
+bands &lt;-<span class="st"> </span><span class="kw">rev</span>(<span class="kw">c</span>(<span class="st">&#39;#ffffcc&#39;</span>,<span class="st">&#39;#d9f0a3&#39;</span>,<span class="st">&#39;#addd8e&#39;</span>,<span class="st">&#39;#78c679&#39;</span>,<span class="st">&#39;#41ab5d&#39;</span>,<span class="st">&#39;#238443&#39;</span>,<span class="st">&#39;#005a32&#39;</span>))
+sigmas &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">0.682689492137086</span>,
+            <span class="fl">0.954499736103642</span>,
+            <span class="fl">0.997300203936740</span>,
+            <span class="fl">0.999936657516334</span>,
+            <span class="fl">0.999999426696856</span>,
+            <span class="fl">0.999999998026825</span>,
+            <span class="fl">0.999999999997440</span>)
+lbls &lt;-<span class="st"> </span><span class="kw">c</span>(
+  <span class="st">&quot;1 sigma&quot;</span>, <span class="st">&quot;2 sigma&quot;</span>,
+  <span class="st">&quot;3 sigma&quot;</span>, <span class="st">&quot;4 sigma&quot;</span>,
+  <span class="st">&quot;5 sigma&quot;</span>, <span class="st">&quot;6 sigma&quot;</span>,
+  <span class="st">&quot;7 sigma&quot;</span>)
+typs &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>)
+weights &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>)
+old_par=<span class="kw">par</span>()
+conf_steps &lt;-<span class="st"> </span>function(x, <span class="dt">sigmas=</span>sigmas, <span class="dt">night=</span>eq_night, <span class="dt">total=</span>eq_total){
+  ci_lower &lt;-<span class="st"> </span><span class="kw">binom.confint</span>(night, total, <span class="dt">method=</span><span class="kw">c</span>(<span class="st">&quot;wilson&quot;</span>), <span class="dt">conf.level =</span> sigmas[x])[<span class="dv">1</span>,<span class="dv">5</span>]
+  ci_upper &lt;-<span class="st"> </span><span class="kw">binom.confint</span>(night, total, <span class="dt">method=</span><span class="kw">c</span>(<span class="st">&quot;wilson&quot;</span>), <span class="dt">conf.level =</span> sigmas[x])[<span class="dv">1</span>,<span class="dv">6</span>]
+  ci_data &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">step =</span> x, ci_lower, ci_upper)
+}
+
+ci_spacing &lt;-<span class="st"> </span><span class="kw">lapply</span>(<span class="dv">7</span>:<span class="dv">1</span>, conf_steps, <span class="dt">sigmas=</span>sigmas, <span class="dt">night=</span>eq_night, <span class="dt">total=</span>eq_total)
+ci_steps &lt;-<span class="st"> </span><span class="kw">bind_rows</span>(ci_spacing)
+
+<span class="kw">layout</span>(<span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">2</span>), <span class="dt">ncol=</span><span class="dv">4</span>))
+
+<span class="kw">par</span>(<span class="dt">mar=</span><span class="kw">c</span>(<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">4</span>,<span class="dv">2</span>))
+<span class="kw">plot</span>(<span class="kw">c</span>(<span class="kw">min</span>(<span class="fl">0.5</span>,<span class="kw">floor</span>(<span class="dv">100</span>*ci_steps[<span class="dv">1</span>,<span class="dv">2</span>])/<span class="dv">100</span>), <span class="kw">max</span>(<span class="fl">0.5</span>,<span class="kw">ceiling</span>(<span class="dv">100</span>*ci_steps[<span class="dv">1</span>,<span class="dv">3</span>])/<span class="dv">100</span>)),
+       <span class="dt">y=</span><span class="kw">c</span>(-<span class="dv">3</span>,<span class="dv">8</span>), <span class="dt">type=</span><span class="st">&quot;n&quot;</span>, <span class="dt">bty=</span><span class="st">&quot;n&quot;</span>, <span class="dt">yaxt=</span><span class="st">&quot;n&quot;</span>, <span class="dt">ylab=</span><span class="st">&quot;&quot;</span>,
+       <span class="dt">xlab=</span><span class="st">&quot;Proportion of earthquakes at night&quot;</span>)
+a &lt;-<span class="st"> </span><span class="kw">apply</span>(ci_steps, <span class="dv">1</span>, function(x){<span class="kw">polygon</span>(<span class="kw">c</span>(x[<span class="dv">2</span>], x[<span class="dv">3</span>], x[<span class="dv">3</span>], x[<span class="dv">2</span>]), <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>), <span class="dt">col=</span>bands[x[<span class="dv">1</span>]], <span class="dt">border=</span><span class="ot">NA</span>)})
+<span class="kw">lines</span>(<span class="kw">c</span>(.<span class="dv">5</span>,.<span class="dv">5</span>), <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>), <span class="dt">col=</span><span class="st">&quot;#FFFFFF&quot;</span>)
+<span class="kw">lines</span>(<span class="kw">c</span>(.<span class="dv">5</span>,.<span class="dv">5</span>), <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>), <span class="dt">lty=</span><span class="dv">2</span>, <span class="dt">col=</span><span class="st">&quot;#777777&quot;</span>)
+<span class="kw">lines</span>(<span class="kw">c</span>(eq_night/eq_total,eq_night/eq_total), <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>), <span class="dt">lwd=</span><span class="dv">2</span>)
+
+<span class="kw">par</span>(<span class="dt">mar=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>))
+<span class="kw">plot</span>(<span class="dt">x=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">10</span>), <span class="dt">y=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">10</span>), <span class="dt">type=</span><span class="st">&quot;n&quot;</span>, <span class="dt">bty=</span><span class="st">&quot;n&quot;</span>, <span class="dt">axes=</span><span class="ot">FALSE</span>)
+<span class="kw">legend</span>(<span class="dv">0</span>,<span class="fl">5.5</span>, <span class="dt">legend=</span>lbls, <span class="dt">lty=</span>typs, <span class="dt">lwd=</span>weights, <span class="dt">col=</span>bands, <span class="dt">bty=</span><span class="st">&quot;n&quot;</span>, <span class="dt">xjust=</span><span class="dv">0</span>, <span class="dt">title=</span><span class="st">&quot;Confidence Intervals:&quot;</span>, <span class="dt">y.intersp=</span><span class="fl">1.1</span>, <span class="dt">cex=</span><span class="fl">0.9</span>)
+
+lbls2=<span class="kw">c</span>(<span class="st">&quot;50% Night&quot;</span>, <span class="st">&quot;Actual Proportion&quot;</span>)
+typs2=<span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">1</span>)
+weights2=<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>)
+cls2=<span class="kw">c</span>(<span class="st">&quot;#777777&quot;</span>,<span class="st">&quot;#000000&quot;</span>)
+<span class="kw">legend</span>(<span class="dv">0</span>,<span class="dv">7</span>, <span class="dt">legend=</span>lbls2, <span class="dt">lty=</span>typs2, <span class="dt">lwd=</span>weights2, <span class="dt">col=</span>cls2, <span class="dt">bty=</span><span class="st">&quot;n&quot;</span>, <span class="dt">xjust=</span><span class="dv">0</span>, <span class="dt">title=</span><span class="st">&quot;Legend&quot;</span>, <span class="dt">y.intersp=</span><span class="fl">1.2</span>)
+
+
+
+<span class="kw">par</span>(<span class="dt">mar=</span>old_par$mar)
+<span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>))
+
+
+## ---- fig.cap=&quot;Proportion of night earthquakes by magnitude, Japan. n=719348&quot;----
+old_par=<span class="kw">par</span>()
+grf &lt;-<span class="st"> </span>eq_national %&gt;%<span class="st"> </span><span class="kw">mutate</span>(<span class="dt">floored_mag =</span> <span class="kw">floor</span>(magnitude*<span class="dv">2</span>)/<span class="dv">2</span>) %&gt;%
+<span class="st">  </span><span class="kw">group_by</span>(floored_mag) %&gt;%<span class="st"> </span><span class="kw">summarise</span>(<span class="dt">successes =</span> <span class="kw">sum</span>(eq_is_night), <span class="dt">trials=</span><span class="kw">n</span>())
+
+poly_conf_int &lt;-<span class="st"> </span>function(success, trials, aa, stepsize, sigma, colr){
+  ci &lt;-<span class="st"> </span><span class="kw">binom.confint</span>(success, trials, <span class="dt">method=</span><span class="kw">c</span>(<span class="st">&quot;wilson&quot;</span>), <span class="dt">conf.level =</span> sigma)
+  lower &lt;-<span class="st"> </span>ci[<span class="dv">1</span>,<span class="dv">5</span>] 
+  upper &lt;-<span class="st"> </span>ci[<span class="dv">1</span>,<span class="dv">6</span>] 
+  a &lt;-<span class="st"> </span><span class="kw">polygon</span>(<span class="dt">x=</span><span class="kw">c</span>(aa,aa+stepsize,aa+stepsize,aa), <span class="dt">y=</span><span class="kw">c</span>(upper,upper,lower,lower),
+               <span class="dt">col=</span>colr, <span class="dt">border=</span><span class="ot">NA</span>)
+}
+
+
+plot7sig &lt;-<span class="st"> </span>function(success, trials, aa, stepsize){
+  <span class="kw">library</span>(binom)
+  <span class="co">#bands &lt;- c(&#39;#ffffb2&#39;,&#39;#fed976&#39;,&#39;#feb24c&#39;,&#39;#fd8d3c&#39;,&#39;#fc4e2a&#39;,&#39;#e31a1c&#39;,&#39;#b10026&#39;)</span>
+  bands &lt;-<span class="st"> </span><span class="kw">rev</span>(<span class="kw">c</span>(<span class="st">&#39;#ffffcc&#39;</span>,<span class="st">&#39;#d9f0a3&#39;</span>,<span class="st">&#39;#addd8e&#39;</span>,<span class="st">&#39;#78c679&#39;</span>,<span class="st">&#39;#41ab5d&#39;</span>,<span class="st">&#39;#238443&#39;</span>,<span class="st">&#39;#005a32&#39;</span>))
+  sigmas &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">0.682689492137086</span>,
+              <span class="fl">0.954499736103642</span>,
+              <span class="fl">0.997300203936740</span>,
+              <span class="fl">0.999936657516334</span>,
+              <span class="fl">0.999999426696856</span>,
+              <span class="fl">0.999999998026825</span>,
+              <span class="fl">0.999999999997440</span>)
+  <span class="kw">sapply</span>(<span class="dv">7</span>:<span class="dv">1</span>, function(x){<span class="kw">poly_conf_int</span>(success, trials, aa, stepsize, sigmas[x], bands[x])})
+  a &lt;-<span class="st"> </span><span class="kw">lines</span>(<span class="kw">c</span>(aa, aa +<span class="st"> </span>stepsize), <span class="kw">c</span>(success/trials, success/trials), <span class="dt">lwd=</span><span class="dv">2</span>)
+}
+
+
+lbls &lt;-<span class="st"> </span><span class="kw">c</span>(
+  <span class="st">&quot;1 sigma&quot;</span>, <span class="st">&quot;2 sigma&quot;</span>,
+  <span class="st">&quot;3 sigma&quot;</span>, <span class="st">&quot;4 sigma&quot;</span>,
+  <span class="st">&quot;5 sigma&quot;</span>, <span class="st">&quot;6 sigma&quot;</span>,
+  <span class="st">&quot;7 sigma&quot;</span>)
+typs &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>)
+weights &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>)
+clrs &lt;-<span class="st"> </span><span class="kw">rev</span>(<span class="kw">c</span>(<span class="st">&#39;#ffffcc&#39;</span>,<span class="st">&#39;#d9f0a3&#39;</span>,<span class="st">&#39;#addd8e&#39;</span>,<span class="st">&#39;#78c679&#39;</span>,<span class="st">&#39;#41ab5d&#39;</span>,<span class="st">&#39;#238443&#39;</span>,<span class="st">&#39;#005a32&#39;</span>))
+<span class="co">#clrs &lt;- c(&#39;#ffffb2&#39;,&#39;#fed976&#39;,&#39;#feb24c&#39;,&#39;#fd8d3c&#39;,&#39;#fc4e2a&#39;,&#39;#e31a1c&#39;,&#39;#b10026&#39;)</span>
+
+<span class="kw">layout</span>(<span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">2</span>), <span class="dt">ncol=</span><span class="dv">4</span>))
+<span class="kw">plot</span>(<span class="dt">x=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="kw">max</span>(grf$floored_mag)+<span class="fl">0.5</span>), <span class="dt">y=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>), <span class="dt">type=</span><span class="st">&quot;n&quot;</span>, <span class="dt">bty=</span><span class="st">&quot;n&quot;</span>, <span class="dt">xlab=</span><span class="st">&quot;Magnitude (0.5 steps)&quot;</span>, <span class="dt">ylab=</span><span class="st">&quot;Proportion of earthquakes at night&quot;</span>)
+a &lt;-<span class="st"> </span><span class="kw">apply</span>(grf,<span class="dv">1</span>,function(x){<span class="kw">plot7sig</span>(x[<span class="dv">2</span>],x[<span class="dv">3</span>],x[<span class="dv">1</span>],<span class="fl">0.5</span>)})
+<span class="kw">lines</span>(<span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">10</span>), <span class="kw">c</span>(.<span class="dv">5</span>,.<span class="dv">5</span>), <span class="dt">col=</span><span class="st">&quot;#FFFFFF&quot;</span>)
+<span class="kw">lines</span>(<span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">10</span>), <span class="kw">c</span>(.<span class="dv">5</span>,.<span class="dv">5</span>), <span class="dt">lty=</span><span class="dv">2</span>, <span class="dt">col=</span><span class="st">&quot;#777777&quot;</span>)
+
+<span class="kw">par</span>(<span class="dt">mar=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>))
+<span class="kw">plot</span>(<span class="dt">x=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">10</span>), <span class="dt">y=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">10</span>), <span class="dt">type=</span><span class="st">&quot;n&quot;</span>, <span class="dt">bty=</span><span class="st">&quot;n&quot;</span>, <span class="dt">axes=</span><span class="ot">FALSE</span>)
+<span class="kw">legend</span>(<span class="dv">0</span>,<span class="dv">5</span>, <span class="dt">legend=</span>lbls, <span class="dt">lty=</span>typs, <span class="dt">lwd=</span>weights, <span class="dt">col=</span>clrs, <span class="dt">bty=</span><span class="st">&quot;n&quot;</span>, <span class="dt">xjust=</span><span class="dv">0</span>, <span class="dt">title=</span><span class="st">&quot;Confidence</span>
+<span class="st">Intervals:&quot;</span>, <span class="dt">cex=</span><span class="fl">0.9</span>)
+lbls=<span class="kw">c</span>(<span class="st">&quot;Expected Proportion&quot;</span>, <span class="st">&quot;Actual Proportion&quot;</span>)
+typs=<span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">1</span>)
+weights=<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>)
+<span class="kw">legend</span>(<span class="dv">0</span>,<span class="dv">7</span>, <span class="dt">legend=</span>lbls, <span class="dt">lty=</span>typs, <span class="dt">lwd=</span>weights, <span class="dt">bty=</span><span class="st">&quot;n&quot;</span>, <span class="dt">xjust=</span><span class="dv">0</span>, <span class="dt">title=</span><span class="st">&quot;Legend&quot;</span>, <span class="dt">y.intersp=</span><span class="fl">1.2</span>)
+
+
+<span class="kw">par</span>(<span class="dt">mar=</span>old_par$mar)
+<span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>))
+
+
+## ------------------------------------------------------------------------
+by_angle &lt;-<span class="st"> </span>eq_national %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">group_by</span>(eq_angle_by_10) %&gt;%<span class="st"> </span><span class="kw">summarise</span>(<span class="dt">total=</span> <span class="kw">n</span>()) %&gt;%
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">daynight=</span><span class="kw">ifelse</span>(eq_angle_by_10 &lt;<span class="st"> </span><span class="dv">180</span>, <span class="st">&quot;day&quot;</span>, <span class="st">&quot;night&quot;</span>))
+
+merged &lt;-<span class="st"> </span><span class="kw">merge</span>(eq_national, angwide, <span class="dt">by.x=</span><span class="st">&quot;eq_roundedlat&quot;</span>, <span class="dt">by.y=</span><span class="st">&quot;lat&quot;</span>)
+agg_expected &lt;-<span class="st"> </span>merged %&gt;%<span class="st"> </span><span class="kw">select</span>(<span class="st">`</span><span class="dt">0</span><span class="st">`</span>:<span class="st">`</span><span class="dt">350</span><span class="st">`</span>) %&gt;%<span class="st"> </span><span class="kw">colSums</span>(<span class="dt">na.rm=</span><span class="ot">TRUE</span>)
+expected_prop &lt;-<span class="st"> </span>agg_expected /<span class="st"> </span><span class="kw">sum</span>(agg_expected)
+expected &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">eq_angle_by_10 =</span> <span class="kw">as.numeric</span>(<span class="kw">names</span>(expected_prop)), <span class="dt">expected_prop =</span> <span class="kw">as.numeric</span>(expected_prop))
+expected$expected_number =<span class="st"> </span>expected_prop *<span class="st"> </span>eq_total
+act_exp &lt;-<span class="st"> </span><span class="kw">merge</span>(expected, by_angle, <span class="dt">by=</span><span class="st">&quot;eq_angle_by_10&quot;</span>, <span class="dt">all.x=</span><span class="ot">TRUE</span>)
+
+act_exp$total[<span class="kw">is.na</span>(act_exp$total)] &lt;-<span class="st"> </span><span class="dv">0</span>
+act_exp$daynight &lt;-<span class="st"> </span><span class="ot">NULL</span>
+act_exp$act_prop &lt;-<span class="st"> </span>act_exp$total /<span class="st"> </span><span class="kw">sum</span>(act_exp$total)
+
+
+ci_brackets &lt;-<span class="st"> </span>act_exp %&gt;%<span class="st"> </span><span class="kw">ungroup</span>() %&gt;%<span class="st"> </span><span class="kw">mutate</span>(<span class="dt">grand_total=</span><span class="kw">sum</span>(total)) %&gt;%
+<span class="st">  </span><span class="kw">rowwise</span>() %&gt;%<span class="st"> </span><span class="kw">mutate</span>(<span class="dt">ci_lower_7 =</span> <span class="kw">binom.confint</span>(total, grand_total, <span class="dt">method=</span><span class="kw">c</span>(<span class="st">&quot;wilson&quot;</span>), <span class="dt">conf.level =</span> sigmas[<span class="dv">7</span>])[<span class="dv">1</span>,<span class="dv">5</span>] *<span class="st"> </span>grand_total,
+                       <span class="dt">ci_upper_7 =</span> <span class="kw">binom.confint</span>(total, grand_total, <span class="dt">method=</span><span class="kw">c</span>(<span class="st">&quot;wilson&quot;</span>), <span class="dt">conf.level =</span> sigmas[<span class="dv">7</span>])[<span class="dv">1</span>,<span class="dv">6</span>] *<span class="st"> </span>grand_total,
+                       <span class="dt">ci_lower_6 =</span> <span class="kw">binom.confint</span>(total, grand_total, <span class="dt">method=</span><span class="kw">c</span>(<span class="st">&quot;wilson&quot;</span>), <span class="dt">conf.level =</span> sigmas[<span class="dv">6</span>])[<span class="dv">1</span>,<span class="dv">5</span>] *<span class="st"> </span>grand_total,
+                       <span class="dt">ci_upper_6 =</span> <span class="kw">binom.confint</span>(total, grand_total, <span class="dt">method=</span><span class="kw">c</span>(<span class="st">&quot;wilson&quot;</span>), <span class="dt">conf.level =</span> sigmas[<span class="dv">6</span>])[<span class="dv">1</span>,<span class="dv">6</span>] *<span class="st"> </span>grand_total,
+                       <span class="dt">ci_lower_5 =</span> <span class="kw">binom.confint</span>(total, grand_total, <span class="dt">method=</span><span class="kw">c</span>(<span class="st">&quot;wilson&quot;</span>), <span class="dt">conf.level =</span> sigmas[<span class="dv">5</span>])[<span class="dv">1</span>,<span class="dv">5</span>] *<span class="st"> </span>grand_total,
+                       <span class="dt">ci_upper_5 =</span> <span class="kw">binom.confint</span>(total, grand_total, <span class="dt">method=</span><span class="kw">c</span>(<span class="st">&quot;wilson&quot;</span>), <span class="dt">conf.level =</span> sigmas[<span class="dv">5</span>])[<span class="dv">1</span>,<span class="dv">6</span>] *<span class="st"> </span>grand_total,
+                       <span class="dt">ci_lower_4 =</span> <span class="kw">binom.confint</span>(total, grand_total, <span class="dt">method=</span><span class="kw">c</span>(<span class="st">&quot;wilson&quot;</span>), <span class="dt">conf.level =</span> sigmas[<span class="dv">4</span>])[<span class="dv">1</span>,<span class="dv">5</span>] *<span class="st"> </span>grand_total,
+                       <span class="dt">ci_upper_4 =</span> <span class="kw">binom.confint</span>(total, grand_total, <span class="dt">method=</span><span class="kw">c</span>(<span class="st">&quot;wilson&quot;</span>), <span class="dt">conf.level =</span> sigmas[<span class="dv">4</span>])[<span class="dv">1</span>,<span class="dv">6</span>] *<span class="st"> </span>grand_total,
+                       <span class="dt">ci_lower_3 =</span> <span class="kw">binom.confint</span>(total, grand_total, <span class="dt">method=</span><span class="kw">c</span>(<span class="st">&quot;wilson&quot;</span>), <span class="dt">conf.level =</span> sigmas[<span class="dv">3</span>])[<span class="dv">1</span>,<span class="dv">5</span>] *<span class="st"> </span>grand_total,
+                       <span class="dt">ci_upper_3 =</span> <span class="kw">binom.confint</span>(total, grand_total, <span class="dt">method=</span><span class="kw">c</span>(<span class="st">&quot;wilson&quot;</span>), <span class="dt">conf.level =</span> sigmas[<span class="dv">3</span>])[<span class="dv">1</span>,<span class="dv">6</span>] *<span class="st"> </span>grand_total,
+                       <span class="dt">ci_lower_2 =</span> <span class="kw">binom.confint</span>(total, grand_total, <span class="dt">method=</span><span class="kw">c</span>(<span class="st">&quot;wilson&quot;</span>), <span class="dt">conf.level =</span> sigmas[<span class="dv">2</span>])[<span class="dv">1</span>,<span class="dv">5</span>] *<span class="st"> </span>grand_total,
+                       <span class="dt">ci_upper_2 =</span> <span class="kw">binom.confint</span>(total, grand_total, <span class="dt">method=</span><span class="kw">c</span>(<span class="st">&quot;wilson&quot;</span>), <span class="dt">conf.level =</span> sigmas[<span class="dv">2</span>])[<span class="dv">1</span>,<span class="dv">6</span>] *<span class="st"> </span>grand_total,
+                       <span class="dt">ci_lower_1 =</span> <span class="kw">binom.confint</span>(total, grand_total, <span class="dt">method=</span><span class="kw">c</span>(<span class="st">&quot;wilson&quot;</span>), <span class="dt">conf.level =</span> sigmas[<span class="dv">1</span>])[<span class="dv">1</span>,<span class="dv">5</span>] *<span class="st"> </span>grand_total,
+                       <span class="dt">ci_upper_1 =</span> <span class="kw">binom.confint</span>(total, grand_total, <span class="dt">method=</span><span class="kw">c</span>(<span class="st">&quot;wilson&quot;</span>), <span class="dt">conf.level =</span> sigmas[<span class="dv">1</span>])[<span class="dv">1</span>,<span class="dv">6</span>] *<span class="st"> </span>grand_total)
+
+norm_ci &lt;-<span class="st"> </span>ci_brackets
+
+for (i in <span class="kw">c</span>(<span class="dv">4</span>,<span class="dv">7</span>:<span class="dv">20</span>)){
+norm_ci[,i] &lt;-<span class="st"> </span>ci_brackets[,i] -<span class="st"> </span>ci_brackets[,<span class="dv">3</span>]
+}
+circlesize=<span class="dv">2500</span>
+
+## ---- fig.cap=&quot;Over- and under- supply of earthquakes by angle of the sun (10 degree steps). Japan. n=719348&quot;----
+norm_ci$border =<span class="st"> </span><span class="dv">2</span>
+<span class="co"># need to double entries with a displacement of 10 to make each side of the item on the graph</span>
+norm_ci2 &lt;-<span class="st"> </span>norm_ci
+norm_ci2$eq_angle_by_10 &lt;-<span class="st"> </span>norm_ci2$eq_angle_by_10  +<span class="st"> </span><span class="dv">10</span>
+norm_ci2$border =<span class="st"> </span><span class="dv">1</span>
+graphdata &lt;-<span class="st">   </span><span class="kw">bind_rows</span>(norm_ci,norm_ci2) %&gt;%<span class="st"> </span><span class="kw">arrange</span>(eq_angle_by_10,border)
+
+#### plot graph
+bands &lt;-<span class="st"> </span><span class="kw">rev</span>(<span class="kw">c</span>(<span class="st">&#39;#ffffcc&#39;</span>,<span class="st">&#39;#d9f0a3&#39;</span>,<span class="st">&#39;#addd8e&#39;</span>,<span class="st">&#39;#78c679&#39;</span>,<span class="st">&#39;#41ab5d&#39;</span>,<span class="st">&#39;#238443&#39;</span>,<span class="st">&#39;#005a32&#39;</span>))
+old_par=<span class="kw">par</span>()
+<span class="kw">layout</span>(<span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">2</span>), <span class="dt">ncol=</span><span class="dv">4</span>))
+
+<span class="co"># overall limits</span>
+limits=<span class="dv">2</span> *<span class="st"> </span><span class="kw">max</span>(<span class="kw">abs</span>(<span class="kw">c</span>(graphdata$ci_lower_7, graphdata$ci_upper_7)))
+<span class="co"># plot upper confidence 7 interval using plotrix</span>
+<span class="kw">polar.plot</span>(graphdata$ci_upper_7, <span class="dt">polar.pos=</span>graphdata$eq_angle_by_10, <span class="dt">radial.lim=</span><span class="kw">c</span>(-<span class="dv">1</span>*limits,limits),
+           <span class="dt">labels =</span> <span class="st">&quot;&quot;</span>, <span class="dt">main=</span><span class="ot">NULL</span>,<span class="dt">lwd=</span><span class="fl">0.5</span>, <span class="dt">rp.type=</span><span class="st">&quot;p&quot;</span>,
+           <span class="dt">show.grid.labels=</span><span class="ot">FALSE</span>, <span class="dt">show.grid=</span><span class="ot">FALSE</span>, <span class="dt">mar=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>),
+           <span class="dt">grid.col=</span>bands[<span class="dv">7</span>], <span class="dt">line.col=</span>bands[<span class="dv">7</span>], <span class="dt">poly.col=</span>bands[<span class="dv">7</span>])
+<span class="co"># plot upper 6 confidence interval</span>
+plot_ci_round &lt;-<span class="st"> </span>function(upper_bound,x){
+  <span class="kw">polar.plot</span>(upper_bound, <span class="dt">polar.pos=</span>graphdata$eq_angle_by_10, <span class="dt">add=</span><span class="ot">TRUE</span>, <span class="dt">radial.lim=</span><span class="kw">c</span>(-<span class="dv">1</span>*limits,limits),
+             <span class="dt">line.col=</span>bands[x], <span class="dt">lwd=</span><span class="fl">0.5</span>, <span class="dt">rp.type=</span><span class="st">&quot;p&quot;</span>, <span class="dt">poly.col=</span>bands[x])
+}
+<span class="kw">plot_ci_round</span>(graphdata$ci_upper_6, <span class="dv">6</span>)
+<span class="kw">plot_ci_round</span>(graphdata$ci_upper_5, <span class="dv">5</span>)
+<span class="kw">plot_ci_round</span>(graphdata$ci_upper_4, <span class="dv">4</span>)
+<span class="kw">plot_ci_round</span>(graphdata$ci_upper_3, <span class="dv">3</span>)
+<span class="kw">plot_ci_round</span>(graphdata$ci_upper_2, <span class="dv">2</span>)
+<span class="kw">plot_ci_round</span>(graphdata$ci_upper_1, <span class="dv">1</span>)
+<span class="kw">plot_ci_round</span>(graphdata$ci_lower_1, <span class="dv">2</span>)
+<span class="kw">plot_ci_round</span>(graphdata$ci_lower_2, <span class="dv">3</span>)
+<span class="kw">plot_ci_round</span>(graphdata$ci_lower_3, <span class="dv">4</span>)
+<span class="kw">plot_ci_round</span>(graphdata$ci_lower_4, <span class="dv">5</span>)
+<span class="kw">plot_ci_round</span>(graphdata$ci_lower_5, <span class="dv">6</span>)
+<span class="kw">plot_ci_round</span>(graphdata$ci_lower_6, <span class="dv">7</span>)
+<span class="kw">polar.plot</span>(graphdata$ci_lower_7, <span class="dt">polar.pos=</span>graphdata$eq_angle_by_10, <span class="dt">add=</span><span class="ot">TRUE</span>, <span class="dt">radial.lim=</span><span class="kw">c</span>(-<span class="dv">1</span>*limits,limits),
+           <span class="dt">line.col=</span><span class="st">&quot;white&quot;</span>, <span class="dt">lwd=</span><span class="fl">0.5</span>, <span class="dt">rp.type=</span><span class="st">&quot;p&quot;</span>, <span class="dt">poly.col=</span><span class="st">&quot;white&quot;</span>)
+
+<span class="co"># plot expected guide line</span>
+<span class="kw">polar.plot</span>(<span class="kw">rep</span>(<span class="dv">0</span>,<span class="kw">nrow</span>(graphdata)), <span class="dt">polar.pos=</span>graphdata$eq_angle_by_10, <span class="dt">add=</span><span class="ot">TRUE</span>,<span class="dt">radial.lim=</span><span class="kw">c</span>(-<span class="dv">1</span>*limits,limits),
+           <span class="dt">rp.type=</span><span class="st">&quot;p&quot;</span>, <span class="dt">lty=</span><span class="dv">4</span>)
+<span class="co"># plot 500 less than expected guide line</span>
+<span class="kw">polar.plot</span>(<span class="kw">rep</span>(-<span class="dv">1</span> *<span class="st"> </span>circlesize,<span class="kw">nrow</span>(graphdata)), <span class="dt">polar.pos=</span>graphdata$eq_angle_by_10, <span class="dt">add=</span><span class="ot">TRUE</span>,<span class="dt">radial.lim=</span><span class="kw">c</span>(-<span class="dv">1</span>*limits,limits),
+           <span class="dt">rp.type=</span><span class="st">&quot;p&quot;</span>, <span class="dt">lty=</span><span class="dv">1</span>, <span class="dt">line.col=</span><span class="st">&quot;#00000044&quot;</span>)
+<span class="co"># plot 500 more than expected guide line</span>
+<span class="kw">polar.plot</span>(<span class="kw">rep</span>(circlesize,<span class="kw">nrow</span>(graphdata)), <span class="dt">polar.pos=</span>graphdata$eq_angle_by_10, <span class="dt">add=</span><span class="ot">TRUE</span>,<span class="dt">radial.lim=</span><span class="kw">c</span>(-<span class="dv">1</span>*limits,limits),
+           <span class="dt">rp.type=</span><span class="st">&quot;p&quot;</span>, <span class="dt">lty=</span><span class="dv">3</span>, <span class="dt">line.col=</span><span class="st">&quot;#00000044&quot;</span>)
+
+<span class="kw">lines</span>(<span class="kw">c</span>(-<span class="fl">1.5</span>,-<span class="fl">1.2</span>)*limits, <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>))
+<span class="kw">lines</span>(<span class="kw">c</span>(<span class="fl">1.5</span>,<span class="fl">1.2</span>)*limits, <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>))
+<span class="kw">text</span>(-<span class="fl">1.8</span>*limits,<span class="dv">0</span>, <span class="dt">label=</span><span class="st">&quot;sunset</span>
+<span class="st">180&quot;</span>, <span class="dt">cex=</span><span class="fl">0.7</span>)
+<span class="kw">text</span>(<span class="fl">1.8</span>*limits,<span class="dv">0</span>, <span class="dt">label=</span><span class="st">&quot;sunrise</span>
+<span class="st">0&quot;</span>, <span class="dt">cex=</span><span class="fl">0.7</span>)
+
+
+<span class="kw">par</span>(<span class="dt">mar=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>))
+<span class="kw">plot</span>(<span class="dt">x=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">10</span>), <span class="dt">y=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">10</span>), <span class="dt">type=</span><span class="st">&quot;n&quot;</span>, <span class="dt">bty=</span><span class="st">&quot;n&quot;</span>, <span class="dt">axes=</span><span class="ot">FALSE</span>, <span class="dt">xlab=</span><span class="st">&quot;&quot;</span>)
+lbls &lt;-<span class="st"> </span><span class="kw">c</span>(
+  <span class="st">&quot;1 sigma&quot;</span>, <span class="st">&quot;2 sigma&quot;</span>,
+  <span class="st">&quot;3 sigma&quot;</span>, <span class="st">&quot;4 sigma&quot;</span>,
+  <span class="st">&quot;5 sigma&quot;</span>, <span class="st">&quot;6 sigma&quot;</span>,
+  <span class="st">&quot;7 sigma&quot;</span>)
+typs &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>)
+weights &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>)
+clrs &lt;-<span class="st"> </span><span class="kw">rev</span>(<span class="kw">c</span>(<span class="st">&#39;#ffffcc&#39;</span>,<span class="st">&#39;#d9f0a3&#39;</span>,<span class="st">&#39;#addd8e&#39;</span>,<span class="st">&#39;#78c679&#39;</span>,<span class="st">&#39;#41ab5d&#39;</span>,<span class="st">&#39;#238443&#39;</span>,<span class="st">&#39;#005a32&#39;</span>))
+<span class="kw">legend</span>(<span class="dv">0</span>,<span class="fl">4.5</span>, <span class="dt">legend=</span>lbls, <span class="dt">lty=</span>typs, <span class="dt">lwd=</span>weights, <span class="dt">col=</span>clrs, <span class="dt">bty=</span><span class="st">&quot;n&quot;</span>, <span class="dt">xjust=</span><span class="dv">0</span>, <span class="dt">title=</span><span class="st">&quot;Confidence Intervals:&quot;</span>, <span class="dt">cex=</span><span class="fl">0.9</span>)
+
+lbls2=<span class="kw">c</span>(<span class="st">&quot;Expected Number&quot;</span>, <span class="kw">paste</span>(circlesize,<span class="st">&quot;under expected&quot;</span>), <span class="kw">paste</span>(circlesize,<span class="st">&quot;over expected&quot;</span>))
+typs2=<span class="kw">c</span>(<span class="dv">4</span>,<span class="dv">1</span>,<span class="dv">3</span>)
+weights2=<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>)
+clrs2=<span class="kw">c</span>(<span class="st">&quot;#000000&quot;</span>,<span class="st">&quot;#00000044&quot;</span>,<span class="st">&quot;#00000044&quot;</span>)
+<span class="kw">legend</span>(<span class="dv">0</span>,<span class="dv">10</span>, <span class="dt">legend=</span>lbls2, <span class="dt">lty=</span>typs2, <span class="dt">lwd=</span>weights2, <span class="dt">bty=</span><span class="st">&quot;n&quot;</span>, <span class="dt">xjust=</span><span class="dv">0</span>, <span class="dt">title=</span><span class="st">&quot;Legend&quot;</span>, <span class="dt">y.intersp=</span><span class="fl">1.2</span>, <span class="dt">col=</span>clrs2)
+
+
+
+<span class="kw">par</span>(<span class="dt">mar=</span>old_par$mar)
+<span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>))</code></pre></div>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="it-is-not-uniform.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="the-continental-united-states-is-similar.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

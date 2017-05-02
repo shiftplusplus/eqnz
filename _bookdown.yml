@@ -1,7 +1,7 @@
 book_filename: "night_tremors"
 chapter_name: "Chapter "
-repo: https://github.com/thoughtfulbloke/eqnz
+repo: https://thoughtfulbloke.github.io/eqnz
 output_dir: docs
-rmd_files: ["index.Rmd"]
+rmd_files: ["index.Rmd", "001_motivation.Rmd", "002_nz_data.Rmd", "003_formal.Rmd", "004_not_dependence.Rmd", "005_not_masking.Rmd", "006_not_seasonal.Rmd", "007_not_lunar.Rmd", "008_not_uniform.Rmd", "009_japan.Rmd", "010_usa.Rmd", "011_italy.Rmd", "012_hawaii.Rmd", "013_philippines.Rmd", "014_thailand.Rmd", "015_taiwan.Rmd", "016_australia.Rmd", "017_is_gravity.Rmd"]
 clean: [packages.bib, bookdown.bbl]
 new_session: yes

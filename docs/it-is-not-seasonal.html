@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Night Tremors: There are more earthquakes at night</title>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+  <meta name="description" content="The sun’s daily cycle + gravity = earthquakes">
+  <meta name="generator" content="bookdown 0.3 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Night Tremors: There are more earthquakes at night" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="The sun’s daily cycle + gravity = earthquakes" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Night Tremors: There are more earthquakes at night" />
+  
+  <meta name="twitter:description" content="The sun’s daily cycle + gravity = earthquakes" />
+  
+
+<meta name="author" content="David Hood">
+
+
+<meta name="date" content="2017-05-02">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="it-is-not-masking.html">
+<link rel="next" href="it-is-not-the-moon.html">
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Night Tremors</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Front Matter</a><ul>
+<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#intended-audiences"><i class="fa fa-check"></i><b>0.1</b> Intended Audiences</a></li>
+<li class="chapter" data-level="0.2" data-path="index.html"><a href="index.html#acknowledgements"><i class="fa fa-check"></i><b>0.2</b> Acknowledgements</a></li>
+<li class="chapter" data-level="0.3" data-path="index.html"><a href="index.html#cover-picture"><i class="fa fa-check"></i><b>0.3</b> Cover Picture</a></li>
+<li class="chapter" data-level="0.4" data-path="index.html"><a href="index.html#edition"><i class="fa fa-check"></i><b>0.4</b> Edition</a></li>
+<li class="chapter" data-level="0.5" data-path="index.html"><a href="index.html#statistics"><i class="fa fa-check"></i><b>0.5</b> Statistics</a></li>
+<li class="chapter" data-level="0.6" data-path="index.html"><a href="index.html#using-r"><i class="fa fa-check"></i><b>0.6</b> Using R</a></li>
+<li class="chapter" data-level="0.7" data-path="index.html"><a href="index.html#contacting-me"><i class="fa fa-check"></i><b>0.7</b> Contacting me</a></li>
+<li class="chapter" data-level="0.8" data-path="index.html"><a href="index.html#Links0"><i class="fa fa-check"></i><b>0.8</b> Links</a></li>
+<li class="chapter" data-level="0.9" data-path="index.html"><a href="index.html#chapter-code"><i class="fa fa-check"></i><b>0.9</b> Chapter Code</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="motivation.html"><a href="motivation.html"><i class="fa fa-check"></i><b>1</b> Motivation</a><ul>
+<li class="chapter" data-level="1.1" data-path="motivation.html"><a href="motivation.html#formal-statement"><i class="fa fa-check"></i><b>1.1</b> Formal Statement</a></li>
+<li class="chapter" data-level="1.2" data-path="motivation.html"><a href="motivation.html#Links1"><i class="fa fa-check"></i><b>1.2</b> Links</a></li>
+<li class="chapter" data-level="1.3" data-path="motivation.html"><a href="motivation.html#code"><i class="fa fa-check"></i><b>1.3</b> Code</a></li>
+<li class="chapter" data-level="1.4" data-path="motivation.html"><a href="motivation.html#chapter-code-1"><i class="fa fa-check"></i><b>1.4</b> Chapter Code</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="data-processing.html"><a href="data-processing.html"><i class="fa fa-check"></i><b>2</b> Data Processing</a><ul>
+<li class="chapter" data-level="2.1" data-path="data-processing.html"><a href="data-processing.html#event-types"><i class="fa fa-check"></i><b>2.1</b> Event types</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="data-processing.html"><a href="data-processing.html#latitude-and-longitude"><i class="fa fa-check"></i><b>2.1.1</b> Latitude and Longitude</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="data-processing.html"><a href="data-processing.html#gridded-latitude-and-longitude"><i class="fa fa-check"></i><b>2.2</b> Gridded Latitude and Longitude</a></li>
+<li class="chapter" data-level="2.3" data-path="data-processing.html"><a href="data-processing.html#angle-of-the-sun"><i class="fa fa-check"></i><b>2.3</b> Angle of the sun</a></li>
+<li class="chapter" data-level="2.4" data-path="data-processing.html"><a href="data-processing.html#formal-statement-1"><i class="fa fa-check"></i><b>2.4</b> Formal statement</a></li>
+<li class="chapter" data-level="2.5" data-path="data-processing.html"><a href="data-processing.html#code-1"><i class="fa fa-check"></i><b>2.5</b> Code</a></li>
+<li class="chapter" data-level="2.6" data-path="data-processing.html"><a href="data-processing.html#chapter-code-2"><i class="fa fa-check"></i><b>2.6</b> Chapter Code</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="key-result.html"><a href="key-result.html"><i class="fa fa-check"></i><b>3</b> Key result</a><ul>
+<li class="chapter" data-level="3.1" data-path="key-result.html"><a href="key-result.html#formal-statement-2"><i class="fa fa-check"></i><b>3.1</b> Formal Statement</a></li>
+<li class="chapter" data-level="3.2" data-path="key-result.html"><a href="key-result.html#chapter-code-3"><i class="fa fa-check"></i><b>3.2</b> Chapter Code</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="it-is-not-dependence.html"><a href="it-is-not-dependence.html"><i class="fa fa-check"></i><b>4</b> It is not dependence</a><ul>
+<li class="chapter" data-level="4.1" data-path="it-is-not-dependence.html"><a href="it-is-not-dependence.html#formal-statement-3"><i class="fa fa-check"></i><b>4.1</b> Formal Statement</a></li>
+<li class="chapter" data-level="4.2" data-path="it-is-not-dependence.html"><a href="it-is-not-dependence.html#chapter-code-4"><i class="fa fa-check"></i><b>4.2</b> Chapter Code</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="it-is-not-masking.html"><a href="it-is-not-masking.html"><i class="fa fa-check"></i><b>5</b> It is not masking</a><ul>
+<li class="chapter" data-level="5.1" data-path="it-is-not-masking.html"><a href="it-is-not-masking.html#formal-statement-4"><i class="fa fa-check"></i><b>5.1</b> Formal Statement</a></li>
+<li class="chapter" data-level="5.2" data-path="it-is-not-masking.html"><a href="it-is-not-masking.html#links"><i class="fa fa-check"></i><b>5.2</b> Links</a></li>
+<li class="chapter" data-level="5.3" data-path="it-is-not-masking.html"><a href="it-is-not-masking.html#chapter-code-5"><i class="fa fa-check"></i><b>5.3</b> Chapter Code</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="it-is-not-seasonal.html"><a href="it-is-not-seasonal.html"><i class="fa fa-check"></i><b>6</b> It is not seasonal</a><ul>
+<li class="chapter" data-level="6.1" data-path="it-is-not-seasonal.html"><a href="it-is-not-seasonal.html#formal-statement-5"><i class="fa fa-check"></i><b>6.1</b> Formal statement</a></li>
+<li class="chapter" data-level="6.2" data-path="it-is-not-seasonal.html"><a href="it-is-not-seasonal.html#chapter-code-6"><i class="fa fa-check"></i><b>6.2</b> Chapter Code</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="it-is-not-the-moon.html"><a href="it-is-not-the-moon.html"><i class="fa fa-check"></i><b>7</b> It is not the moon</a><ul>
+<li class="chapter" data-level="7.1" data-path="it-is-not-the-moon.html"><a href="it-is-not-the-moon.html#absolute-difference"><i class="fa fa-check"></i><b>7.1</b> Absolute difference</a></li>
+<li class="chapter" data-level="7.2" data-path="it-is-not-the-moon.html"><a href="it-is-not-the-moon.html#relative"><i class="fa fa-check"></i><b>7.2</b> Relative</a></li>
+<li class="chapter" data-level="7.3" data-path="it-is-not-the-moon.html"><a href="it-is-not-the-moon.html#formal-statement-6"><i class="fa fa-check"></i><b>7.3</b> Formal Statement</a></li>
+<li class="chapter" data-level="7.4" data-path="it-is-not-the-moon.html"><a href="it-is-not-the-moon.html#links-1"><i class="fa fa-check"></i><b>7.4</b> Links</a></li>
+<li class="chapter" data-level="7.5" data-path="it-is-not-the-moon.html"><a href="it-is-not-the-moon.html#chapter-code-7"><i class="fa fa-check"></i><b>7.5</b> Chapter Code</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="it-is-not-uniform.html"><a href="it-is-not-uniform.html"><i class="fa fa-check"></i><b>8</b> It is not uniform</a><ul>
+<li class="chapter" data-level="8.1" data-path="it-is-not-uniform.html"><a href="it-is-not-uniform.html#formal-statement-7"><i class="fa fa-check"></i><b>8.1</b> Formal Statement</a></li>
+<li class="chapter" data-level="8.2" data-path="it-is-not-uniform.html"><a href="it-is-not-uniform.html#chapter-code-8"><i class="fa fa-check"></i><b>8.2</b> Chapter Code</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="japanese-earthquakes-are-the-same.html"><a href="japanese-earthquakes-are-the-same.html"><i class="fa fa-check"></i><b>9</b> Japanese earthquakes are the same</a><ul>
+<li class="chapter" data-level="9.1" data-path="japanese-earthquakes-are-the-same.html"><a href="japanese-earthquakes-are-the-same.html#formal-statement-8"><i class="fa fa-check"></i><b>9.1</b> Formal Statement</a></li>
+<li class="chapter" data-level="9.2" data-path="japanese-earthquakes-are-the-same.html"><a href="japanese-earthquakes-are-the-same.html#Links9"><i class="fa fa-check"></i><b>9.2</b> Links</a></li>
+<li class="chapter" data-level="9.3" data-path="japanese-earthquakes-are-the-same.html"><a href="japanese-earthquakes-are-the-same.html#chapter-code-9"><i class="fa fa-check"></i><b>9.3</b> Chapter Code</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="the-continental-united-states-is-similar.html"><a href="the-continental-united-states-is-similar.html"><i class="fa fa-check"></i><b>10</b> The continental United States is similar</a><ul>
+<li class="chapter" data-level="10.1" data-path="the-continental-united-states-is-similar.html"><a href="the-continental-united-states-is-similar.html#formal-statement-9"><i class="fa fa-check"></i><b>10.1</b> Formal Statement</a></li>
+<li class="chapter" data-level="10.2" data-path="the-continental-united-states-is-similar.html"><a href="the-continental-united-states-is-similar.html#Links10"><i class="fa fa-check"></i><b>10.2</b> Links</a></li>
+<li class="chapter" data-level="10.3" data-path="the-continental-united-states-is-similar.html"><a href="the-continental-united-states-is-similar.html#chapter-code-10"><i class="fa fa-check"></i><b>10.3</b> Chapter Code</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="italian-earthquakes-are-the-same.html"><a href="italian-earthquakes-are-the-same.html"><i class="fa fa-check"></i><b>11</b> Italian earthquakes are the same</a><ul>
+<li class="chapter" data-level="11.1" data-path="italian-earthquakes-are-the-same.html"><a href="italian-earthquakes-are-the-same.html#formal-statement-10"><i class="fa fa-check"></i><b>11.1</b> Formal Statement</a></li>
+<li class="chapter" data-level="11.2" data-path="italian-earthquakes-are-the-same.html"><a href="italian-earthquakes-are-the-same.html#Links11"><i class="fa fa-check"></i><b>11.2</b> Links</a></li>
+<li class="chapter" data-level="11.3" data-path="italian-earthquakes-are-the-same.html"><a href="italian-earthquakes-are-the-same.html#chapter-code-11"><i class="fa fa-check"></i><b>11.3</b> Chapter Code</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="hawaii-is-similar.html"><a href="hawaii-is-similar.html"><i class="fa fa-check"></i><b>12</b> Hawaii is similar</a><ul>
+<li class="chapter" data-level="12.1" data-path="hawaii-is-similar.html"><a href="hawaii-is-similar.html#formal-statement-11"><i class="fa fa-check"></i><b>12.1</b> Formal Statement</a></li>
+<li class="chapter" data-level="12.2" data-path="hawaii-is-similar.html"><a href="hawaii-is-similar.html#Links12"><i class="fa fa-check"></i><b>12.2</b> Links</a></li>
+<li class="chapter" data-level="12.3" data-path="hawaii-is-similar.html"><a href="hawaii-is-similar.html#chapter-code-12"><i class="fa fa-check"></i><b>12.3</b> Chapter Code</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="the-philippines-is-similar.html"><a href="the-philippines-is-similar.html"><i class="fa fa-check"></i><b>13</b> The Philippines is similar</a><ul>
+<li class="chapter" data-level="13.1" data-path="the-philippines-is-similar.html"><a href="the-philippines-is-similar.html#formal-statement-12"><i class="fa fa-check"></i><b>13.1</b> Formal Statement</a></li>
+<li class="chapter" data-level="13.2" data-path="the-philippines-is-similar.html"><a href="the-philippines-is-similar.html#Links13"><i class="fa fa-check"></i><b>13.2</b> Links</a></li>
+<li class="chapter" data-level="13.3" data-path="the-philippines-is-similar.html"><a href="the-philippines-is-similar.html#chapter-code-13"><i class="fa fa-check"></i><b>13.3</b> Chapter Code</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="thailand-is-similar.html"><a href="thailand-is-similar.html"><i class="fa fa-check"></i><b>14</b> Thailand is similar</a><ul>
+<li class="chapter" data-level="14.1" data-path="thailand-is-similar.html"><a href="thailand-is-similar.html#formal-statement-13"><i class="fa fa-check"></i><b>14.1</b> Formal Statement</a></li>
+<li class="chapter" data-level="14.2" data-path="hawaii-is-similar.html"><a href="hawaii-is-similar.html#Links12"><i class="fa fa-check"></i><b>14.2</b> Links</a></li>
+<li class="chapter" data-level="14.3" data-path="thailand-is-similar.html"><a href="thailand-is-similar.html#chapter-code-14"><i class="fa fa-check"></i><b>14.3</b> Chapter Code</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="taiwan-is-not-similar.html"><a href="taiwan-is-not-similar.html"><i class="fa fa-check"></i><b>15</b> Taiwan is not similar</a><ul>
+<li class="chapter" data-level="15.1" data-path="taiwan-is-not-similar.html"><a href="taiwan-is-not-similar.html#formal-statement-14"><i class="fa fa-check"></i><b>15.1</b> Formal Statement</a></li>
+<li class="chapter" data-level="15.2" data-path="taiwan-is-not-similar.html"><a href="taiwan-is-not-similar.html#Links15"><i class="fa fa-check"></i><b>15.2</b> Links</a></li>
+<li class="chapter" data-level="15.3" data-path="taiwan-is-not-similar.html"><a href="taiwan-is-not-similar.html#chapter-code-15"><i class="fa fa-check"></i><b>15.3</b> Chapter Code</a></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="australia-is-similar.html"><a href="australia-is-similar.html"><i class="fa fa-check"></i><b>16</b> Australia is similar</a><ul>
+<li class="chapter" data-level="16.1" data-path="australia-is-similar.html"><a href="australia-is-similar.html#formal-statement-15"><i class="fa fa-check"></i><b>16.1</b> Formal Statement</a></li>
+<li class="chapter" data-level="16.2" data-path="australia-is-similar.html"><a href="australia-is-similar.html#Links16"><i class="fa fa-check"></i><b>16.2</b> Links</a></li>
+<li class="chapter" data-level="16.3" data-path="australia-is-similar.html"><a href="australia-is-similar.html#chapter-code-16"><i class="fa fa-check"></i><b>16.3</b> Chapter Code</a></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="it-is-gravity.html"><a href="it-is-gravity.html"><i class="fa fa-check"></i><b>17</b> It is gravity</a><ul>
+<li class="chapter" data-level="17.1" data-path="it-is-gravity.html"><a href="it-is-gravity.html#gravitational-force-differentials"><i class="fa fa-check"></i><b>17.1</b> Gravitational force differentials</a></li>
+<li class="chapter" data-level="17.2" data-path="it-is-gravity.html"><a href="it-is-gravity.html#formal-statement-16"><i class="fa fa-check"></i><b>17.2</b> Formal Statement</a></li>
+<li class="chapter" data-level="17.3" data-path="it-is-gravity.html"><a href="it-is-gravity.html#chapter-code-17"><i class="fa fa-check"></i><b>17.3</b> Chapter Code</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://thoughtfulbloke.github.io/eqnz/night_tremors.pdf">pdf version</a></li>
+<li><a href="https://thoughtfulbloke.github.io/eqnz/night_tremors.epub">epub version</a></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Night Tremors: There are more earthquakes at night</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="it-is-not-seasonal" class="section level1">
+<h1><span class="header-section-number">Chapter 6</span> It is not seasonal</h1>
+<p>The amount of night within a 24 hour period changes over the course of a year, so a possible explanation is that if earthquakes are more likely to occur in winter, and winter nights are longer, then there would overall be more earthquakes at night. This would be an interesting finding in itself, but it would make the daily pattern the result of a seasonal one, and in that case I would need to go back and consider the position of the sun on a seasonal north-south in addition to the daily east-west basis.</p>
+<p>In calculating new variables from the data, I derived the length of night for each 24 hour period that an earthquake took place in. I can test this amount of night against the number of earthquakes that occurred in the available night.</p>
+<div class="figure"><span id="fig:unnamed-chunk-1"></span>
+<img src="006_not_seasonal_files/figure-html/unnamed-chunk-1-1.png" alt="Proportion of night earthquakes by length of night. n = 100279" width="900" />
+<p class="caption">
+Figure 5.1: Proportion of night earthquakes by length of night. n = 100279
+</p>
+</div>
+<p>As (for all hours we can be confident about) there is a consistent level of nightly earthquake oversupply, I can rule out seasonal differences being the cause.</p>
+<table>
+<caption><span id="tab:unnamed-chunk-2">Table 4.1: </span>Length of night and number of earthquakes</caption>
+<thead>
+<tr class="header">
+<th align="right">hours of night</th>
+<th align="right">night quakes</th>
+<th align="right">total quakes</th>
+<th align="right">% hours of night</th>
+<th align="right">% quakes at night</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">7</td>
+<td align="right">4</td>
+<td align="right">5</td>
+<td align="right">29</td>
+<td align="right">80</td>
+</tr>
+<tr class="even">
+<td align="right">8</td>
+<td align="right">1976</td>
+<td align="right">5003</td>
+<td align="right">33</td>
+<td align="right">39</td>
+</tr>
+<tr class="odd">
+<td align="right">9</td>
+<td align="right">10067</td>
+<td align="right">21281</td>
+<td align="right">38</td>
+<td align="right">47</td>
+</tr>
+<tr class="even">
+<td align="right">10</td>
+<td align="right">6513</td>
+<td align="right">12899</td>
+<td align="right">42</td>
+<td align="right">50</td>
+</tr>
+<tr class="odd">
+<td align="right">11</td>
+<td align="right">6555</td>
+<td align="right">11904</td>
+<td align="right">46</td>
+<td align="right">55</td>
+</tr>
+<tr class="even">
+<td align="right">12</td>
+<td align="right">7591</td>
+<td align="right">12734</td>
+<td align="right">50</td>
+<td align="right">60</td>
+</tr>
+<tr class="odd">
+<td align="right">13</td>
+<td align="right">10150</td>
+<td align="right">16181</td>
+<td align="right">54</td>
+<td align="right">63</td>
+</tr>
+<tr class="even">
+<td align="right">14</td>
+<td align="right">13006</td>
+<td align="right">19724</td>
+<td align="right">58</td>
+<td align="right">66</td>
+</tr>
+<tr class="odd">
+<td align="right">15</td>
+<td align="right">384</td>
+<td align="right">548</td>
+<td align="right">62</td>
+<td align="right">70</td>
+</tr>
+</tbody>
+</table>
+<p>This is not a formal statistical test, because I don’t think it needs it. The oversupply of nighttime earthquakes is neither rising or falling across the season’s change of night lengths, so there is no evidence of an association with seasonal change.</p>
+<div id="formal-statement-5" class="section level2">
+<h2><span class="header-section-number">6.1</span> Formal statement</h2>
+<p>There is no evidence that the occurrence of night earthquakes are influenced by seasonal changes. As a consequence this analysis focuses on change within a 24 hour period.</p>
+</div>
+<div id="chapter-code-6" class="section level2">
+<h2><span class="header-section-number">6.2</span> Chapter Code</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## ----setup, include=FALSE------------------------------------------------
+knitr::opts_chunk$<span class="kw">set</span>(<span class="dt">echo =</span> <span class="ot">FALSE</span>)
+knitr::opts_chunk$<span class="kw">set</span>(<span class="dt">warnings=</span><span class="ot">FALSE</span>)
+knitr::opts_chunk$<span class="kw">set</span>(<span class="dt">errors=</span><span class="ot">FALSE</span>)
+knitr::opts_chunk$<span class="kw">set</span>(<span class="dt">message=</span><span class="ot">FALSE</span>)
+knitr::opts_chunk$<span class="kw">set</span>(<span class="dt">dpi =</span> <span class="dv">150</span>)
+knitr::opts_chunk$<span class="kw">set</span>(<span class="dt">fig.width =</span>  <span class="dv">6</span>)
+knitr::opts_chunk$<span class="kw">set</span>(<span class="dt">fig.height =</span>  <span class="dv">4</span>)
+
+## ----c002_libraries------------------------------------------------------
+<span class="kw">Sys.setenv</span>(<span class="dt">TZ =</span> <span class="st">&quot;UTC&quot;</span>) 
+<span class="kw">library</span>(dplyr)
+<span class="kw">library</span>(ggplot2)
+<span class="kw">library</span>(lubridate)
+<span class="kw">library</span>(maptools)
+<span class="kw">library</span>(binom)
+<span class="kw">library</span>(parallel)
+<span class="kw">library</span>(plotrix)
+<span class="kw">library</span>(solidearthtide)
+<span class="kw">library</span>(tidyr)
+<span class="co"># Assumes there is eqnz_processed data created in chapter 2</span>
+<span class="kw">load</span>(<span class="st">&quot;eqdata/eqnz_processed.RData&quot;</span>)
+old_par &lt;-<span class="st"> </span><span class="kw">par</span>()
+
+lbls &lt;-<span class="st"> </span><span class="kw">c</span>(
+ <span class="st">&quot;1 sigma&quot;</span>, <span class="st">&quot;2 sigma&quot;</span>,
+ <span class="st">&quot;3 sigma&quot;</span>, <span class="st">&quot;4 sigma&quot;</span>,
+ <span class="st">&quot;5 sigma&quot;</span>, <span class="st">&quot;6 sigma&quot;</span>,
+ <span class="st">&quot;7 sigma&quot;</span>)
+typs &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>)
+weights &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>)
+clrs &lt;-<span class="st"> </span><span class="kw">rev</span>(<span class="kw">c</span>(<span class="st">&#39;#ffffcc&#39;</span>,<span class="st">&#39;#d9f0a3&#39;</span>,<span class="st">&#39;#addd8e&#39;</span>,<span class="st">&#39;#78c679&#39;</span>,<span class="st">&#39;#41ab5d&#39;</span>,<span class="st">&#39;#238443&#39;</span>,<span class="st">&#39;#005a32&#39;</span>))
+
+
+
+## ---- fig.cap=&quot;Proportion of night earthquakes by length of night. n = 100279&quot;----
+hrs &lt;-eqnz %&gt;%<span class="st"> </span><span class="kw">mutate</span>(<span class="dt">hour_band=</span><span class="kw">floor</span>(eq_nightlength)) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">group_by</span>(hour_band) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">eq_nt =</span> <span class="kw">sum</span>(eq_is_night), <span class="dt">eq_all =</span> <span class="kw">n</span>()) %&gt;%
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">nt_prop =</span> hour_band/<span class="dv">24</span>, <span class="dt">eq_prop =</span> eq_nt/<span class="st"> </span>eq_all)
+
+old_par=<span class="kw">par</span>()
+grf &lt;-<span class="st"> </span>hrs
+poly_conf_int &lt;-<span class="st"> </span>function(success, trials, aa, stepsize, sigma, colr){
+  ci &lt;-<span class="st"> </span><span class="kw">binom.confint</span>(success, trials, <span class="dt">method=</span><span class="kw">c</span>(<span class="st">&quot;wilson&quot;</span>), <span class="dt">conf.level =</span> sigma)
+  lower &lt;-<span class="st"> </span>ci[<span class="dv">1</span>,<span class="dv">5</span>] 
+  upper &lt;-<span class="st"> </span>ci[<span class="dv">1</span>,<span class="dv">6</span>] 
+  a &lt;-<span class="st"> </span><span class="kw">polygon</span>(<span class="dt">x=</span><span class="kw">c</span>(aa,aa+stepsize,aa+stepsize,aa), <span class="dt">y=</span><span class="kw">c</span>(upper,upper,lower,lower),
+               <span class="dt">col=</span>colr, <span class="dt">border=</span><span class="ot">NA</span>)
+}
+
+
+plot7sighr &lt;-<span class="st"> </span>function(success, trials, aa, stepsize, expected){
+  <span class="kw">library</span>(binom)
+  <span class="co">#bands &lt;- c(&#39;#ffffb2&#39;,&#39;#fed976&#39;,&#39;#feb24c&#39;,&#39;#fd8d3c&#39;,&#39;#fc4e2a&#39;,&#39;#e31a1c&#39;,&#39;#b10026&#39;)</span>
+  bands &lt;-<span class="st"> </span><span class="kw">rev</span>(<span class="kw">c</span>(<span class="st">&#39;#ffffcc&#39;</span>,<span class="st">&#39;#d9f0a3&#39;</span>,<span class="st">&#39;#addd8e&#39;</span>,<span class="st">&#39;#78c679&#39;</span>,<span class="st">&#39;#41ab5d&#39;</span>,<span class="st">&#39;#238443&#39;</span>,<span class="st">&#39;#005a32&#39;</span>))
+  sigmas &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">0.682689492137086</span>,
+              <span class="fl">0.954499736103642</span>,
+              <span class="fl">0.997300203936740</span>,
+              <span class="fl">0.999936657516334</span>,
+              <span class="fl">0.999999426696856</span>,
+              <span class="fl">0.999999998026825</span>,
+              <span class="fl">0.999999999997440</span>)
+  <span class="kw">sapply</span>(<span class="dv">7</span>:<span class="dv">1</span>, function(x){<span class="kw">poly_conf_int</span>(success, trials, aa, stepsize, sigmas[x], bands[x])})
+  a &lt;-<span class="st"> </span><span class="kw">lines</span>(<span class="kw">c</span>(aa, aa +<span class="st"> </span>stepsize), <span class="kw">c</span>(success/trials, success/trials), <span class="dt">lwd=</span><span class="dv">2</span>)
+  a &lt;-<span class="st"> </span><span class="kw">lines</span>(<span class="kw">c</span>(aa, aa +<span class="st"> </span>stepsize), <span class="kw">c</span>(expected,expected), <span class="dt">col=</span><span class="st">&quot;#FFFFFF&quot;</span>)
+  a &lt;-<span class="st"> </span><span class="kw">lines</span>(<span class="kw">c</span>(aa, aa +<span class="st"> </span>stepsize), <span class="kw">c</span>(expected,expected), <span class="dt">lty=</span><span class="dv">2</span>, <span class="dt">col=</span><span class="st">&quot;#777777&quot;</span>)
+  
+}
+
+
+lbls &lt;-<span class="st"> </span><span class="kw">c</span>(
+  <span class="st">&quot;1 sigma&quot;</span>, <span class="st">&quot;2 sigma&quot;</span>,
+  <span class="st">&quot;3 sigma&quot;</span>, <span class="st">&quot;4 sigma&quot;</span>,
+  <span class="st">&quot;5 sigma&quot;</span>, <span class="st">&quot;6 sigma&quot;</span>,
+  <span class="st">&quot;7 sigma&quot;</span>)
+typs &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>)
+weights &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>)
+clrs &lt;-<span class="st"> </span><span class="kw">rev</span>(<span class="kw">c</span>(<span class="st">&#39;#ffffcc&#39;</span>,<span class="st">&#39;#d9f0a3&#39;</span>,<span class="st">&#39;#addd8e&#39;</span>,<span class="st">&#39;#78c679&#39;</span>,<span class="st">&#39;#41ab5d&#39;</span>,<span class="st">&#39;#238443&#39;</span>,<span class="st">&#39;#005a32&#39;</span>))
+<span class="co">#clrs &lt;- c(&#39;#ffffb2&#39;,&#39;#fed976&#39;,&#39;#feb24c&#39;,&#39;#fd8d3c&#39;,&#39;#fc4e2a&#39;,&#39;#e31a1c&#39;,&#39;#b10026&#39;)</span>
+
+<span class="kw">layout</span>(<span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">2</span>), <span class="dt">ncol=</span><span class="dv">4</span>))
+<span class="kw">plot</span>(<span class="dt">x=</span><span class="kw">c</span>(<span class="kw">min</span>(grf$hour_band),<span class="kw">max</span>(grf$hour_band)+<span class="dv">1</span>), <span class="dt">y=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>), <span class="dt">type=</span><span class="st">&quot;n&quot;</span>, <span class="dt">bty=</span><span class="st">&quot;n&quot;</span>, <span class="dt">xlab=</span><span class="st">&quot;Hours of night&quot;</span>, <span class="dt">ylab=</span><span class="st">&quot;Proportion of earthquakes at night&quot;</span>)
+a &lt;-<span class="st"> </span><span class="kw">apply</span>(grf,<span class="dv">1</span>,function(x){<span class="kw">plot7sighr</span>(x[<span class="dv">2</span>],x[<span class="dv">3</span>],x[<span class="dv">1</span>],<span class="dv">1</span>,x[<span class="dv">4</span>])})
+
+
+<span class="kw">par</span>(<span class="dt">mar=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>))
+<span class="kw">plot</span>(<span class="dt">x=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">10</span>), <span class="dt">y=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">10</span>), <span class="dt">type=</span><span class="st">&quot;n&quot;</span>, <span class="dt">bty=</span><span class="st">&quot;n&quot;</span>, <span class="dt">axes=</span><span class="ot">FALSE</span>)
+<span class="kw">legend</span>(<span class="dv">0</span>,<span class="dv">5</span>, <span class="dt">legend=</span>lbls, <span class="dt">lty=</span>typs, <span class="dt">lwd=</span>weights, <span class="dt">col=</span>clrs, <span class="dt">bty=</span><span class="st">&quot;n&quot;</span>, <span class="dt">xjust=</span><span class="dv">0</span>, <span class="dt">title=</span><span class="st">&quot;Confidence</span><span class="ch">\n</span><span class="st">Intervals:&quot;</span>, <span class="dt">cex=</span><span class="fl">0.9</span>)
+lbls=<span class="kw">c</span>(<span class="st">&quot;Proportion of night</span><span class="ch">\n</span><span class="st">in 24 hours&quot;</span>, <span class="st">&quot;Night earthquakes</span><span class="ch">\n</span><span class="st">Proportion&quot;</span>)
+typs=<span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">1</span>)
+weights=<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>)
+<span class="kw">legend</span>(<span class="dv">0</span>,<span class="dv">9</span>, <span class="dt">legend=</span>lbls, <span class="dt">lty=</span>typs, <span class="dt">lwd=</span>weights, <span class="dt">bty=</span><span class="st">&quot;n&quot;</span>, <span class="dt">xjust=</span><span class="dv">0</span>, <span class="dt">title=</span><span class="st">&quot;Legend&quot;</span>, <span class="dt">y.intersp=</span><span class="fl">1.2</span>)
+
+
+<span class="kw">par</span>(<span class="dt">mar=</span>old_par$mar)
+<span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>))
+
+
+## ------------------------------------------------------------------------
+hrs %&gt;%<span class="st"> </span><span class="kw">mutate</span>(<span class="st">`</span><span class="dt">% hours of night</span><span class="st">`</span> =<span class="st"> </span><span class="dv">100</span> *<span class="st"> </span><span class="kw">round</span>(nt_prop,<span class="dv">2</span>),
+               <span class="st">`</span><span class="dt">% quakes at night</span><span class="st">`</span> =<span class="st"> </span><span class="dv">100</span> *<span class="st"> </span><span class="kw">round</span>(eq_prop,<span class="dv">2</span>)) %&gt;%
+<span class="st">  </span><span class="kw">select</span>(<span class="st">`</span><span class="dt">hours of night</span><span class="st">`</span>=hour_band,
+               <span class="st">`</span><span class="dt">night quakes</span><span class="st">`</span> =<span class="st"> </span>eq_nt,
+               <span class="st">`</span><span class="dt">total quakes</span><span class="st">`</span> =<span class="st"> </span>eq_all,
+               <span class="st">`</span><span class="dt">% hours of night</span><span class="st">`</span>,
+               <span class="st">`</span><span class="dt">% quakes at night</span><span class="st">`</span>) %&gt;%
+<span class="st">  </span>knitr::<span class="kw">kable</span>(<span class="dt">caption=</span><span class="st">&quot;Length of night and number of earthquakes&quot;</span>)</code></pre></div>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="it-is-not-masking.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="it-is-not-the-moon.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
