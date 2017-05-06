@@ -214,7 +214,8 @@ clrs <- rev(c('#ffffcc','#d9f0a3','#addd8e','#78c679','#41ab5d','#238443','#005a
 circlesize=500
 
 
-## ----fig.cap="Number of earthquakes by 10 degree arcs of angle of the sun at time of earthquake"----
+## ----fig.cap=
+##"Number of earthquakes by 10 degree arcs of angle of the sun at time of earthquake"----
 by_angle <- eqnz %>% 
   group_by(eq_angle_by_10) %>% summarise(total= n()) %>%
   mutate(daynight=ifelse(eq_angle_by_10 < 180, "day", "night"))
@@ -258,12 +259,12 @@ calc_angs <- function(x, longinput, timeinput){
   sun_angles <- maptools::solarpos(matrix(c(longinput, x), ncol=2), timeinput)
   colnames(sun_angles) <- c("eq_compass", "eq_vertical")
 # calculate 360 degree as well as vertical
-site_summary <- as.data.frame(sun_angles) %>% mutate(eq_angle_360 = eq_vertical,
-                                    eq_angle_360 = ifelse(eq_compass > 180,
-                                                          180 - eq_angle_360, eq_angle_360),
-                                    eq_angle_360 = ifelse(eq_vertical < 0 & eq_compass <= 180,
-                                                          360 + eq_angle_360, eq_angle_360),
-                                    eq_angle_by_10 = floor(eq_angle_360 /10) * 10) %>%
+site_summary <- as.data.frame(sun_angles) %>% 
+  mutate(eq_angle_360 = eq_vertical,
+         eq_angle_360 = ifelse(eq_compass > 180, 180 - eq_angle_360, eq_angle_360),
+         eq_angle_360 = ifelse(eq_vertical < 0 & eq_compass <= 180,
+                               360 + eq_angle_360, eq_angle_360),
+         eq_angle_by_10 = floor(eq_angle_360 /10) * 10) %>%
   group_by(eq_angle_by_10) %>% summarise(total= n())
   site_summary$lat <- x
   return(site_summary)
@@ -274,8 +275,9 @@ no_cores <- detectCores() - 1
 # Initiate cluster
 cl <- makeCluster(no_cores)
 clusterExport(cl, varlist=c("lat_range", "long_med", "time_sq", "calc_angs"))
-list_angs <- parLapply(cl, lat_range,
-                         function(x){calc_angs(x=x, longinput=long_med, timeinput=time_sq)})
+list_angs <- parLapply(
+  cl, lat_range, function(x){
+                           calc_angs(x=x, longinput=long_med, timeinput=time_sq)})
 stopCluster(cl)
 ###
 library(tidyr)
@@ -313,7 +315,8 @@ lbls=c("Expected Proportion", "Observed Proportion")
 typs=c(3,1)
 weights=c(1,2)
 legend(0,7, legend=lbls, lty=typs, lwd=weights, bty="n",
-       xjust=0, title="Legend", y.intersp=1.2)
+       xjust=0,
+       title="Legend", y.intersp=1.2)
 
 
 par(mar=old_par$mar)
@@ -362,7 +365,8 @@ ci_brackets <- act_exp %>% ungroup() %>% mutate(grand_total=sum(total)) %>%
                                conf.level = sigmas[1])[1,6] * grand_total)
 
 
-## ---- fig.cap="Comparison of expected to observed (with uncertainty) earthquakes by angle of the sun"----
+## ---- fig.cap="Comparison of expected to observed 
+## (with uncertainty) earthquakes by angle of the sun"----
 bands <- rev(c('#ffffcc','#d9f0a3','#addd8e','#78c679','#41ab5d','#238443','#005a32'))
 old_par=par()
 layout(matrix(c(1,1,1,2), ncol=4))
@@ -422,7 +426,8 @@ par(mfrow=c(1,1))
 
 
 
-## ---- fig.cap="Difference of observed earthquake numbers from expected by 10 degree sun arc"----
+## ---- fig.cap=
+## "Difference of observed earthquake numbers from expected by 10 degree sun arc"----
 #normalise on expected
 norm_ci <- ci_brackets
 
@@ -606,12 +611,15 @@ lines(1:18, act_exp$res[1:18], pch=19, col="#56B4E9")
 lines(19:36, act_exp$res[19:36], pch=19, col="black")
 
 
-## ---- fig.cap="Rotational variation in residuals. The nightly residuals have been displaced by the mean difference between day and night, to reflect the different between the two lines"----
+## ---- fig.cap="Rotational variation in residuals.
+## The nightly residuals have been displaced by the mean difference between day
+## and night, to reflect the different between the two lines"----
 old_par=par()
 layout(matrix(c(1,1,1,2), ncol=4))
 
  act_exp$border = 1
- # need to double entries with a displacement of 10 to make each side of the item on the graph
+ # need to double entries with a displacement of 10 
+ # to make each side of the item on the graph
  limits=2 * max(abs(act_exp$adjust_res))
  #white background
  polar.plot(c(act_exp$adjust_res[1], act_exp$adjust_res[1]),
@@ -656,7 +664,8 @@ lbls2=c("Residuals Day", "Residuals Night", "Expected Day", "Expected Night")
 typs2=c(1,1,3,3)
 weights2=c(4,4,1,1)
 clrs2=c("#56B4E9","#000000","#56B4E9", "#000000")
-legend(0,10, legend=lbls2, lty=typs2, lwd=weights2, bty="n", xjust=0, title="Legend", y.intersp=1.2, col=clrs2)
+legend(0,10, legend=lbls2, lty=typs2, lwd=weights2, bty="n", xjust=0,
+       title="Legend", y.intersp=1.2, col=clrs2)
 
 
 
@@ -665,56 +674,87 @@ par(mfrow=c(1,1))
 
 
 ## ------------------------------------------------------------------------
-set_diurn <- eqnz %>% mutate(solidearth = ifelse(eq_solidearth_vertical < 0, "contracted","expanded"),
+set_diurn <- eqnz %>%
+  mutate(solidearth = ifelse(eq_solidearth_vertical < 0, "contracted","expanded"),
                 diurnal = ifelse(eq_is_night,"night","day")) %>%
   group_by(solidearth, diurnal) %>% summarise(total = n())
 
-knitr::kable(set_diurn, caption="Number of earthquakes by day/night cycle and condition of crust")
+knitr::kable(set_diurn,
+             caption="Number of earthquakes by day/night cycle and condition of crust")
 
 ## ------------------------------------------------------------------------
-ci_solearth <- set_diurn %>% ungroup() %>% spread(diurnal, total) %>%
-  rowwise() %>% mutate(ci_lower_7 = binom.confint(night, (day + night), method=c("wilson"), conf.level = sigmas[7])[1,5],
-                       ci_upper_7 = binom.confint(night, (day + night), method=c("wilson"), conf.level = sigmas[7])[1,6],
-                       ci_lower_6 = binom.confint(night, (day + night), method=c("wilson"), conf.level = sigmas[6])[1,5],
-                       ci_upper_6 = binom.confint(night, (day + night), method=c("wilson"), conf.level = sigmas[6])[1,6],
-                       ci_lower_5 = binom.confint(night, (day + night), method=c("wilson"), conf.level = sigmas[5])[1,5],
-                       ci_upper_5 = binom.confint(night, (day + night), method=c("wilson"), conf.level = sigmas[5])[1,6],
-                       ci_lower_4 = binom.confint(night, (day + night), method=c("wilson"), conf.level = sigmas[4])[1,5],
-                       ci_upper_4 = binom.confint(night, (day + night), method=c("wilson"), conf.level = sigmas[4])[1,6],
-                       ci_lower_3 = binom.confint(night, (day + night), method=c("wilson"), conf.level = sigmas[3])[1,5],
-                       ci_upper_3 = binom.confint(night, (day + night), method=c("wilson"), conf.level = sigmas[3])[1,6],
-                       ci_lower_2 = binom.confint(night, (day + night), method=c("wilson"), conf.level = sigmas[2])[1,5],
-                       ci_upper_2 = binom.confint(night, (day + night), method=c("wilson"), conf.level = sigmas[2])[1,6],
-                       ci_lower_1 = binom.confint(night, (day + night), method=c("wilson"), conf.level = sigmas[1])[1,5],
-                       ci_upper_1 = binom.confint(night, (day + night), method=c("wilson"), conf.level = sigmas[1])[1,6])
+ci_solearth <- set_diurn %>% ungroup() %>% spread(diurnal, total) %>% rowwise() %>%
+  mutate(ci_lower_7 = binom.confint(night, (day + night),
+                                    method=c("wilson"), conf.level = sigmas[7])[1,5],
+         ci_upper_7 = binom.confint(night, (day + night),
+                                    method=c("wilson"), conf.level = sigmas[7])[1,6],
+         ci_lower_6 = binom.confint(night, (day + night),
+                                    method=c("wilson"), conf.level = sigmas[6])[1,5],
+         ci_upper_6 = binom.confint(night, (day + night),
+                                    method=c("wilson"), conf.level = sigmas[6])[1,6],
+         ci_lower_5 = binom.confint(night, (day + night),
+                                    method=c("wilson"), conf.level = sigmas[5])[1,5],
+         ci_upper_5 = binom.confint(night, (day + night),
+                                    method=c("wilson"), conf.level = sigmas[5])[1,6],
+         ci_lower_4 = binom.confint(night, (day + night),
+                                    method=c("wilson"), conf.level = sigmas[4])[1,5],
+         ci_upper_4 = binom.confint(night, (day + night),
+                                    method=c("wilson"), conf.level = sigmas[4])[1,6],
+         ci_lower_3 = binom.confint(night, (day + night), 
+                                    method=c("wilson"), conf.level = sigmas[3])[1,5],
+         ci_upper_3 = binom.confint(night, (day + night), 
+                                    method=c("wilson"), conf.level = sigmas[3])[1,6],
+         ci_lower_2 = binom.confint(night, (day + night), 
+                                    method=c("wilson"), conf.level = sigmas[2])[1,5],
+         ci_upper_2 = binom.confint(night, (day + night), 
+                                    method=c("wilson"), conf.level = sigmas[2])[1,6],
+         ci_lower_1 = binom.confint(night, (day + night), 
+                                    method=c("wilson"), conf.level = sigmas[1])[1,5],
+         ci_upper_1 = binom.confint(night, (day + night), 
+                                    method=c("wilson"), conf.level = sigmas[1])[1,6])
 ci_solearth$yheight <- c(1,3)
 layout(matrix(c(1,1,1,2), ncol=4))
 
 par(mar=c(5,6,4,2))
-plot(c(0.49,0.61), y=c(-3,8), type="n", bty="n", yaxt="n", ylab="State of earth's crust", xlab="Proportion of earthquakes at night")
-a <- apply(ci_solearth[,2:18], 1, function(x){polygon(c(x[3], x[4], x[4], x[3]), c(x[17]-1, x[17]-1, x[17], x[17]), col=bands[7], border=NA)})
-a <- apply(ci_solearth[,2:18], 1, function(x){polygon(c(x[5], x[6], x[6], x[5]), c(x[17]-1, x[17]-1, x[17], x[17]), col=bands[6], border=NA)})
-a <- apply(ci_solearth[,2:18], 1, function(x){polygon(c(x[7], x[8], x[8], x[7]), c(x[17]-1, x[17]-1, x[17], x[17]), col=bands[5], border=NA)})
-a <- apply(ci_solearth[,2:18], 1, function(x){polygon(c(x[9], x[10], x[10], x[9]), c(x[17]-1, x[17]-1, x[17], x[17]), col=bands[4], border=NA)})
-a <- apply(ci_solearth[,2:18], 1, function(x){polygon(c(x[11], x[12], x[12], x[11]), c(x[17]-1, x[17]-1, x[17], x[17]), col=bands[3], border=NA)})
-a <- apply(ci_solearth[,2:18], 1, function(x){polygon(c(x[13], x[14], x[14], x[13]), c(x[17]-1, x[17]-1, x[17], x[17]), col=bands[2], border=NA)})
-a <- apply(ci_solearth[,2:18], 1, function(x){polygon(c(x[15], x[16], x[16], x[15]), c(x[17]-1, x[17]-1, x[17], x[17]), col=bands[1], border=NA)})
-a <- apply(ci_solearth[,2:18], 1, function(x){lines(c(x[2]/ (x[1] + x[2]), x[2]/ (x[1] + x[2])), c(x[17]-1, x[17]), lwd=2)})
-#text(ci_solearth[1,3]/ (ci_solearth[1,3] + ci_solearth[1,2]), 2.1, "contracted", cex=0.7, srt=90, pos=3)
-#text(ci_solearth[2,3]/ (ci_solearth[2,3] + ci_solearth[2,2]), 2.1, "expanded", cex=0.7, srt=90, pos=3)
-#lines(c(0.5,0.5),c(0,3), col="white")
-#lines(c(0.5,0.5),c(0,3), lty=2)
-#text(c(0.5),c(2.3), "expected", cex=0.7, srt=90, pos=3)
-axis(2, at=c(0.5,2.5), labels=c("contracted", "expanded"), tick=FALSE, lwd=0, las=2, pos=0.5)
+plot(c(0.49,0.61), y=c(-3,8), type="n", bty="n", yaxt="n", ylab="State of earth's crust",
+     xlab="Proportion of earthquakes at night")
+a <- apply(ci_solearth[,2:18], 1, function(x){
+  polygon(c(x[3], x[4], x[4], x[3]), c(x[17]-1, x[17]-1, x[17], x[17]), 
+          col=bands[7], border=NA)})
+a <- apply(ci_solearth[,2:18], 1, function(x){
+  polygon(c(x[5], x[6], x[6], x[5]), c(x[17]-1, x[17]-1, x[17], x[17]), 
+          col=bands[6], border=NA)})
+a <- apply(ci_solearth[,2:18], 1, function(x){
+  polygon(c(x[7], x[8], x[8], x[7]), c(x[17]-1, x[17]-1, x[17], x[17]), 
+          col=bands[5], border=NA)})
+a <- apply(ci_solearth[,2:18], 1, function(x){
+  polygon(c(x[9], x[10], x[10], x[9]), c(x[17]-1, x[17]-1, x[17], x[17]), 
+          col=bands[4], border=NA)})
+a <- apply(ci_solearth[,2:18], 1, function(x){
+  polygon(c(x[11], x[12], x[12], x[11]), c(x[17]-1, x[17]-1, x[17], x[17]), 
+          col=bands[3], border=NA)})
+a <- apply(ci_solearth[,2:18], 1, function(x){
+  polygon(c(x[13], x[14], x[14], x[13]), c(x[17]-1, x[17]-1, x[17], x[17]), 
+          col=bands[2], border=NA)})
+a <- apply(ci_solearth[,2:18], 1, function(x){
+  polygon(c(x[15], x[16], x[16], x[15]), c(x[17]-1, x[17]-1, x[17], x[17]), 
+          col=bands[1], border=NA)})
+a <- apply(ci_solearth[,2:18], 1, function(x){
+  lines(c(x[2]/ (x[1] + x[2]), x[2]/ (x[1] + x[2])), c(x[17]-1, x[17]), lwd=2)})
+
+axis(2, at=c(0.5,2.5), labels=c("contracted", "expanded"), 
+     tick=FALSE, lwd=0, las=2, pos=0.5)
 
 par(mar=c(0,0,0,0))
 plot(x=c(0,10), y=c(0,10), type="n", bty="n", axes=FALSE)
-legend(0,5.5, legend=lbls, lty=typs, lwd=weights, col=clrs, bty="n", xjust=0, title="Confidence Intervals:", y.intersp=1.1, cex=0.9)
+legend(0,5.5, legend=lbls, lty=typs, lwd=weights, col=clrs, bty="n", xjust=0, 
+       title="Confidence Intervals:", y.intersp=1.1, cex=0.9)
 
 lbls2=c("Observed Proportion")
 typs2=1
 weights2=2
-legend(0,7, legend=lbls2, lty=typs2, lwd=weights2, bty="n", xjust=0, title="Legend", y.intersp=1.2, cex=0.9)
+legend(0,7, legend=lbls2, lty=typs2, lwd=weights2, bty="n", xjust=0, 
+       title="Legend", y.intersp=1.2, cex=0.9)
 
 
 par(mar=old_par$mar)

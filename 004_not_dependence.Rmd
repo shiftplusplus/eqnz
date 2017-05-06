@@ -86,20 +86,27 @@ library(lubridate)
 load("eqdata/eqnz_processed.RData")
 
 ## ------------------------------------------------------------------------
-eqnz %>% group_by(eq_roundedlat, eq_roundedlong) %>% mutate(timediff = floor(as.numeric(c(NA,diff(time_UTC)))/360)) %>%
-ungroup() %>% filter(!is.na(timediff)) %>% summarise(`median` = median(timediff), `mean` = round(mean(timediff),0), `earthquakes`=n()) %>%
+eqnz %>% group_by(eq_roundedlat, eq_roundedlong) %>% 
+  mutate(timediff = floor(as.numeric(c(NA,diff(time_UTC)))/360)) %>%
+  ungroup() %>% filter(!is.na(timediff)) %>%
+  summarise(`median` = median(timediff), `mean` = round(mean(timediff),0),
+            `earthquakes`=n()) %>%
   knitr::kable(caption="Time from previous earthquake (hours) per 50km sq. grid")
 
 ## ------------------------------------------------------------------------
-noswarm <- eqnz %>% group_by(eq_roundedlat, eq_roundedlong) %>% mutate(timediff = floor(as.numeric(c(NA,diff(time_UTC)))/360)) %>%
+noswarm <- eqnz %>% group_by(eq_roundedlat, eq_roundedlong) %>% 
+  mutate(timediff = floor(as.numeric(c(NA,diff(time_UTC)))/360)) %>%
 ungroup() %>% filter(!is.na(timediff) & timediff >=28) %>%
-  summarise(night = sum(eq_is_night), totalevents=n(), percent = round(100 * sum(eq_is_night) / n(),1))
+  summarise(night = sum(eq_is_night), totalevents=n(),
+            percent = round(100 * sum(eq_is_night) / n(),1))
 
 ## ------------------------------------------------------------------------
-tinymag <- eqnz %>% group_by(eq_roundedlat, eq_roundedlong, month(time_UTC), year(time_UTC)) %>% 
+tinymag <- eqnz %>%
+  group_by(eq_roundedlat, eq_roundedlong, month(time_UTC), year(time_UTC)) %>% 
   mutate(monthTopMag = max(magnitude)) %>%
   ungroup() %>% filter(monthTopMag < 5) %>%
-  summarise(night = sum(eq_is_night), totalevents=n(), percent = round(100 * sum(eq_is_night) / n(),1))
+  summarise(night = sum(eq_is_night), totalevents=n(),
+            percent = round(100 * sum(eq_is_night) / n(),1))
 
 
 ```

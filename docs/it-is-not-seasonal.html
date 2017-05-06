@@ -26,7 +26,7 @@
 <meta name="author" content="David Hood">
 
 
-<meta name="date" content="2017-05-03">
+<meta name="date" content="2017-05-06">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -118,8 +118,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="1" data-path="motivation.html"><a href="motivation.html"><i class="fa fa-check"></i><b>1</b> Motivation</a><ul>
 <li class="chapter" data-level="1.1" data-path="motivation.html"><a href="motivation.html#formal-statement"><i class="fa fa-check"></i><b>1.1</b> Formal Statement</a></li>
 <li class="chapter" data-level="1.2" data-path="motivation.html"><a href="motivation.html#Links1"><i class="fa fa-check"></i><b>1.2</b> Links</a></li>
-<li class="chapter" data-level="1.3" data-path="motivation.html"><a href="motivation.html#code"><i class="fa fa-check"></i><b>1.3</b> Code</a></li>
-<li class="chapter" data-level="1.4" data-path="motivation.html"><a href="motivation.html#chapter-code-1"><i class="fa fa-check"></i><b>1.4</b> Chapter Code</a></li>
+<li class="chapter" data-level="1.3" data-path="motivation.html"><a href="motivation.html#chapter-code-1"><i class="fa fa-check"></i><b>1.3</b> Chapter Code</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="data-processing.html"><a href="data-processing.html"><i class="fa fa-check"></i><b>2</b> Data Processing</a><ul>
 <li class="chapter" data-level="2.1" data-path="data-processing.html"><a href="data-processing.html#event-types"><i class="fa fa-check"></i><b>2.1</b> Event types</a><ul>
@@ -128,7 +127,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2.2" data-path="data-processing.html"><a href="data-processing.html#gridded-latitude-and-longitude"><i class="fa fa-check"></i><b>2.2</b> Gridded Latitude and Longitude</a></li>
 <li class="chapter" data-level="2.3" data-path="data-processing.html"><a href="data-processing.html#angle-of-the-sun"><i class="fa fa-check"></i><b>2.3</b> Angle of the sun</a></li>
 <li class="chapter" data-level="2.4" data-path="data-processing.html"><a href="data-processing.html#formal-statement-1"><i class="fa fa-check"></i><b>2.4</b> Formal statement</a></li>
-<li class="chapter" data-level="2.5" data-path="data-processing.html"><a href="data-processing.html#code-1"><i class="fa fa-check"></i><b>2.5</b> Code</a></li>
+<li class="chapter" data-level="2.5" data-path="data-processing.html"><a href="data-processing.html#code"><i class="fa fa-check"></i><b>2.5</b> Code</a></li>
 <li class="chapter" data-level="2.6" data-path="data-processing.html"><a href="data-processing.html#chapter-code-2"><i class="fa fa-check"></i><b>2.6</b> Chapter Code</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="key-result.html"><a href="key-result.html"><i class="fa fa-check"></i><b>3</b> Key result</a><ul>
@@ -384,7 +383,8 @@ plot7sighr &lt;-<span class="st"> </span>function(success, trials, aa, stepsize,
               <span class="fl">0.999999426696856</span>,
               <span class="fl">0.999999998026825</span>,
               <span class="fl">0.999999999997440</span>)
-  <span class="kw">sapply</span>(<span class="dv">7</span>:<span class="dv">1</span>, function(x){<span class="kw">poly_conf_int</span>(success, trials, aa, stepsize, sigmas[x], bands[x])})
+  <span class="kw">sapply</span>(<span class="dv">7</span>:<span class="dv">1</span>, function(x){
+    <span class="kw">poly_conf_int</span>(success, trials, aa, stepsize, sigmas[x], bands[x])})
   a &lt;-<span class="st"> </span><span class="kw">lines</span>(<span class="kw">c</span>(aa, aa +<span class="st"> </span>stepsize), <span class="kw">c</span>(success/trials, success/trials), <span class="dt">lwd=</span><span class="dv">2</span>)
   a &lt;-<span class="st"> </span><span class="kw">lines</span>(<span class="kw">c</span>(aa, aa +<span class="st"> </span>stepsize), <span class="kw">c</span>(expected,expected), <span class="dt">col=</span><span class="st">&quot;#FFFFFF&quot;</span>)
   a &lt;-<span class="st"> </span><span class="kw">lines</span>(<span class="kw">c</span>(aa, aa +<span class="st"> </span>stepsize), <span class="kw">c</span>(expected,expected), <span class="dt">lty=</span><span class="dv">2</span>, <span class="dt">col=</span><span class="st">&quot;#777777&quot;</span>)
@@ -403,17 +403,20 @@ clrs &lt;-<span class="st"> </span><span class="kw">rev</span>(<span class="kw">
 <span class="co">#clrs &lt;- c(&#39;#ffffb2&#39;,&#39;#fed976&#39;,&#39;#feb24c&#39;,&#39;#fd8d3c&#39;,&#39;#fc4e2a&#39;,&#39;#e31a1c&#39;,&#39;#b10026&#39;)</span>
 
 <span class="kw">layout</span>(<span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">2</span>), <span class="dt">ncol=</span><span class="dv">4</span>))
-<span class="kw">plot</span>(<span class="dt">x=</span><span class="kw">c</span>(<span class="kw">min</span>(grf$hour_band),<span class="kw">max</span>(grf$hour_band)+<span class="dv">1</span>), <span class="dt">y=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>), <span class="dt">type=</span><span class="st">&quot;n&quot;</span>, <span class="dt">bty=</span><span class="st">&quot;n&quot;</span>, <span class="dt">xlab=</span><span class="st">&quot;Hours of night&quot;</span>, <span class="dt">ylab=</span><span class="st">&quot;Proportion of earthquakes at night&quot;</span>)
+<span class="kw">plot</span>(<span class="dt">x=</span><span class="kw">c</span>(<span class="kw">min</span>(grf$hour_band),<span class="kw">max</span>(grf$hour_band)+<span class="dv">1</span>), <span class="dt">y=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>), <span class="dt">type=</span><span class="st">&quot;n&quot;</span>,
+     <span class="dt">bty=</span><span class="st">&quot;n&quot;</span>, <span class="dt">xlab=</span><span class="st">&quot;Hours of night&quot;</span>, <span class="dt">ylab=</span><span class="st">&quot;Proportion of earthquakes at night&quot;</span>)
 a &lt;-<span class="st"> </span><span class="kw">apply</span>(grf,<span class="dv">1</span>,function(x){<span class="kw">plot7sighr</span>(x[<span class="dv">2</span>],x[<span class="dv">3</span>],x[<span class="dv">1</span>],<span class="dv">1</span>,x[<span class="dv">4</span>])})
 
 
 <span class="kw">par</span>(<span class="dt">mar=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>))
 <span class="kw">plot</span>(<span class="dt">x=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">10</span>), <span class="dt">y=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">10</span>), <span class="dt">type=</span><span class="st">&quot;n&quot;</span>, <span class="dt">bty=</span><span class="st">&quot;n&quot;</span>, <span class="dt">axes=</span><span class="ot">FALSE</span>)
-<span class="kw">legend</span>(<span class="dv">0</span>,<span class="dv">5</span>, <span class="dt">legend=</span>lbls, <span class="dt">lty=</span>typs, <span class="dt">lwd=</span>weights, <span class="dt">col=</span>clrs, <span class="dt">bty=</span><span class="st">&quot;n&quot;</span>, <span class="dt">xjust=</span><span class="dv">0</span>, <span class="dt">title=</span><span class="st">&quot;Confidence</span><span class="ch">\n</span><span class="st">Intervals:&quot;</span>, <span class="dt">cex=</span><span class="fl">0.9</span>)
+<span class="kw">legend</span>(<span class="dv">0</span>,<span class="dv">5</span>, <span class="dt">legend=</span>lbls, <span class="dt">lty=</span>typs, <span class="dt">lwd=</span>weights, <span class="dt">col=</span>clrs, <span class="dt">bty=</span><span class="st">&quot;n&quot;</span>, <span class="dt">xjust=</span><span class="dv">0</span>,
+       <span class="dt">title=</span><span class="st">&quot;Confidence</span><span class="ch">\n</span><span class="st">Intervals:&quot;</span>, <span class="dt">cex=</span><span class="fl">0.9</span>)
 lbls=<span class="kw">c</span>(<span class="st">&quot;Proportion of night</span><span class="ch">\n</span><span class="st">in 24 hours&quot;</span>, <span class="st">&quot;Night earthquakes</span><span class="ch">\n</span><span class="st">Proportion&quot;</span>)
 typs=<span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">1</span>)
 weights=<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>)
-<span class="kw">legend</span>(<span class="dv">0</span>,<span class="dv">9</span>, <span class="dt">legend=</span>lbls, <span class="dt">lty=</span>typs, <span class="dt">lwd=</span>weights, <span class="dt">bty=</span><span class="st">&quot;n&quot;</span>, <span class="dt">xjust=</span><span class="dv">0</span>, <span class="dt">title=</span><span class="st">&quot;Legend&quot;</span>, <span class="dt">y.intersp=</span><span class="fl">1.2</span>)
+<span class="kw">legend</span>(<span class="dv">0</span>,<span class="dv">9</span>, <span class="dt">legend=</span>lbls, <span class="dt">lty=</span>typs, <span class="dt">lwd=</span>weights, <span class="dt">bty=</span><span class="st">&quot;n&quot;</span>, <span class="dt">xjust=</span><span class="dv">0</span>,
+       <span class="dt">title=</span><span class="st">&quot;Legend&quot;</span>, <span class="dt">y.intersp=</span><span class="fl">1.2</span>)
 
 
 <span class="kw">par</span>(<span class="dt">mar=</span>old_par$mar)

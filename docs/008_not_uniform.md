@@ -115,11 +115,13 @@ grid_min <- reg_eq %>% group_by(decile) %>%
 ## ------------------------------------------------------------------------
 layout(matrix(c(1,1,1,2), ncol=4))
 map("nzHires", ylim=c(-48.5, -33.5))
-points(reg_eq$eq_roundedlong, reg_eq$eq_roundedlat, pch=15, col=with_alpha[reg_eq$decile], cex=1.5)
+points(reg_eq$eq_roundedlong, reg_eq$eq_roundedlat, pch=15, col=with_alpha[reg_eq$decile],
+       cex=1.5)
 
 par(mar=c(0,0,0,0))
 plot(x=c(0,10), y=c(0,10), type="n", bty="n", axes=FALSE)
-legend(0,9, legend=paste(1:10, ": ",round(grid_min$from,2), "+", sep="") , fill=with_alpha, bty="n", xjust=0,
+legend(0,9, legend=paste(1:10, ": ",round(grid_min$from,2), "+", sep="") ,
+       fill=with_alpha, bty="n", xjust=0,
        title="Deciles:", cex=0.9, border=with_alpha)
 
 
@@ -144,21 +146,25 @@ neighboury <- c(squares$yg,squares$north_y)
 potential_neighbours <- data.frame(gridx, gridy, neighbourx, neighboury)
 reg_eq$grid_index <- 1:nrow(reg_eq)
 actual_grid <- merge(potential_neighbours,
-                     reg_eq[,c("eq_gridpoint_x", "eq_gridpoint_y", "grid_index", "decile")],
+                     reg_eq[,c("eq_gridpoint_x", "eq_gridpoint_y",
+                               "grid_index", "decile")],
                      by.x= c("gridx","gridy"),
                      by.y= c("eq_gridpoint_x", "eq_gridpoint_y"))
 actual_neighbours <- merge(actual_grid,
-                           reg_eq[,c("eq_gridpoint_x", "eq_gridpoint_y", "grid_index", "decile")],
+                           reg_eq[,c("eq_gridpoint_x", "eq_gridpoint_y",
+                                     "grid_index", "decile")],
                      by.x= c("neighbourx","neighboury"),
                      by.y= c("eq_gridpoint_x", "eq_gridpoint_y"))
 names(actual_neighbours) <- c("neighbourx", "neighboury", "gridx",
-                              "gridy", "grid_index", "decile_grid", "neighbour_index", "decile_neighbour")
+                              "gridy", "grid_index", "decile_grid",
+                              "neighbour_index", "decile_neighbour")
 
 grids <- actual_neighbours$grid_index
 neighbours <- actual_neighbours$neighbour_index
 deciles <- reg_eq$decile
 
-similar <- sum(abs(actual_neighbours$decile_grid - actual_neighbours$decile_neighbour) < 2)
+similar <- sum(abs(
+  actual_neighbours$decile_grid - actual_neighbours$decile_neighbour) < 2)
 
 
 ## ------------------------------------------------------------------------

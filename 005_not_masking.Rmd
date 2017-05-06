@@ -46,7 +46,8 @@ plot7sig <- function(success, trials, aa, stepsize){
               0.999999426696856,
               0.999999998026825,
               0.999999999997440)
-  sapply(7:1, function(x){poly_conf_int(success, trials, aa, stepsize, sigmas[x], bands[x])})
+  sapply(7:1, function(x){
+    poly_conf_int(success, trials, aa, stepsize, sigmas[x], bands[x])})
   a <- lines(c(aa, aa + stepsize), c(success/trials, success/trials), lwd=2)
 }
 
@@ -62,19 +63,22 @@ clrs <- rev(c('#ffffcc','#d9f0a3','#addd8e','#78c679','#41ab5d','#238443','#005a
 #clrs <- c('#ffffb2','#fed976','#feb24c','#fd8d3c','#fc4e2a','#e31a1c','#b10026')
 
 layout(matrix(c(1,1,1,2), ncol=4))
-plot(x=c(0,max(grf$floored_mag)+0.5), y=c(0,1), type="n", bty="n", xlab="Magnitude (0.5 steps)", ylab="Proportion of earthquakes at night")
+plot(x=c(0,max(grf$floored_mag)+0.5), y=c(0,1), type="n", bty="n", 
+     xlab="Magnitude (0.5 steps)", ylab="Proportion of earthquakes at night")
 a <- apply(grf,1,function(x){plot7sig(x[2],x[3],x[1],0.5)})
 lines(c(0,10), c(.5,.5), col="#FFFFFF")
 lines(c(0,10), c(.5,.5), lty=2, col="#777777")
 
 par(mar=c(0,0,0,0))
 plot(x=c(0,10), y=c(0,10), type="n", bty="n", axes=FALSE)
-legend(0,5, legend=lbls, lty=typs, lwd=weights, col=clrs, bty="n", xjust=0, title="Confidence
+legend(0,5, legend=lbls, lty=typs, lwd=weights, col=clrs, bty="n", xjust=0,
+       title="Confidence
 Intervals:", cex=0.9)
 lbls=c("Expected Proportion", "Actual Proportion")
 typs=c(2,1)
 weights=c(1,2)
-legend(0,7, legend=lbls, lty=typs, lwd=weights, bty="n", xjust=0, title="Legend", y.intersp=1.2)
+legend(0,7, legend=lbls, lty=typs, lwd=weights, bty="n", xjust=0,
+       title="Legend", y.intersp=1.2)
 
 
 par(mar=old_par$mar)
@@ -184,7 +188,7 @@ library(dplyr)
 load("eqdata/eqnz_processed.RData")
 eq_national <- eqnz
 
-## ---- fig.cap="Proportion of earthquakes occurring at night by magnitude (0.5 steps)"----
+## ----fig.cap="Proportion of earthquakes occurring at night by magnitude (0.5 steps)"----
 old_par=par()
 grf <- eq_national %>% mutate(floored_mag = floor(magnitude*2)/2) %>%
   group_by(floored_mag) %>% summarise(successes = sum(eq_is_night), trials=n())
@@ -209,7 +213,8 @@ plot7sig <- function(success, trials, aa, stepsize){
               0.999999426696856,
               0.999999998026825,
               0.999999999997440)
-  sapply(7:1, function(x){poly_conf_int(success, trials, aa, stepsize, sigmas[x], bands[x])})
+  sapply(7:1, function(x){
+    poly_conf_int(success, trials, aa, stepsize, sigmas[x], bands[x])})
   a <- lines(c(aa, aa + stepsize), c(success/trials, success/trials), lwd=2)
 }
 
@@ -225,19 +230,22 @@ clrs <- rev(c('#ffffcc','#d9f0a3','#addd8e','#78c679','#41ab5d','#238443','#005a
 #clrs <- c('#ffffb2','#fed976','#feb24c','#fd8d3c','#fc4e2a','#e31a1c','#b10026')
 
 layout(matrix(c(1,1,1,2), ncol=4))
-plot(x=c(0,max(grf$floored_mag)+0.5), y=c(0,1), type="n", bty="n", xlab="Magnitude (0.5 steps)", ylab="Proportion of earthquakes at night")
+plot(x=c(0,max(grf$floored_mag)+0.5), y=c(0,1), type="n", bty="n",
+     xlab="Magnitude (0.5 steps)", ylab="Proportion of earthquakes at night")
 a <- apply(grf,1,function(x){plot7sig(x[2],x[3],x[1],0.5)})
 lines(c(0,10), c(.5,.5), col="#FFFFFF")
 lines(c(0,10), c(.5,.5), lty=2, col="#777777")
 
 par(mar=c(0,0,0,0))
 plot(x=c(0,10), y=c(0,10), type="n", bty="n", axes=FALSE)
-legend(0,5, legend=lbls, lty=typs, lwd=weights, col=clrs, bty="n", xjust=0, title="Confidence
-Intervals:", cex=0.9)
+legend(0,5, legend=lbls, lty=typs, lwd=weights, col=clrs,
+       bty="n", xjust=0,
+       title="Confidence Intervals:", cex=0.9)
 lbls=c("Expected Proportion", "Actual Proportion")
 typs=c(2,1)
 weights=c(1,2)
-legend(0,7, legend=lbls, lty=typs, lwd=weights, bty="n", xjust=0, title="Legend", y.intersp=1.2)
+legend(0,7, legend=lbls, lty=typs, lwd=weights, bty="n", xjust=0,
+       title="Legend", y.intersp=1.2)
 
 
 par(mar=old_par$mar)
@@ -245,10 +253,13 @@ par(mfrow=c(1,1))
 
 
 ## ------------------------------------------------------------------------
-## Becuase this involved 100000 downloads (though very small ones) from geonet, I only wanted to do it once
+## Becuase this involved 100000 downloads (though very small ones)
+## from geonet, I only wanted to do it once
 ## hence the only downloading if saved file of results does not exist.
-## there are getting on for 2.368 million rows in the final data set and it takes many hours to assemble (though is only 3.9 MB in the end)
-## if you want to replicate this and save time, and trust me, you can load the shortlists later instead of running this section.
+## there are getting on for 2.368 million rows in the final data set
+## and it takes many hours to assemble (though is only 3.9 MB in the end)
+## if you want to replicate this and save time, and trust me,
+## you can load the shortlists later instead of running this section.
 if (!(file.exists("eqdata/nz_detection_sites.RData"))){
 get_pick_data <- function(x){
   csv_url <- paste("http://quakeml.geonet.org.nz/csv/1.0.0/", x, "/picks", sep="")

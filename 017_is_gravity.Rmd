@@ -49,7 +49,7 @@ But as a "last explanation standing" I am not proving this, I am saying this alt
 
 ## Gravitational force differentials
 
-The solar gravitational force creates a natural force differential across arcs of the earth’s crust. At any point on the earth’s crust, the sun is at an angle to that point. This angle to the gravitational source has a horizontal and vertical component of force. At the same time, the crust to the east or west of this point is at a different angle to the sun with different horizontal and vertical forces. The epicentre of an earthquake can be thought of as a weak point along an arc of the earth experiencing force differentials.
+The solar gravitational force creates a natural force differential across arcs of the earth’s crust. At any point on the earth’s crust, the sun is at an angle to that point relative to the crust. This angle to the gravitational source has a horizontal and vertical component of force. At the same time, the crust to the east or west of this point is at a different angle to the sun with different horizontal and vertical forces. The epicentre of an earthquake can be thought of as a weak point along an arc of the earth experiencing force differentials.
 
 ```{r}
 if (!file.exists("eqdata/eqnz_offsets.RData")){
@@ -275,13 +275,15 @@ lbls <- c(
 typs <- c(1,1,1,1,1,1,1)
 weights <- c(3,3,3,3,3,3,3)
 clrs <- rev(c('#ffffcc','#d9f0a3','#addd8e','#78c679','#41ab5d','#238443','#005a32'))
-legend(0,5, legend=lbls, lty=typs, lwd=weights, col=clrs, bty="n", xjust=0, title="Confidence\nIntervals:", cex=0.9)
+legend(0,5, legend=lbls, lty=typs, lwd=weights, col=clrs, bty="n", xjust=0,
+       title="Confidence\nIntervals:", cex=0.9)
 
 lbls=c("Expected Number", "Observed Night", "Observed Day")
 typs=c(2,1,1)
 weights=c(1,2,2)
 clrs=c("black","black","blue")
-legend(0,9, legend=lbls, lty=typs, lwd=weights, col=clrs,bty="n", xjust=0, title="Legend", y.intersp=1.2)
+legend(0,9, legend=lbls, lty=typs, lwd=weights, col=clrs,bty="n", xjust=0,
+       title="Legend", y.intersp=1.2)
 
 
 par(mar=old_par$mar)
@@ -308,6 +310,7 @@ knitr::opts_chunk$set(echo = FALSE)
 knitr::opts_chunk$set(warnings=FALSE)
 knitr::opts_chunk$set(errors=FALSE)
 knitr::opts_chunk$set(message=FALSE)
+opts_chunk$set(tidy.opts=list(width.cutoff=80),tidy=TRUE)
 knitr::opts_chunk$set(dpi = 150)
 knitr::opts_chunk$set(fig.width =  6)
 knitr::opts_chunk$set(fig.height =  4)
@@ -353,8 +356,10 @@ eqnz <- eqnz %>% mutate %>% rowwise() %>%
 
 med_long <- median(eqnz$eq_roundedlong)
 range_lat <- unique(eqnz$eq_roundedlat)
-range_east <- sapply(range_lat, function(x){destPoint(p=c(med_long, x), b=90, d=500000)[1]})
-range_west <- sapply(range_lat, function(x){destPoint(p=c(med_long, x), b=-90, d=500000)[1]})
+range_east <- sapply(range_lat, function(x){
+  destPoint(p=c(med_long, x), b=90, d=500000)[1]})
+range_west <- sapply(range_lat, function(x){
+  destPoint(p=c(med_long, x), b=-90, d=500000)[1]})
 
 # 1 minute intervals for a full solar year
 time1 <- ymd_hms("2015-01-01 00:00:00")
@@ -369,9 +374,12 @@ expected_sun <- data.frame(latitude = rep(range_lat, each=length(time_sq)),
 expected_sun$longitude <- med_long
 
 #calc sun angles just like with earthquake data
-sun_angles <- solarpos(matrix(c(expected_sun$longitude,expected_sun$latitude), ncol=2), expected_sun$time_UTC)[,2]
-east_angles <- solarpos(matrix(c(expected_sun$long_east,expected_sun$latitude), ncol=2), expected_sun$time_UTC)[,2]
-west_angles <- solarpos(matrix(c(expected_sun$long_west,expected_sun$latitude), ncol=2), expected_sun$time_UTC)[,2]
+sun_angles <- solarpos(matrix(
+  c(expected_sun$longitude,expected_sun$latitude), ncol=2), expected_sun$time_UTC)[,2]
+east_angles <- solarpos(matrix(
+  c(expected_sun$long_east,expected_sun$latitude), ncol=2), expected_sun$time_UTC)[,2]
+west_angles <- solarpos(matrix(
+  c(expected_sun$long_west,expected_sun$latitude), ncol=2), expected_sun$time_UTC)[,2]
 
 expected_sun$eq_is_night <- sun_angles < 0
 expected_sun$eq_v_offset_expected <- abs(west_angles - east_angles)
@@ -379,7 +387,7 @@ expected_sun$eq_v_offset_expected <- abs(west_angles - east_angles)
 rm(sun_angles, east_angles, west_angles)
 
 # To big to database merge and do deciles at once
-# but we can ask the elegent question, for each location, which decile is the earthquake in.
+# but we can ask the elegent question, for each location, what decile is the earthquake.
 # So we calcuate decile threholds for each location, then merge and size is only * 10 ish
 
 all_dec_thres <- expected_sun %>% group_by(latitude) %>%
@@ -463,7 +471,8 @@ nt_chi <- chisq.test(nt$subtotal)
 dy_chi <- chisq.test(dy$subtotal)
 dy_chi <- chisq.test(dy$subtotal)
 
-## ---- fig.cap="Distribution of Earthquakes by Gravitational Imbalance in east/west arc of crust"----
+## ---- fig.cap="Distribution of Earthquakes by Gravitational Imbalance in 
+##  east/west arc of crust"----
 
  sigmas <- c(0.682689492137086,
  0.954499736103642,
@@ -474,37 +483,67 @@ dy_chi <- chisq.test(dy$subtotal)
  0.999999999997440)
 
 ci_brackets_nt <- nt %>% ungroup() %>% mutate(grand_total=sum(subtotal)) %>%
-  rowwise() %>% mutate(ci_lower_7 = binom.confint(subtotal, grand_total, method=c("wilson"), conf.level = sigmas[7])[1,5] * grand_total,
-                       ci_upper_7 = binom.confint(subtotal, grand_total, method=c("wilson"), conf.level = sigmas[7])[1,6] * grand_total,
-                       ci_lower_6 = binom.confint(subtotal, grand_total, method=c("wilson"), conf.level = sigmas[6])[1,5] * grand_total,
-                       ci_upper_6 = binom.confint(subtotal, grand_total, method=c("wilson"), conf.level = sigmas[6])[1,6] * grand_total,
-                       ci_lower_5 = binom.confint(subtotal, grand_total, method=c("wilson"), conf.level = sigmas[5])[1,5] * grand_total,
-                       ci_upper_5 = binom.confint(subtotal, grand_total, method=c("wilson"), conf.level = sigmas[5])[1,6] * grand_total,
-                       ci_lower_4 = binom.confint(subtotal, grand_total, method=c("wilson"), conf.level = sigmas[4])[1,5] * grand_total,
-                       ci_upper_4 = binom.confint(subtotal, grand_total, method=c("wilson"), conf.level = sigmas[4])[1,6] * grand_total,
-                       ci_lower_3 = binom.confint(subtotal, grand_total, method=c("wilson"), conf.level = sigmas[3])[1,5] * grand_total,
-                       ci_upper_3 = binom.confint(subtotal, grand_total, method=c("wilson"), conf.level = sigmas[3])[1,6] * grand_total,
-                       ci_lower_2 = binom.confint(subtotal, grand_total, method=c("wilson"), conf.level = sigmas[2])[1,5] * grand_total,
-                       ci_upper_2 = binom.confint(subtotal, grand_total, method=c("wilson"), conf.level = sigmas[2])[1,6] * grand_total,
-                       ci_lower_1 = binom.confint(subtotal, grand_total, method=c("wilson"), conf.level = sigmas[1])[1,5] * grand_total,
-                       ci_upper_1 = binom.confint(subtotal, grand_total, method=c("wilson"), conf.level = sigmas[1])[1,6] * grand_total)
+  rowwise() %>% 
+  mutate(ci_lower_7 = binom.confint(subtotal, grand_total, method=c("wilson"), 
+                                    conf.level = sigmas[7])[1,5] * grand_total,
+         ci_upper_7 = binom.confint(subtotal, grand_total, method=c("wilson"), 
+                                    conf.level = sigmas[7])[1,6] * grand_total,
+         ci_lower_6 = binom.confint(subtotal, grand_total, method=c("wilson"), 
+                                    conf.level = sigmas[6])[1,5] * grand_total,
+         ci_upper_6 = binom.confint(subtotal, grand_total, method=c("wilson"), 
+                                    conf.level = sigmas[6])[1,6] * grand_total,
+         ci_lower_5 = binom.confint(subtotal, grand_total, method=c("wilson"), 
+                                    conf.level = sigmas[5])[1,5] * grand_total,
+         ci_upper_5 = binom.confint(subtotal, grand_total, method=c("wilson"), 
+                                    conf.level = sigmas[5])[1,6] * grand_total,
+         ci_lower_4 = binom.confint(subtotal, grand_total, method=c("wilson"), 
+                                    conf.level = sigmas[4])[1,5] * grand_total,
+         ci_upper_4 = binom.confint(subtotal, grand_total, method=c("wilson"), 
+                                    conf.level = sigmas[4])[1,6] * grand_total,
+         ci_lower_3 = binom.confint(subtotal, grand_total, method=c("wilson"), 
+                                    conf.level = sigmas[3])[1,5] * grand_total,
+         ci_upper_3 = binom.confint(subtotal, grand_total, method=c("wilson"), 
+                                    conf.level = sigmas[3])[1,6] * grand_total,
+         ci_lower_2 = binom.confint(subtotal, grand_total, method=c("wilson"), 
+                                    conf.level = sigmas[2])[1,5] * grand_total,
+         ci_upper_2 = binom.confint(subtotal, grand_total, method=c("wilson"), 
+                                    conf.level = sigmas[2])[1,6] * grand_total,
+         ci_lower_1 = binom.confint(subtotal, grand_total, method=c("wilson"), 
+                                    conf.level = sigmas[1])[1,5] * grand_total,
+         ci_upper_1 = binom.confint(subtotal, grand_total, method=c("wilson"), 
+                                    conf.level = sigmas[1])[1,6] * grand_total)
 ci_brackets_nt$night <- 0 #quick fix for being a character column
 
 ci_brackets_dy <- dy %>% ungroup() %>% mutate(grand_total=sum(subtotal)) %>%
-  rowwise() %>% mutate(ci_lower_7 = binom.confint(subtotal, grand_total, method=c("wilson"), conf.level = sigmas[7])[1,5] * grand_total,
-                       ci_upper_7 = binom.confint(subtotal, grand_total, method=c("wilson"), conf.level = sigmas[7])[1,6] * grand_total,
-                       ci_lower_6 = binom.confint(subtotal, grand_total, method=c("wilson"), conf.level = sigmas[6])[1,5] * grand_total,
-                       ci_upper_6 = binom.confint(subtotal, grand_total, method=c("wilson"), conf.level = sigmas[6])[1,6] * grand_total,
-                       ci_lower_5 = binom.confint(subtotal, grand_total, method=c("wilson"), conf.level = sigmas[5])[1,5] * grand_total,
-                       ci_upper_5 = binom.confint(subtotal, grand_total, method=c("wilson"), conf.level = sigmas[5])[1,6] * grand_total,
-                       ci_lower_4 = binom.confint(subtotal, grand_total, method=c("wilson"), conf.level = sigmas[4])[1,5] * grand_total,
-                       ci_upper_4 = binom.confint(subtotal, grand_total, method=c("wilson"), conf.level = sigmas[4])[1,6] * grand_total,
-                       ci_lower_3 = binom.confint(subtotal, grand_total, method=c("wilson"), conf.level = sigmas[3])[1,5] * grand_total,
-                       ci_upper_3 = binom.confint(subtotal, grand_total, method=c("wilson"), conf.level = sigmas[3])[1,6] * grand_total,
-                       ci_lower_2 = binom.confint(subtotal, grand_total, method=c("wilson"), conf.level = sigmas[2])[1,5] * grand_total,
-                       ci_upper_2 = binom.confint(subtotal, grand_total, method=c("wilson"), conf.level = sigmas[2])[1,6] * grand_total,
-                       ci_lower_1 = binom.confint(subtotal, grand_total, method=c("wilson"), conf.level = sigmas[1])[1,5] * grand_total,
-                       ci_upper_1 = binom.confint(subtotal, grand_total, method=c("wilson"), conf.level = sigmas[1])[1,6] * grand_total)
+  rowwise() %>% 
+  mutate(ci_lower_7 = binom.confint(subtotal, grand_total, method=c("wilson"), 
+                                    conf.level = sigmas[7])[1,5] * grand_total,
+         ci_upper_7 = binom.confint(subtotal, grand_total, method=c("wilson"), 
+                                    conf.level = sigmas[7])[1,6] * grand_total,
+         ci_lower_6 = binom.confint(subtotal, grand_total, method=c("wilson"), 
+                                    conf.level = sigmas[6])[1,5] * grand_total,
+         ci_upper_6 = binom.confint(subtotal, grand_total, method=c("wilson"), 
+                                    conf.level = sigmas[6])[1,6] * grand_total,
+         ci_lower_5 = binom.confint(subtotal, grand_total, method=c("wilson"), 
+                                    conf.level = sigmas[5])[1,5] * grand_total,
+         ci_upper_5 = binom.confint(subtotal, grand_total, method=c("wilson"), 
+                                    conf.level = sigmas[5])[1,6] * grand_total,
+         ci_lower_4 = binom.confint(subtotal, grand_total, method=c("wilson"), 
+                                    conf.level = sigmas[4])[1,5] * grand_total,
+         ci_upper_4 = binom.confint(subtotal, grand_total, method=c("wilson"), 
+                                    conf.level = sigmas[4])[1,6] * grand_total,
+         ci_lower_3 = binom.confint(subtotal, grand_total, method=c("wilson"), 
+                                    conf.level = sigmas[3])[1,5] * grand_total,
+         ci_upper_3 = binom.confint(subtotal, grand_total, method=c("wilson"), 
+                                    conf.level = sigmas[3])[1,6] * grand_total,
+         ci_lower_2 = binom.confint(subtotal, grand_total, method=c("wilson"), 
+                                    conf.level = sigmas[2])[1,5] * grand_total,
+         ci_upper_2 = binom.confint(subtotal, grand_total, method=c("wilson"), 
+                                    conf.level = sigmas[2])[1,6] * grand_total,
+         ci_lower_1 = binom.confint(subtotal, grand_total, method=c("wilson"), 
+                                    conf.level = sigmas[1])[1,5] * grand_total,
+         ci_upper_1 = binom.confint(subtotal, grand_total, method=c("wilson"), 
+                                    conf.level = sigmas[1])[1,6] * grand_total)
 ci_brackets_dy$day <-  0 #quick fix for being a character column
 
 bands <- rev(c('#ffffcc','#d9f0a3','#addd8e','#78c679','#41ab5d','#238443','#005a32'))
@@ -512,29 +551,63 @@ old_par=par()
 layout(matrix(c(1,1,1,2), ncol=4))
 plot(c(0,10),c(0,7000), bty="n", type="n",
      ylab="Number of earthquakes", xlab="Decile")
-a <- apply(ci_brackets_nt, 1, function(x){polygon(c(x[1] -1, x[1], x[1], x[1]-1), c(x[6],x[6], x[7],x[7]), col=bands[6], border=NA)})
-a <- apply(ci_brackets_nt, 1, function(x){polygon(c(x[1] -1, x[1], x[1], x[1]-1), c(x[8],x[8], x[9],x[9]), col=bands[6], border=NA)})
-a <- apply(ci_brackets_nt, 1, function(x){polygon(c(x[1] -1, x[1], x[1], x[1]-1), c(x[10],x[10], x[11],x[11]), col=bands[4], border=NA)})
-a <- apply(ci_brackets_nt, 1, function(x){polygon(c(x[1] -1, x[1], x[1], x[1]-1), c(x[12],x[12], x[13],x[13]), col=bands[4], border=NA)})
-a <- apply(ci_brackets_nt, 1, function(x){polygon(c(x[1] -1, x[1], x[1], x[1]-1), c(x[14],x[14], x[15],x[15]), col=bands[3], border=NA)})
-a <- apply(ci_brackets_nt, 1, function(x){polygon(c(x[1] -1, x[1], x[1], x[1]-1), c(x[16],x[16], x[17],x[17]), col=bands[2], border=NA)})
-a <- apply(ci_brackets_nt, 1, function(x){polygon(c(x[1] -1, x[1], x[1], x[1]-1), c(x[18],x[18], x[19],x[19]), col=bands[1], border=NA)})
-a <- apply(ci_brackets_nt, 1, function(x){lines(c(x[1]-1, x[1]), c(x[2],x[2]), lwd=2)})
+a <- apply(ci_brackets_nt, 1, function(x){
+  polygon(c(x[1] -1, x[1], x[1], x[1]-1), c(x[6],x[6], x[7],x[7]), 
+          col=bands[6], border=NA)})
+a <- apply(ci_brackets_nt, 1, function(x){
+  polygon(c(x[1] -1, x[1], x[1], x[1]-1), c(x[8],x[8], x[9],x[9]), 
+          col=bands[6], border=NA)})
+a <- apply(ci_brackets_nt, 1, function(x){
+  polygon(c(x[1] -1, x[1], x[1], x[1]-1), c(x[10],x[10], x[11],x[11]), 
+          col=bands[4], border=NA)})
+a <- apply(ci_brackets_nt, 1, function(x){
+  polygon(c(x[1] -1, x[1], x[1], x[1]-1), c(x[12],x[12], x[13],x[13]), 
+          col=bands[4], border=NA)})
+a <- apply(ci_brackets_nt, 1, function(x){
+  polygon(c(x[1] -1, x[1], x[1], x[1]-1), c(x[14],x[14], x[15],x[15]), 
+          col=bands[3], border=NA)})
+a <- apply(ci_brackets_nt, 1, function(x){
+  polygon(c(x[1] -1, x[1], x[1], x[1]-1), c(x[16],x[16], x[17],x[17]), 
+          col=bands[2], border=NA)})
+a <- apply(ci_brackets_nt, 1, function(x){
+  polygon(c(x[1] -1, x[1], x[1], x[1]-1), c(x[18],x[18], x[19],x[19]), 
+          col=bands[1], border=NA)})
+a <- apply(ci_brackets_nt, 1, function(x){
+  lines(c(x[1]-1, x[1]), c(x[2],x[2]), lwd=2)})
 expect <- sum(ci_brackets_nt$subtotal)/10
-a <- apply(ci_brackets_nt, 1, function(x){lines(c(x[1]-1, x[1]), c(expect,expect), col="white")})
-a <- apply(ci_brackets_nt, 1, function(x){lines(c(x[1]-1, x[1]), c(expect,expect), lty=3)})
+a <- apply(ci_brackets_nt, 1, function(x){
+  lines(c(x[1]-1, x[1]), c(expect,expect), col="white")})
+a <- apply(ci_brackets_nt, 1, function(x){
+  lines(c(x[1]-1, x[1]), c(expect,expect), lty=3)})
 
-a <- apply(ci_brackets_dy, 1, function(x){polygon(c(x[1] -1, x[1], x[1], x[1]-1), c(x[6],x[6], x[7],x[7]), col=bands[6], border=NA)})
-a <- apply(ci_brackets_dy, 1, function(x){polygon(c(x[1] -1, x[1], x[1], x[1]-1), c(x[8],x[8], x[9],x[9]), col=bands[6], border=NA)})
-a <- apply(ci_brackets_dy, 1, function(x){polygon(c(x[1] -1, x[1], x[1], x[1]-1), c(x[10],x[10], x[11],x[11]), col=bands[4], border=NA)})
-a <- apply(ci_brackets_dy, 1, function(x){polygon(c(x[1] -1, x[1], x[1], x[1]-1), c(x[12],x[12], x[13],x[13]), col=bands[4], border=NA)})
-a <- apply(ci_brackets_dy, 1, function(x){polygon(c(x[1] -1, x[1], x[1], x[1]-1), c(x[14],x[14], x[15],x[15]), col=bands[3], border=NA)})
-a <- apply(ci_brackets_dy, 1, function(x){polygon(c(x[1] -1, x[1], x[1], x[1]-1), c(x[16],x[16], x[17],x[17]), col=bands[2], border=NA)})
-a <- apply(ci_brackets_dy, 1, function(x){polygon(c(x[1] -1, x[1], x[1], x[1]-1), c(x[18],x[18], x[19],x[19]), col=bands[1], border=NA)})
-a <- apply(ci_brackets_dy, 1, function(x){lines(c(x[1]-1, x[1]), c(x[2],x[2]), lwd=2, col="blue")})
+a <- apply(ci_brackets_dy, 1, function(x){
+  polygon(c(x[1] -1, x[1], x[1], x[1]-1), c(x[6],x[6], x[7],x[7]), 
+          col=bands[6], border=NA)})
+a <- apply(ci_brackets_dy, 1, function(x){
+  polygon(c(x[1] -1, x[1], x[1], x[1]-1), c(x[8],x[8], x[9],x[9]), 
+          col=bands[6], border=NA)})
+a <- apply(ci_brackets_dy, 1, function(x){
+  polygon(c(x[1] -1, x[1], x[1], x[1]-1), c(x[10],x[10], x[11],x[11]), 
+          col=bands[4], border=NA)})
+a <- apply(ci_brackets_dy, 1, function(x){
+  polygon(c(x[1] -1, x[1], x[1], x[1]-1), c(x[12],x[12], x[13],x[13]), 
+          col=bands[4], border=NA)})
+a <- apply(ci_brackets_dy, 1, function(x){
+  polygon(c(x[1] -1, x[1], x[1], x[1]-1), c(x[14],x[14], x[15],x[15]), 
+          col=bands[3], border=NA)})
+a <- apply(ci_brackets_dy, 1, function(x){
+  polygon(c(x[1] -1, x[1], x[1], x[1]-1), c(x[16],x[16], x[17],x[17]), 
+          col=bands[2], border=NA)})
+a <- apply(ci_brackets_dy, 1, function(x){
+  polygon(c(x[1] -1, x[1], x[1], x[1]-1), c(x[18],x[18], x[19],x[19]), 
+          col=bands[1], border=NA)})
+a <- apply(ci_brackets_dy, 1, function(x){
+  lines(c(x[1]-1, x[1]), c(x[2],x[2]), lwd=2, col="blue")})
 expect <- sum(ci_brackets_dy$subtotal)/10
-a <- apply(ci_brackets_dy, 1, function(x){lines(c(x[1]-1, x[1]), c(expect,expect), col="white")})
-a <- apply(ci_brackets_dy, 1, function(x){lines(c(x[1]-1, x[1]), c(expect,expect), lty=3)})
+a <- apply(ci_brackets_dy, 1, function(x){
+  lines(c(x[1]-1, x[1]), c(expect,expect), col="white")})
+a <- apply(ci_brackets_dy, 1, function(x){
+  lines(c(x[1]-1, x[1]), c(expect,expect), lty=3)})
 
 
 
@@ -549,13 +622,15 @@ lbls <- c(
 typs <- c(1,1,1,1,1,1,1)
 weights <- c(3,3,3,3,3,3,3)
 clrs <- rev(c('#ffffcc','#d9f0a3','#addd8e','#78c679','#41ab5d','#238443','#005a32'))
-legend(0,5, legend=lbls, lty=typs, lwd=weights, col=clrs, bty="n", xjust=0, title="Confidence\nIntervals:", cex=0.9)
+legend(0,5, legend=lbls, lty=typs, lwd=weights, col=clrs, bty="n", xjust=0,
+       title="Confidence\nIntervals:", cex=0.9)
 
 lbls=c("Expected Number", "Observed Night", "Observed Day")
 typs=c(2,1,1)
 weights=c(1,2,2)
 clrs=c("black","black","blue")
-legend(0,9, legend=lbls, lty=typs, lwd=weights, col=clrs,bty="n", xjust=0, title="Legend", y.intersp=1.2)
+legend(0,9, legend=lbls, lty=typs, lwd=weights, col=clrs,bty="n", xjust=0,
+       title="Legend", y.intersp=1.2)
 
 
 par(mar=old_par$mar)

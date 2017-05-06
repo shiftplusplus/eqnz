@@ -105,7 +105,8 @@ plot7sighr <- function(success, trials, aa, stepsize, expected){
               0.999999426696856,
               0.999999998026825,
               0.999999999997440)
-  sapply(7:1, function(x){poly_conf_int(success, trials, aa, stepsize, sigmas[x], bands[x])})
+  sapply(7:1, function(x){
+    poly_conf_int(success, trials, aa, stepsize, sigmas[x], bands[x])})
   a <- lines(c(aa, aa + stepsize), c(success/trials, success/trials), lwd=2)
   a <- lines(c(aa, aa + stepsize), c(expected,expected), col="#FFFFFF")
   a <- lines(c(aa, aa + stepsize), c(expected,expected), lty=2, col="#777777")
@@ -124,17 +125,20 @@ clrs <- rev(c('#ffffcc','#d9f0a3','#addd8e','#78c679','#41ab5d','#238443','#005a
 #clrs <- c('#ffffb2','#fed976','#feb24c','#fd8d3c','#fc4e2a','#e31a1c','#b10026')
 
 layout(matrix(c(1,1,1,2), ncol=4))
-plot(x=c(min(grf$hour_band),max(grf$hour_band)+1), y=c(0,1), type="n", bty="n", xlab="Hours of night", ylab="Proportion of earthquakes at night")
+plot(x=c(min(grf$hour_band),max(grf$hour_band)+1), y=c(0,1), type="n",
+     bty="n", xlab="Hours of night", ylab="Proportion of earthquakes at night")
 a <- apply(grf,1,function(x){plot7sighr(x[2],x[3],x[1],1,x[4])})
 
 
 par(mar=c(0,0,0,0))
 plot(x=c(0,10), y=c(0,10), type="n", bty="n", axes=FALSE)
-legend(0,5, legend=lbls, lty=typs, lwd=weights, col=clrs, bty="n", xjust=0, title="Confidence\nIntervals:", cex=0.9)
+legend(0,5, legend=lbls, lty=typs, lwd=weights, col=clrs, bty="n", xjust=0,
+       title="Confidence\nIntervals:", cex=0.9)
 lbls=c("Proportion of night\nin 24 hours", "Night earthquakes\nProportion")
 typs=c(2,1)
 weights=c(1,2)
-legend(0,9, legend=lbls, lty=typs, lwd=weights, bty="n", xjust=0, title="Legend", y.intersp=1.2)
+legend(0,9, legend=lbls, lty=typs, lwd=weights, bty="n", xjust=0,
+       title="Legend", y.intersp=1.2)
 
 
 par(mar=old_par$mar)

@@ -186,7 +186,9 @@ eqnz %>% filter(magnitude > 0, magnitude < 3) %>%
   mutate(rounded_magnitude=round(magnitude,1), eq_hour = hour(time_UTC)) %>% 
   group_by(rounded_magnitude, eq_hour) %>%
   summarise(subtotal = n()) %>% 
-  ggplot(aes(x=rounded_magnitude, y=subtotal)) + geom_bar(stat="identity") + facet_wrap(~ as.factor(eq_hour)) + ylab("Number of earthquakes") + xlab("Magnitude")
+  ggplot(aes(x=rounded_magnitude, y=subtotal)) + geom_bar(stat="identity") + 
+  facet_wrap(~ as.factor(eq_hour)) + ylab("Number of earthquakes") +
+  xlab("Magnitude")
 
 
 ## ------------------------------------------------------------------------
@@ -220,26 +222,35 @@ westmost <- min(eqnz$longitude[eqnz$longitude > 0])
 eqnz <- eqnz %>% filter(
   magnitude > 0, depth > 0, eventtype %in% c("earthquake", "likely earthquake")
 ) %>% rowwise() %>% mutate(
-  eq_gridpoint_y = round(distVincentyEllipsoid(c(longitude, southmost), c(longitude,latitude)) /50000,0),
-  eq_gridpoint_x = round(distVincentyEllipsoid(c(westmost, latitude), c(longitude,latitude)) /50000,0),
-  eq_roundedlat = destPoint(p=c(longitude, southmost), b=0, d=eq_gridpoint_y*50000)[2],
-  eq_roundedlong = destPoint(p=c(westmost, eq_roundedlat), b=90, d=eq_gridpoint_x*50000)[1]) %>% ungroup()
+  eq_gridpoint_y = round(distVincentyEllipsoid(c(longitude, southmost),
+                                               c(longitude,latitude)) /50000,0),
+  eq_gridpoint_x = round(distVincentyEllipsoid(c(westmost, latitude),
+                                               c(longitude,latitude)) /50000,0),
+  eq_roundedlat = destPoint(p=c(longitude, southmost),
+                            b=0, d=eq_gridpoint_y*50000)[2],
+  eq_roundedlong = destPoint(p=c(westmost, eq_roundedlat),
+                             b=90, d=eq_gridpoint_x*50000)[1]) %>% ungroup()
 # use maptools to calculate solar angles
 sun_angles <- solarpos(matrix(c(eqnz$longitude, eqnz$latitude), ncol=2), eqnz$time_UTC)
 colnames(sun_angles) <- c("eq_compass", "eq_vertical")
 eqnz <- cbind(eqnz,sun_angles)
 eqnz$eq_is_night <- eqnz$eq_vertical < 0
 # calculate 360 degree as well as vertical
-eqnz <- eqnz %>% mutate(eq_angle_360 = eq_vertical,
-                                 eq_angle_360 = ifelse(eq_compass > 180, 180 - eq_angle_360, eq_angle_360),
-                                 eq_angle_360 = ifelse(eq_vertical < 0 & eq_compass <= 180, 360 + eq_angle_360, eq_angle_360),
-                                 eq_angle_by_10 = floor(eq_angle_360 /10) * 10)
+eqnz <- eqnz %>% mutate(
+  eq_angle_360 = eq_vertical,
+  eq_angle_360 = ifelse(eq_compass > 180, 180 - eq_angle_360, eq_angle_360),
+  eq_angle_360 = ifelse(eq_vertical < 0 & eq_compass <= 180, 
+                        360 + eq_angle_360, eq_angle_360),
+  eq_angle_by_10 = floor(eq_angle_360 /10) * 10)
 # get length of night earthquake in hours for UTC day occured in
-sunr <- sunriset(matrix(c(eqnz$longitude, eqnz$latitude), ncol=2), eqnz$time_UTC, direction="sunrise", POSIXct.out=TRUE)
-suns <- sunriset(matrix(c(eqnz$longitude, eqnz$latitude), ncol=2), eqnz$time_UTC, direction="sunset", POSIXct.out=TRUE)
+sunr <- sunriset(matrix(c(eqnz$longitude, eqnz$latitude), ncol=2),
+                 eqnz$time_UTC, direction="sunrise", POSIXct.out=TRUE)
+suns <- sunriset(matrix(c(eqnz$longitude, eqnz$latitude), ncol=2),
+                 eqnz$time_UTC, direction="sunset", POSIXct.out=TRUE)
 eqnz$eq_nightlength = 24 - as.numeric(suns$time - sunr$time)
 #calculating the solid earth tide vertical component 
-soletide_date <- Datenum(as.Date(eqnz$time_UTC)) + (hour(eqnz$time_UTC) * 3600 + minute(eqnz$time_UTC)*60 * second(eqnz$time_UTC))/86400
+soletide_date <- Datenum(as.Date(eqnz$time_UTC)) + 
+  (hour(eqnz$time_UTC) * 3600 + minute(eqnz$time_UTC)*60 * second(eqnz$time_UTC))/86400
 etv <- Earthtide(eqnz$latitude, eqnz$longitude, soletide_date)
 eqnz$eq_solidearth_vertical <- (t(etv))[,1]
 save(eqnz, file="eqdata/eqnz_processed.RData")
@@ -249,7 +260,8 @@ rm(list=ls())
 load("eqdata/eqnz_processed.RData")
 
 ## ------------------------------------------------------------------------
-grid_summary <- eqnz %>% group_by(eq_roundedlat, eq_roundedlong) %>% summarise(subtotal=n()) %>% ungroup() %>% 
+grid_summary <- eqnz %>% group_by(eq_roundedlat, eq_roundedlong) %>% 
+  summarise(subtotal=n()) %>% ungroup() %>% 
   summarise(above_100 = sum(subtotal > 100), total=n())
 n_above100 <- grid_summary$above_100[1]
 total_grids <- grid_summary$total[1]

@@ -26,7 +26,7 @@
 <meta name="author" content="David Hood">
 
 
-<meta name="date" content="2017-05-03">
+<meta name="date" content="2017-05-06">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -118,8 +118,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="1" data-path="motivation.html"><a href="motivation.html"><i class="fa fa-check"></i><b>1</b> Motivation</a><ul>
 <li class="chapter" data-level="1.1" data-path="motivation.html"><a href="motivation.html#formal-statement"><i class="fa fa-check"></i><b>1.1</b> Formal Statement</a></li>
 <li class="chapter" data-level="1.2" data-path="motivation.html"><a href="motivation.html#Links1"><i class="fa fa-check"></i><b>1.2</b> Links</a></li>
-<li class="chapter" data-level="1.3" data-path="motivation.html"><a href="motivation.html#code"><i class="fa fa-check"></i><b>1.3</b> Code</a></li>
-<li class="chapter" data-level="1.4" data-path="motivation.html"><a href="motivation.html#chapter-code-1"><i class="fa fa-check"></i><b>1.4</b> Chapter Code</a></li>
+<li class="chapter" data-level="1.3" data-path="motivation.html"><a href="motivation.html#chapter-code-1"><i class="fa fa-check"></i><b>1.3</b> Chapter Code</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="data-processing.html"><a href="data-processing.html"><i class="fa fa-check"></i><b>2</b> Data Processing</a><ul>
 <li class="chapter" data-level="2.1" data-path="data-processing.html"><a href="data-processing.html#event-types"><i class="fa fa-check"></i><b>2.1</b> Event types</a><ul>
@@ -128,7 +127,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2.2" data-path="data-processing.html"><a href="data-processing.html#gridded-latitude-and-longitude"><i class="fa fa-check"></i><b>2.2</b> Gridded Latitude and Longitude</a></li>
 <li class="chapter" data-level="2.3" data-path="data-processing.html"><a href="data-processing.html#angle-of-the-sun"><i class="fa fa-check"></i><b>2.3</b> Angle of the sun</a></li>
 <li class="chapter" data-level="2.4" data-path="data-processing.html"><a href="data-processing.html#formal-statement-1"><i class="fa fa-check"></i><b>2.4</b> Formal statement</a></li>
-<li class="chapter" data-level="2.5" data-path="data-processing.html"><a href="data-processing.html#code-1"><i class="fa fa-check"></i><b>2.5</b> Code</a></li>
+<li class="chapter" data-level="2.5" data-path="data-processing.html"><a href="data-processing.html#code"><i class="fa fa-check"></i><b>2.5</b> Code</a></li>
 <li class="chapter" data-level="2.6" data-path="data-processing.html"><a href="data-processing.html#chapter-code-2"><i class="fa fa-check"></i><b>2.6</b> Chapter Code</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="key-result.html"><a href="key-result.html"><i class="fa fa-check"></i><b>3</b> Key result</a><ul>
@@ -229,7 +228,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="motivation" class="section level1">
 <h1><span class="header-section-number">Chapter 1</span> Motivation</h1>
 <p><strong>“Earthquakes are equally as likely to occur in the morning or the evening”</strong> <a href="motivation.html#Links1">Link 1</a></p>
-<p>In September of 2016, a scientific paper was published that reported a small relationship between the phase of the moon and a particular set of earthquakes. This report was vastly overblown by many commenting on the internet into a generalised “the moon causes earthquakes”. To cut through some of the hype, I thought I would write a satirical piece focusing on the sun (not expecting to find anything); I could then pair down the data until I got a result and thus demonstrate how conclusions can be overblown. This is because even given the small influence of the moon on selected fault lines, as of October 2016, there was no evidence for a general link between astronomical activity and earthquakes. Earthquakes were seen as a subsurface process of internal faults and pressures.</p>
+<p>In September of 2016, a scientific paper was published that reported a small relationship between the phase of the moon and a particular set of earthquakes. This report was vastly overblown by many commenting on the internet into a generalised “the moon causes earthquakes”. To cut through some of the hype, I thought I would write a satirical piece focusing on the sun (not expecting to find anything); I could then pare down the data until I got a result and thus demonstrate how conclusions can be overblown. This is because even given the small influence of the moon on selected fault lines, as of October 2016, there was no evidence for a general link between astronomical activity and earthquakes. Earthquakes were seen as a subsurface process of internal faults and pressures.</p>
 <p>Even in satire, I like to be thorough. I downloaded 5 full solar years of earthquake data for New Zealand from the Geonet earthquake database <a href="motivation.html#Links1">Link 1</a>. Geonet, the official home of New Zealand earthquake data, provides a publicly accessible database of earthquake events. Through a web form visitors can generate a database query with various possible added filters, and either download earthquake information through a web browser or use the query string with programs that can download files from the internet. For large amounts of data, the database separates the queries into blocks of 20,000 earthquakes to avoid system strain.</p>
 <p>As the amount of day and night varies within a year, a full year avoids biases created by only downloading earthquakes in a narrow time range. Downloading five years was to avoid biases created by earthquake swarms occurring in a single year. As five years meant several queries of the database, I added a step to remove duplicates to avoid any confusion over whether the dates marking each range were inclusive or exclusive. Since I made my download in October 2016, the five-year range was from the start of October 2011 to the end of September 2016.</p>
 <p>After downloading more than 100,000 earthquakes for this 5 year period for the New Zealand region, I calculated which hour of the day, in Coordinated Universal Time (UTC), each earthquake took place in. Then I made a basic graph to get a general feeling for the data. I expected a fairly flat line with a little random fluctuation, as there was no reason to expect any real differences.</p>
@@ -241,7 +240,11 @@ Figure 1.1: New Zealand Earthquakes by hour (UTC)
 </div>
 <p>The results shocked me. Not only was there a visible difference of thousands of earthquakes, the difference was consistent for both the night and day. Both of these things were radically different to the understanding of how earthquakes behaved. The size of the differences was more than would be expected, and the consistency of the differences between night and day showed that it was not random. Since night in New Zealand falls approximately after 7 and before 19 hours, this meant that around 56685 of the 101902 earthquakes occurred in approximate night hours; to put it another way, with 45217 earthquakes occurring in day hours, 25 % more earthquakes occurred at night than in the day.</p>
 <p>If the occurrence of earthquakes is not influenced by the sun - as was generally believed to be the case - then the chance of getting such a large difference between night and day over so many earthquakes was too small for the computer to accurately calculate. However, for those happy with approximate figures, it is somewhere in the order of a p-value of:</p>
-<p>0.0000000000000000000000000000000000000000000000000000000000000000000 0000000000000000000000000000000000000000000000000000000000000000000 0000000000000000000000000000000000000000000000000000000000000000000 0000000000000000000000000000000000000000000000000000000000000000000 0000000000000000000000000000000000000000000000000000001</p>
+<p>0.000000000000000000000000000000000000000000000000000000000000000000</p>
+<p>0000000000000000000000000000000000000000000000000000000000000000000</p>
+<p>0000000000000000000000000000000000000000000000000000000000000000000</p>
+<p>0000000000000000000000000000000000000000000000000000000000000000000</p>
+<p>00000000000000000000000000000000000000000000000000000001</p>
 <p>I could also express the odds of seeing these results by chance given no true night/day effect as a bit less than 1 in 3 googols.</p>
 <p>This result was really dramatic, like seeing something fall upwards instead of downwards- if my understanding of the area was correct this result should have been impossible. Once I recovered from the shock of encountering something so unlikely compared to established knowledge, instead of writing a short satirical piece, I had a significant mystery that needed explaining. This book is the account of working through an analysis of that mystery.</p>
 <div id="formal-statement" class="section level2">
@@ -253,11 +256,8 @@ Figure 1.1: New Zealand Earthquakes by hour (UTC)
 <p>1 - Can the position of the moon or the planets affect seismicity? Are there more earthquakes in the morning/in the evening/at a certain time of the month? (2016) U.S. Department of the Interior |U.S. Geological Survey |DOI Inspector General URL: www2.usgs.gov/faq/categories/9827/3354</p>
 <p>2 - Geonet Earthquake Database quakesearch: <a href="http://quakesearch.geonet.org.nz" class="uri">http://quakesearch.geonet.org.nz</a> Description of Geonet Database search output: <a href="http://info.geonet.org.nz/display/appdata/Catalogue+Output" class="uri">http://info.geonet.org.nz/display/appdata/Catalogue+Output</a></p>
 </div>
-<div id="code" class="section level2">
-<h2><span class="header-section-number">1.3</span> Code</h2>
-</div>
 <div id="chapter-code-1" class="section level2">
-<h2><span class="header-section-number">1.4</span> Chapter Code</h2>
+<h2><span class="header-section-number">1.3</span> Chapter Code</h2>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## ----setup, include=FALSE------------------------------------------------
 knitr::opts_chunk$<span class="kw">set</span>(<span class="dt">echo =</span> <span class="ot">FALSE</span>)
 knitr::opts_chunk$<span class="kw">set</span>(<span class="dt">warnings=</span><span class="ot">FALSE</span>)
@@ -283,29 +283,27 @@ if(!<span class="kw">dir.exists</span>(<span class="st">&quot;eqdata&quot;</span
 
 <span class="co">#if the data file doesn&#39;t exist, create it</span>
 if(!<span class="kw">file.exists</span>(<span class="st">&quot;eqdata/eqnz_raw.RData&quot;</span>)){
+  <span class="co">#bit1 &amp; 2 are a hack to fit things on a single line</span>
+  bit1 &lt;-<span class="st"> &quot;http://quakesearch.geonet.org.nz/csv?&quot;</span>
+  bit2 &lt;-<span class="st"> &quot;bbox=163.03711,-49.32512,182.41699,-32.47270&amp;&quot;</span>
   e1 &lt;-
-<span class="st">    </span><span class="kw">read.csv</span>(
-      <span class="st">&quot;http://quakesearch.geonet.org.nz/csv?bbox=163.03711,-49.32512,182.41699,-32.47270&amp;startdate=2015-09-01&amp;enddate=2016-09-01&quot;</span>,
+<span class="st">    </span><span class="kw">read.csv</span>(<span class="kw">paste0</span>(bit1,bit2,<span class="st">&quot;startdate=2015-09-01&amp;enddate=2016-09-01&quot;</span>),
       <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>
     )
   e2 &lt;-
-<span class="st">    </span><span class="kw">read.csv</span>(
-      <span class="st">&quot;http://quakesearch.geonet.org.nz/csv?bbox=163.03711,-49.32512,182.41699,-32.47270&amp;startdate=2014-08-01&amp;enddate=2015-09-01&quot;</span>,
+<span class="st">    </span><span class="kw">read.csv</span>(<span class="kw">paste0</span>(bit1,bit2,<span class="st">&quot;startdate=2014-08-01&amp;enddate=2015-09-01&quot;</span>),
       <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>
     )
   e3 &lt;-
-<span class="st">    </span><span class="kw">read.csv</span>(
-      <span class="st">&quot;http://quakesearch.geonet.org.nz/csv?bbox=163.03711,-49.32512,182.41699,-32.47270&amp;startdate=2013-09-01&amp;enddate=2014-08-01&quot;</span>,
+<span class="st">    </span><span class="kw">read.csv</span>(<span class="kw">paste0</span>(bit1,bit2,<span class="st">&quot;startdate=2013-09-01&amp;enddate=2014-08-01&quot;</span>),
       <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>
     )
   e4 &lt;-
-<span class="st">    </span><span class="kw">read.csv</span>(
-      <span class="st">&quot;http://quakesearch.geonet.org.nz/csv?bbox=163.03711,-49.32512,182.41699,-32.47270&amp;startdate=2012-10-01&amp;enddate=2013-09-01&quot;</span>,
+<span class="st">    </span><span class="kw">read.csv</span>(<span class="kw">paste0</span>(bit1,bit2,<span class="st">&quot;startdate=2012-10-01&amp;enddate=2013-09-01&quot;</span>),
       <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>
     )
   e5 &lt;-
-<span class="st">    </span><span class="kw">read.csv</span>(
-      <span class="st">&quot;http://quakesearch.geonet.org.nz/csv?bbox=163.03711,-49.32512,182.41699,-32.47270&amp;startdate=2011-09-01&amp;enddate=2012-10-01&quot;</span>,
+<span class="st">    </span><span class="kw">read.csv</span>(<span class="kw">paste0</span>(bit1,bit2,<span class="st">&quot;startdate=2011-09-01&amp;enddate=2012-10-01&quot;</span>),
       <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>
     )
   eqnz &lt;-<span class="st"> </span><span class="kw">rbind</span>(e1, e2, e3, e4, e5)

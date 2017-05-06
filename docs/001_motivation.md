@@ -2,7 +2,7 @@
 
 __“Earthquakes are equally as likely to occur in the morning or the evening”__ [Link 1](#Links1)
 
-In September of 2016, a scientific paper was published that reported a small relationship between the phase of the moon and a particular set of earthquakes. This report was vastly overblown by many commenting on the internet into a generalised "the moon causes earthquakes". To cut through some of the hype, I thought I would write a satirical piece focusing on the sun (not expecting to find anything); I could then pair down the data until I got a result and thus demonstrate how conclusions can be overblown. This is because even given the small influence of the moon on selected fault lines, as of October 2016, there was no evidence for a general link between astronomical activity and earthquakes. Earthquakes were seen as a subsurface process of internal faults and pressures.
+In September of 2016, a scientific paper was published that reported a small relationship between the phase of the moon and a particular set of earthquakes. This report was vastly overblown by many commenting on the internet into a generalised "the moon causes earthquakes". To cut through some of the hype, I thought I would write a satirical piece focusing on the sun (not expecting to find anything); I could then pare down the data until I got a result and thus demonstrate how conclusions can be overblown. This is because even given the small influence of the moon on selected fault lines, as of October 2016, there was no evidence for a general link between astronomical activity and earthquakes. Earthquakes were seen as a subsurface process of internal faults and pressures.
 
 
 
@@ -28,11 +28,15 @@ The results shocked me. Not only was there a visible difference of thousands of 
 
 If the occurrence of earthquakes is not influenced by the sun - as was generally believed to be the case - then the chance of getting such a large difference between night and day over so many earthquakes was too small for the computer to accurately calculate. However, for those happy with approximate figures, it is somewhere in the order of a p-value of:
 
-0.0000000000000000000000000000000000000000000000000000000000000000000
+0.000000000000000000000000000000000000000000000000000000000000000000
+
    0000000000000000000000000000000000000000000000000000000000000000000
+   
    0000000000000000000000000000000000000000000000000000000000000000000
+   
    0000000000000000000000000000000000000000000000000000000000000000000
-   0000000000000000000000000000000000000000000000000000001 
+   
+   00000000000000000000000000000000000000000000000000000001 
 
 I could also express the odds of seeing these results by chance given no true night/day effect as a bit less than  1 in 3 googols.
 
@@ -47,14 +51,6 @@ New Zealand earthquake frequency shows features inconsistent with the establishe
 1 -  Can the position of the moon or the planets affect seismicity? Are there more earthquakes in the morning/in the evening/at a certain time of the month? (2016) U.S. Department of the Interior |U.S. Geological Survey |DOI Inspector General URL: www2.usgs.gov/faq/categories/9827/3354
 
 2 - Geonet Earthquake Database quakesearch: http://quakesearch.geonet.org.nz Description of Geonet Database search output: http://info.geonet.org.nz/display/appdata/Catalogue+Output
-
-## Code
-
-
-
-
-
-
 
 ## Chapter Code
 
@@ -85,29 +81,27 @@ if(!dir.exists("eqdata")){
 
 #if the data file doesn't exist, create it
 if(!file.exists("eqdata/eqnz_raw.RData")){
+  #bit1 & 2 are a hack to fit things on a single line
+  bit1 <- "http://quakesearch.geonet.org.nz/csv?"
+  bit2 <- "bbox=163.03711,-49.32512,182.41699,-32.47270&"
   e1 <-
-    read.csv(
-      "http://quakesearch.geonet.org.nz/csv?bbox=163.03711,-49.32512,182.41699,-32.47270&startdate=2015-09-01&enddate=2016-09-01",
+    read.csv(paste0(bit1,bit2,"startdate=2015-09-01&enddate=2016-09-01"),
       stringsAsFactors = FALSE
     )
   e2 <-
-    read.csv(
-      "http://quakesearch.geonet.org.nz/csv?bbox=163.03711,-49.32512,182.41699,-32.47270&startdate=2014-08-01&enddate=2015-09-01",
+    read.csv(paste0(bit1,bit2,"startdate=2014-08-01&enddate=2015-09-01"),
       stringsAsFactors = FALSE
     )
   e3 <-
-    read.csv(
-      "http://quakesearch.geonet.org.nz/csv?bbox=163.03711,-49.32512,182.41699,-32.47270&startdate=2013-09-01&enddate=2014-08-01",
+    read.csv(paste0(bit1,bit2,"startdate=2013-09-01&enddate=2014-08-01"),
       stringsAsFactors = FALSE
     )
   e4 <-
-    read.csv(
-      "http://quakesearch.geonet.org.nz/csv?bbox=163.03711,-49.32512,182.41699,-32.47270&startdate=2012-10-01&enddate=2013-09-01",
+    read.csv(paste0(bit1,bit2,"startdate=2012-10-01&enddate=2013-09-01"),
       stringsAsFactors = FALSE
     )
   e5 <-
-    read.csv(
-      "http://quakesearch.geonet.org.nz/csv?bbox=163.03711,-49.32512,182.41699,-32.47270&startdate=2011-09-01&enddate=2012-10-01",
+    read.csv(paste0(bit1,bit2,"startdate=2011-09-01&enddate=2012-10-01"),
       stringsAsFactors = FALSE
     )
   eqnz <- rbind(e1, e2, e3, e4, e5)

@@ -26,7 +26,7 @@
 <meta name="author" content="David Hood">
 
 
-<meta name="date" content="2017-05-03">
+<meta name="date" content="2017-05-06">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -118,8 +118,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="1" data-path="motivation.html"><a href="motivation.html"><i class="fa fa-check"></i><b>1</b> Motivation</a><ul>
 <li class="chapter" data-level="1.1" data-path="motivation.html"><a href="motivation.html#formal-statement"><i class="fa fa-check"></i><b>1.1</b> Formal Statement</a></li>
 <li class="chapter" data-level="1.2" data-path="motivation.html"><a href="motivation.html#Links1"><i class="fa fa-check"></i><b>1.2</b> Links</a></li>
-<li class="chapter" data-level="1.3" data-path="motivation.html"><a href="motivation.html#code"><i class="fa fa-check"></i><b>1.3</b> Code</a></li>
-<li class="chapter" data-level="1.4" data-path="motivation.html"><a href="motivation.html#chapter-code-1"><i class="fa fa-check"></i><b>1.4</b> Chapter Code</a></li>
+<li class="chapter" data-level="1.3" data-path="motivation.html"><a href="motivation.html#chapter-code-1"><i class="fa fa-check"></i><b>1.3</b> Chapter Code</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="data-processing.html"><a href="data-processing.html"><i class="fa fa-check"></i><b>2</b> Data Processing</a><ul>
 <li class="chapter" data-level="2.1" data-path="data-processing.html"><a href="data-processing.html#event-types"><i class="fa fa-check"></i><b>2.1</b> Event types</a><ul>
@@ -128,7 +127,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2.2" data-path="data-processing.html"><a href="data-processing.html#gridded-latitude-and-longitude"><i class="fa fa-check"></i><b>2.2</b> Gridded Latitude and Longitude</a></li>
 <li class="chapter" data-level="2.3" data-path="data-processing.html"><a href="data-processing.html#angle-of-the-sun"><i class="fa fa-check"></i><b>2.3</b> Angle of the sun</a></li>
 <li class="chapter" data-level="2.4" data-path="data-processing.html"><a href="data-processing.html#formal-statement-1"><i class="fa fa-check"></i><b>2.4</b> Formal statement</a></li>
-<li class="chapter" data-level="2.5" data-path="data-processing.html"><a href="data-processing.html#code-1"><i class="fa fa-check"></i><b>2.5</b> Code</a></li>
+<li class="chapter" data-level="2.5" data-path="data-processing.html"><a href="data-processing.html#code"><i class="fa fa-check"></i><b>2.5</b> Code</a></li>
 <li class="chapter" data-level="2.6" data-path="data-processing.html"><a href="data-processing.html#chapter-code-2"><i class="fa fa-check"></i><b>2.6</b> Chapter Code</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="key-result.html"><a href="key-result.html"><i class="fa fa-check"></i><b>3</b> Key result</a><ul>
@@ -517,7 +516,8 @@ clrs &lt;-<span class="st"> </span><span class="kw">rev</span>(<span class="kw">
 circlesize=<span class="dv">500</span>
 
 
-## ----fig.cap=&quot;Number of earthquakes by 10 degree arcs of angle of the sun at time of earthquake&quot;----
+## ----fig.cap=
+##&quot;Number of earthquakes by 10 degree arcs of angle of the sun at time of earthquake&quot;----
 by_angle &lt;-<span class="st"> </span>eqnz %&gt;%<span class="st"> </span>
 <span class="st">  </span><span class="kw">group_by</span>(eq_angle_by_10) %&gt;%<span class="st"> </span><span class="kw">summarise</span>(<span class="dt">total=</span> <span class="kw">n</span>()) %&gt;%
 <span class="st">  </span><span class="kw">mutate</span>(<span class="dt">daynight=</span><span class="kw">ifelse</span>(eq_angle_by_10 &lt;<span class="st"> </span><span class="dv">180</span>, <span class="st">&quot;day&quot;</span>, <span class="st">&quot;night&quot;</span>))
@@ -561,12 +561,12 @@ calc_angs &lt;-<span class="st"> </span>function(x, longinput, timeinput){
   sun_angles &lt;-<span class="st"> </span>maptools::<span class="kw">solarpos</span>(<span class="kw">matrix</span>(<span class="kw">c</span>(longinput, x), <span class="dt">ncol=</span><span class="dv">2</span>), timeinput)
   <span class="kw">colnames</span>(sun_angles) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;eq_compass&quot;</span>, <span class="st">&quot;eq_vertical&quot;</span>)
 <span class="co"># calculate 360 degree as well as vertical</span>
-site_summary &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(sun_angles) %&gt;%<span class="st"> </span><span class="kw">mutate</span>(<span class="dt">eq_angle_360 =</span> eq_vertical,
-                                    <span class="dt">eq_angle_360 =</span> <span class="kw">ifelse</span>(eq_compass &gt;<span class="st"> </span><span class="dv">180</span>,
-                                                          <span class="dv">180</span> -<span class="st"> </span>eq_angle_360, eq_angle_360),
-                                    <span class="dt">eq_angle_360 =</span> <span class="kw">ifelse</span>(eq_vertical &lt;<span class="st"> </span><span class="dv">0</span> &amp;<span class="st"> </span>eq_compass &lt;=<span class="st"> </span><span class="dv">180</span>,
-                                                          <span class="dv">360</span> +<span class="st"> </span>eq_angle_360, eq_angle_360),
-                                    <span class="dt">eq_angle_by_10 =</span> <span class="kw">floor</span>(eq_angle_360 /<span class="dv">10</span>) *<span class="st"> </span><span class="dv">10</span>) %&gt;%
+site_summary &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(sun_angles) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">eq_angle_360 =</span> eq_vertical,
+         <span class="dt">eq_angle_360 =</span> <span class="kw">ifelse</span>(eq_compass &gt;<span class="st"> </span><span class="dv">180</span>, <span class="dv">180</span> -<span class="st"> </span>eq_angle_360, eq_angle_360),
+         <span class="dt">eq_angle_360 =</span> <span class="kw">ifelse</span>(eq_vertical &lt;<span class="st"> </span><span class="dv">0</span> &amp;<span class="st"> </span>eq_compass &lt;=<span class="st"> </span><span class="dv">180</span>,
+                               <span class="dv">360</span> +<span class="st"> </span>eq_angle_360, eq_angle_360),
+         <span class="dt">eq_angle_by_10 =</span> <span class="kw">floor</span>(eq_angle_360 /<span class="dv">10</span>) *<span class="st"> </span><span class="dv">10</span>) %&gt;%
 <span class="st">  </span><span class="kw">group_by</span>(eq_angle_by_10) %&gt;%<span class="st"> </span><span class="kw">summarise</span>(<span class="dt">total=</span> <span class="kw">n</span>())
   site_summary$lat &lt;-<span class="st"> </span>x
   <span class="kw">return</span>(site_summary)
@@ -577,8 +577,9 @@ no_cores &lt;-<span class="st"> </span><span class="kw">detectCores</span>() -<s
 <span class="co"># Initiate cluster</span>
 cl &lt;-<span class="st"> </span><span class="kw">makeCluster</span>(no_cores)
 <span class="kw">clusterExport</span>(cl, <span class="dt">varlist=</span><span class="kw">c</span>(<span class="st">&quot;lat_range&quot;</span>, <span class="st">&quot;long_med&quot;</span>, <span class="st">&quot;time_sq&quot;</span>, <span class="st">&quot;calc_angs&quot;</span>))
-list_angs &lt;-<span class="st"> </span><span class="kw">parLapply</span>(cl, lat_range,
-                         function(x){<span class="kw">calc_angs</span>(<span class="dt">x=</span>x, <span class="dt">longinput=</span>long_med, <span class="dt">timeinput=</span>time_sq)})
+list_angs &lt;-<span class="st"> </span><span class="kw">parLapply</span>(
+  cl, lat_range, function(x){
+                           <span class="kw">calc_angs</span>(<span class="dt">x=</span>x, <span class="dt">longinput=</span>long_med, <span class="dt">timeinput=</span>time_sq)})
 <span class="kw">stopCluster</span>(cl)
 ###
 <span class="kw">library</span>(tidyr)
@@ -616,7 +617,8 @@ lbls=<span class="kw">c</span>(<span class="st">&quot;Expected Proportion&quot;<
 typs=<span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">1</span>)
 weights=<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>)
 <span class="kw">legend</span>(<span class="dv">0</span>,<span class="dv">7</span>, <span class="dt">legend=</span>lbls, <span class="dt">lty=</span>typs, <span class="dt">lwd=</span>weights, <span class="dt">bty=</span><span class="st">&quot;n&quot;</span>,
-       <span class="dt">xjust=</span><span class="dv">0</span>, <span class="dt">title=</span><span class="st">&quot;Legend&quot;</span>, <span class="dt">y.intersp=</span><span class="fl">1.2</span>)
+       <span class="dt">xjust=</span><span class="dv">0</span>,
+       <span class="dt">title=</span><span class="st">&quot;Legend&quot;</span>, <span class="dt">y.intersp=</span><span class="fl">1.2</span>)
 
 
 <span class="kw">par</span>(<span class="dt">mar=</span>old_par$mar)
@@ -665,7 +667,8 @@ ci_brackets &lt;-<span class="st"> </span>act_exp %&gt;%<span class="st"> </span
                                <span class="dt">conf.level =</span> sigmas[<span class="dv">1</span>])[<span class="dv">1</span>,<span class="dv">6</span>] *<span class="st"> </span>grand_total)
 
 
-## ---- fig.cap=&quot;Comparison of expected to observed (with uncertainty) earthquakes by angle of the sun&quot;----
+## ---- fig.cap=&quot;Comparison of expected to observed 
+## (with uncertainty) earthquakes by angle of the sun&quot;----
 bands &lt;-<span class="st"> </span><span class="kw">rev</span>(<span class="kw">c</span>(<span class="st">&#39;#ffffcc&#39;</span>,<span class="st">&#39;#d9f0a3&#39;</span>,<span class="st">&#39;#addd8e&#39;</span>,<span class="st">&#39;#78c679&#39;</span>,<span class="st">&#39;#41ab5d&#39;</span>,<span class="st">&#39;#238443&#39;</span>,<span class="st">&#39;#005a32&#39;</span>))
 old_par=<span class="kw">par</span>()
 <span class="kw">layout</span>(<span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">2</span>), <span class="dt">ncol=</span><span class="dv">4</span>))
@@ -725,7 +728,8 @@ weights=<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</
 
 
 
-## ---- fig.cap=&quot;Difference of observed earthquake numbers from expected by 10 degree sun arc&quot;----
+## ---- fig.cap=
+## &quot;Difference of observed earthquake numbers from expected by 10 degree sun arc&quot;----
 <span class="co">#normalise on expected</span>
 norm_ci &lt;-<span class="st"> </span>ci_brackets
 
@@ -909,12 +913,15 @@ act_exp$adjust_res &lt;-<span class="st"> </span>act_exp$res +<span class="st"> 
 <span class="kw">lines</span>(<span class="dv">19</span>:<span class="dv">36</span>, act_exp$res[<span class="dv">19</span>:<span class="dv">36</span>], <span class="dt">pch=</span><span class="dv">19</span>, <span class="dt">col=</span><span class="st">&quot;black&quot;</span>)
 
 
-## ---- fig.cap=&quot;Rotational variation in residuals. The nightly residuals have been displaced by the mean difference between day and night, to reflect the different between the two lines&quot;----
+## ---- fig.cap=&quot;Rotational variation in residuals.
+## The nightly residuals have been displaced by the mean difference between day
+## and night, to reflect the different between the two lines&quot;----
 old_par=<span class="kw">par</span>()
 <span class="kw">layout</span>(<span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">2</span>), <span class="dt">ncol=</span><span class="dv">4</span>))
 
  act_exp$border =<span class="st"> </span><span class="dv">1</span>
- <span class="co"># need to double entries with a displacement of 10 to make each side of the item on the graph</span>
+ <span class="co"># need to double entries with a displacement of 10 </span>
+ <span class="co"># to make each side of the item on the graph</span>
  limits=<span class="dv">2</span> *<span class="st"> </span><span class="kw">max</span>(<span class="kw">abs</span>(act_exp$adjust_res))
  <span class="co">#white background</span>
  <span class="kw">polar.plot</span>(<span class="kw">c</span>(act_exp$adjust_res[<span class="dv">1</span>], act_exp$adjust_res[<span class="dv">1</span>]),
@@ -959,7 +966,8 @@ lbls2=<span class="kw">c</span>(<span class="st">&quot;Residuals Day&quot;</span
 typs2=<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">3</span>)
 weights2=<span class="kw">c</span>(<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">1</span>,<span class="dv">1</span>)
 clrs2=<span class="kw">c</span>(<span class="st">&quot;#56B4E9&quot;</span>,<span class="st">&quot;#000000&quot;</span>,<span class="st">&quot;#56B4E9&quot;</span>, <span class="st">&quot;#000000&quot;</span>)
-<span class="kw">legend</span>(<span class="dv">0</span>,<span class="dv">10</span>, <span class="dt">legend=</span>lbls2, <span class="dt">lty=</span>typs2, <span class="dt">lwd=</span>weights2, <span class="dt">bty=</span><span class="st">&quot;n&quot;</span>, <span class="dt">xjust=</span><span class="dv">0</span>, <span class="dt">title=</span><span class="st">&quot;Legend&quot;</span>, <span class="dt">y.intersp=</span><span class="fl">1.2</span>, <span class="dt">col=</span>clrs2)
+<span class="kw">legend</span>(<span class="dv">0</span>,<span class="dv">10</span>, <span class="dt">legend=</span>lbls2, <span class="dt">lty=</span>typs2, <span class="dt">lwd=</span>weights2, <span class="dt">bty=</span><span class="st">&quot;n&quot;</span>, <span class="dt">xjust=</span><span class="dv">0</span>,
+       <span class="dt">title=</span><span class="st">&quot;Legend&quot;</span>, <span class="dt">y.intersp=</span><span class="fl">1.2</span>, <span class="dt">col=</span>clrs2)
 
 
 
@@ -968,56 +976,87 @@ clrs2=<span class="kw">c</span>(<span class="st">&quot;#56B4E9&quot;</span>,<spa
 
 
 ## ------------------------------------------------------------------------
-set_diurn &lt;-<span class="st"> </span>eqnz %&gt;%<span class="st"> </span><span class="kw">mutate</span>(<span class="dt">solidearth =</span> <span class="kw">ifelse</span>(eq_solidearth_vertical &lt;<span class="st"> </span><span class="dv">0</span>, <span class="st">&quot;contracted&quot;</span>,<span class="st">&quot;expanded&quot;</span>),
+set_diurn &lt;-<span class="st"> </span>eqnz %&gt;%
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">solidearth =</span> <span class="kw">ifelse</span>(eq_solidearth_vertical &lt;<span class="st"> </span><span class="dv">0</span>, <span class="st">&quot;contracted&quot;</span>,<span class="st">&quot;expanded&quot;</span>),
                 <span class="dt">diurnal =</span> <span class="kw">ifelse</span>(eq_is_night,<span class="st">&quot;night&quot;</span>,<span class="st">&quot;day&quot;</span>)) %&gt;%
 <span class="st">  </span><span class="kw">group_by</span>(solidearth, diurnal) %&gt;%<span class="st"> </span><span class="kw">summarise</span>(<span class="dt">total =</span> <span class="kw">n</span>())
 
-knitr::<span class="kw">kable</span>(set_diurn, <span class="dt">caption=</span><span class="st">&quot;Number of earthquakes by day/night cycle and condition of crust&quot;</span>)
+knitr::<span class="kw">kable</span>(set_diurn,
+             <span class="dt">caption=</span><span class="st">&quot;Number of earthquakes by day/night cycle and condition of crust&quot;</span>)
 
 ## ------------------------------------------------------------------------
-ci_solearth &lt;-<span class="st"> </span>set_diurn %&gt;%<span class="st"> </span><span class="kw">ungroup</span>() %&gt;%<span class="st"> </span><span class="kw">spread</span>(diurnal, total) %&gt;%
-<span class="st">  </span><span class="kw">rowwise</span>() %&gt;%<span class="st"> </span><span class="kw">mutate</span>(<span class="dt">ci_lower_7 =</span> <span class="kw">binom.confint</span>(night, (day +<span class="st"> </span>night), <span class="dt">method=</span><span class="kw">c</span>(<span class="st">&quot;wilson&quot;</span>), <span class="dt">conf.level =</span> sigmas[<span class="dv">7</span>])[<span class="dv">1</span>,<span class="dv">5</span>],
-                       <span class="dt">ci_upper_7 =</span> <span class="kw">binom.confint</span>(night, (day +<span class="st"> </span>night), <span class="dt">method=</span><span class="kw">c</span>(<span class="st">&quot;wilson&quot;</span>), <span class="dt">conf.level =</span> sigmas[<span class="dv">7</span>])[<span class="dv">1</span>,<span class="dv">6</span>],
-                       <span class="dt">ci_lower_6 =</span> <span class="kw">binom.confint</span>(night, (day +<span class="st"> </span>night), <span class="dt">method=</span><span class="kw">c</span>(<span class="st">&quot;wilson&quot;</span>), <span class="dt">conf.level =</span> sigmas[<span class="dv">6</span>])[<span class="dv">1</span>,<span class="dv">5</span>],
-                       <span class="dt">ci_upper_6 =</span> <span class="kw">binom.confint</span>(night, (day +<span class="st"> </span>night), <span class="dt">method=</span><span class="kw">c</span>(<span class="st">&quot;wilson&quot;</span>), <span class="dt">conf.level =</span> sigmas[<span class="dv">6</span>])[<span class="dv">1</span>,<span class="dv">6</span>],
-                       <span class="dt">ci_lower_5 =</span> <span class="kw">binom.confint</span>(night, (day +<span class="st"> </span>night), <span class="dt">method=</span><span class="kw">c</span>(<span class="st">&quot;wilson&quot;</span>), <span class="dt">conf.level =</span> sigmas[<span class="dv">5</span>])[<span class="dv">1</span>,<span class="dv">5</span>],
-                       <span class="dt">ci_upper_5 =</span> <span class="kw">binom.confint</span>(night, (day +<span class="st"> </span>night), <span class="dt">method=</span><span class="kw">c</span>(<span class="st">&quot;wilson&quot;</span>), <span class="dt">conf.level =</span> sigmas[<span class="dv">5</span>])[<span class="dv">1</span>,<span class="dv">6</span>],
-                       <span class="dt">ci_lower_4 =</span> <span class="kw">binom.confint</span>(night, (day +<span class="st"> </span>night), <span class="dt">method=</span><span class="kw">c</span>(<span class="st">&quot;wilson&quot;</span>), <span class="dt">conf.level =</span> sigmas[<span class="dv">4</span>])[<span class="dv">1</span>,<span class="dv">5</span>],
-                       <span class="dt">ci_upper_4 =</span> <span class="kw">binom.confint</span>(night, (day +<span class="st"> </span>night), <span class="dt">method=</span><span class="kw">c</span>(<span class="st">&quot;wilson&quot;</span>), <span class="dt">conf.level =</span> sigmas[<span class="dv">4</span>])[<span class="dv">1</span>,<span class="dv">6</span>],
-                       <span class="dt">ci_lower_3 =</span> <span class="kw">binom.confint</span>(night, (day +<span class="st"> </span>night), <span class="dt">method=</span><span class="kw">c</span>(<span class="st">&quot;wilson&quot;</span>), <span class="dt">conf.level =</span> sigmas[<span class="dv">3</span>])[<span class="dv">1</span>,<span class="dv">5</span>],
-                       <span class="dt">ci_upper_3 =</span> <span class="kw">binom.confint</span>(night, (day +<span class="st"> </span>night), <span class="dt">method=</span><span class="kw">c</span>(<span class="st">&quot;wilson&quot;</span>), <span class="dt">conf.level =</span> sigmas[<span class="dv">3</span>])[<span class="dv">1</span>,<span class="dv">6</span>],
-                       <span class="dt">ci_lower_2 =</span> <span class="kw">binom.confint</span>(night, (day +<span class="st"> </span>night), <span class="dt">method=</span><span class="kw">c</span>(<span class="st">&quot;wilson&quot;</span>), <span class="dt">conf.level =</span> sigmas[<span class="dv">2</span>])[<span class="dv">1</span>,<span class="dv">5</span>],
-                       <span class="dt">ci_upper_2 =</span> <span class="kw">binom.confint</span>(night, (day +<span class="st"> </span>night), <span class="dt">method=</span><span class="kw">c</span>(<span class="st">&quot;wilson&quot;</span>), <span class="dt">conf.level =</span> sigmas[<span class="dv">2</span>])[<span class="dv">1</span>,<span class="dv">6</span>],
-                       <span class="dt">ci_lower_1 =</span> <span class="kw">binom.confint</span>(night, (day +<span class="st"> </span>night), <span class="dt">method=</span><span class="kw">c</span>(<span class="st">&quot;wilson&quot;</span>), <span class="dt">conf.level =</span> sigmas[<span class="dv">1</span>])[<span class="dv">1</span>,<span class="dv">5</span>],
-                       <span class="dt">ci_upper_1 =</span> <span class="kw">binom.confint</span>(night, (day +<span class="st"> </span>night), <span class="dt">method=</span><span class="kw">c</span>(<span class="st">&quot;wilson&quot;</span>), <span class="dt">conf.level =</span> sigmas[<span class="dv">1</span>])[<span class="dv">1</span>,<span class="dv">6</span>])
+ci_solearth &lt;-<span class="st"> </span>set_diurn %&gt;%<span class="st"> </span><span class="kw">ungroup</span>() %&gt;%<span class="st"> </span><span class="kw">spread</span>(diurnal, total) %&gt;%<span class="st"> </span><span class="kw">rowwise</span>() %&gt;%
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">ci_lower_7 =</span> <span class="kw">binom.confint</span>(night, (day +<span class="st"> </span>night),
+                                    <span class="dt">method=</span><span class="kw">c</span>(<span class="st">&quot;wilson&quot;</span>), <span class="dt">conf.level =</span> sigmas[<span class="dv">7</span>])[<span class="dv">1</span>,<span class="dv">5</span>],
+         <span class="dt">ci_upper_7 =</span> <span class="kw">binom.confint</span>(night, (day +<span class="st"> </span>night),
+                                    <span class="dt">method=</span><span class="kw">c</span>(<span class="st">&quot;wilson&quot;</span>), <span class="dt">conf.level =</span> sigmas[<span class="dv">7</span>])[<span class="dv">1</span>,<span class="dv">6</span>],
+         <span class="dt">ci_lower_6 =</span> <span class="kw">binom.confint</span>(night, (day +<span class="st"> </span>night),
+                                    <span class="dt">method=</span><span class="kw">c</span>(<span class="st">&quot;wilson&quot;</span>), <span class="dt">conf.level =</span> sigmas[<span class="dv">6</span>])[<span class="dv">1</span>,<span class="dv">5</span>],
+         <span class="dt">ci_upper_6 =</span> <span class="kw">binom.confint</span>(night, (day +<span class="st"> </span>night),
+                                    <span class="dt">method=</span><span class="kw">c</span>(<span class="st">&quot;wilson&quot;</span>), <span class="dt">conf.level =</span> sigmas[<span class="dv">6</span>])[<span class="dv">1</span>,<span class="dv">6</span>],
+         <span class="dt">ci_lower_5 =</span> <span class="kw">binom.confint</span>(night, (day +<span class="st"> </span>night),
+                                    <span class="dt">method=</span><span class="kw">c</span>(<span class="st">&quot;wilson&quot;</span>), <span class="dt">conf.level =</span> sigmas[<span class="dv">5</span>])[<span class="dv">1</span>,<span class="dv">5</span>],
+         <span class="dt">ci_upper_5 =</span> <span class="kw">binom.confint</span>(night, (day +<span class="st"> </span>night),
+                                    <span class="dt">method=</span><span class="kw">c</span>(<span class="st">&quot;wilson&quot;</span>), <span class="dt">conf.level =</span> sigmas[<span class="dv">5</span>])[<span class="dv">1</span>,<span class="dv">6</span>],
+         <span class="dt">ci_lower_4 =</span> <span class="kw">binom.confint</span>(night, (day +<span class="st"> </span>night),
+                                    <span class="dt">method=</span><span class="kw">c</span>(<span class="st">&quot;wilson&quot;</span>), <span class="dt">conf.level =</span> sigmas[<span class="dv">4</span>])[<span class="dv">1</span>,<span class="dv">5</span>],
+         <span class="dt">ci_upper_4 =</span> <span class="kw">binom.confint</span>(night, (day +<span class="st"> </span>night),
+                                    <span class="dt">method=</span><span class="kw">c</span>(<span class="st">&quot;wilson&quot;</span>), <span class="dt">conf.level =</span> sigmas[<span class="dv">4</span>])[<span class="dv">1</span>,<span class="dv">6</span>],
+         <span class="dt">ci_lower_3 =</span> <span class="kw">binom.confint</span>(night, (day +<span class="st"> </span>night), 
+                                    <span class="dt">method=</span><span class="kw">c</span>(<span class="st">&quot;wilson&quot;</span>), <span class="dt">conf.level =</span> sigmas[<span class="dv">3</span>])[<span class="dv">1</span>,<span class="dv">5</span>],
+         <span class="dt">ci_upper_3 =</span> <span class="kw">binom.confint</span>(night, (day +<span class="st"> </span>night), 
+                                    <span class="dt">method=</span><span class="kw">c</span>(<span class="st">&quot;wilson&quot;</span>), <span class="dt">conf.level =</span> sigmas[<span class="dv">3</span>])[<span class="dv">1</span>,<span class="dv">6</span>],
+         <span class="dt">ci_lower_2 =</span> <span class="kw">binom.confint</span>(night, (day +<span class="st"> </span>night), 
+                                    <span class="dt">method=</span><span class="kw">c</span>(<span class="st">&quot;wilson&quot;</span>), <span class="dt">conf.level =</span> sigmas[<span class="dv">2</span>])[<span class="dv">1</span>,<span class="dv">5</span>],
+         <span class="dt">ci_upper_2 =</span> <span class="kw">binom.confint</span>(night, (day +<span class="st"> </span>night), 
+                                    <span class="dt">method=</span><span class="kw">c</span>(<span class="st">&quot;wilson&quot;</span>), <span class="dt">conf.level =</span> sigmas[<span class="dv">2</span>])[<span class="dv">1</span>,<span class="dv">6</span>],
+         <span class="dt">ci_lower_1 =</span> <span class="kw">binom.confint</span>(night, (day +<span class="st"> </span>night), 
+                                    <span class="dt">method=</span><span class="kw">c</span>(<span class="st">&quot;wilson&quot;</span>), <span class="dt">conf.level =</span> sigmas[<span class="dv">1</span>])[<span class="dv">1</span>,<span class="dv">5</span>],
+         <span class="dt">ci_upper_1 =</span> <span class="kw">binom.confint</span>(night, (day +<span class="st"> </span>night), 
+                                    <span class="dt">method=</span><span class="kw">c</span>(<span class="st">&quot;wilson&quot;</span>), <span class="dt">conf.level =</span> sigmas[<span class="dv">1</span>])[<span class="dv">1</span>,<span class="dv">6</span>])
 ci_solearth$yheight &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">3</span>)
 <span class="kw">layout</span>(<span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">2</span>), <span class="dt">ncol=</span><span class="dv">4</span>))
 
 <span class="kw">par</span>(<span class="dt">mar=</span><span class="kw">c</span>(<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">4</span>,<span class="dv">2</span>))
-<span class="kw">plot</span>(<span class="kw">c</span>(<span class="fl">0.49</span>,<span class="fl">0.61</span>), <span class="dt">y=</span><span class="kw">c</span>(-<span class="dv">3</span>,<span class="dv">8</span>), <span class="dt">type=</span><span class="st">&quot;n&quot;</span>, <span class="dt">bty=</span><span class="st">&quot;n&quot;</span>, <span class="dt">yaxt=</span><span class="st">&quot;n&quot;</span>, <span class="dt">ylab=</span><span class="st">&quot;State of earth&#39;s crust&quot;</span>, <span class="dt">xlab=</span><span class="st">&quot;Proportion of earthquakes at night&quot;</span>)
-a &lt;-<span class="st"> </span><span class="kw">apply</span>(ci_solearth[,<span class="dv">2</span>:<span class="dv">18</span>], <span class="dv">1</span>, function(x){<span class="kw">polygon</span>(<span class="kw">c</span>(x[<span class="dv">3</span>], x[<span class="dv">4</span>], x[<span class="dv">4</span>], x[<span class="dv">3</span>]), <span class="kw">c</span>(x[<span class="dv">17</span>]-<span class="dv">1</span>, x[<span class="dv">17</span>]-<span class="dv">1</span>, x[<span class="dv">17</span>], x[<span class="dv">17</span>]), <span class="dt">col=</span>bands[<span class="dv">7</span>], <span class="dt">border=</span><span class="ot">NA</span>)})
-a &lt;-<span class="st"> </span><span class="kw">apply</span>(ci_solearth[,<span class="dv">2</span>:<span class="dv">18</span>], <span class="dv">1</span>, function(x){<span class="kw">polygon</span>(<span class="kw">c</span>(x[<span class="dv">5</span>], x[<span class="dv">6</span>], x[<span class="dv">6</span>], x[<span class="dv">5</span>]), <span class="kw">c</span>(x[<span class="dv">17</span>]-<span class="dv">1</span>, x[<span class="dv">17</span>]-<span class="dv">1</span>, x[<span class="dv">17</span>], x[<span class="dv">17</span>]), <span class="dt">col=</span>bands[<span class="dv">6</span>], <span class="dt">border=</span><span class="ot">NA</span>)})
-a &lt;-<span class="st"> </span><span class="kw">apply</span>(ci_solearth[,<span class="dv">2</span>:<span class="dv">18</span>], <span class="dv">1</span>, function(x){<span class="kw">polygon</span>(<span class="kw">c</span>(x[<span class="dv">7</span>], x[<span class="dv">8</span>], x[<span class="dv">8</span>], x[<span class="dv">7</span>]), <span class="kw">c</span>(x[<span class="dv">17</span>]-<span class="dv">1</span>, x[<span class="dv">17</span>]-<span class="dv">1</span>, x[<span class="dv">17</span>], x[<span class="dv">17</span>]), <span class="dt">col=</span>bands[<span class="dv">5</span>], <span class="dt">border=</span><span class="ot">NA</span>)})
-a &lt;-<span class="st"> </span><span class="kw">apply</span>(ci_solearth[,<span class="dv">2</span>:<span class="dv">18</span>], <span class="dv">1</span>, function(x){<span class="kw">polygon</span>(<span class="kw">c</span>(x[<span class="dv">9</span>], x[<span class="dv">10</span>], x[<span class="dv">10</span>], x[<span class="dv">9</span>]), <span class="kw">c</span>(x[<span class="dv">17</span>]-<span class="dv">1</span>, x[<span class="dv">17</span>]-<span class="dv">1</span>, x[<span class="dv">17</span>], x[<span class="dv">17</span>]), <span class="dt">col=</span>bands[<span class="dv">4</span>], <span class="dt">border=</span><span class="ot">NA</span>)})
-a &lt;-<span class="st"> </span><span class="kw">apply</span>(ci_solearth[,<span class="dv">2</span>:<span class="dv">18</span>], <span class="dv">1</span>, function(x){<span class="kw">polygon</span>(<span class="kw">c</span>(x[<span class="dv">11</span>], x[<span class="dv">12</span>], x[<span class="dv">12</span>], x[<span class="dv">11</span>]), <span class="kw">c</span>(x[<span class="dv">17</span>]-<span class="dv">1</span>, x[<span class="dv">17</span>]-<span class="dv">1</span>, x[<span class="dv">17</span>], x[<span class="dv">17</span>]), <span class="dt">col=</span>bands[<span class="dv">3</span>], <span class="dt">border=</span><span class="ot">NA</span>)})
-a &lt;-<span class="st"> </span><span class="kw">apply</span>(ci_solearth[,<span class="dv">2</span>:<span class="dv">18</span>], <span class="dv">1</span>, function(x){<span class="kw">polygon</span>(<span class="kw">c</span>(x[<span class="dv">13</span>], x[<span class="dv">14</span>], x[<span class="dv">14</span>], x[<span class="dv">13</span>]), <span class="kw">c</span>(x[<span class="dv">17</span>]-<span class="dv">1</span>, x[<span class="dv">17</span>]-<span class="dv">1</span>, x[<span class="dv">17</span>], x[<span class="dv">17</span>]), <span class="dt">col=</span>bands[<span class="dv">2</span>], <span class="dt">border=</span><span class="ot">NA</span>)})
-a &lt;-<span class="st"> </span><span class="kw">apply</span>(ci_solearth[,<span class="dv">2</span>:<span class="dv">18</span>], <span class="dv">1</span>, function(x){<span class="kw">polygon</span>(<span class="kw">c</span>(x[<span class="dv">15</span>], x[<span class="dv">16</span>], x[<span class="dv">16</span>], x[<span class="dv">15</span>]), <span class="kw">c</span>(x[<span class="dv">17</span>]-<span class="dv">1</span>, x[<span class="dv">17</span>]-<span class="dv">1</span>, x[<span class="dv">17</span>], x[<span class="dv">17</span>]), <span class="dt">col=</span>bands[<span class="dv">1</span>], <span class="dt">border=</span><span class="ot">NA</span>)})
-a &lt;-<span class="st"> </span><span class="kw">apply</span>(ci_solearth[,<span class="dv">2</span>:<span class="dv">18</span>], <span class="dv">1</span>, function(x){<span class="kw">lines</span>(<span class="kw">c</span>(x[<span class="dv">2</span>]/<span class="st"> </span>(x[<span class="dv">1</span>] +<span class="st"> </span>x[<span class="dv">2</span>]), x[<span class="dv">2</span>]/<span class="st"> </span>(x[<span class="dv">1</span>] +<span class="st"> </span>x[<span class="dv">2</span>])), <span class="kw">c</span>(x[<span class="dv">17</span>]-<span class="dv">1</span>, x[<span class="dv">17</span>]), <span class="dt">lwd=</span><span class="dv">2</span>)})
-<span class="co">#text(ci_solearth[1,3]/ (ci_solearth[1,3] + ci_solearth[1,2]), 2.1, &quot;contracted&quot;, cex=0.7, srt=90, pos=3)</span>
-<span class="co">#text(ci_solearth[2,3]/ (ci_solearth[2,3] + ci_solearth[2,2]), 2.1, &quot;expanded&quot;, cex=0.7, srt=90, pos=3)</span>
-<span class="co">#lines(c(0.5,0.5),c(0,3), col=&quot;white&quot;)</span>
-<span class="co">#lines(c(0.5,0.5),c(0,3), lty=2)</span>
-<span class="co">#text(c(0.5),c(2.3), &quot;expected&quot;, cex=0.7, srt=90, pos=3)</span>
-<span class="kw">axis</span>(<span class="dv">2</span>, <span class="dt">at=</span><span class="kw">c</span>(<span class="fl">0.5</span>,<span class="fl">2.5</span>), <span class="dt">labels=</span><span class="kw">c</span>(<span class="st">&quot;contracted&quot;</span>, <span class="st">&quot;expanded&quot;</span>), <span class="dt">tick=</span><span class="ot">FALSE</span>, <span class="dt">lwd=</span><span class="dv">0</span>, <span class="dt">las=</span><span class="dv">2</span>, <span class="dt">pos=</span><span class="fl">0.5</span>)
+<span class="kw">plot</span>(<span class="kw">c</span>(<span class="fl">0.49</span>,<span class="fl">0.61</span>), <span class="dt">y=</span><span class="kw">c</span>(-<span class="dv">3</span>,<span class="dv">8</span>), <span class="dt">type=</span><span class="st">&quot;n&quot;</span>, <span class="dt">bty=</span><span class="st">&quot;n&quot;</span>, <span class="dt">yaxt=</span><span class="st">&quot;n&quot;</span>, <span class="dt">ylab=</span><span class="st">&quot;State of earth&#39;s crust&quot;</span>,
+     <span class="dt">xlab=</span><span class="st">&quot;Proportion of earthquakes at night&quot;</span>)
+a &lt;-<span class="st"> </span><span class="kw">apply</span>(ci_solearth[,<span class="dv">2</span>:<span class="dv">18</span>], <span class="dv">1</span>, function(x){
+  <span class="kw">polygon</span>(<span class="kw">c</span>(x[<span class="dv">3</span>], x[<span class="dv">4</span>], x[<span class="dv">4</span>], x[<span class="dv">3</span>]), <span class="kw">c</span>(x[<span class="dv">17</span>]-<span class="dv">1</span>, x[<span class="dv">17</span>]-<span class="dv">1</span>, x[<span class="dv">17</span>], x[<span class="dv">17</span>]), 
+          <span class="dt">col=</span>bands[<span class="dv">7</span>], <span class="dt">border=</span><span class="ot">NA</span>)})
+a &lt;-<span class="st"> </span><span class="kw">apply</span>(ci_solearth[,<span class="dv">2</span>:<span class="dv">18</span>], <span class="dv">1</span>, function(x){
+  <span class="kw">polygon</span>(<span class="kw">c</span>(x[<span class="dv">5</span>], x[<span class="dv">6</span>], x[<span class="dv">6</span>], x[<span class="dv">5</span>]), <span class="kw">c</span>(x[<span class="dv">17</span>]-<span class="dv">1</span>, x[<span class="dv">17</span>]-<span class="dv">1</span>, x[<span class="dv">17</span>], x[<span class="dv">17</span>]), 
+          <span class="dt">col=</span>bands[<span class="dv">6</span>], <span class="dt">border=</span><span class="ot">NA</span>)})
+a &lt;-<span class="st"> </span><span class="kw">apply</span>(ci_solearth[,<span class="dv">2</span>:<span class="dv">18</span>], <span class="dv">1</span>, function(x){
+  <span class="kw">polygon</span>(<span class="kw">c</span>(x[<span class="dv">7</span>], x[<span class="dv">8</span>], x[<span class="dv">8</span>], x[<span class="dv">7</span>]), <span class="kw">c</span>(x[<span class="dv">17</span>]-<span class="dv">1</span>, x[<span class="dv">17</span>]-<span class="dv">1</span>, x[<span class="dv">17</span>], x[<span class="dv">17</span>]), 
+          <span class="dt">col=</span>bands[<span class="dv">5</span>], <span class="dt">border=</span><span class="ot">NA</span>)})
+a &lt;-<span class="st"> </span><span class="kw">apply</span>(ci_solearth[,<span class="dv">2</span>:<span class="dv">18</span>], <span class="dv">1</span>, function(x){
+  <span class="kw">polygon</span>(<span class="kw">c</span>(x[<span class="dv">9</span>], x[<span class="dv">10</span>], x[<span class="dv">10</span>], x[<span class="dv">9</span>]), <span class="kw">c</span>(x[<span class="dv">17</span>]-<span class="dv">1</span>, x[<span class="dv">17</span>]-<span class="dv">1</span>, x[<span class="dv">17</span>], x[<span class="dv">17</span>]), 
+          <span class="dt">col=</span>bands[<span class="dv">4</span>], <span class="dt">border=</span><span class="ot">NA</span>)})
+a &lt;-<span class="st"> </span><span class="kw">apply</span>(ci_solearth[,<span class="dv">2</span>:<span class="dv">18</span>], <span class="dv">1</span>, function(x){
+  <span class="kw">polygon</span>(<span class="kw">c</span>(x[<span class="dv">11</span>], x[<span class="dv">12</span>], x[<span class="dv">12</span>], x[<span class="dv">11</span>]), <span class="kw">c</span>(x[<span class="dv">17</span>]-<span class="dv">1</span>, x[<span class="dv">17</span>]-<span class="dv">1</span>, x[<span class="dv">17</span>], x[<span class="dv">17</span>]), 
+          <span class="dt">col=</span>bands[<span class="dv">3</span>], <span class="dt">border=</span><span class="ot">NA</span>)})
+a &lt;-<span class="st"> </span><span class="kw">apply</span>(ci_solearth[,<span class="dv">2</span>:<span class="dv">18</span>], <span class="dv">1</span>, function(x){
+  <span class="kw">polygon</span>(<span class="kw">c</span>(x[<span class="dv">13</span>], x[<span class="dv">14</span>], x[<span class="dv">14</span>], x[<span class="dv">13</span>]), <span class="kw">c</span>(x[<span class="dv">17</span>]-<span class="dv">1</span>, x[<span class="dv">17</span>]-<span class="dv">1</span>, x[<span class="dv">17</span>], x[<span class="dv">17</span>]), 
+          <span class="dt">col=</span>bands[<span class="dv">2</span>], <span class="dt">border=</span><span class="ot">NA</span>)})
+a &lt;-<span class="st"> </span><span class="kw">apply</span>(ci_solearth[,<span class="dv">2</span>:<span class="dv">18</span>], <span class="dv">1</span>, function(x){
+  <span class="kw">polygon</span>(<span class="kw">c</span>(x[<span class="dv">15</span>], x[<span class="dv">16</span>], x[<span class="dv">16</span>], x[<span class="dv">15</span>]), <span class="kw">c</span>(x[<span class="dv">17</span>]-<span class="dv">1</span>, x[<span class="dv">17</span>]-<span class="dv">1</span>, x[<span class="dv">17</span>], x[<span class="dv">17</span>]), 
+          <span class="dt">col=</span>bands[<span class="dv">1</span>], <span class="dt">border=</span><span class="ot">NA</span>)})
+a &lt;-<span class="st"> </span><span class="kw">apply</span>(ci_solearth[,<span class="dv">2</span>:<span class="dv">18</span>], <span class="dv">1</span>, function(x){
+  <span class="kw">lines</span>(<span class="kw">c</span>(x[<span class="dv">2</span>]/<span class="st"> </span>(x[<span class="dv">1</span>] +<span class="st"> </span>x[<span class="dv">2</span>]), x[<span class="dv">2</span>]/<span class="st"> </span>(x[<span class="dv">1</span>] +<span class="st"> </span>x[<span class="dv">2</span>])), <span class="kw">c</span>(x[<span class="dv">17</span>]-<span class="dv">1</span>, x[<span class="dv">17</span>]), <span class="dt">lwd=</span><span class="dv">2</span>)})
+
+<span class="kw">axis</span>(<span class="dv">2</span>, <span class="dt">at=</span><span class="kw">c</span>(<span class="fl">0.5</span>,<span class="fl">2.5</span>), <span class="dt">labels=</span><span class="kw">c</span>(<span class="st">&quot;contracted&quot;</span>, <span class="st">&quot;expanded&quot;</span>), 
+     <span class="dt">tick=</span><span class="ot">FALSE</span>, <span class="dt">lwd=</span><span class="dv">0</span>, <span class="dt">las=</span><span class="dv">2</span>, <span class="dt">pos=</span><span class="fl">0.5</span>)
 
 <span class="kw">par</span>(<span class="dt">mar=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>))
 <span class="kw">plot</span>(<span class="dt">x=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">10</span>), <span class="dt">y=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">10</span>), <span class="dt">type=</span><span class="st">&quot;n&quot;</span>, <span class="dt">bty=</span><span class="st">&quot;n&quot;</span>, <span class="dt">axes=</span><span class="ot">FALSE</span>)
-<span class="kw">legend</span>(<span class="dv">0</span>,<span class="fl">5.5</span>, <span class="dt">legend=</span>lbls, <span class="dt">lty=</span>typs, <span class="dt">lwd=</span>weights, <span class="dt">col=</span>clrs, <span class="dt">bty=</span><span class="st">&quot;n&quot;</span>, <span class="dt">xjust=</span><span class="dv">0</span>, <span class="dt">title=</span><span class="st">&quot;Confidence Intervals:&quot;</span>, <span class="dt">y.intersp=</span><span class="fl">1.1</span>, <span class="dt">cex=</span><span class="fl">0.9</span>)
+<span class="kw">legend</span>(<span class="dv">0</span>,<span class="fl">5.5</span>, <span class="dt">legend=</span>lbls, <span class="dt">lty=</span>typs, <span class="dt">lwd=</span>weights, <span class="dt">col=</span>clrs, <span class="dt">bty=</span><span class="st">&quot;n&quot;</span>, <span class="dt">xjust=</span><span class="dv">0</span>, 
+       <span class="dt">title=</span><span class="st">&quot;Confidence Intervals:&quot;</span>, <span class="dt">y.intersp=</span><span class="fl">1.1</span>, <span class="dt">cex=</span><span class="fl">0.9</span>)
 
 lbls2=<span class="kw">c</span>(<span class="st">&quot;Observed Proportion&quot;</span>)
 typs2=<span class="dv">1</span>
 weights2=<span class="dv">2</span>
-<span class="kw">legend</span>(<span class="dv">0</span>,<span class="dv">7</span>, <span class="dt">legend=</span>lbls2, <span class="dt">lty=</span>typs2, <span class="dt">lwd=</span>weights2, <span class="dt">bty=</span><span class="st">&quot;n&quot;</span>, <span class="dt">xjust=</span><span class="dv">0</span>, <span class="dt">title=</span><span class="st">&quot;Legend&quot;</span>, <span class="dt">y.intersp=</span><span class="fl">1.2</span>, <span class="dt">cex=</span><span class="fl">0.9</span>)
+<span class="kw">legend</span>(<span class="dv">0</span>,<span class="dv">7</span>, <span class="dt">legend=</span>lbls2, <span class="dt">lty=</span>typs2, <span class="dt">lwd=</span>weights2, <span class="dt">bty=</span><span class="st">&quot;n&quot;</span>, <span class="dt">xjust=</span><span class="dv">0</span>, 
+       <span class="dt">title=</span><span class="st">&quot;Legend&quot;</span>, <span class="dt">y.intersp=</span><span class="fl">1.2</span>, <span class="dt">cex=</span><span class="fl">0.9</span>)
 
 
 <span class="kw">par</span>(<span class="dt">mar=</span>old_par$mar)

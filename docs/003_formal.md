@@ -104,20 +104,24 @@ par(mar=c(5,6,4,2))
 plot(c(min(0.5,floor(100*ci_steps[1,2])/100), max(0.5,ceiling(100*ci_steps[1,3])/100)),
        y=c(-3,8), type="n", bty="n", yaxt="n", ylab="",
        xlab="Proportion of earthquakes at night")
-a <- apply(ci_steps, 1, function(x){polygon(c(x[2], x[3], x[3], x[2]), c(0, 0, 1, 1), col=bands[x[1]], border=NA)})
+a <- apply(ci_steps, 1, function(x){polygon(c(x[2], x[3], x[3], x[2]),
+                                            c(0, 0, 1, 1), col=bands[x[1]], border=NA)})
 lines(c(.5,.5), c(0,1), col="#FFFFFF")
 lines(c(.5,.5), c(0,1), lty=2, col="#777777")
 lines(c(eq_night/eq_total,eq_night/eq_total), c(0,1), lwd=2)
 
 par(mar=c(0,0,0,0))
 plot(x=c(0,10), y=c(0,10), type="n", bty="n", axes=FALSE)
-legend(0,5.5, legend=lbls, lty=typs, lwd=weights, col=bands, bty="n", xjust=0, title="Confidence Intervals:", y.intersp=1.1, cex=0.9)
+legend(0,5.5, legend=lbls, lty=typs, lwd=weights, col=bands, bty="n", xjust=0,
+       title="Confidence Intervals:", y.intersp=1.1, cex=0.9)
 
 lbls2=c("50% Night", "Actual Proportion")
 typs2=c(2,1)
 weights2=c(1,2)
 cls2=c("#777777","#000000")
-legend(0,7, legend=lbls2, lty=typs2, lwd=weights2, col=cls2, bty="n", xjust=0, title="Legend", y.intersp=1.2)
+legend(0,7, legend=lbls2, lty=typs2, lwd=weights2, col=cls2, bty="n",
+       xjust=0,
+       title="Legend", y.intersp=1.2)
 
 
 

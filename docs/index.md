@@ -1,7 +1,7 @@
 --- 
 title: "Night Tremors: There are more earthquakes at night"
 author: "David Hood"
-date: "2017-05-03"
+date: "2017-05-06"
 site: bookdown::bookdown_site
 documentclass: book
 description: "The sun's daily cycle + gravity = earthquakes"
@@ -34,7 +34,7 @@ The cover picture is of the 1968 Inangahua earthquake, that occurred at 5:24 am 
 
 ## Edition
 
-This is the 0.9th edition, of 2nd May 2017. In need to fix the code line lengths so everything fits on the page in the PDF version, but I thought I would make everything available while I did that. The website version should not change, and the new PDF should be up in the next week. Until then you can see all the code in the web version.
+This is the 1st edition, of 6th May 2017.
 
 book site: https://thoughtfulbloke.github.io/eqnz/
 

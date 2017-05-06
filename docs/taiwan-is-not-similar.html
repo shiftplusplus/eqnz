@@ -26,7 +26,7 @@
 <meta name="author" content="David Hood">
 
 
-<meta name="date" content="2017-05-03">
+<meta name="date" content="2017-05-06">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -118,8 +118,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="1" data-path="motivation.html"><a href="motivation.html"><i class="fa fa-check"></i><b>1</b> Motivation</a><ul>
 <li class="chapter" data-level="1.1" data-path="motivation.html"><a href="motivation.html#formal-statement"><i class="fa fa-check"></i><b>1.1</b> Formal Statement</a></li>
 <li class="chapter" data-level="1.2" data-path="motivation.html"><a href="motivation.html#Links1"><i class="fa fa-check"></i><b>1.2</b> Links</a></li>
-<li class="chapter" data-level="1.3" data-path="motivation.html"><a href="motivation.html#code"><i class="fa fa-check"></i><b>1.3</b> Code</a></li>
-<li class="chapter" data-level="1.4" data-path="motivation.html"><a href="motivation.html#chapter-code-1"><i class="fa fa-check"></i><b>1.4</b> Chapter Code</a></li>
+<li class="chapter" data-level="1.3" data-path="motivation.html"><a href="motivation.html#chapter-code-1"><i class="fa fa-check"></i><b>1.3</b> Chapter Code</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="data-processing.html"><a href="data-processing.html"><i class="fa fa-check"></i><b>2</b> Data Processing</a><ul>
 <li class="chapter" data-level="2.1" data-path="data-processing.html"><a href="data-processing.html#event-types"><i class="fa fa-check"></i><b>2.1</b> Event types</a><ul>
@@ -128,7 +127,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2.2" data-path="data-processing.html"><a href="data-processing.html#gridded-latitude-and-longitude"><i class="fa fa-check"></i><b>2.2</b> Gridded Latitude and Longitude</a></li>
 <li class="chapter" data-level="2.3" data-path="data-processing.html"><a href="data-processing.html#angle-of-the-sun"><i class="fa fa-check"></i><b>2.3</b> Angle of the sun</a></li>
 <li class="chapter" data-level="2.4" data-path="data-processing.html"><a href="data-processing.html#formal-statement-1"><i class="fa fa-check"></i><b>2.4</b> Formal statement</a></li>
-<li class="chapter" data-level="2.5" data-path="data-processing.html"><a href="data-processing.html#code-1"><i class="fa fa-check"></i><b>2.5</b> Code</a></li>
+<li class="chapter" data-level="2.5" data-path="data-processing.html"><a href="data-processing.html#code"><i class="fa fa-check"></i><b>2.5</b> Code</a></li>
 <li class="chapter" data-level="2.6" data-path="data-processing.html"><a href="data-processing.html#chapter-code-2"><i class="fa fa-check"></i><b>2.6</b> Chapter Code</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="key-result.html"><a href="key-result.html"><i class="fa fa-check"></i><b>3</b> Key result</a><ul>
@@ -279,21 +278,21 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </table>
 <p>Of the 3353 in the data, 1700 occurred at night, a proportion of 0.507. A seven sigma confidence interval for the proportion of earthquakes occurring at night is 0.4466 to 0.5673, which 0.5 is well inside. A proportion of 0.5 is not even outside one confidence interval.</p>
 <div class="figure"><span id="fig:unnamed-chunk-7"></span>
-<img src="015_taiwan_files/figure-html/unnamed-chunk-7-1.png" alt="Proportion of earthquakes at night: Taiwan. n=3353" width="672" />
+<img src="015_taiwan_files/figure-html/unnamed-chunk-7-1.png" alt="Proportion of earthquakes at night: Taiwan. n=3353" width="900" />
 <p class="caption">
 Figure 7.1: Proportion of earthquakes at night: Taiwan. n=3353
 </p>
 </div>
 <p>If this collection of 3353 earthquakes was all I had to test with, I would have no evidence that more earthquakes happen at night. Fortunately, I have more than 1.1 million earthquakes from other sources that indicate the general behaviour is otherwise, or I would not have much of a book.</p>
 <div class="figure"><span id="fig:unnamed-chunk-8"></span>
-<img src="015_taiwan_files/figure-html/unnamed-chunk-8-1.png" alt="Proportion of night earthquakes by magnitude,  Taiwan. n=3353" width="672" />
+<img src="015_taiwan_files/figure-html/unnamed-chunk-8-1.png" alt="Proportion of night earthquakes by magnitude,  Taiwan. n=3353" width="900" />
 <p class="caption">
 Figure 2.4: Proportion of night earthquakes by magnitude, Taiwan. n=3353
 </p>
 </div>
 <p>While there is not enough data to be conclusive, it looks like for earthquakes in the 2.5 to 4.5 range (those we can be most exact about) the proportions are near to 50%. Part of the unusualness of this data set may stem from the absence of low magnitude earthquakes in the data (which often occur at night in other data sets). Below 3 magnitude earthquakes makeup under 25% of the recorded earthquakes, compared to over 90% for some of the larger collections.</p>
 <div class="figure"><span id="fig:unnamed-chunk-10"></span>
-<img src="015_taiwan_files/figure-html/unnamed-chunk-10-1.png" alt="Over- and under- supply of earthquakes by angle of the sun (10 degree steps).  Taiwan. n=3353" width="672" />
+<img src="015_taiwan_files/figure-html/unnamed-chunk-10-1.png" alt="Over- and under- supply of earthquakes by angle of the sun (10 degree steps).  Taiwan. n=3353" width="900" />
 <p class="caption">
 Figure 7.3: Over- and under- supply of earthquakes by angle of the sun (10 degree steps). Taiwan. n=3353
 </p>
@@ -356,12 +355,16 @@ assemble_eq &lt;-<span class="st"> </span>function(x, session_is, form_is){
 frmfll &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">yrs =</span> <span class="kw">rep</span>(<span class="dv">2011</span>:<span class="dv">2016</span>, <span class="dt">each=</span><span class="dv">12</span>),<span class="dt">mnths =</span> <span class="kw">rep</span>(<span class="dv">1</span>:<span class="dv">12</span>, <span class="dt">times=</span><span class="dv">12</span>))
 eq_list &lt;-<span class="st"> </span><span class="kw">apply</span>(frmfll, <span class="dv">1</span>, assemble_eq, <span class="dt">session_is=</span>eq_session, <span class="dt">form_is=</span>eq_form)
 eq_taiwan &lt;-<span class="st"> </span><span class="kw">bind_rows</span>(eq_list)
-<span class="kw">names</span>(eq_taiwan) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;class&quot;</span>, <span class="st">&quot;origin_time&quot;</span>, <span class="st">&quot;longitude&quot;</span>, <span class="st">&quot;latitude&quot;</span>, <span class="st">&quot;magnitude&quot;</span>, <span class="st">&quot;depth&quot;</span>, <span class="st">&quot;location&quot;</span>)
+<span class="kw">names</span>(eq_taiwan) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;class&quot;</span>, <span class="st">&quot;origin_time&quot;</span>, <span class="st">&quot;longitude&quot;</span>, <span class="st">&quot;latitude&quot;</span>, 
+                      <span class="st">&quot;magnitude&quot;</span>, <span class="st">&quot;depth&quot;</span>, <span class="st">&quot;location&quot;</span>)
 eq_taiwan$time_UTC &lt;-<span class="st"> </span><span class="kw">ymd_hm</span>(eq_taiwan$origin_time) -<span class="st"> </span><span class="kw">hours</span>(<span class="dv">8</span>)
 eq_taiwan$depth &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(<span class="kw">gsub</span>(<span class="st">&quot; km&quot;</span>,<span class="st">&quot;&quot;</span>,eq_taiwan$depth))
-eq_national &lt;-<span class="st"> </span>eq_taiwan %&gt;%<span class="st"> </span><span class="kw">filter</span>(magnitude &gt;=<span class="st"> </span><span class="dv">0</span> &amp;
-<span class="st">                                  </span>time_UTC &gt;=<span class="st"> </span><span class="kw">as.POSIXct</span>(<span class="st">&quot;2011-09-01T00:00:00&quot;</span>, <span class="dt">format=</span><span class="st">&quot;%Y-%m-%dT%H:%M:%S&quot;</span>, <span class="dt">tz=</span><span class="st">&quot;UTC&quot;</span>) &amp;
-<span class="st">                                  </span>time_UTC &lt;<span class="st"> </span><span class="kw">as.POSIXct</span>(<span class="st">&quot;2016-09-01T00:00:00&quot;</span>, <span class="dt">format=</span><span class="st">&quot;%Y-%m-%dT%H:%M:%S&quot;</span>, <span class="dt">tz=</span><span class="st">&quot;UTC&quot;</span>)) %&gt;%
+eq_national &lt;-<span class="st"> </span>eq_taiwan %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">filter</span>(magnitude &gt;=<span class="st"> </span><span class="dv">0</span> &amp;
+<span class="st">           </span>time_UTC &gt;=<span class="st"> </span><span class="kw">as.POSIXct</span>(<span class="st">&quot;2011-09-01T00:00:00&quot;</span>, 
+                                  <span class="dt">format=</span><span class="st">&quot;%Y-%m-%dT%H:%M:%S&quot;</span>, <span class="dt">tz=</span><span class="st">&quot;UTC&quot;</span>) &amp;
+<span class="st">           </span>time_UTC &lt;<span class="st"> </span><span class="kw">as.POSIXct</span>(<span class="st">&quot;2016-09-01T00:00:00&quot;</span>, 
+                                 <span class="dt">format=</span><span class="st">&quot;%Y-%m-%dT%H:%M:%S&quot;</span>, <span class="dt">tz=</span><span class="st">&quot;UTC&quot;</span>)) %&gt;%
 <span class="st">  </span><span class="kw">distinct</span>()  %&gt;%<span class="st"> </span><span class="kw">arrange</span>(time_UTC)
 <span class="co">#one longitude was missing the decimal sign</span>
 
@@ -378,20 +381,27 @@ westmost &lt;-<span class="st"> </span><span class="kw">min</span>(eq_national$l
 
 eq_national &lt;-<span class="st"> </span>eq_national %&gt;%<span class="st"> </span><span class="kw">filter</span>(
   magnitude &gt;<span class="st"> </span><span class="dv">0</span>) %&gt;%<span class="st"> </span><span class="kw">rowwise</span>() %&gt;%<span class="st"> </span><span class="kw">mutate</span>(
-  <span class="dt">eq_gridpoint_y =</span> <span class="kw">round</span>(<span class="kw">distVincentyEllipsoid</span>(<span class="kw">c</span>(longitude, southmost), <span class="kw">c</span>(longitude,latitude)) /<span class="dv">50000</span>,<span class="dv">0</span>),
-  <span class="dt">eq_gridpoint_x =</span> <span class="kw">round</span>(<span class="kw">distVincentyEllipsoid</span>(<span class="kw">c</span>(westmost, latitude), <span class="kw">c</span>(longitude,latitude)) /<span class="dv">50000</span>,<span class="dv">0</span>),
-  <span class="dt">eq_roundedlat =</span> <span class="kw">destPoint</span>(<span class="dt">p=</span><span class="kw">c</span>(longitude, southmost), <span class="dt">b=</span><span class="dv">0</span>, <span class="dt">d=</span>eq_gridpoint_y*<span class="dv">50000</span>)[<span class="dv">2</span>],
-  <span class="dt">eq_roundedlong =</span> <span class="kw">destPoint</span>(<span class="dt">p=</span><span class="kw">c</span>(westmost, eq_roundedlat), <span class="dt">b=</span><span class="dv">90</span>, <span class="dt">d=</span>eq_gridpoint_x*<span class="dv">50000</span>)[<span class="dv">1</span>]) %&gt;%<span class="st"> </span><span class="kw">ungroup</span>()
+<span class="dt">eq_gridpoint_y =</span> <span class="kw">round</span>(<span class="kw">distVincentyEllipsoid</span>(<span class="kw">c</span>(longitude, southmost), 
+                                               <span class="kw">c</span>(longitude,latitude)) /<span class="dv">50000</span>,<span class="dv">0</span>),
+  <span class="dt">eq_gridpoint_x =</span> <span class="kw">round</span>(<span class="kw">distVincentyEllipsoid</span>(<span class="kw">c</span>(westmost, latitude), 
+                                               <span class="kw">c</span>(longitude,latitude)) /<span class="dv">50000</span>,<span class="dv">0</span>),
+  <span class="dt">eq_roundedlat =</span> <span class="kw">destPoint</span>(<span class="dt">p=</span><span class="kw">c</span>(longitude, southmost), 
+                            <span class="dt">b=</span><span class="dv">0</span>, <span class="dt">d=</span>eq_gridpoint_y*<span class="dv">50000</span>)[<span class="dv">2</span>],
+  <span class="dt">eq_roundedlong =</span> <span class="kw">destPoint</span>(<span class="dt">p=</span><span class="kw">c</span>(westmost, eq_roundedlat), 
+                             <span class="dt">b=</span><span class="dv">90</span>, <span class="dt">d=</span>eq_gridpoint_x*<span class="dv">50000</span>)[<span class="dv">1</span>]) %&gt;%<span class="st"> </span><span class="kw">ungroup</span>()
 <span class="co"># use maptools to calculate solar angles</span>
-sun_angles &lt;-<span class="st"> </span><span class="kw">solarpos</span>(<span class="kw">matrix</span>(<span class="kw">c</span>(eq_national$longitude, eq_national$latitude), <span class="dt">ncol=</span><span class="dv">2</span>), eq_national$time_UTC)
+sun_angles &lt;-<span class="st"> </span><span class="kw">solarpos</span>(<span class="kw">matrix</span>(<span class="kw">c</span>(eq_national$longitude, eq_national$latitude), <span class="dt">ncol=</span><span class="dv">2</span>), 
+                       eq_national$time_UTC)
 <span class="kw">colnames</span>(sun_angles) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;eq_compass&quot;</span>, <span class="st">&quot;eq_vertical&quot;</span>)
 eq_national &lt;-<span class="st"> </span><span class="kw">cbind</span>(eq_national,sun_angles)
 eq_national$eq_is_night &lt;-<span class="st"> </span>eq_national$eq_vertical &lt;<span class="st"> </span><span class="dv">0</span>
 <span class="co"># calculate 360 degree as well as vertical</span>
-eq_national &lt;-<span class="st"> </span>eq_national %&gt;%<span class="st"> </span><span class="kw">mutate</span>(<span class="dt">eq_angle_360 =</span> eq_vertical,
-                                 <span class="dt">eq_angle_360 =</span> <span class="kw">ifelse</span>(eq_compass &gt;<span class="st"> </span><span class="dv">180</span>, <span class="dv">180</span> -<span class="st"> </span>eq_angle_360, eq_angle_360),
-                                 <span class="dt">eq_angle_360 =</span> <span class="kw">ifelse</span>(eq_vertical &lt;<span class="st"> </span><span class="dv">0</span> &amp;<span class="st"> </span>eq_compass &lt;=<span class="st"> </span><span class="dv">180</span>, <span class="dv">360</span> +<span class="st"> </span>eq_angle_360, eq_angle_360),
-                                 <span class="dt">eq_angle_by_10 =</span> <span class="kw">floor</span>(eq_angle_360 /<span class="dv">10</span>) *<span class="st"> </span><span class="dv">10</span>)
+eq_national &lt;-<span class="st"> </span>eq_national %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">eq_angle_360 =</span> eq_vertical,
+         <span class="dt">eq_angle_360 =</span> <span class="kw">ifelse</span>(eq_compass &gt;<span class="st"> </span><span class="dv">180</span>, <span class="dv">180</span> -<span class="st"> </span>eq_angle_360, eq_angle_360),
+         <span class="dt">eq_angle_360 =</span> <span class="kw">ifelse</span>(eq_vertical &lt;<span class="st"> </span><span class="dv">0</span> &amp;<span class="st"> </span>eq_compass &lt;=<span class="st"> </span><span class="dv">180</span>, 
+                               <span class="dv">360</span> +<span class="st"> </span>eq_angle_360, eq_angle_360),
+         <span class="dt">eq_angle_by_10 =</span> <span class="kw">floor</span>(eq_angle_360 /<span class="dv">10</span>) *<span class="st"> </span><span class="dv">10</span>)
 <span class="kw">save</span>(eq_national, <span class="dt">file=</span><span class="st">&quot;../othereqdata/eq_taiwan_processed.RData&quot;</span>)
 }
 
@@ -413,10 +423,12 @@ calc_angs &lt;-<span class="st"> </span>function(x, longinput, timeinput){
   sun_angles &lt;-<span class="st"> </span>maptools::<span class="kw">solarpos</span>(<span class="kw">matrix</span>(<span class="kw">c</span>(longinput, x), <span class="dt">ncol=</span><span class="dv">2</span>), timeinput)
   <span class="kw">colnames</span>(sun_angles) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;eq_compass&quot;</span>, <span class="st">&quot;eq_vertical&quot;</span>)
 <span class="co"># calculate 360 degree as well as vertical</span>
-site_summary &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(sun_angles) %&gt;%<span class="st"> </span><span class="kw">mutate</span>(<span class="dt">eq_angle_360 =</span> eq_vertical,
-                                    <span class="dt">eq_angle_360 =</span> <span class="kw">ifelse</span>(eq_compass &gt;<span class="st"> </span><span class="dv">180</span>, <span class="dv">180</span> -<span class="st"> </span>eq_angle_360, eq_angle_360),
-                                    <span class="dt">eq_angle_360 =</span> <span class="kw">ifelse</span>(eq_vertical &lt;<span class="st"> </span><span class="dv">0</span> &amp;<span class="st"> </span>eq_compass &lt;=<span class="st"> </span><span class="dv">180</span>, <span class="dv">360</span> +<span class="st"> </span>eq_angle_360, eq_angle_360),
-                                    <span class="dt">eq_angle_by_10 =</span> <span class="kw">floor</span>(eq_angle_360 /<span class="dv">10</span>) *<span class="st"> </span><span class="dv">10</span>) %&gt;%
+site_summary &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(sun_angles) %&gt;%
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">eq_angle_360 =</span> eq_vertical,
+         <span class="dt">eq_angle_360 =</span> <span class="kw">ifelse</span>(eq_compass &gt;<span class="st"> </span><span class="dv">180</span>, <span class="dv">180</span> -<span class="st"> </span>eq_angle_360, eq_angle_360),
+         <span class="dt">eq_angle_360 =</span> <span class="kw">ifelse</span>(
+           eq_vertical &lt;<span class="st"> </span><span class="dv">0</span> &amp;<span class="st"> </span>eq_compass &lt;=<span class="st"> </span><span class="dv">180</span>, <span class="dv">360</span> +<span class="st"> </span>eq_angle_360, eq_angle_360),
+         <span class="dt">eq_angle_by_10 =</span> <span class="kw">floor</span>(eq_angle_360 /<span class="dv">10</span>) *<span class="st"> </span><span class="dv">10</span>) %&gt;%
 <span class="st">  </span><span class="kw">group_by</span>(eq_angle_by_10) %&gt;%<span class="st"> </span><span class="kw">summarise</span>(<span class="dt">total=</span> <span class="kw">n</span>())
   site_summary$lat &lt;-<span class="st"> </span>x
   <span class="kw">return</span>(site_summary)
@@ -428,7 +440,8 @@ no_cores &lt;-<span class="st"> </span><span class="kw">detectCores</span>() -<s
 cl &lt;-<span class="st"> </span><span class="kw">makeCluster</span>(no_cores)
 <span class="kw">clusterExport</span>(cl, <span class="dt">varlist=</span><span class="kw">c</span>(<span class="st">&quot;lat_range&quot;</span>, <span class="st">&quot;long_med&quot;</span>, <span class="st">&quot;time_sq&quot;</span>, <span class="st">&quot;calc_angs&quot;</span>))
 list_angs &lt;-<span class="st"> </span><span class="kw">parLapply</span>(cl, lat_range,
-                         function(x){<span class="kw">calc_angs</span>(<span class="dt">x=</span>x, <span class="dt">longinput=</span>long_med, <span class="dt">timeinput=</span>time_sq)})
+                         function(x){
+                           <span class="kw">calc_angs</span>(<span class="dt">x=</span>x, <span class="dt">longinput=</span>long_med, <span class="dt">timeinput=</span>time_sq)})
 <span class="kw">stopCluster</span>(cl)
 ###
 <span class="kw">library</span>(tidyr)
@@ -515,20 +528,23 @@ ci_steps &lt;-<span class="st"> </span><span class="kw">bind_rows</span>(ci_spac
 <span class="kw">plot</span>(<span class="kw">c</span>(<span class="kw">min</span>(<span class="fl">0.5</span>,<span class="kw">floor</span>(<span class="dv">100</span>*ci_steps[<span class="dv">1</span>,<span class="dv">2</span>])/<span class="dv">100</span>), <span class="kw">max</span>(<span class="fl">0.5</span>,<span class="kw">ceiling</span>(<span class="dv">100</span>*ci_steps[<span class="dv">1</span>,<span class="dv">3</span>])/<span class="dv">100</span>)),
        <span class="dt">y=</span><span class="kw">c</span>(-<span class="dv">3</span>,<span class="dv">8</span>), <span class="dt">type=</span><span class="st">&quot;n&quot;</span>, <span class="dt">bty=</span><span class="st">&quot;n&quot;</span>, <span class="dt">yaxt=</span><span class="st">&quot;n&quot;</span>, <span class="dt">ylab=</span><span class="st">&quot;&quot;</span>,
        <span class="dt">xlab=</span><span class="st">&quot;Proportion of earthquakes at night&quot;</span>)
-a &lt;-<span class="st"> </span><span class="kw">apply</span>(ci_steps, <span class="dv">1</span>, function(x){<span class="kw">polygon</span>(<span class="kw">c</span>(x[<span class="dv">2</span>], x[<span class="dv">3</span>], x[<span class="dv">3</span>], x[<span class="dv">2</span>]), <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>), <span class="dt">col=</span>bands[x[<span class="dv">1</span>]], <span class="dt">border=</span><span class="ot">NA</span>)})
+a &lt;-<span class="st"> </span>a &lt;-<span class="st"> </span><span class="kw">apply</span>(ci_steps, <span class="dv">1</span>, function(x){
+  <span class="kw">polygon</span>(<span class="kw">c</span>(x[<span class="dv">2</span>], x[<span class="dv">3</span>], x[<span class="dv">3</span>], x[<span class="dv">2</span>]), <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>), <span class="dt">col=</span>bands[x[<span class="dv">1</span>]], <span class="dt">border=</span><span class="ot">NA</span>)})
 <span class="kw">lines</span>(<span class="kw">c</span>(.<span class="dv">5</span>,.<span class="dv">5</span>), <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>), <span class="dt">col=</span><span class="st">&quot;#FFFFFF&quot;</span>)
 <span class="kw">lines</span>(<span class="kw">c</span>(.<span class="dv">5</span>,.<span class="dv">5</span>), <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>), <span class="dt">lty=</span><span class="dv">2</span>, <span class="dt">col=</span><span class="st">&quot;#777777&quot;</span>)
 <span class="kw">lines</span>(<span class="kw">c</span>(eq_night/eq_total,eq_night/eq_total), <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>), <span class="dt">lwd=</span><span class="dv">2</span>)
 
 <span class="kw">par</span>(<span class="dt">mar=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>))
 <span class="kw">plot</span>(<span class="dt">x=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">10</span>), <span class="dt">y=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">10</span>), <span class="dt">type=</span><span class="st">&quot;n&quot;</span>, <span class="dt">bty=</span><span class="st">&quot;n&quot;</span>, <span class="dt">axes=</span><span class="ot">FALSE</span>)
-<span class="kw">legend</span>(<span class="dv">0</span>,<span class="fl">5.5</span>, <span class="dt">legend=</span>lbls, <span class="dt">lty=</span>typs, <span class="dt">lwd=</span>weights, <span class="dt">col=</span>bands, <span class="dt">bty=</span><span class="st">&quot;n&quot;</span>, <span class="dt">xjust=</span><span class="dv">0</span>, <span class="dt">title=</span><span class="st">&quot;Confidence Intervals:&quot;</span>, <span class="dt">y.intersp=</span><span class="fl">1.1</span>, <span class="dt">cex=</span><span class="fl">0.9</span>)
+<span class="kw">legend</span>(<span class="dv">0</span>,<span class="fl">5.5</span>, <span class="dt">legend=</span>lbls, <span class="dt">lty=</span>typs, <span class="dt">lwd=</span>weights, <span class="dt">col=</span>bands, <span class="dt">bty=</span><span class="st">&quot;n&quot;</span>, <span class="dt">xjust=</span><span class="dv">0</span>,
+       <span class="dt">title=</span><span class="st">&quot;Confidence Intervals:&quot;</span>, <span class="dt">y.intersp=</span><span class="fl">1.1</span>, <span class="dt">cex=</span><span class="fl">0.9</span>)
 
 lbls2=<span class="kw">c</span>(<span class="st">&quot;50% Night&quot;</span>, <span class="st">&quot;Actual Proportion&quot;</span>)
 typs2=<span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">1</span>)
 weights2=<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>)
 cls2=<span class="kw">c</span>(<span class="st">&quot;#777777&quot;</span>,<span class="st">&quot;#000000&quot;</span>)
-<span class="kw">legend</span>(<span class="dv">0</span>,<span class="dv">7</span>, <span class="dt">legend=</span>lbls2, <span class="dt">lty=</span>typs2, <span class="dt">lwd=</span>weights2, <span class="dt">col=</span>cls2, <span class="dt">bty=</span><span class="st">&quot;n&quot;</span>, <span class="dt">xjust=</span><span class="dv">0</span>, <span class="dt">title=</span><span class="st">&quot;Legend&quot;</span>, <span class="dt">y.intersp=</span><span class="fl">1.2</span>)
+<span class="kw">legend</span>(<span class="dv">0</span>,<span class="dv">7</span>, <span class="dt">legend=</span>lbls2, <span class="dt">lty=</span>typs2, <span class="dt">lwd=</span>weights2, <span class="dt">col=</span>cls2, <span class="dt">bty=</span><span class="st">&quot;n&quot;</span>, <span class="dt">xjust=</span><span class="dv">0</span>,
+       <span class="dt">title=</span><span class="st">&quot;Legend&quot;</span>, <span class="dt">y.intersp=</span><span class="fl">1.2</span>)
 
 
 
@@ -561,7 +577,8 @@ plot7sig &lt;-<span class="st"> </span>function(success, trials, aa, stepsize){
               <span class="fl">0.999999426696856</span>,
               <span class="fl">0.999999998026825</span>,
               <span class="fl">0.999999999997440</span>)
-  <span class="kw">sapply</span>(<span class="dv">7</span>:<span class="dv">1</span>, function(x){<span class="kw">poly_conf_int</span>(success, trials, aa, stepsize, sigmas[x], bands[x])})
+  <span class="kw">sapply</span>(<span class="dv">7</span>:<span class="dv">1</span>, function(x){
+    <span class="kw">poly_conf_int</span>(success, trials, aa, stepsize, sigmas[x], bands[x])})
   a &lt;-<span class="st"> </span><span class="kw">lines</span>(<span class="kw">c</span>(aa, aa +<span class="st"> </span>stepsize), <span class="kw">c</span>(success/trials, success/trials), <span class="dt">lwd=</span><span class="dv">2</span>)
 }
 
@@ -577,19 +594,22 @@ clrs &lt;-<span class="st"> </span><span class="kw">rev</span>(<span class="kw">
 <span class="co">#clrs &lt;- c(&#39;#ffffb2&#39;,&#39;#fed976&#39;,&#39;#feb24c&#39;,&#39;#fd8d3c&#39;,&#39;#fc4e2a&#39;,&#39;#e31a1c&#39;,&#39;#b10026&#39;)</span>
 
 <span class="kw">layout</span>(<span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">2</span>), <span class="dt">ncol=</span><span class="dv">4</span>))
-<span class="kw">plot</span>(<span class="dt">x=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="kw">max</span>(grf$floored_mag)+<span class="fl">0.5</span>), <span class="dt">y=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>), <span class="dt">type=</span><span class="st">&quot;n&quot;</span>, <span class="dt">bty=</span><span class="st">&quot;n&quot;</span>, <span class="dt">xlab=</span><span class="st">&quot;Magnitude (0.5 steps)&quot;</span>, <span class="dt">ylab=</span><span class="st">&quot;Proportion of earthquakes at night&quot;</span>)
+<span class="kw">plot</span>(<span class="dt">x=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="kw">max</span>(grf$floored_mag)+<span class="fl">0.5</span>), <span class="dt">y=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>), <span class="dt">type=</span><span class="st">&quot;n&quot;</span>, <span class="dt">bty=</span><span class="st">&quot;n&quot;</span>, 
+     <span class="dt">xlab=</span><span class="st">&quot;Magnitude (0.5 steps)&quot;</span>, <span class="dt">ylab=</span><span class="st">&quot;Proportion of earthquakes at night&quot;</span>)
 a &lt;-<span class="st"> </span><span class="kw">apply</span>(grf,<span class="dv">1</span>,function(x){<span class="kw">plot7sig</span>(x[<span class="dv">2</span>],x[<span class="dv">3</span>],x[<span class="dv">1</span>],<span class="fl">0.5</span>)})
 <span class="kw">lines</span>(<span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">10</span>), <span class="kw">c</span>(.<span class="dv">5</span>,.<span class="dv">5</span>), <span class="dt">col=</span><span class="st">&quot;#FFFFFF&quot;</span>)
 <span class="kw">lines</span>(<span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">10</span>), <span class="kw">c</span>(.<span class="dv">5</span>,.<span class="dv">5</span>), <span class="dt">lty=</span><span class="dv">2</span>, <span class="dt">col=</span><span class="st">&quot;#777777&quot;</span>)
 
 <span class="kw">par</span>(<span class="dt">mar=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>))
 <span class="kw">plot</span>(<span class="dt">x=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">10</span>), <span class="dt">y=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">10</span>), <span class="dt">type=</span><span class="st">&quot;n&quot;</span>, <span class="dt">bty=</span><span class="st">&quot;n&quot;</span>, <span class="dt">axes=</span><span class="ot">FALSE</span>)
-<span class="kw">legend</span>(<span class="dv">0</span>,<span class="dv">5</span>, <span class="dt">legend=</span>lbls, <span class="dt">lty=</span>typs, <span class="dt">lwd=</span>weights, <span class="dt">col=</span>clrs, <span class="dt">bty=</span><span class="st">&quot;n&quot;</span>, <span class="dt">xjust=</span><span class="dv">0</span>, <span class="dt">title=</span><span class="st">&quot;Confidence</span>
+<span class="kw">legend</span>(<span class="dv">0</span>,<span class="dv">5</span>, <span class="dt">legend=</span>lbls, <span class="dt">lty=</span>typs, <span class="dt">lwd=</span>weights, <span class="dt">col=</span>clrs, <span class="dt">bty=</span><span class="st">&quot;n&quot;</span>, <span class="dt">xjust=</span><span class="dv">0</span>,
+       <span class="dt">title=</span><span class="st">&quot;Confidence</span>
 <span class="st">Intervals:&quot;</span>, <span class="dt">cex=</span><span class="fl">0.9</span>)
 lbls=<span class="kw">c</span>(<span class="st">&quot;Expected Proportion&quot;</span>, <span class="st">&quot;Actual Proportion&quot;</span>)
 typs=<span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">1</span>)
 weights=<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>)
-<span class="kw">legend</span>(<span class="dv">0</span>,<span class="dv">7</span>, <span class="dt">legend=</span>lbls, <span class="dt">lty=</span>typs, <span class="dt">lwd=</span>weights, <span class="dt">bty=</span><span class="st">&quot;n&quot;</span>, <span class="dt">xjust=</span><span class="dv">0</span>, <span class="dt">title=</span><span class="st">&quot;Legend&quot;</span>, <span class="dt">y.intersp=</span><span class="fl">1.2</span>)
+<span class="kw">legend</span>(<span class="dv">0</span>,<span class="dv">7</span>, <span class="dt">legend=</span>lbls, <span class="dt">lty=</span>typs, <span class="dt">lwd=</span>weights, <span class="dt">bty=</span><span class="st">&quot;n&quot;</span>, <span class="dt">xjust=</span><span class="dv">0</span>,
+       <span class="dt">title=</span><span class="st">&quot;Legend&quot;</span>, <span class="dt">y.intersp=</span><span class="fl">1.2</span>)
 
 
 <span class="kw">par</span>(<span class="dt">mar=</span>old_par$mar)
@@ -604,7 +624,8 @@ by_angle &lt;-<span class="st"> </span>eq_national %&gt;%<span class="st"> </spa
 merged &lt;-<span class="st"> </span><span class="kw">merge</span>(eq_national, angwide, <span class="dt">by.x=</span><span class="st">&quot;eq_roundedlat&quot;</span>, <span class="dt">by.y=</span><span class="st">&quot;lat&quot;</span>)
 agg_expected &lt;-<span class="st"> </span>merged %&gt;%<span class="st"> </span><span class="kw">select</span>(<span class="st">`</span><span class="dt">0</span><span class="st">`</span>:<span class="st">`</span><span class="dt">350</span><span class="st">`</span>) %&gt;%<span class="st"> </span><span class="kw">colSums</span>(<span class="dt">na.rm=</span><span class="ot">TRUE</span>)
 expected_prop &lt;-<span class="st"> </span>agg_expected /<span class="st"> </span><span class="kw">sum</span>(agg_expected)
-expected &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">eq_angle_by_10 =</span> <span class="kw">as.numeric</span>(<span class="kw">names</span>(expected_prop)), <span class="dt">expected_prop =</span> <span class="kw">as.numeric</span>(expected_prop))
+expected &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">eq_angle_by_10 =</span> <span class="kw">as.numeric</span>(<span class="kw">names</span>(expected_prop)), 
+                       <span class="dt">expected_prop =</span> <span class="kw">as.numeric</span>(expected_prop))
 expected$expected_number =<span class="st"> </span>expected_prop *<span class="st"> </span>eq_total
 act_exp &lt;-<span class="st"> </span><span class="kw">merge</span>(expected, by_angle, <span class="dt">by=</span><span class="st">&quot;eq_angle_by_10&quot;</span>, <span class="dt">all.x=</span><span class="ot">TRUE</span>)
 
@@ -614,20 +635,35 @@ act_exp$act_prop &lt;-<span class="st"> </span>act_exp$total /<span class="st"> 
 
 
 ci_brackets &lt;-<span class="st"> </span>act_exp %&gt;%<span class="st"> </span><span class="kw">ungroup</span>() %&gt;%<span class="st"> </span><span class="kw">mutate</span>(<span class="dt">grand_total=</span><span class="kw">sum</span>(total)) %&gt;%
-<span class="st">  </span><span class="kw">rowwise</span>() %&gt;%<span class="st"> </span><span class="kw">mutate</span>(<span class="dt">ci_lower_7 =</span> <span class="kw">binom.confint</span>(total, grand_total, <span class="dt">method=</span><span class="kw">c</span>(<span class="st">&quot;wilson&quot;</span>), <span class="dt">conf.level =</span> sigmas[<span class="dv">7</span>])[<span class="dv">1</span>,<span class="dv">5</span>] *<span class="st"> </span>grand_total,
-                       <span class="dt">ci_upper_7 =</span> <span class="kw">binom.confint</span>(total, grand_total, <span class="dt">method=</span><span class="kw">c</span>(<span class="st">&quot;wilson&quot;</span>), <span class="dt">conf.level =</span> sigmas[<span class="dv">7</span>])[<span class="dv">1</span>,<span class="dv">6</span>] *<span class="st"> </span>grand_total,
-                       <span class="dt">ci_lower_6 =</span> <span class="kw">binom.confint</span>(total, grand_total, <span class="dt">method=</span><span class="kw">c</span>(<span class="st">&quot;wilson&quot;</span>), <span class="dt">conf.level =</span> sigmas[<span class="dv">6</span>])[<span class="dv">1</span>,<span class="dv">5</span>] *<span class="st"> </span>grand_total,
-                       <span class="dt">ci_upper_6 =</span> <span class="kw">binom.confint</span>(total, grand_total, <span class="dt">method=</span><span class="kw">c</span>(<span class="st">&quot;wilson&quot;</span>), <span class="dt">conf.level =</span> sigmas[<span class="dv">6</span>])[<span class="dv">1</span>,<span class="dv">6</span>] *<span class="st"> </span>grand_total,
-                       <span class="dt">ci_lower_5 =</span> <span class="kw">binom.confint</span>(total, grand_total, <span class="dt">method=</span><span class="kw">c</span>(<span class="st">&quot;wilson&quot;</span>), <span class="dt">conf.level =</span> sigmas[<span class="dv">5</span>])[<span class="dv">1</span>,<span class="dv">5</span>] *<span class="st"> </span>grand_total,
-                       <span class="dt">ci_upper_5 =</span> <span class="kw">binom.confint</span>(total, grand_total, <span class="dt">method=</span><span class="kw">c</span>(<span class="st">&quot;wilson&quot;</span>), <span class="dt">conf.level =</span> sigmas[<span class="dv">5</span>])[<span class="dv">1</span>,<span class="dv">6</span>] *<span class="st"> </span>grand_total,
-                       <span class="dt">ci_lower_4 =</span> <span class="kw">binom.confint</span>(total, grand_total, <span class="dt">method=</span><span class="kw">c</span>(<span class="st">&quot;wilson&quot;</span>), <span class="dt">conf.level =</span> sigmas[<span class="dv">4</span>])[<span class="dv">1</span>,<span class="dv">5</span>] *<span class="st"> </span>grand_total,
-                       <span class="dt">ci_upper_4 =</span> <span class="kw">binom.confint</span>(total, grand_total, <span class="dt">method=</span><span class="kw">c</span>(<span class="st">&quot;wilson&quot;</span>), <span class="dt">conf.level =</span> sigmas[<span class="dv">4</span>])[<span class="dv">1</span>,<span class="dv">6</span>] *<span class="st"> </span>grand_total,
-                       <span class="dt">ci_lower_3 =</span> <span class="kw">binom.confint</span>(total, grand_total, <span class="dt">method=</span><span class="kw">c</span>(<span class="st">&quot;wilson&quot;</span>), <span class="dt">conf.level =</span> sigmas[<span class="dv">3</span>])[<span class="dv">1</span>,<span class="dv">5</span>] *<span class="st"> </span>grand_total,
-                       <span class="dt">ci_upper_3 =</span> <span class="kw">binom.confint</span>(total, grand_total, <span class="dt">method=</span><span class="kw">c</span>(<span class="st">&quot;wilson&quot;</span>), <span class="dt">conf.level =</span> sigmas[<span class="dv">3</span>])[<span class="dv">1</span>,<span class="dv">6</span>] *<span class="st"> </span>grand_total,
-                       <span class="dt">ci_lower_2 =</span> <span class="kw">binom.confint</span>(total, grand_total, <span class="dt">method=</span><span class="kw">c</span>(<span class="st">&quot;wilson&quot;</span>), <span class="dt">conf.level =</span> sigmas[<span class="dv">2</span>])[<span class="dv">1</span>,<span class="dv">5</span>] *<span class="st"> </span>grand_total,
-                       <span class="dt">ci_upper_2 =</span> <span class="kw">binom.confint</span>(total, grand_total, <span class="dt">method=</span><span class="kw">c</span>(<span class="st">&quot;wilson&quot;</span>), <span class="dt">conf.level =</span> sigmas[<span class="dv">2</span>])[<span class="dv">1</span>,<span class="dv">6</span>] *<span class="st"> </span>grand_total,
-                       <span class="dt">ci_lower_1 =</span> <span class="kw">binom.confint</span>(total, grand_total, <span class="dt">method=</span><span class="kw">c</span>(<span class="st">&quot;wilson&quot;</span>), <span class="dt">conf.level =</span> sigmas[<span class="dv">1</span>])[<span class="dv">1</span>,<span class="dv">5</span>] *<span class="st"> </span>grand_total,
-                       <span class="dt">ci_upper_1 =</span> <span class="kw">binom.confint</span>(total, grand_total, <span class="dt">method=</span><span class="kw">c</span>(<span class="st">&quot;wilson&quot;</span>), <span class="dt">conf.level =</span> sigmas[<span class="dv">1</span>])[<span class="dv">1</span>,<span class="dv">6</span>] *<span class="st"> </span>grand_total)
+<span class="st">  </span><span class="kw">rowwise</span>() %&gt;%<span class="st"> </span><span class="kw">mutate</span>(
+    <span class="dt">ci_lower_7 =</span> <span class="kw">binom.confint</span>(total, grand_total, <span class="dt">method=</span><span class="kw">c</span>(<span class="st">&quot;wilson&quot;</span>), 
+                               <span class="dt">conf.level =</span> sigmas[<span class="dv">7</span>])[<span class="dv">1</span>,<span class="dv">5</span>] *<span class="st"> </span>grand_total,
+    <span class="dt">ci_upper_7 =</span> <span class="kw">binom.confint</span>(total, grand_total, <span class="dt">method=</span><span class="kw">c</span>(<span class="st">&quot;wilson&quot;</span>), 
+                               <span class="dt">conf.level =</span> sigmas[<span class="dv">7</span>])[<span class="dv">1</span>,<span class="dv">6</span>] *<span class="st"> </span>grand_total,
+    <span class="dt">ci_lower_6 =</span> <span class="kw">binom.confint</span>(total, grand_total, <span class="dt">method=</span><span class="kw">c</span>(<span class="st">&quot;wilson&quot;</span>), 
+                               <span class="dt">conf.level =</span> sigmas[<span class="dv">6</span>])[<span class="dv">1</span>,<span class="dv">5</span>] *<span class="st"> </span>grand_total,
+    <span class="dt">ci_upper_6 =</span> <span class="kw">binom.confint</span>(total, grand_total, <span class="dt">method=</span><span class="kw">c</span>(<span class="st">&quot;wilson&quot;</span>), 
+                               <span class="dt">conf.level =</span> sigmas[<span class="dv">6</span>])[<span class="dv">1</span>,<span class="dv">6</span>] *<span class="st"> </span>grand_total,
+    <span class="dt">ci_lower_5 =</span> <span class="kw">binom.confint</span>(total, grand_total, <span class="dt">method=</span><span class="kw">c</span>(<span class="st">&quot;wilson&quot;</span>), 
+                               <span class="dt">conf.level =</span> sigmas[<span class="dv">5</span>])[<span class="dv">1</span>,<span class="dv">5</span>] *<span class="st"> </span>grand_total,
+    <span class="dt">ci_upper_5 =</span> <span class="kw">binom.confint</span>(total, grand_total, <span class="dt">method=</span><span class="kw">c</span>(<span class="st">&quot;wilson&quot;</span>), 
+                               <span class="dt">conf.level =</span> sigmas[<span class="dv">5</span>])[<span class="dv">1</span>,<span class="dv">6</span>] *<span class="st"> </span>grand_total,
+    <span class="dt">ci_lower_4 =</span> <span class="kw">binom.confint</span>(total, grand_total, <span class="dt">method=</span><span class="kw">c</span>(<span class="st">&quot;wilson&quot;</span>), 
+                               <span class="dt">conf.level =</span> sigmas[<span class="dv">4</span>])[<span class="dv">1</span>,<span class="dv">5</span>] *<span class="st"> </span>grand_total,
+    <span class="dt">ci_upper_4 =</span> <span class="kw">binom.confint</span>(total, grand_total, <span class="dt">method=</span><span class="kw">c</span>(<span class="st">&quot;wilson&quot;</span>), 
+                               <span class="dt">conf.level =</span> sigmas[<span class="dv">4</span>])[<span class="dv">1</span>,<span class="dv">6</span>] *<span class="st"> </span>grand_total,
+    <span class="dt">ci_lower_3 =</span> <span class="kw">binom.confint</span>(total, grand_total, <span class="dt">method=</span><span class="kw">c</span>(<span class="st">&quot;wilson&quot;</span>), 
+                               <span class="dt">conf.level =</span> sigmas[<span class="dv">3</span>])[<span class="dv">1</span>,<span class="dv">5</span>] *<span class="st"> </span>grand_total,
+    <span class="dt">ci_upper_3 =</span> <span class="kw">binom.confint</span>(total, grand_total, <span class="dt">method=</span><span class="kw">c</span>(<span class="st">&quot;wilson&quot;</span>), 
+                               <span class="dt">conf.level =</span> sigmas[<span class="dv">3</span>])[<span class="dv">1</span>,<span class="dv">6</span>] *<span class="st"> </span>grand_total,
+    <span class="dt">ci_lower_2 =</span> <span class="kw">binom.confint</span>(total, grand_total, <span class="dt">method=</span><span class="kw">c</span>(<span class="st">&quot;wilson&quot;</span>), 
+                               <span class="dt">conf.level =</span> sigmas[<span class="dv">2</span>])[<span class="dv">1</span>,<span class="dv">5</span>] *<span class="st"> </span>grand_total,
+    <span class="dt">ci_upper_2 =</span> <span class="kw">binom.confint</span>(total, grand_total, <span class="dt">method=</span><span class="kw">c</span>(<span class="st">&quot;wilson&quot;</span>), 
+                               <span class="dt">conf.level =</span> sigmas[<span class="dv">2</span>])[<span class="dv">1</span>,<span class="dv">6</span>] *<span class="st"> </span>grand_total,
+    <span class="dt">ci_lower_1 =</span> <span class="kw">binom.confint</span>(total, grand_total, <span class="dt">method=</span><span class="kw">c</span>(<span class="st">&quot;wilson&quot;</span>), 
+                               <span class="dt">conf.level =</span> sigmas[<span class="dv">1</span>])[<span class="dv">1</span>,<span class="dv">5</span>] *<span class="st"> </span>grand_total,
+    <span class="dt">ci_upper_1 =</span> <span class="kw">binom.confint</span>(total, grand_total, <span class="dt">method=</span><span class="kw">c</span>(<span class="st">&quot;wilson&quot;</span>), 
+                               <span class="dt">conf.level =</span> sigmas[<span class="dv">1</span>])[<span class="dv">1</span>,<span class="dv">6</span>] *<span class="st"> </span>grand_total)
 
 norm_ci &lt;-<span class="st"> </span>ci_brackets
 
@@ -636,9 +672,11 @@ norm_ci[,i] &lt;-<span class="st"> </span>ci_brackets[,i] -<span class="st"> </s
 }
 circlesize=<span class="dv">100</span>
 
-## ---- fig.cap=&quot;Over- and under- supply of earthquakes by angle of the sun (10 degree steps).  Taiwan. n=3353&quot;----
+## ---- fig.cap=&quot;Over- and under- supply of earthquakes by angle of the sun
+## (10 degree steps).  Taiwan. n=3353&quot;----
 norm_ci$border =<span class="st"> </span><span class="dv">2</span>
-<span class="co"># need to double entries with a displacement of 10 to make each side of the item on the graph</span>
+<span class="co"># need to double entries with a displacement of 10 </span>
+<span class="co"># to make each side of the item on the graph</span>
 norm_ci2 &lt;-<span class="st"> </span>norm_ci
 norm_ci2$eq_angle_by_10 &lt;-<span class="st"> </span>norm_ci2$eq_angle_by_10  +<span class="st"> </span><span class="dv">10</span>
 norm_ci2$border =<span class="st"> </span><span class="dv">1</span>
@@ -652,13 +690,15 @@ old_par=<span class="kw">par</span>()
 <span class="co"># overall limits</span>
 limits=<span class="dv">2</span> *<span class="st"> </span><span class="kw">max</span>(<span class="kw">abs</span>(<span class="kw">c</span>(graphdata$ci_lower_7, graphdata$ci_upper_7)))
 <span class="co"># plot upper confidence 7 interval using plotrix</span>
-<span class="kw">polar.plot</span>(graphdata$ci_upper_7, <span class="dt">polar.pos=</span>graphdata$eq_angle_by_10, <span class="dt">radial.lim=</span><span class="kw">c</span>(-<span class="dv">1</span>*limits,limits),
+<span class="kw">polar.plot</span>(graphdata$ci_upper_7, <span class="dt">polar.pos=</span>graphdata$eq_angle_by_10, 
+           <span class="dt">radial.lim=</span><span class="kw">c</span>(-<span class="dv">1</span>*limits,limits),
            <span class="dt">labels =</span> <span class="st">&quot;&quot;</span>, <span class="dt">main=</span><span class="ot">NULL</span>,<span class="dt">lwd=</span><span class="fl">0.5</span>, <span class="dt">rp.type=</span><span class="st">&quot;p&quot;</span>,
            <span class="dt">show.grid.labels=</span><span class="ot">FALSE</span>, <span class="dt">show.grid=</span><span class="ot">FALSE</span>, <span class="dt">mar=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>),
            <span class="dt">grid.col=</span>bands[<span class="dv">7</span>], <span class="dt">line.col=</span>bands[<span class="dv">7</span>], <span class="dt">poly.col=</span>bands[<span class="dv">7</span>])
 <span class="co"># plot upper 6 confidence interval</span>
 plot_ci_round &lt;-<span class="st"> </span>function(upper_bound,x){
-  <span class="kw">polar.plot</span>(upper_bound, <span class="dt">polar.pos=</span>graphdata$eq_angle_by_10, <span class="dt">add=</span><span class="ot">TRUE</span>, <span class="dt">radial.lim=</span><span class="kw">c</span>(-<span class="dv">1</span>*limits,limits),
+  <span class="kw">polar.plot</span>(upper_bound, <span class="dt">polar.pos=</span>graphdata$eq_angle_by_10, <span class="dt">add=</span><span class="ot">TRUE</span>, 
+             <span class="dt">radial.lim=</span><span class="kw">c</span>(-<span class="dv">1</span>*limits,limits),
              <span class="dt">line.col=</span>bands[x], <span class="dt">lwd=</span><span class="fl">0.5</span>, <span class="dt">rp.type=</span><span class="st">&quot;p&quot;</span>, <span class="dt">poly.col=</span>bands[x])
 }
 <span class="kw">plot_ci_round</span>(graphdata$ci_upper_6, <span class="dv">6</span>)
@@ -673,17 +713,21 @@ plot_ci_round &lt;-<span class="st"> </span>function(upper_bound,x){
 <span class="kw">plot_ci_round</span>(graphdata$ci_lower_4, <span class="dv">5</span>)
 <span class="kw">plot_ci_round</span>(graphdata$ci_lower_5, <span class="dv">6</span>)
 <span class="kw">plot_ci_round</span>(graphdata$ci_lower_6, <span class="dv">7</span>)
-<span class="kw">polar.plot</span>(graphdata$ci_lower_7, <span class="dt">polar.pos=</span>graphdata$eq_angle_by_10, <span class="dt">add=</span><span class="ot">TRUE</span>, <span class="dt">radial.lim=</span><span class="kw">c</span>(-<span class="dv">1</span>*limits,limits),
+<span class="kw">polar.plot</span>(graphdata$ci_lower_7, <span class="dt">polar.pos=</span>graphdata$eq_angle_by_10, 
+           <span class="dt">add=</span><span class="ot">TRUE</span>, <span class="dt">radial.lim=</span><span class="kw">c</span>(-<span class="dv">1</span>*limits,limits),
            <span class="dt">line.col=</span><span class="st">&quot;white&quot;</span>, <span class="dt">lwd=</span><span class="fl">0.5</span>, <span class="dt">rp.type=</span><span class="st">&quot;p&quot;</span>, <span class="dt">poly.col=</span><span class="st">&quot;white&quot;</span>)
 
 <span class="co"># plot expected guide line</span>
-<span class="kw">polar.plot</span>(<span class="kw">rep</span>(<span class="dv">0</span>,<span class="kw">nrow</span>(graphdata)), <span class="dt">polar.pos=</span>graphdata$eq_angle_by_10, <span class="dt">add=</span><span class="ot">TRUE</span>,<span class="dt">radial.lim=</span><span class="kw">c</span>(-<span class="dv">1</span>*limits,limits),
+<span class="kw">polar.plot</span>(<span class="kw">rep</span>(<span class="dv">0</span>,<span class="kw">nrow</span>(graphdata)), <span class="dt">polar.pos=</span>graphdata$eq_angle_by_10, <span class="dt">add=</span><span class="ot">TRUE</span>,
+           <span class="dt">radial.lim=</span><span class="kw">c</span>(-<span class="dv">1</span>*limits,limits),
            <span class="dt">rp.type=</span><span class="st">&quot;p&quot;</span>, <span class="dt">lty=</span><span class="dv">4</span>)
 <span class="co"># plot 500 less than expected guide line</span>
-<span class="kw">polar.plot</span>(<span class="kw">rep</span>(-<span class="dv">1</span> *<span class="st"> </span>circlesize,<span class="kw">nrow</span>(graphdata)), <span class="dt">polar.pos=</span>graphdata$eq_angle_by_10, <span class="dt">add=</span><span class="ot">TRUE</span>,<span class="dt">radial.lim=</span><span class="kw">c</span>(-<span class="dv">1</span>*limits,limits),
+<span class="kw">polar.plot</span>(<span class="kw">rep</span>(-<span class="dv">1</span> *<span class="st"> </span>circlesize,<span class="kw">nrow</span>(graphdata)), <span class="dt">polar.pos=</span>graphdata$eq_angle_by_10, 
+           <span class="dt">add=</span><span class="ot">TRUE</span>,<span class="dt">radial.lim=</span><span class="kw">c</span>(-<span class="dv">1</span>*limits,limits),
            <span class="dt">rp.type=</span><span class="st">&quot;p&quot;</span>, <span class="dt">lty=</span><span class="dv">1</span>, <span class="dt">line.col=</span><span class="st">&quot;#00000044&quot;</span>)
 <span class="co"># plot 500 more than expected guide line</span>
-<span class="kw">polar.plot</span>(<span class="kw">rep</span>(circlesize,<span class="kw">nrow</span>(graphdata)), <span class="dt">polar.pos=</span>graphdata$eq_angle_by_10, <span class="dt">add=</span><span class="ot">TRUE</span>,<span class="dt">radial.lim=</span><span class="kw">c</span>(-<span class="dv">1</span>*limits,limits),
+<span class="kw">polar.plot</span>(<span class="kw">rep</span>(circlesize,<span class="kw">nrow</span>(graphdata)), <span class="dt">polar.pos=</span>graphdata$eq_angle_by_10, 
+           <span class="dt">add=</span><span class="ot">TRUE</span>,<span class="dt">radial.lim=</span><span class="kw">c</span>(-<span class="dv">1</span>*limits,limits),
            <span class="dt">rp.type=</span><span class="st">&quot;p&quot;</span>, <span class="dt">lty=</span><span class="dv">3</span>, <span class="dt">line.col=</span><span class="st">&quot;#00000044&quot;</span>)
 
 <span class="kw">lines</span>(<span class="kw">c</span>(-<span class="fl">1.5</span>,-<span class="fl">1.2</span>)*limits, <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>))
@@ -704,13 +748,16 @@ lbls &lt;-<span class="st"> </span><span class="kw">c</span>(
 typs &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>)
 weights &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>)
 clrs &lt;-<span class="st"> </span><span class="kw">rev</span>(<span class="kw">c</span>(<span class="st">&#39;#ffffcc&#39;</span>,<span class="st">&#39;#d9f0a3&#39;</span>,<span class="st">&#39;#addd8e&#39;</span>,<span class="st">&#39;#78c679&#39;</span>,<span class="st">&#39;#41ab5d&#39;</span>,<span class="st">&#39;#238443&#39;</span>,<span class="st">&#39;#005a32&#39;</span>))
-<span class="kw">legend</span>(<span class="dv">0</span>,<span class="fl">4.5</span>, <span class="dt">legend=</span>lbls, <span class="dt">lty=</span>typs, <span class="dt">lwd=</span>weights, <span class="dt">col=</span>clrs, <span class="dt">bty=</span><span class="st">&quot;n&quot;</span>, <span class="dt">xjust=</span><span class="dv">0</span>, <span class="dt">title=</span><span class="st">&quot;Confidence Intervals:&quot;</span>, <span class="dt">cex=</span><span class="fl">0.9</span>)
+<span class="kw">legend</span>(<span class="dv">0</span>,<span class="fl">4.5</span>, <span class="dt">legend=</span>lbls, <span class="dt">lty=</span>typs, <span class="dt">lwd=</span>weights, <span class="dt">col=</span>clrs, <span class="dt">bty=</span><span class="st">&quot;n&quot;</span>, <span class="dt">xjust=</span><span class="dv">0</span>,
+       <span class="dt">title=</span><span class="st">&quot;Confidence Intervals:&quot;</span>, <span class="dt">cex=</span><span class="fl">0.9</span>)
 
-lbls2=<span class="kw">c</span>(<span class="st">&quot;Expected Number&quot;</span>, <span class="kw">paste</span>(circlesize,<span class="st">&quot;under expected&quot;</span>), <span class="kw">paste</span>(circlesize,<span class="st">&quot;over expected&quot;</span>))
+lbls2=<span class="kw">c</span>(<span class="st">&quot;Expected Number&quot;</span>, <span class="kw">paste</span>(circlesize,<span class="st">&quot;under expected&quot;</span>), 
+        <span class="kw">paste</span>(circlesize,<span class="st">&quot;over expected&quot;</span>))
 typs2=<span class="kw">c</span>(<span class="dv">4</span>,<span class="dv">1</span>,<span class="dv">3</span>)
 weights2=<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>)
 clrs2=<span class="kw">c</span>(<span class="st">&quot;#000000&quot;</span>,<span class="st">&quot;#00000044&quot;</span>,<span class="st">&quot;#00000044&quot;</span>)
-<span class="kw">legend</span>(<span class="dv">0</span>,<span class="dv">10</span>, <span class="dt">legend=</span>lbls2, <span class="dt">lty=</span>typs2, <span class="dt">lwd=</span>weights2, <span class="dt">bty=</span><span class="st">&quot;n&quot;</span>, <span class="dt">xjust=</span><span class="dv">0</span>, <span class="dt">title=</span><span class="st">&quot;Legend&quot;</span>, <span class="dt">y.intersp=</span><span class="fl">1.2</span>, <span class="dt">col=</span>clrs2)
+<span class="kw">legend</span>(<span class="dv">0</span>,<span class="dv">10</span>, <span class="dt">legend=</span>lbls2, <span class="dt">lty=</span>typs2, <span class="dt">lwd=</span>weights2, <span class="dt">bty=</span><span class="st">&quot;n&quot;</span>, <span class="dt">xjust=</span><span class="dv">0</span>,
+       <span class="dt">title=</span><span class="st">&quot;Legend&quot;</span>, <span class="dt">y.intersp=</span><span class="fl">1.2</span>, <span class="dt">col=</span>clrs2)
 
 
 
