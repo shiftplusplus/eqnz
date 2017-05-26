@@ -159,6 +159,6 @@ dt <- ymd_hm("1968-05-28 05:24", tz = "UTC") - hours(12)
 solarpos(matrix(c(172.04, -41.76), nrow=1), dt)
 ```
 
-As I technical note to Rmarkdown users, I purled the code in each chapter to create a separate file which I embeded at the end of the chapter.
+As a technical note to Rmarkdown users, I pulled the code in each chapter to create a separate file which I embeded at the end of the chapter.
 
 I used a MIT licence for the code on Github, which I understand means people are free to use any of the code but should acknowledge me if you copy it directly.
